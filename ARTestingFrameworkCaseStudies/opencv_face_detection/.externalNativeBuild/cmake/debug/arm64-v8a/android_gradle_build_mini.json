@@ -1,0 +1,21 @@
+{
+  "buildFiles": [
+    "/Users/slehr/Projects/ARTestingFramework/opencv_face_detection/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/Users/slehr/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/.externalNativeBuild/cmake/debug/arm64-v8a --target clean"
+  ],
+  "libraries": {
+    "DetectionBasedTracker-Debug-arm64-v8a": {
+      "artifactName": "DetectionBasedTracker",
+      "buildCommand": "/Users/slehr/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/.externalNativeBuild/cmake/debug/arm64-v8a --target DetectionBasedTracker",
+      "abi": "arm64-v8a",
+      "output": "/Users/slehr/Projects/ARTestingFramework/opencv_face_detection/build/intermediates/cmake/debug/obj/arm64-v8a/libDetectionBasedTracker.so"
+    },
+    "lib_opencv-Debug-arm64-v8a": {
+      "artifactName": "lib_opencv",
+      "abi": "arm64-v8a",
+      "output": "/Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/jniLibs/arm64-v8a/libopencv_java3.so"
+    }
+  }
+}

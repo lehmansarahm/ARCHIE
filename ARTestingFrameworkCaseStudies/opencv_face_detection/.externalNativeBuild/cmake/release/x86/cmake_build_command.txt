@@ -1,0 +1,15 @@
+Executable : /Users/slehr/Library/Android/sdk/cmake/3.6.4111459/bin/cmake
+arguments : 
+-H/Users/slehr/Projects/ARTestingFramework/opencv_face_detection
+-B/Users/slehr/Projects/ARTestingFramework/opencv_face_detection/.externalNativeBuild/cmake/release/x86
+-DANDROID_ABI=x86
+-DANDROID_PLATFORM=android-22
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/slehr/Projects/ARTestingFramework/opencv_face_detection/build/intermediates/cmake/release/obj/x86
+-DCMAKE_BUILD_TYPE=Release
+-DANDROID_NDK=/Users/slehr/Library/Android/sdk/ndk-bundle
+-DCMAKE_CXX_FLAGS=-frtti -fexceptions
+-DCMAKE_TOOLCHAIN_FILE=/Users/slehr/Library/Android/sdk/ndk-bundle/build/cmake/android.toolchain.cmake
+-DCMAKE_MAKE_PROGRAM=/Users/slehr/Library/Android/sdk/cmake/3.6.4111459/bin/ninja
+-GAndroid Gradle - Ninja
+jvmArgs : 
+
