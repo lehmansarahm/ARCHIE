@@ -1,0 +1,2 @@
+include ':tf_android'
+//include ':opencv', ':opencv_color_blob_detector', ':opencv_color_blob_detector_updated', ':opencv_face_detection'
