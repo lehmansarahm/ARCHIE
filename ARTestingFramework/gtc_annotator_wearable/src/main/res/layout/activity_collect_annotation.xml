@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.wearable.view.BoxInsetLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:id="@+id/background"
+    android:background="@color/annotationBackground"
+    tools:context=".wearable.CollectAnnotationActivity">
+
+    <RelativeLayout
+        android:id="@+id/gridBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_box="all">
+
+        <TextView android:id="@+id/instructionTextView"
+            android:layout_columnSpan="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Did you perform your designated activity within the last minute?"
+            android:textColor="@color/annotationText"
+            android:includeFontPadding="false"
+            android:textSize="12sp" />
+
+        <RadioGroup
+            android:id="@+id/iconGroup"
+            android:layout_below="@id/instructionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:id="@+id/radio_yes"
+                android:text="Yes"
+                android:textColor="@color/annotationText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:id="@+id/radio_no"
+                android:text="No"
+                android:textColor="@color/annotationText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/submitAnnotation"
+            android:layout_below="@id/iconGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit" />
+
+    </RelativeLayout>
+</android.support.wearable.view.BoxInsetLayout>
+

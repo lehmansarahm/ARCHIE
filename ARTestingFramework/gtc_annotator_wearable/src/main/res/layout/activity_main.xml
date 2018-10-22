@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.wear.widget.BoxInsetLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:id="@+id/background"
+    android:background="@color/activeBackground"
+    tools:context=".wearable.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/gridBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_box="all">
+
+        <TextClock
+            android:id="@+id/clock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:includeFontPadding="false"
+            android:textColor="@color/activeText"
+            android:textSize="50sp" />
+
+        <TextView android:id="@+id/notice"
+            android:layout_below="@id/clock"
+            android:layout_columnSpan="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notice_label_waiting"
+            android:textColor="@color/white"
+            android:includeFontPadding="false"
+            android:textSize="12sp" />
+    </LinearLayout>
+</android.support.wear.widget.BoxInsetLayout>

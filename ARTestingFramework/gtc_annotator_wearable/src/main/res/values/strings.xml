@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">GTC Annotator - Wearable</string>
+    <string name="btn_label_start">Start</string>
+    <string name="btn_label_pause">Pause</string>
+    <string name="btn_label_reset">Reset</string>
+
+    <string name="notice_label_waiting">Waiting for input from test app</string>
+    <string name="notice_label_annotation_requested">ANNO REQUESTED. Double tap to respond.</string>
+    <string name="notice_label_ux_requested">UX REQUESTED. Double tap to respond.</string>
+
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+</resources>

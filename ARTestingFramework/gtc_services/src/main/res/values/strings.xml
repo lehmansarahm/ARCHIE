@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">GTC Services</string>
+    <string name="service_handler_communicator">edu.temple.gtc_services.service_handlers.CommunicatorHandler</string>
+</resources>
