@@ -1,3 +1,0 @@
-/Users/slehr/Projects/ARTestingFramework/opencv_face_detection/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/edit_cache.dir
-/Users/slehr/Projects/ARTestingFramework/opencv_face_detection/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/rebuild_cache.dir
-/Users/slehr/Projects/ARTestingFramework/opencv_face_detection/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/DetectionBasedTracker.dir
