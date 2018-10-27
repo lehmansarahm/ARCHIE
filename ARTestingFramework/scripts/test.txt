@@ -1,0 +1,25 @@
+[?25l[0m[H[J[s[999C[999B[6n[uTasks: 687 total,   1 running, 681 sleeping,   0 stopped,   2 zombie            
+Mem:   3731608k total,  3448800k used,   282808k free,   135508k buffers        
+Swap:   524284k total,    28408k used,   495876k free,  1454828k cached         
+800%cpu  48%user   0%nice  67%sys 676%idle   0%iow   3%irq   6%sirq   0%host    
+[7m  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS            [0m
+17577 shell        20   0  10M 2.4M 1.5M R 45.4   0.0   0:00.12 top -n 1
+ 1606 u0_a111      20   0 4.1G 137M  77M S 15.1   3.7 172:14.56 com.breel.wallp+
+  602 system       -2  -8  71M  20M  15M S 15.1   0.5 178:01.31 surfaceflinger
+ 1136 system       18  -2 4.4G 291M 240M S  9.0   7.9  91:51.51 system_server
+13469 root         RT   0    0    0    0 D  6.0   0.0   5:51.00 [mdss_fb0]
+  741 system       RT   0  62M 3.9M 2.9M S  6.0   0.1  56:32.94 android.hardwar+
+17491 root         20   0    0    0    0 S  3.0   0.0   0:02.27 [kworker/0:3]
+16098 root         20   0    0    0    0 S  3.0   0.0   0:11.69 [kworker/0:1]
+14423 root         20   0    0    0    0 S  3.0   0.0   0:36.52 [kworker/u16:13]
+ 2199 root         18  -2    0    0    0 S  3.0   0.0   2:58.37 [cds_mc_thread]
+ 1664 u0_a11       20   0 4.3G 155M  89M S  3.0   4.2  10:04.82 com.google.andr+
+ 1481 u0_a25       20   0 4.2G 134M  86M S  3.0   3.6   4:05.45 com.android.sys+
+  740 system       20   0  15M 3.2M 2.7M S  3.0   0.0  30:00.24 android.hardwar+
+  604 system       -3  -8  36M 7.7M 5.4M S  3.0   0.2  28:18.04 android.hardwar+
+   60 root         20   0    0    0    0 S  3.0   0.0   0:13.32 [rcuop/6]
+17571 root         20   0    0    0    0 S  0.0   0.0   0:00.00 [kworker/4:3]
+17570 root         20   0    0    0    0 S  0.0   0.0   0:00.00 [kworker/4:0]
+17566 root         20   0    0    0    0 S  0.0   0.0   0:00.00 [kworker/2:2]
+17512 root         20   0    0    0    0 S  0.0   0.0   0:00.00 [kworker/6:3]
+17503 root         20   0    0    0    0 S  0.0   0.0   0:00.11 [kworker/3:1][?25h[0m[1000;1H[K[?25h[0m[1000;1H[K

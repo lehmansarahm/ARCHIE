@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import edu.temple.gtc_core.Constants;
+import edu.temple.gtc_core.utils.Constants;
 import edu.temple.gtc_core.utils.ResourcePropUtil;
 import edu.temple.gtc_core.utils.ServiceUtil;
 

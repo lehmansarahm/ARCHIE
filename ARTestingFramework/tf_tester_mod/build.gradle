@@ -1,0 +1,52 @@
+// This file provides basic support for building the TensorFlow demo
+// in Android Studio with Gradle.
+//
+// Note that Bazel is still used by default to compile the native libs,
+// and should be installed at the location noted below. This build file
+// automates the process of calling out to it and copying the compiled
+// libraries back into the appropriate directory.
+//
+// Alternatively, experimental support for Makefile builds is provided by
+// setting buildWithMake below to true. This will allow building the demo
+// on Windows machines, but note that full equivalence with the Bazel
+// build is not yet guaranteed. See comments below for caveats and tips
+// for speeding up the build, such as as enabling ccache.
+
+project.ext.ASSET_DIR = projectDir.toString() + '/src/main/assets'
+assert file(project.ext.ASSET_DIR + "/graph.pb").exists()
+assert file(project.ext.ASSET_DIR + "/labels.txt").exists()
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+
+    defaultConfig {
+        applicationId "edu.temple.tf_tester_mod"
+        minSdkVersion 22
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'org.tensorflow:tensorflow-android:+'
+
+    implementation project(':gtc_core')
+}

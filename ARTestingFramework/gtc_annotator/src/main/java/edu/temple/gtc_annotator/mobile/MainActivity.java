@@ -166,10 +166,10 @@ public class MainActivity extends AppCompatActivity implements MessageApi.Messag
                     handler.postDelayed(new Runnable() {
                         public void run() {
                             if (mCommConnection.isServiceBound()) {
-                                Log.d(edu.temple.gtc_core.Constants.TAG,
+                                Log.d(edu.temple.gtc_core.utils.Constants.TAG,
                                         "Communicator Service has been bound.  Registering listener.");
                                 mCommConnection.registerListener(MainActivity.this, android.os.Process.myPid());
-                            } else Log.e(edu.temple.gtc_core.Constants.TAG,
+                            } else Log.e(edu.temple.gtc_core.utils.Constants.TAG,
                                         "Cannot register listener if Communicator Service is not bound!");
                         }
                     }, WAIT_INTERVAL * 2);
@@ -197,14 +197,14 @@ public class MainActivity extends AppCompatActivity implements MessageApi.Messag
         mSendAnnotationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendMessageToWatch(edu.temple.gtc_core.Constants.MESSAGE_PATH_ANNOTATION_REQUESTED, TEST_MESSAGE_PAYLOAD);
+                sendMessageToWatch(edu.temple.gtc_core.utils.Constants.MESSAGE_PATH_ANNOTATION_REQUESTED, TEST_MESSAGE_PAYLOAD);
             }
         });
 
         mSendUxButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendMessageToWatch(edu.temple.gtc_core.Constants.MESSAGE_PATH_UX_REQUESTED, TEST_MESSAGE_PAYLOAD);
+                sendMessageToWatch(edu.temple.gtc_core.utils.Constants.MESSAGE_PATH_UX_REQUESTED, TEST_MESSAGE_PAYLOAD);
             }
         });
 
@@ -253,15 +253,15 @@ public class MainActivity extends AppCompatActivity implements MessageApi.Messag
         final String messagePayload = new String(event.getData());
 
         switch (messagePath) {
-            case edu.temple.gtc_core.Constants.MESSAGE_PATH_ANNOTATION_ACQUIRED:
+            case edu.temple.gtc_core.utils.Constants.MESSAGE_PATH_ANNOTATION_ACQUIRED:
                 Log.e(Constants.TAG, "Watch has provided an annotation for an HAR event: "
                         + messagePath + "\t\t with result: " + messagePayload);
                 break;
-            case edu.temple.gtc_core.Constants.MESSAGE_PATH_ASYNC_ANNOTATION_ACQUIRED:
+            case edu.temple.gtc_core.utils.Constants.MESSAGE_PATH_ASYNC_ANNOTATION_ACQUIRED:
                 Log.e(Constants.TAG, "Watch has provided an annotation for an async HAR event: "
                         + messagePath + "\t\t with result: " + messagePayload);
                 break;
-            case edu.temple.gtc_core.Constants.MESSAGE_PATH_UX_ACQUIRED:
+            case edu.temple.gtc_core.utils.Constants.MESSAGE_PATH_UX_ACQUIRED:
                 Log.e(Constants.TAG, "Watch has provided UX info: "
                         + messagePath + "\t\t with result: " + messagePayload);
                 break;
