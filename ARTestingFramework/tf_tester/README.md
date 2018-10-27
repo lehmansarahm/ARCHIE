@@ -1,9 +1,9 @@
 Current lines of code:
 
-> AndroidManifest:                  41
-> build.gradle:                     50
-> edu.temple.tf_tester:
-    > env
+- AndroidManifest:                  41
+- build.gradle:                     50
+- **edu.temple.tf_tester**
+    - **env**
         - BorderedText:             118
         - ImageUtils:               240
         - Logger:                   192
