@@ -20,4 +20,5 @@ Current lines of code:
     - TensorFlowImageClassifier:    200
     
 TOTAL LINES OF CODE:                2530
+
 COMPILED APK SIZE:                  30,653,279 bytes (30.653 MB)
