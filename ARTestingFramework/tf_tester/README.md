@@ -1,4 +1,6 @@
-Current lines of code:
+# TF TESTER - ORIGINAL TENSORFLOW APP
+
+CURRENT LINES OF CODE:
 
 - AndroidManifest:                  41
 - build.gradle:                     50
