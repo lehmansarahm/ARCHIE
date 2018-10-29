@@ -16,286 +16,142 @@
 
 package edu.temple.tf_tester_mod.archie_mods;
 
+import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
-import android.graphics.Canvas;
 import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Typeface;
 import android.media.Image;
-import android.media.Image.Plane;
 import android.media.ImageReader;
 import android.media.ImageReader.OnImageAvailableListener;
-import android.os.SystemClock;
-import android.os.Trace;
+import android.os.Build;
+import android.os.Bundle;
 import android.util.Size;
-import android.util.TypedValue;
-import android.view.Display;
-import java.util.List;
-import java.util.Vector;
+import android.view.KeyEvent;
+import android.view.WindowManager;
+import android.widget.Toast;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import edu.temple.gtc_core.GtcController;
-import edu.temple.tf_tester_mod.CameraActivity;
+import edu.temple.tf_tester_mod.ClassifierApplication;
 import edu.temple.tf_tester_mod.Classifier;
 import edu.temple.tf_tester_mod.OverlayView;
 import edu.temple.tf_tester_mod.R;
 import edu.temple.tf_tester_mod.ResultsView;
-import edu.temple.tf_tester_mod.TensorFlowImageClassifier;
 import edu.temple.tf_tester_mod.env.BorderedText;
-import edu.temple.tf_tester_mod.env.ImageUtils;
 import edu.temple.tf_tester_mod.env.Logger;
 
-public class ModifiedClassifierActivity extends CameraActivity implements OnImageAvailableListener {
+public class ModifiedClassifierActivity extends Activity {
 
-  private static final Logger LOGGER = new Logger();
+    private static final Logger LOGGER = new Logger();
+    private static ClassifierApplication app;
 
-  // These are the settings for the original v1 Inception model. If you want to
-  // use a model that's been produced from the TensorFlow for Poets codelab,
-  // you'll need to set IMAGE_SIZE = 299, IMAGE_MEAN = 128, IMAGE_STD = 128,
-  // INPUT_NAME = "Mul", and OUTPUT_NAME = "final_result".
-  // You'll also need to update the MODEL_FILE and LABEL_FILE paths to point to
-  // the ones you produced.
-  //
-  // To use v3 Inception model, strip the DecodeJpeg Op from your retrained
-  // model first:
-  //
-  // python strip_unused.py \
-  // --input_graph=<retrained-pb-file> \
-  // --output_graph=<your-stripped-pb-file> \
-  // --input_node_names="Mul" \
-  // --output_node_names="final_result" \
-  // --input_binary=true
+    @Override
+    protected void onCreate(final Bundle savedInstanceState) {
+        LOGGER.d("onCreate " + this);
+        super.onCreate(null);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        setContentView(R.layout.activity_camera);
 
-  /* Inception V3
-  private static final int INPUT_SIZE = 299;
-  private static final int IMAGE_MEAN = 128;
-  private static final float IMAGE_STD = 128.0f;
-  private static final String INPUT_NAME = "Mul:0";
-  private static final String OUTPUT_NAME = "final_result";
-  */
+        app = (ClassifierApplication)getApplication();
+        app.setAssetManager(this.getAssets());
 
-  private static final int INPUT_SIZE = 224;
-  private static final int IMAGE_MEAN = 128;
-  private static final float IMAGE_STD = 128.0f;
-
-  private static final String INPUT_NAME = "input";
-  private static final String OUTPUT_NAME = "final_result"; // "MobilenetV1/Predictions/Softmax";
-
-  private static final String MODEL_FILE = "file:///android_asset/graph.pb";
-  private static final String LABEL_FILE = "file:///android_asset/labels.txt";
-
-  private static final boolean SAVE_PREVIEW_BITMAP = false;
-
-  private static final boolean MAINTAIN_ASPECT = true;
-
-  private static final Size DESIRED_PREVIEW_SIZE = new Size(640, 480);
-
-  private Classifier classifier;
-
-  private Integer sensorOrientation;
-
-  private int previewWidth = 0;
-  private int previewHeight = 0;
-  private byte[][] yuvBytes;
-  private int[] rgbBytes = null;
-  private Bitmap rgbFrameBitmap = null;
-  private Bitmap croppedBitmap = null;
-
-  private Bitmap cropCopyBitmap;
-
-  private boolean computing = false;
-
-  private Matrix frameToCropTransform;
-  private Matrix cropToFrameTransform;
-
-  private ResultsView resultsView;
-
-  private BorderedText borderedText;
-
-  private long lastProcessingTimeMs;
-
-  @Override
-  protected int getLayoutId() {
-    return R.layout.camera_connection_fragment;
-  }
-
-  @Override
-  protected Size getDesiredPreviewFrameSize() {
-    return DESIRED_PREVIEW_SIZE;
-  }
-
-  private static final float TEXT_SIZE_DIP = 10;
-
-  private static final String PROC_NAME = "TF_Tester";
-  private static final String CONFIG_FILE = "file:///android_asset/config.json";
-  private static GtcController gtcController;
-
-  @Override
-  public void onPreviewSizeChosen(final Size size, final int rotation) {
-    final float textSizePx =
-        TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP, TEXT_SIZE_DIP, getResources().getDisplayMetrics());
-    borderedText = new BorderedText(textSizePx);
-    borderedText.setTypeface(Typeface.MONOSPACE);
-
-    classifier =
-        TensorFlowImageClassifier.create(
-            getAssets(),
-            MODEL_FILE,
-            LABEL_FILE,
-            INPUT_SIZE,
-            IMAGE_MEAN,
-            IMAGE_STD,
-            INPUT_NAME,
-            OUTPUT_NAME);
-
-    resultsView = (ResultsView) findViewById(R.id.results);
-    previewWidth = size.getWidth();
-    previewHeight = size.getHeight();
-
-    final Display display = getWindowManager().getDefaultDisplay();
-    final int screenOrientation = display.getRotation();
-
-    LOGGER.i("Sensor orientation: %d, Screen orientation: %d", rotation, screenOrientation);
-
-    sensorOrientation = rotation + screenOrientation;
-
-    LOGGER.i("Initializing at size %dx%d", previewWidth, previewHeight);
-    rgbBytes = new int[previewWidth * previewHeight];
-    rgbFrameBitmap = Bitmap.createBitmap(previewWidth, previewHeight, Config.ARGB_8888);
-    croppedBitmap = Bitmap.createBitmap(INPUT_SIZE, INPUT_SIZE, Config.ARGB_8888);
-
-    frameToCropTransform =
-        ImageUtils.getTransformationMatrix(
-            previewWidth, previewHeight,
-            INPUT_SIZE, INPUT_SIZE,
-            sensorOrientation, MAINTAIN_ASPECT);
-
-    cropToFrameTransform = new Matrix();
-    frameToCropTransform.invert(cropToFrameTransform);
-
-    yuvBytes = new byte[3][];
-
-    addCallback(
-        new OverlayView.DrawCallback() {
-          @Override
-          public void drawCallback(final Canvas canvas) {
-            renderDebug(canvas);
-          }
-        });
-
-    gtcController = new GtcController(this,
-            android.os.Process.myPid(), PROC_NAME, CONFIG_FILE);
-  }
-
-  @Override
-  public void onImageAvailable(final ImageReader reader) {
-    Image image = null;
-
-    try {
-      image = reader.acquireLatestImage();
-
-      if (image == null) {
-        return;
-      }
-
-      if (computing) {
-        image.close();
-        return;
-      }
-      computing = true;
-
-      Trace.beginSection("imageAvailable");
-
-      final Plane[] planes = image.getPlanes();
-      fillBytes(planes, yuvBytes);
-
-      final int yRowStride = planes[0].getRowStride();
-      final int uvRowStride = planes[1].getRowStride();
-      final int uvPixelStride = planes[1].getPixelStride();
-      ImageUtils.convertYUV420ToARGB8888(
-          yuvBytes[0],
-          yuvBytes[1],
-          yuvBytes[2],
-          previewWidth,
-          previewHeight,
-          yRowStride,
-          uvRowStride,
-          uvPixelStride,
-          rgbBytes);
-
-      image.close();
-    } catch (final Exception e) {
-      if (image != null) {
-        image.close();
-      }
-      LOGGER.e(e, "Exception!");
-      Trace.endSection();
-      return;
+        if (hasPermission()) initializeGtcController();
+        else requestPermission();
     }
 
-    rgbFrameBitmap.setPixels(rgbBytes, 0, previewWidth, 0, 0, previewWidth, previewHeight);
-    final Canvas canvas = new Canvas(croppedBitmap);
-    canvas.drawBitmap(rgbFrameBitmap, frameToCropTransform, null);
-
-    // For examining the actual TF input.
-    if (SAVE_PREVIEW_BITMAP) {
-      ImageUtils.saveBitmap(croppedBitmap);
+    @Override
+    public synchronized void onStart() {
+        LOGGER.d("onStart " + this);
+        super.onStart();
     }
 
-    runInBackground(
-        new Runnable() {
-          @Override
-          public void run() {
-            final long startTime = SystemClock.uptimeMillis();
-            final List<Classifier.Recognition> results = classifier.recognizeImage(croppedBitmap);
-            lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime;
-
-            cropCopyBitmap = Bitmap.createBitmap(croppedBitmap);
-            resultsView.setResults(results);
-            requestRender();
-            computing = false;
-          }
-        });
-
-    Trace.endSection();
-  }
-
-  @Override
-  public void onSetDebug(boolean debug) {
-    classifier.enableStatLogging(debug);
-  }
-
-  private void renderDebug(final Canvas canvas) {
-    if (!isDebug()) {
-      return;
+    @Override
+    public synchronized void onResume() {
+        LOGGER.d("onResume " + this);
+        app.onResume();
+        super.onResume();
     }
-    final Bitmap copy = cropCopyBitmap;
-    if (copy != null) {
-      final Matrix matrix = new Matrix();
-      final float scaleFactor = 2;
-      matrix.postScale(scaleFactor, scaleFactor);
-      matrix.postTranslate(
-          canvas.getWidth() - copy.getWidth() * scaleFactor,
-          canvas.getHeight() - copy.getHeight() * scaleFactor);
-      canvas.drawBitmap(copy, matrix, new Paint());
 
-      final Vector<String> lines = new Vector<String>();
-      if (classifier != null) {
-        String statString = classifier.getStatString();
-        String[] statLines = statString.split("\n");
-        for (String line : statLines) {
-          lines.add(line);
+    @Override
+    public synchronized void onPause() {
+        LOGGER.d("onPause " + this);
+        app.onPause(this);
+        super.onPause();
+    }
+
+    @Override
+    public synchronized void onStop() {
+        LOGGER.d("onStop " + this);
+        super.onStop();
+    }
+
+    @Override
+    public synchronized void onDestroy() {
+        LOGGER.d("onDestroy " + this);
+        app.onDestroy();
+        super.onDestroy();
+    }
+
+    @Override
+    public boolean onKeyDown(final int keyCode, final KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN || keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
+            app.toggleDebug();
+            // TODO - requestRender();
+            // TODO - classifier.enableStatLogging(app.isDebug());
+            return true;
         }
-      }
-
-      lines.add("Frame: " + previewWidth + "x" + previewHeight);
-      lines.add("Crop: " + copy.getWidth() + "x" + copy.getHeight());
-      lines.add("View: " + canvas.getWidth() + "x" + canvas.getHeight());
-      lines.add("Rotation: " + sensorOrientation);
-      lines.add("Inference time: " + lastProcessingTimeMs + "ms");
-
-      borderedText.drawLines(canvas, 10, canvas.getHeight() - 10, lines);
+        return super.onKeyDown(keyCode, event);
     }
-  }
+
+    @Override
+    public void onRequestPermissionsResult(final int requestCode, final String[] permissions, final int[] grantResults) {
+        switch (requestCode) {
+            case Constants.PERMISSIONS_REQUEST: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                        && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                    initializeGtcController();
+                } else requestPermission();
+            }
+        }
+    }
+
+
+    // ----------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------
+
+
+    private boolean hasPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return checkSelfPermission(Constants.PERMISSION_CAMERA) == PackageManager.PERMISSION_GRANTED
+                    && checkSelfPermission(Constants.PERMISSION_STORAGE) == PackageManager.PERMISSION_GRANTED;
+        } else {
+            return true;
+        }
+    }
+
+    private void requestPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (shouldShowRequestPermissionRationale(Constants.PERMISSION_CAMERA) ||
+                    shouldShowRequestPermissionRationale(Constants.PERMISSION_STORAGE)) {
+                Toast.makeText(ModifiedClassifierActivity.this,
+                        "Camera AND storage permission are required for this demo", Toast.LENGTH_LONG).show();
+            }
+            requestPermissions(new String[] { Constants.PERMISSION_CAMERA, Constants.PERMISSION_STORAGE},
+                    Constants.PERMISSIONS_REQUEST);
+        }
+    }
+
+    private void initializeGtcController() {
+        LOGGER.i("All permissions received!  Initializing GTC Controller.");
+        GtcController gtcController = new GtcController(ModifiedClassifierActivity.this,
+                android.os.Process.myPid(), Constants.PROC_NAME, Constants.CONFIG_FILENAME);
+        app.setGtcController(gtcController);
+
+        // NOTE!!  Don't need to start GTC Services because our configuration profile takes care of
+        // that for us, once all of the necessary sensors are initialized
+    }
+
 }

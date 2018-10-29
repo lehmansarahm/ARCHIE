@@ -64,7 +64,7 @@ public class ProfileController {
                     if (currentProfileIndex == intProfiles.size()) currentProfileIndex = 0;
 
                     // start up the next profile
-                    intProfiles.get(currentProfileIndex).resumeProfile();
+                    intProfiles.get(currentProfileIndex).resumeProfile(currentActivity);
                     break;
                 case Hardware:
                     // pause the current profile before switching to the next one
@@ -98,7 +98,7 @@ public class ProfileController {
         this.currentActivity = currentActivity;
         this.hardwareProfiles = Arrays.asList(hardwareProfiles);
         Log.e(Constants.TAG, "Imported " + this.hardwareProfiles.size()
-                + " hardware profile classes.");
+                + " Hardware Profile classes.");
 
         configProfiles = new ArrayList<>();
         for (String configProfileName : configProfileNames) {
@@ -182,22 +182,22 @@ public class ProfileController {
         switch (profileSwitchMode) {
             case Configuration:
                 configProfiles.get(currentProfileIndex).resumeProfile(currentActivity);
-                intProfiles.get(0).resumeProfile();
+                intProfiles.get(0).resumeProfile(currentActivity);
                 // TODO - hardwareProfiles.get(0).resumeProfile();
                 break;
             case Interaction:
                 configProfiles.get(0).resumeProfile(currentActivity);
-                intProfiles.get(currentProfileIndex).resumeProfile();
+                intProfiles.get(currentProfileIndex).resumeProfile(currentActivity);
                 // TODO - hardwareProfiles.get(0).resumeProfile();
                 break;
             case Hardware:
                 configProfiles.get(0).resumeProfile(currentActivity);
-                intProfiles.get(0).resumeProfile();
+                intProfiles.get(0).resumeProfile(currentActivity);
                 // TODO - hardwareProfiles.get(currentProfileIndex).resumeProfile();
                 break;
             default:
                 if (configProfiles.size() > 0) configProfiles.get(0).resumeProfile(currentActivity);
-                if (intProfiles.size() > 0) intProfiles.get(0).resumeProfile();
+                if (intProfiles.size() > 0) intProfiles.get(0).resumeProfile(currentActivity);
                 // TODO - if (hardwareProfiles.size() > 0) hardwareProfiles.get(0).resumeProfile();
                 break;
         }

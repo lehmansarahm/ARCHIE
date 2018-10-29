@@ -52,7 +52,6 @@ public abstract class CameraActivity extends Activity implements OnImageAvailabl
     LOGGER.d("onCreate " + this);
     super.onCreate(null);
     getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
     setContentView(R.layout.activity_camera);
 
     if (hasPermission()) {
@@ -108,6 +107,7 @@ public abstract class CameraActivity extends Activity implements OnImageAvailabl
   @Override
   public synchronized void onDestroy() {
     LOGGER.d("onDestroy " + this);
+    ((ClassifierApplication)getApplication()).onDestroy();
     super.onDestroy();
   }
 

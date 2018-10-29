@@ -15,6 +15,7 @@ limitations under the License.
 
 package edu.temple.tf_tester;
 
+import android.annotation.SuppressLint;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.os.Trace;
@@ -71,6 +72,7 @@ public class TensorFlowImageClassifier implements Classifier {
    * @param outputName The label of the output node.
    * @throws IOException
    */
+  @SuppressLint("LongLogTag")
   public static Classifier create(
       AssetManager assetManager,
       String modelFilename,
@@ -124,7 +126,9 @@ public class TensorFlowImageClassifier implements Classifier {
   }
 
   @Override
-  public List<Recognition> recognizeImage(final Bitmap bitmap) {
+  public List<Recognition> recognizeImage(ClassifierApplication app, final Bitmap bitmap) {
+    app.onClassificationStart();
+
     // Log this method so that it can be analyzed with systrace.
     Trace.beginSection("recognizeImage");
 
@@ -173,11 +177,14 @@ public class TensorFlowImageClassifier implements Classifier {
                 "" + i, labels.size() > i ? labels.get(i) : "unknown", outputs[i], null));
       }
     }
+
     final ArrayList<Recognition> recognitions = new ArrayList<Recognition>();
     int recognitionsSize = Math.min(pq.size(), MAX_RESULTS);
     for (int i = 0; i < recognitionsSize; ++i) {
       recognitions.add(pq.poll());
     }
+
+    app.onClassificationComplete(recognitions.get(0).getTitle());
     Trace.endSection(); // "recognizeImage"
     return recognitions;
   }
@@ -196,4 +203,5 @@ public class TensorFlowImageClassifier implements Classifier {
   public void close() {
     inferenceInterface.close();
   }
+
 }

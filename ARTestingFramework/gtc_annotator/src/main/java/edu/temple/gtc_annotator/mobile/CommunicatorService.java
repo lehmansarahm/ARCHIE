@@ -26,7 +26,7 @@ import edu.temple.gtc_core.utils.ServiceUtil;
 
 /**
     High level management module to facilitate communication with the external GTC app,
-    and respond to event triggers from both sides
+    and evaluate to event triggers from both sides
  */
 public class CommunicatorService extends Service {
 

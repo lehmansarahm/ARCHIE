@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package edu.temple.tf_tester_mod;
+package edu.temple.tf_tester_mod.to_remove;
 
 import android.Manifest;
 import android.app.Activity;
@@ -32,6 +32,10 @@ import android.view.WindowManager;
 import android.widget.Toast;
 import java.nio.ByteBuffer;
 
+import edu.temple.tf_tester_mod.ClassifierApplication;
+import edu.temple.tf_tester_mod.CameraConnectionFragment;
+import edu.temple.tf_tester_mod.OverlayView;
+import edu.temple.tf_tester_mod.R;
 import edu.temple.tf_tester_mod.env.Logger;
 
 public abstract class CameraActivity extends Activity implements OnImageAvailableListener {
@@ -108,6 +112,7 @@ public abstract class CameraActivity extends Activity implements OnImageAvailabl
   @Override
   public synchronized void onDestroy() {
     LOGGER.d("onDestroy " + this);
+    ((ClassifierApplication)getApplication()).onDestroy();
     super.onDestroy();
   }
 

@@ -97,11 +97,12 @@ public interface Classifier {
     }
   }
 
-  List<Recognition> recognizeImage(Bitmap bitmap);
+  List<Recognition> recognizeImage(ClassifierApplication app, Bitmap bitmap);
 
   void enableStatLogging(final boolean debug);
   
   String getStatString();
 
   void close();
+
 }

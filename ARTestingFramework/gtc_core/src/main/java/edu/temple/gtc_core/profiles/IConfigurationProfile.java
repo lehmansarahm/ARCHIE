@@ -9,11 +9,6 @@ import android.app.Activity;
  */
 public interface IConfigurationProfile extends IBaseProfile {
 
-    /**
-     * Overloaded method to utilize current activity when checking for permissions
-     *
-     * @param currentActivity
-     */
-    void resumeProfile(Activity currentActivity);
+    // NO EXTRA METHODS AT THIS TIME
 
 }

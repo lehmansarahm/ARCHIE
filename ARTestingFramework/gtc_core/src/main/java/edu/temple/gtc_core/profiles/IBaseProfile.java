@@ -1,5 +1,7 @@
 package edu.temple.gtc_core.profiles;
 
+import android.app.Activity;
+
 public interface IBaseProfile {
 
     /**
@@ -7,7 +9,7 @@ public interface IBaseProfile {
      * method responsible for spinning up any state management required when starting up a profile
      * for the first time, or resuming execution after pausing.
      */
-    void resumeProfile();
+    void resumeProfile(Activity currentActivity);
 
     /**
      * GTC Controller will call start, stop methods when switching between profiles.  "Pause Profile"

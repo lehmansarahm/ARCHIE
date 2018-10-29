@@ -15,12 +15,13 @@ CURRENT LINES OF CODE:
     - CameraActivity:               220
     - CameraConnectionFragment:     659
     - Classifier:                   108
-    - ClassifierActivity:           288
+    - ClassifierActivity:           289
+    - ClassifierApplication:        104
     - OverlayView:                  53
     - RecognitionScoreView:         68
     - ResultsView:                  23
-    - TensorFlowImageClassifier:    200
+    - TensorFlowImageClassifier:    207
     
-TOTAL LINES OF CODE:                2530
+TOTAL LINES OF CODE:                XXX
 
-COMPILED APK SIZE:                  30,653,279 bytes (30.653 MB)
+COMPILED APK SIZE:                  XXX

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package edu.temple.tf_tester_mod;
+package edu.temple.tf_tester_mod.to_remove;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -35,6 +35,11 @@ import android.view.Display;
 import java.util.List;
 import java.util.Vector;
 
+import edu.temple.tf_tester_mod.Classifier;
+import edu.temple.tf_tester_mod.OverlayView;
+import edu.temple.tf_tester_mod.R;
+import edu.temple.tf_tester_mod.ResultsView;
+import edu.temple.tf_tester_mod.TensorFlowImageClassifier;
 import edu.temple.tf_tester_mod.env.BorderedText;
 import edu.temple.tf_tester_mod.env.ImageUtils;
 import edu.temple.tf_tester_mod.env.Logger;

@@ -314,6 +314,7 @@ public class CameraConnectionFragment extends Fragment {
       final OnImageAvailableListener imageListener,
       final int layout,
       final Size inputSize) {
+    LOGGER.i("Creating new Camera Connection Fragment.");
     return new CameraConnectionFragment(callback, imageListener, layout, inputSize);
   }
 

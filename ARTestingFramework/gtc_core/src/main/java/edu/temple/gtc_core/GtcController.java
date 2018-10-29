@@ -18,10 +18,6 @@ import edu.temple.gtc_core.buffers.CameraFrameBuffer;
 import edu.temple.gtc_core.buffers.ClassificationResultBuffer;
 import edu.temple.gtc_core.buffers.UxDataBuffer;
 import edu.temple.gtc_core.classify.IClassifier;
-import edu.temple.gtc_core.profiles.IConfigurationProfile;
-import edu.temple.gtc_core.profiles.IHardwareProfile;
-import edu.temple.gtc_core.profiles.IInteractionProfile;
-import edu.temple.gtc_core.profiles.IProfileCallbackListener;
 import edu.temple.gtc_core.service_conns.CommunicatorConnection;
 import edu.temple.gtc_core.service_conns.FrameLoggerConnection;
 import edu.temple.gtc_core.service_conns.ResourceLoggerConnection;
@@ -63,6 +59,7 @@ public class GtcController implements ITesterCommListener {
     // --------------------------------------------------------------------------------
     //      Tester app properties ... provided as params in primary class constructor
     // --------------------------------------------------------------------------------
+    private static Activity mTestAppActivity;
     private static Context mTestAppContext;
     private static int mTestAppPid;
     private static String mTestAppName;
@@ -89,6 +86,10 @@ public class GtcController implements ITesterCommListener {
     private static AsyncAnnoCollector asyncAnnoCollector;
     private static AsyncUxCollector asyncUxCollector;
 
+    private static long phaseStartTime, phaseEndTime;
+    private static long preprocessTime, classificationTime, responseTime;
+    private static String classificationResult = "";
+
 
     // --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
     // --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
@@ -102,6 +103,7 @@ public class GtcController implements ITesterCommListener {
 
     public GtcController(Activity currentActivity, int pid, String procName, String configFilename) {
         Log.d(Constants.TAG, "\n\nGTC Controller initialized with PID: " + pid);
+        mTestAppActivity = currentActivity;
         mTestAppContext = currentActivity.getApplicationContext();
         mTestAppPid = pid;
         mTestAppName = procName;
@@ -199,13 +201,17 @@ public class GtcController implements ITesterCommListener {
     // --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
 
 
+    /**
+     * Called when the subscribing app wants to pause (BUT NOT STOP) system execution
+     */
     public void pauseProfiles() {
-        // called when the subscribing app wants to pause (BUT NOT STOP) system execution
         mProfileController.pause();
     }
 
+    /**
+     * Called when the subscribing app wants to resume (BUT NOT RE-INIT) system execution
+     */
     public void resumeProfiles() {
-        // called when the subscribing app wants to resume (BUT NOT RE-INIT) system execution
         mProfileController.resume();
     }
 
@@ -214,20 +220,22 @@ public class GtcController implements ITesterCommListener {
     // --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
 
 
+    /**
+     * Called by the current configuration profile when all sensors are ready and the rest of
+     * the program flow pipeline can continue ...
+     */
     public void onSensorsReady() {
-        // called by the current configuration profile when all sensors are ready and the rest of
-        // the program flow pipeline can continue ...
-        // call the corresponding GUI interaction profile
+        mClassController.getCurrentClassifier().onSensorsReady(mTestAppActivity);
         mProfileController.getCurrentInteractionProfile().onSensorsReady();
     }
 
-    long phaseStartTime, phaseEndTime;
-    long preprocessTime, classificationTime, responseTime;
-    String classificationResult = "";
-
+    /**
+     * Called by the current configuration profile when one of the sensors returns data that
+     * should be processed by the classifier on duty
+     *
+     * @param sensorOutput
+     */
     public void onDataAvailable(Map<String, Object> sensorOutput) {
-        // called by the current configuration profile when one of the sensors returns data that
-        // should be processed by the classifier on duty
         if (sensorOutput == null) {
             Log.e(Constants.TAG, "Cannot classify with no data!");
             return;
@@ -245,8 +253,12 @@ public class GtcController implements ITesterCommListener {
 
     }
 
+    /**
+     * Called by the classifier on duty to signal that it is done preprocessing
+     *
+     * @param preprocessOutput
+     */
     public void onClassifierPreprocessComplete(Map<String, Object> preprocessOutput) {
-        // called by the classifier on duty to signal that it is done preprocessing
         phaseEndTime = SystemClock.elapsedRealtime();
         preprocessTime = (phaseEndTime - phaseStartTime);
 
@@ -271,8 +283,12 @@ public class GtcController implements ITesterCommListener {
         currentClassifier.classify(preprocessOutput);
     }
 
+    /**
+     * Called by the classifier on duty to signal that it is done classifying
+     *
+     * @param classificationOutput
+     */
     public void onClassifierClassificationComplete(Map<String, Object> classificationOutput) {
-        // called by the classifier on duty to signal that it is done classifying
         phaseEndTime = SystemClock.elapsedRealtime();
         classificationTime = (phaseEndTime - phaseStartTime);
 
@@ -282,8 +298,8 @@ public class GtcController implements ITesterCommListener {
         }
 
         // retrieve the classification result
-        if (classificationOutput.containsKey(Constants.BUNDLE_KEY_CLASSIFICATION_RESULT)) {
-            classificationResult = classificationOutput.get(Constants.BUNDLE_KEY_CLASSIFICATION_RESULT).toString();
+        if (classificationOutput.containsKey(Constants.BUNDLE_KEY_CLASSIFICATION_TOP_RESULT)) {
+            classificationResult = classificationOutput.get(Constants.BUNDLE_KEY_CLASSIFICATION_TOP_RESULT).toString();
             classResultBuffer.insert(classificationResult, preprocessTime, classificationTime);
         }
 
@@ -294,11 +310,15 @@ public class GtcController implements ITesterCommListener {
         }
 
         phaseStartTime = SystemClock.elapsedRealtime();
-        currentClassifier.respond(classificationOutput);
+        currentClassifier.evaluate(classificationOutput);
     }
 
-    public void onClassifierResponseComplete(Map<String, Object> responseOutput) {
-        // called by the classifier on duty to signal that it is done post-processing
+    /**
+     * Called by the classifier on duty to signal that it is done post-processing
+     *
+     * @param responseOutput
+     */
+    public void onClassifierEvaluationComplete(Map<String, Object> responseOutput) {
         phaseEndTime = SystemClock.elapsedRealtime();
         responseTime = (phaseEndTime - phaseStartTime);
 
@@ -311,6 +331,10 @@ public class GtcController implements ITesterCommListener {
         if (responseOutput.containsKey(Constants.BUNDLE_KEY_RESPONSE_EVENT)) {
             mProfileController.getCurrentInteractionProfile().onClassifierResultAvailable(responseOutput);
             String responseEventLabel = responseOutput.get(Constants.BUNDLE_KEY_RESPONSE_EVENT).toString();
+            Log.e(Constants.TAG, "RECEIVED PIPELINE RESULT OF: " + responseEventLabel
+                    + " \t\t FOR CLASSIFICATION: " + classificationResult
+                    + " \t\t IN " + responseTime + " MS");
+
             if (responseEventLabel.equals(Constants.CLASSIFIER_RESPONSE_POSITIVE_MATCH) &&
                     responseOutput.containsKey(Constants.BUNDLE_KEY_RESPONSE_TIME) && !classificationResult.isEmpty()) {
                 int responseEventTime = (int)responseOutput.get(Constants.BUNDLE_KEY_RESPONSE_TIME);
