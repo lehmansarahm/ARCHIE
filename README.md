@@ -1,5 +1,14 @@
 # ARCHIE
 
+## What is ARCHIE?
+ARCHIE is a testing framework for mobile and wearable augmented reality applications, intended to assist researchers and developers in collecting user data from their test participants.  This repository contains the following projects:
+
+* ARTestingFramework-DroneTracker
+* ARTestingFramework-DroneTrackerUpdated
+* ARTestingFramework-Unity
+* ARTestingFramework
+* ARTestingFrameworkCaseStudies
+
 ## Updating Your App to Use ARCHIE
 * Add "gtc\_core" as resource library to project code base
 * CLASSIFIERS:
