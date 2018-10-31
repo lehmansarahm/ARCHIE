@@ -29,7 +29,6 @@ public class ArchieTfInteractionProfile implements IInteractionProfile {
 
     private static final Logger LOGGER = new Logger();
 
-    private static ClassifierApplication app;
     private static Activity currentActivity;
     private static Resources resources;
 
@@ -73,7 +72,7 @@ public class ArchieTfInteractionProfile implements IInteractionProfile {
     @Override
     public void onClassifierResultAvailable(Map<String, Object> classifierResult) {
         if (this.currentActivity != null) {
-            app = (ClassifierApplication) currentActivity.getApplication();
+            ClassifierApplication app = (ClassifierApplication) currentActivity.getApplication();
             // TODO - lastProcessingTimeMs = (long) classifierResult.get(BUNDLE_KEY_LAST_PROCESSING_TIME);
 
             Bitmap croppedBitmap = (Bitmap) classifierResult.get(BUNDLE_KEY_PREPROCESSED_OUTPUT);
@@ -115,6 +114,7 @@ public class ArchieTfInteractionProfile implements IInteractionProfile {
     }
 
     private void renderDebug(final Canvas canvas) {
+        ClassifierApplication app = (ClassifierApplication) currentActivity.getApplication();
         if (!app.isDebug()) return;
 
         final Bitmap copy = cropCopyBitmap;

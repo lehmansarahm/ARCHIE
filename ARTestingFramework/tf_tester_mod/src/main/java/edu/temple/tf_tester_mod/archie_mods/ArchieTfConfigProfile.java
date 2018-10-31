@@ -25,8 +25,6 @@ public class ArchieTfConfigProfile implements IConfigurationProfile, ImageReader
     private static final Logger LOGGER = new Logger();
 
     private static Activity currentActivity;
-    private static ClassifierApplication app;
-
     private static FragmentManager fm;
     private static WindowManager wm;
 
@@ -51,6 +49,7 @@ public class ArchieTfConfigProfile implements IConfigurationProfile, ImageReader
 
     @Override
     public void onImageAvailable(final ImageReader reader) {
+        ClassifierApplication app = (ClassifierApplication) currentActivity.getApplication();
         if (app.isComputing()) {
             LOGGER.e("Cannot process this image ... classifier is currently working on another.");
             return;
@@ -78,7 +77,6 @@ public class ArchieTfConfigProfile implements IConfigurationProfile, ImageReader
         wm = currentActivity.getWindowManager();
 
         if (!initialized) {
-            app = (ClassifierApplication) currentActivity.getApplication();
             initializeView();
             initialized = true;
         }
@@ -86,6 +84,7 @@ public class ArchieTfConfigProfile implements IConfigurationProfile, ImageReader
 
     private void initializeView() {
         LOGGER.i("Initializing view for TF-ARCHIE configuration profile.");
+        final ClassifierApplication app = (ClassifierApplication) currentActivity.getApplication();
         final Fragment fragment =
                 CameraConnectionFragment.newInstance(
                         new CameraConnectionFragment.ConnectionCallback() {
@@ -97,9 +96,7 @@ public class ArchieTfConfigProfile implements IConfigurationProfile, ImageReader
                                 app.getGtcController().startServices();
                             }
                         }, this, getLayoutId(), getDesiredPreviewFrameSize());
-
         fm.beginTransaction().replace(R.id.container, fragment).commit();
-        app.setCameraFragment(fragment);
     }
 
     private int getLayoutId() {

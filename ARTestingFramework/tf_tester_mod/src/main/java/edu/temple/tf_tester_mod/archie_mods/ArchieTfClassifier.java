@@ -45,8 +45,7 @@ public class ArchieTfClassifier implements IClassifier {
             TimeUnit.MINUTES.toMillis(DESIRED_RESULT_TIME_LIMIT_MIN);
     private static final int DESIRED_RESULT_MATCH_LIMIT = 10;           // should be able to match 10 frames in 1min
 
-    private static ClassifierApplication app;
-
+    private Activity initActivity;
     private int previewWidth, previewHeight;
     private byte[][] yuvBytes;
     private int[] rgbBytes;
@@ -62,7 +61,8 @@ public class ArchieTfClassifier implements IClassifier {
      */
     @Override
     public void onSensorsReady(Activity currentActivity) {
-        app = (ClassifierApplication) currentActivity.getApplication();
+        initActivity = currentActivity;
+        ClassifierApplication app = (ClassifierApplication) initActivity.getApplication();
         if (app.getAssetManager() != null) {
             Classifier classifier = TensorFlowImageClassifier.create(app.getAssetManager(),
                     Constants.MODEL_FILE, Constants.LABEL_FILE,
@@ -93,6 +93,7 @@ public class ArchieTfClassifier implements IClassifier {
 
     @Override
     public void preprocess(Map<String, Object> sensorInput) {
+        ClassifierApplication app = (ClassifierApplication) initActivity.getApplication();
         if (!sensorInput.containsKey(Constants.KEY_IMAGE_TO_PREPROCESS)) {
             LOGGER.e("Cannot pre-process image if none is provided.");
             app.getGtcController().onClassifierPreprocessComplete(null);
@@ -136,6 +137,7 @@ public class ArchieTfClassifier implements IClassifier {
 
     @Override
     public void classify(final Map<String, Object> preprocessedInput) {
+        final ClassifierApplication app = (ClassifierApplication) initActivity.getApplication();
         if (!preprocessedInput.containsKey(BUNDLE_KEY_PREPROCESSED_OUTPUT)) {
             LOGGER.e("Cannot classify image if none is provided.");
             app.getGtcController().onClassifierClassificationComplete(null);
@@ -160,6 +162,7 @@ public class ArchieTfClassifier implements IClassifier {
 
     @Override
     public void evaluate(Map<String, Object> classifierInput) {
+        ClassifierApplication app = (ClassifierApplication) initActivity.getApplication();
         if (!classifierInput.containsKey(BUNDLE_KEY_CLASSIFICATION_RESULTS)) {
             LOGGER.e("Cannot evaluate classification results if none are provided.");
             return;

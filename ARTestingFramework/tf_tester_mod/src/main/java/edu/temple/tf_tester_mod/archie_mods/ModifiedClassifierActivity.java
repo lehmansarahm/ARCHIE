@@ -25,6 +25,7 @@ import android.media.ImageReader;
 import android.media.ImageReader.OnImageAvailableListener;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Size;
 import android.view.KeyEvent;
 import android.view.WindowManager;
@@ -32,6 +33,7 @@ import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import edu.temple.gtc_core.GtcController;
 import edu.temple.tf_tester_mod.ClassifierApplication;
@@ -45,7 +47,6 @@ import edu.temple.tf_tester_mod.env.Logger;
 public class ModifiedClassifierActivity extends Activity {
 
     private static final Logger LOGGER = new Logger();
-    private static ClassifierApplication app;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -54,8 +55,15 @@ public class ModifiedClassifierActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_camera);
 
-        app = (ClassifierApplication)getApplication();
-        app.setAssetManager(this.getAssets());
+        if (ClassifierApplication.TESTING) {
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    LOGGER.e("TESTING TIME LIMIT REACHED.");
+                    ModifiedClassifierActivity.this.finishAndRemoveTask();
+                }}, ClassifierApplication.TESTING_DELAY);
+        }
 
         if (hasPermission()) initializeGtcController();
         else requestPermission();
@@ -70,14 +78,14 @@ public class ModifiedClassifierActivity extends Activity {
     @Override
     public synchronized void onResume() {
         LOGGER.d("onResume " + this);
-        app.onResume();
+        ((ClassifierApplication)getApplication()).onResume();
         super.onResume();
     }
 
     @Override
     public synchronized void onPause() {
         LOGGER.d("onPause " + this);
-        app.onPause(this);
+        ((ClassifierApplication)getApplication()).onPause(this);
         super.onPause();
     }
 
@@ -90,14 +98,14 @@ public class ModifiedClassifierActivity extends Activity {
     @Override
     public synchronized void onDestroy() {
         LOGGER.d("onDestroy " + this);
-        app.onDestroy();
+        ((ClassifierApplication)getApplication()).onDestroy();
         super.onDestroy();
     }
 
     @Override
     public boolean onKeyDown(final int keyCode, final KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN || keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
-            app.toggleDebug();
+            ((ClassifierApplication)getApplication()).toggleDebug();
             // TODO - requestRender();
             // TODO - classifier.enableStatLogging(app.isDebug());
             return true;
@@ -148,7 +156,7 @@ public class ModifiedClassifierActivity extends Activity {
         LOGGER.i("All permissions received!  Initializing GTC Controller.");
         GtcController gtcController = new GtcController(ModifiedClassifierActivity.this,
                 android.os.Process.myPid(), Constants.PROC_NAME, Constants.CONFIG_FILENAME);
-        app.setGtcController(gtcController);
+        ((ClassifierApplication)getApplication()).setGtcController(gtcController);
 
         // NOTE!!  Don't need to start GTC Services because our configuration profile takes care of
         // that for us, once all of the necessary sensors are initialized

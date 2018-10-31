@@ -2,11 +2,10 @@ package edu.temple.tf_tester_mod;
 
 import android.app.Activity;
 import android.app.Application;
-import android.app.Fragment;
+import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.util.Log;
 import android.util.Size;
 
 import com.codemonkeylabs.fpslibrary.FrameDataCallback;
@@ -23,24 +22,42 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import edu.temple.gtc_core.GtcController;
 import edu.temple.tf_tester_mod.env.Logger;
 
 public class ClassifierApplication extends Application {
 
+    // --------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------
+
+    // public static final long TESTING_DELAY = TimeUnit.SECONDS.toMillis(10);
+    public static final long TESTING_DELAY = TimeUnit.MINUTES.toMillis(5);
+    public static final boolean TESTING = false;
+
+    // --------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------
+
     private static final String CLASSIFIER_OUTPUT_TIMESTAMP_FORMAT = "yyyyMMdd_hhmmss";
     private static final Logger LOGGER = new Logger();
     private static final Object LOCK = new Object();
 
-    private static HandlerThread handlerThread;
-    private static Handler handler;
+    private static Context initContext;
+    private static AssetManager assetManager;
 
     private static List<String> frameStats;
     private static List<String> classificationStats;
+    private static long executionStartTime = 0;
+
+    private static HandlerThread handlerThread;
+    private static Handler handler;
 
     @Override
     public void onCreate() {
+        initContext = this.getApplicationContext();
+        assetManager = initContext.getAssets();
+
         frameStats = new ArrayList<>();
         frameStats.add("Previous Frame (ns),Current Frame (ns),Time Elapsed (ms),Dropped Frame Count");
 
@@ -51,15 +68,24 @@ public class ClassifierApplication extends Application {
                 .addFrameDataCallback(new FrameDataCallback() {
                     @Override
                     public void doFrame(long previousFrameNS, long currentFrameNS, int droppedFrames) {
+                        // Calculate time elapsed between frames (in nanoseconds)
                         long timeElapsedNS = currentFrameNS - previousFrameNS;
                         double timeElapsedMS = (timeElapsedNS / 1000000.0d);
-                        String newFrameStats = (previousFrameNS + "," + currentFrameNS + ","
+
+                        // calculate time spent in overall program execution (seconds)
+                        long currentSystemTime = System.currentTimeMillis();
+                        if (executionStartTime == 0) executionStartTime = currentSystemTime;
+                        long totalTimeElapsed =
+                                TimeUnit.MILLISECONDS.toSeconds(currentSystemTime - executionStartTime);
+
+                        // output the frame stats
+                        String newFrameStats = (totalTimeElapsed + ","
+                                + previousFrameNS + "," + currentFrameNS + ","
                                 + timeElapsedMS + "," + droppedFrames);
                         LOGGER.i("Logging frame stats: " + newFrameStats);
                         frameStats.add(newFrameStats);
                     }
-                })
-                .show(getApplicationContext());
+                }).show(initContext);
 
         LOGGER.i("ClassifierApplication with TinyDancer created!");
         super.onCreate();
@@ -95,6 +121,7 @@ public class ClassifierApplication extends Application {
     }
 
     public void onDestroy() {
+        TinyDancer.hide(initContext);
         getGtcController().stopServices();
 
         Date currentTime = Calendar.getInstance().getTime();
@@ -112,6 +139,12 @@ public class ClassifierApplication extends Application {
         LOGGER.i("ClassifierApplication with TinyDancer destroyed.");
     }
 
+    public AssetManager getAssetManager() {
+        synchronized (LOCK) {
+            return ClassifierApplication.assetManager;
+        }
+    }
+
     public static void runInBackground(final Runnable r) {
         LOGGER.i("Attempting to run task in background.");
         synchronized (LOCK) {
@@ -125,32 +158,15 @@ public class ClassifierApplication extends Application {
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
 
-    private static AssetManager assetManager;
-
-    public static void setAssetManager(AssetManager assetManager) {
-        synchronized (LOCK) {
-            ClassifierApplication.assetManager = assetManager;
-        }
-    }
-
-    public static AssetManager getAssetManager() {
-        synchronized (LOCK) {
-            return ClassifierApplication.assetManager;
-        }
-    }
-
-    // --------------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------------
-
     private static GtcController gtcController;
 
-    public static void setGtcController(GtcController gtcController) {
+    public void setGtcController(GtcController gtcController) {
         synchronized (LOCK) {
             ClassifierApplication.gtcController = gtcController;
         }
     }
 
-    public static GtcController getGtcController() {
+    public GtcController getGtcController() {
         synchronized (LOCK) {
             return ClassifierApplication.gtcController;
         }
@@ -161,13 +177,13 @@ public class ClassifierApplication extends Application {
 
     private static Classifier classifier;
 
-    public static void setClassifier(Classifier classifier) {
+    public void setClassifier(Classifier classifier) {
         synchronized (LOCK) {
             ClassifierApplication.classifier = classifier;
         }
     }
 
-    public static Classifier getClassifier() {
+    public Classifier getClassifier() {
         synchronized (LOCK) {
             return ClassifierApplication.classifier;
         }
@@ -176,32 +192,15 @@ public class ClassifierApplication extends Application {
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
 
-    private static Fragment cameraFragment;
-
-    public static void setCameraFragment(Fragment fragment) {
-        synchronized (LOCK) {
-            ClassifierApplication.cameraFragment = fragment;
-        }
-    }
-
-    public static Fragment getCameraFragment() {
-        synchronized (LOCK) {
-            return ClassifierApplication.cameraFragment;
-        }
-    }
-
-    // --------------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------------
-
     private static boolean debug = false;
 
-    public static void toggleDebug() {
+    public void toggleDebug() {
         synchronized (LOCK) {
             ClassifierApplication.debug = !ClassifierApplication.debug;
         }
     }
 
-    public static boolean isDebug() {
+    public boolean isDebug() {
         synchronized (LOCK) {
             return ClassifierApplication.debug;
         }
@@ -212,13 +211,13 @@ public class ClassifierApplication extends Application {
 
     private static boolean computing = false;
 
-    public static void setComputing(boolean computing) {
+    public void setComputing(boolean computing) {
         synchronized (LOCK) {
             ClassifierApplication.computing = computing;
         }
     }
 
-    public static boolean isComputing() {
+    public boolean isComputing() {
         synchronized (LOCK) {
             return ClassifierApplication.computing;
         }
@@ -229,19 +228,19 @@ public class ClassifierApplication extends Application {
 
     private static Size previewSize;
 
-    public static void setPreviewSize(Size size) {
+    public void setPreviewSize(Size size) {
         synchronized (LOCK) {
             ClassifierApplication.previewSize = size;
         }
     }
 
-    public static int getPreviewHeight() {
+    public int getPreviewHeight() {
         synchronized (LOCK) {
             return ClassifierApplication.previewSize.getHeight();
         }
     }
 
-    public static int getPreviewWidth() {
+    public int getPreviewWidth() {
         synchronized (LOCK) {
             return ClassifierApplication.previewSize.getWidth();
         }
@@ -252,13 +251,13 @@ public class ClassifierApplication extends Application {
 
     private static int cameraOrientation;
 
-    public static void setCameraOrientation(int orientation) {
+    public void setCameraOrientation(int orientation) {
         synchronized (LOCK) {
             ClassifierApplication.cameraOrientation = orientation;
         }
     }
 
-    public static int getCameraOrientation() {
+    public int getCameraOrientation() {
         synchronized (LOCK) {
             return ClassifierApplication.cameraOrientation;
         }

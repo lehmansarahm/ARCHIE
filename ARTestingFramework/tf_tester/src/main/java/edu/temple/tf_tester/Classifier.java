@@ -15,6 +15,7 @@ limitations under the License.
 
 package edu.temple.tf_tester;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.RectF;
 import java.util.List;
@@ -97,7 +98,7 @@ public interface Classifier {
     }
   }
 
-  List<Recognition> recognizeImage(ClassifierApplication app, Bitmap bitmap);
+  List<Recognition> recognizeImage(Activity currentActivity, Bitmap bitmap);
 
   void enableStatLogging(final boolean debug);
   
