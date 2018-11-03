@@ -178,7 +178,8 @@ public class TensorFlowImageClassifier implements Classifier {
         int recognitionsSize = Math.min(pq.size(), MAX_RESULTS);
         for (int i = 0; i < recognitionsSize; ++i) recognitions.add(pq.poll());
 
-        app.onClassificationComplete(recognitions.get(0).getTitle());
+        app.onClassificationComplete(recognitions.get(0).getTitle(),
+                recognitions.get(0).getConfidence());
         Trace.endSection(); // "recognizeImage"
         return recognitions;
     }

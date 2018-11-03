@@ -290,6 +290,12 @@ public class ResourceLoggerService extends Service {
         buffReader.close();
         isReader.close();
 
+        String[] defaultStats = (new String[] { "", "", "", "", "", "", "", "", "", "" });
+        if (line == null) {
+            Log.e(Constants.TAG, "NO OUTPUT FROM PROC STATS COMMAND.");
+            return defaultStats;
+        }
+
         Log.d(Constants.TAG, "PROCSTAT output: " + line);
         String[] procStats = line.split("\\s+");
 
@@ -307,7 +313,7 @@ public class ResourceLoggerService extends Service {
                     procStats[PROCSTAT_INDEX_RSS]
             };
             return (procOutput);
-        } else return (new String[] { "", "", "", "", "", "", "", "", "", "" });
+        } else return defaultStats;
     }
 
 }

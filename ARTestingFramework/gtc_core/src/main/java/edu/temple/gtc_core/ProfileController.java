@@ -204,7 +204,7 @@ public class ProfileController {
     }
 
     public void cleanup() {
-        mProfileTimer.cancel();
+        if (mProfileTimer != null) mProfileTimer.cancel();
     }
 
     public IConfigurationProfile getCurrentConfigurationProfile() {

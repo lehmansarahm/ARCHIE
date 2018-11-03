@@ -10,21 +10,24 @@
 %   - update output files to include derived fields
 %   - repeat the above with modified target app (including GTC services)
 
+set(0,'defaultaxesfontsize',20);
+set(0,'defaulttextfontsize',25);
+
 % -----------------------------------------------
 % -----------------------------------------------
 
 % M = csvread(filename,R1,C1,[R1 C1 R2 C2])
-% FPS "Before" Range: Cell B3 = [2,1] ... Cell F303 = [302,5]
-% FPS "After" Range: Cell G3 = [2,6] ... Cell K303 = [302,10]
+% FPS "Before" Range: Cell B3 = [2,1] ... Cell F302 = [301,5]
+% FPS "After" Range: Cell G3 = [2,6] ... Cell K302 = [301,10]
 
 BEFORE_STARTING_ROW = 2;
 BEFORE_STARTING_COLUMN = 1;
-BEFORE_ENDING_ROW = 302;
+BEFORE_ENDING_ROW = 301;
 BEFORE_ENDING_COLUMN = 5;
 
 AFTER_STARTING_ROW = 2;
 AFTER_STARTING_COLUMN = 6;
-AFTER_ENDING_ROW = 302;
+AFTER_ENDING_ROW = 301;
 AFTER_ENDING_COLUMN = 10;
 
 VERSIONS = { 'Before', 'After' };
@@ -48,7 +51,7 @@ after_class = after_class_matrix(:);
 boxplot([ before_class(:), after_class(:) ], VERSIONS);
 xlabel('Application Version')
 ylabel('Frames Per Second')
-saveas(gcf,'fig_beforeAfter_fps','epsc')
+saveas(gcf,'fig-beforeAfter-fps','epsc')
 figure();
 
 % -----------------------------------------------
@@ -57,8 +60,8 @@ figure();
 % Classification "Before" Range: Cell B3 = [2,1] ... Cell F2723 = [2722,5]
 % Classification "After" Range: Cell G3 = [2,6] ... Cell K2723 = [2722,10]
 
-BEFORE_ENDING_ROW = 2722;
-AFTER_ENDING_ROW = 2722;
+% BEFORE_ENDING_ROW = 2722;
+% AFTER_ENDING_ROW = 2722;
 
 filename = 'before-after-procTime.csv';
 before_class_matrix = csvread(filename, ...
@@ -76,4 +79,4 @@ after_class = after_class_matrix(:);
 boxplot([ before_class(:), after_class(:) ], VERSIONS);
 xlabel('Application Version')
 ylabel('Classification Time (ms)')
-saveas(gcf,'fig_beforeAfter_procTime','epsc')
+saveas(gcf,'fig-beforeAfter-procTime','epsc')

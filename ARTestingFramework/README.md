@@ -35,3 +35,47 @@
     - Just a quirk of the system for now
 - Watch and phone must be paired and within Bluetooth range at all times
     - Future work will include edge case support for out-of-range or disconnected devices
+    
+    
+    
+\begin{itemize}
+\item Add "gtc\_core" as resource library to project code base
+\item CLASSIFIERS:
+	\begin{itemize}
+	\item Create a new class that implements "IClassifier" interface from "gtc\_core"
+	\end{itemize}
+\item CONFIGURATION PROFILES:
+	\begin{itemize}
+	\item Create a new class that implements "IConfigurationProfile" interface from "gtc\_core"
+	\end{itemize}
+\item INTERACTION PROFILES:
+	\begin{itemize}
+	\item Create a new class that implements "IInteractionProfile" interface from "gtc\_core"
+	\end{itemize}
+\item HARDWARE PROFILES:
+	\begin{itemize}
+	\item Add list property to "config.json" called "hardware\_profiles"
+    \item Add item to "hardware\_profiles" list property for each profile you want to test, with the following properties:
+    	\begin{itemize}
+    	\item "name" - the name of the profile (ex: \\"high\_resource", "low\_resource", etc.)
+        \item "allowable\_cpu\_percentage" - the percentage of available device CPU that the app is allowed to use
+        \item "allowable\_ram\_percentage" - the percentage of available device RAM that the app is allowed to use
+    	\end{itemize}
+	\end{itemize}
+\item Instantiate GTC Controller in tester app and add the following function calls:
+	\begin{itemize}
+	\item gtcController.startServices() on app create
+    \item gtcController.stopServices() on app destroy
+    \item gtcController.pauseProfiles() on app pause
+    \item gtcController.resumeProfiles() on app resume
+	\end{itemize}
+\item Add "config.json" as project asset, and instantiate with the following properties:
+	\begin{itemize}
+	\item Async annotation data collection settings
+    \item Async UX data collection settings
+    \item Fully qualified names of all Classifier classes to use
+    \item Fully qualified names of all Configuration Profile classes to use
+    \item Fully qualified names of all Interaction Profile classes to use
+    \item List of hardware profile settings to use
+	\end{itemize}
+\end{itemize}

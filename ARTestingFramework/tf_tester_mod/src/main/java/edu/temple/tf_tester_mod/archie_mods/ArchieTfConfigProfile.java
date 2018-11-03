@@ -8,10 +8,7 @@ import android.media.ImageReader;
 import android.util.Size;
 import android.view.WindowManager;
 
-import java.nio.ByteBuffer;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import edu.temple.gtc_core.profiles.IConfigurationProfile;
@@ -23,6 +20,9 @@ import edu.temple.tf_tester_mod.env.Logger;
 public class ArchieTfConfigProfile implements IConfigurationProfile, ImageReader.OnImageAvailableListener {
 
     private static final Logger LOGGER = new Logger();
+
+    private static final Size DESIRED_PREVIEW_SIZE = Constants.PREVIEW_SIZE_SMALL;
+    // private static final Size DESIRED_PREVIEW_SIZE = Constants.PREVIEW_SIZE_XXXLARGE;
 
     private static Activity currentActivity;
     private static FragmentManager fm;
@@ -85,6 +85,8 @@ public class ArchieTfConfigProfile implements IConfigurationProfile, ImageReader
     private void initializeView() {
         LOGGER.i("Initializing view for TF-ARCHIE configuration profile.");
         final ClassifierApplication app = (ClassifierApplication) currentActivity.getApplication();
+        app.setDesiredPreviewSize(DESIRED_PREVIEW_SIZE);
+
         final Fragment fragment =
                 CameraConnectionFragment.newInstance(
                         new CameraConnectionFragment.ConnectionCallback() {
@@ -95,16 +97,12 @@ public class ArchieTfConfigProfile implements IConfigurationProfile, ImageReader
                                 app.getGtcController().onSensorsReady();
                                 app.getGtcController().startServices();
                             }
-                        }, this, getLayoutId(), getDesiredPreviewFrameSize());
+                        }, this, getLayoutId(), app.getDesiredPreviewSize());
         fm.beginTransaction().replace(R.id.container, fragment).commit();
     }
 
     private int getLayoutId() {
         return R.layout.camera_connection_fragment;
-    }
-
-    private Size getDesiredPreviewFrameSize() {
-        return Constants.DESIRED_PREVIEW_SIZE;
     }
 
 }

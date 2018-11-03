@@ -61,7 +61,7 @@ public class ModifiedClassifierActivity extends Activity {
                 @Override
                 public void run() {
                     LOGGER.e("TESTING TIME LIMIT REACHED.");
-                    ModifiedClassifierActivity.this.finishAndRemoveTask();
+                    ModifiedClassifierActivity.this.finishAffinity();
                 }}, ClassifierApplication.TESTING_DELAY);
         }
 

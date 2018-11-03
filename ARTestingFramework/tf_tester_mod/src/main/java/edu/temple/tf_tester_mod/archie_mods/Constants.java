@@ -56,8 +56,13 @@ public class Constants {
 
     public static final boolean MAINTAIN_ASPECT = true;
 
-    public static final Size DESIRED_PREVIEW_SIZE = new Size(640, 480);
-
     public static final float TEXT_SIZE_DIP = 10;
+
+    public static final Size PREVIEW_SIZE_SMALL = new Size(176, 144);
+    public static final Size PREVIEW_SIZE_MEDIUM = new Size(640, 480);
+    public static final Size PREVIEW_SIZE_LARGE = new Size(1024, 768);
+    public static final Size PREVIEW_SIZE_XLARGE = new Size(1280, 960);
+    public static final Size PREVIEW_SIZE_XXLARGE = new Size(2048, 1536);
+    public static final Size PREVIEW_SIZE_XXXLARGE = new Size(4032, 3024);
 
 }

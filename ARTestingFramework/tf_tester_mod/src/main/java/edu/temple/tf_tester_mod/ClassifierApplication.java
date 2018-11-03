@@ -10,6 +10,7 @@ import android.util.Size;
 
 import com.codemonkeylabs.fpslibrary.FrameDataCallback;
 import com.codemonkeylabs.fpslibrary.TinyDancer;
+import com.codemonkeylabs.fpslibrary.TinyDancerBuilder;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -25,6 +26,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import edu.temple.gtc_core.GtcController;
+import edu.temple.tf_tester_mod.archie_mods.Constants;
 import edu.temple.tf_tester_mod.env.Logger;
 
 public class ClassifierApplication extends Application {
@@ -34,7 +36,7 @@ public class ClassifierApplication extends Application {
 
     // public static final long TESTING_DELAY = TimeUnit.SECONDS.toMillis(10);
     public static final long TESTING_DELAY = TimeUnit.MINUTES.toMillis(5);
-    public static final boolean TESTING = false;
+    public static final boolean TESTING = true;
 
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
@@ -43,8 +45,7 @@ public class ClassifierApplication extends Application {
     private static final Logger LOGGER = new Logger();
     private static final Object LOCK = new Object();
 
-    private static Context initContext;
-    private static AssetManager assetManager;
+    private static TinyDancerBuilder tdb;
 
     private static List<String> frameStats;
     private static List<String> classificationStats;
@@ -53,39 +54,38 @@ public class ClassifierApplication extends Application {
     private static HandlerThread handlerThread;
     private static Handler handler;
 
+    private static FrameDataCallback fdc = new FrameDataCallback() {
+        @Override
+        public void doFrame(long previousFrameNS, long currentFrameNS, int droppedFrames) {
+            // Calculate time elapsed between frames (in nanoseconds)
+            long timeElapsedNS = currentFrameNS - previousFrameNS;
+            double timeElapsedMS = (timeElapsedNS / 1000000.0d);
+
+            // calculate time spent in overall program execution (seconds)
+            long currentSystemTime = System.currentTimeMillis();
+            if (executionStartTime == 0) executionStartTime = currentSystemTime;
+            long totalTimeElapsed =
+                    TimeUnit.MILLISECONDS.toSeconds(currentSystemTime - executionStartTime);
+
+            // output the frame stats
+            String newFrameStats = (totalTimeElapsed + ","
+                    + previousFrameNS + "," + currentFrameNS + ","
+                    + timeElapsedMS + "," + droppedFrames);
+            LOGGER.i("Logging frame stats: " + newFrameStats);
+            frameStats.add(newFrameStats);
+        }};
+
     @Override
     public void onCreate() {
-        initContext = this.getApplicationContext();
-        assetManager = initContext.getAssets();
-
         frameStats = new ArrayList<>();
         frameStats.add("Previous Frame (ns),Current Frame (ns),Time Elapsed (ms),Dropped Frame Count");
 
         classificationStats = new ArrayList<>();
         classificationStats.add("Start Time (ns),End Time (ns),Time Elapsed (ms),Result");
 
-        TinyDancer.create()
-                .addFrameDataCallback(new FrameDataCallback() {
-                    @Override
-                    public void doFrame(long previousFrameNS, long currentFrameNS, int droppedFrames) {
-                        // Calculate time elapsed between frames (in nanoseconds)
-                        long timeElapsedNS = currentFrameNS - previousFrameNS;
-                        double timeElapsedMS = (timeElapsedNS / 1000000.0d);
-
-                        // calculate time spent in overall program execution (seconds)
-                        long currentSystemTime = System.currentTimeMillis();
-                        if (executionStartTime == 0) executionStartTime = currentSystemTime;
-                        long totalTimeElapsed =
-                                TimeUnit.MILLISECONDS.toSeconds(currentSystemTime - executionStartTime);
-
-                        // output the frame stats
-                        String newFrameStats = (totalTimeElapsed + ","
-                                + previousFrameNS + "," + currentFrameNS + ","
-                                + timeElapsedMS + "," + droppedFrames);
-                        LOGGER.i("Logging frame stats: " + newFrameStats);
-                        frameStats.add(newFrameStats);
-                    }
-                }).show(initContext);
+        tdb = TinyDancer.create();
+        tdb.addFrameDataCallback(fdc);
+        tdb.show(this);
 
         LOGGER.i("ClassifierApplication with TinyDancer created!");
         super.onCreate();
@@ -120,28 +120,35 @@ public class ClassifierApplication extends Application {
         handler = new Handler(handlerThread.getLooper());
     }
 
-    public void onDestroy() {
-        TinyDancer.hide(initContext);
-        getGtcController().stopServices();
+    public boolean onDestroy() {
+        try {
+            getGtcController().stopServices();
+            TinyDancer.hide(this);
 
-        Date currentTime = Calendar.getInstance().getTime();
-        DateFormat df = new SimpleDateFormat(CLASSIFIER_OUTPUT_TIMESTAMP_FORMAT);
-        File outputFileDir = getApplicationContext().getExternalFilesDir(null);
+            Date currentTime = Calendar.getInstance().getTime();
+            DateFormat df = new SimpleDateFormat(CLASSIFIER_OUTPUT_TIMESTAMP_FORMAT);
+            File outputFileDir = getApplicationContext().getExternalFilesDir(null);
 
-        String frameFileName = (df.format(currentTime) + "_frames.txt");
-        File frameFile = new File(outputFileDir, frameFileName);
-        writeResultsToFile(frameFile, frameStats);
+            String frameFileName = (df.format(currentTime) + "_frames.txt");
+            File frameFile = new File(outputFileDir, frameFileName);
+            writeResultsToFile(frameFile, frameStats);
 
-        String classFileName = (df.format(currentTime) + "_classification.txt");
-        File classFile = new File(outputFileDir, classFileName);
-        writeResultsToFile(classFile, classificationStats);
+            String classFileName = (df.format(currentTime) + "_classification.txt");
+            File classFile = new File(outputFileDir, classFileName);
+            writeResultsToFile(classFile, classificationStats);
 
-        LOGGER.i("ClassifierApplication with TinyDancer destroyed.");
+            LOGGER.i("ClassifierApplication with TinyDancer destroyed.");
+            return true;
+        } catch (Exception ex) {
+            LOGGER.e("Exception encountered while attempting to shut down ClassifierApplication."
+                    + "\n" + ex.getMessage());
+            return false;
+        }
     }
 
     public AssetManager getAssetManager() {
         synchronized (LOCK) {
-            return ClassifierApplication.assetManager;
+            return ClassifierApplication.this.getAssets();
         }
     }
 
@@ -152,6 +159,23 @@ public class ClassifierApplication extends Application {
                 LOGGER.i("Acquired lock on background thread handler!  Running task.");
                 handler.post(r);
             }
+        }
+    }
+
+    // --------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------
+
+    private static Size desiredPreviewSize = Constants.PREVIEW_SIZE_MEDIUM;
+
+    public void setDesiredPreviewSize(Size newSize) {
+        synchronized (LOCK) {
+            ClassifierApplication.desiredPreviewSize = newSize;
+        }
+    }
+
+    public Size getDesiredPreviewSize() {
+        synchronized (LOCK) {
+            return ClassifierApplication.desiredPreviewSize;
         }
     }
 

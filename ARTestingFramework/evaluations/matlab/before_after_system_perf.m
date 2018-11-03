@@ -10,6 +10,9 @@
 %   - update output files to include derived fields
 %   - repeat the above with modified target app (including GTC services)
 
+set(0,'defaultaxesfontsize',20);
+set(0,'defaulttextfontsize',25);
+
 % -----------------------------------------------
 % -----------------------------------------------
 
@@ -48,7 +51,7 @@ after_cpu_system = after_cpu_system_matrix(:);
 boxplot([ before_cpu_system(:), after_cpu_system(:) ], VERSIONS);
 xlabel('Application Version')
 ylabel('Kernel-space CPU Usage')
-saveas(gcf,'fig_beforeAfter_cpuSystem','epsc')
+saveas(gcf,'fig-beforeAfter-cpuSystem','epsc')
 figure();
 
 % -----------------------------------------------
@@ -70,7 +73,7 @@ after_cpu_user = after_cpu_user_matrix(:);
 boxplot([ before_cpu_user(:), after_cpu_user(:) ], VERSIONS);
 xlabel('Application Version')
 ylabel('User-space CPU Usage')
-saveas(gcf,'fig_beforeAfter_cpuUser','epsc')
+saveas(gcf,'fig-beforeAfter-cpuUser','epsc')
 figure();
 
 % -----------------------------------------------
@@ -92,4 +95,4 @@ after_ram = after_ram_matrix(:);
 boxplot([ before_ram(:), after_ram(:) ], VERSIONS);
 xlabel('Application Version')
 ylabel('RAM Usage')
-saveas(gcf,'fig_beforeAfter_ram','epsc')
+saveas(gcf,'fig-beforeAfter-ram','epsc')

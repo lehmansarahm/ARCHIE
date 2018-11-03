@@ -80,7 +80,6 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
     private static final boolean SAVE_PREVIEW_BITMAP = false;
     private static final boolean MAINTAIN_ASPECT = true;
 
-    private static final Size DESIRED_PREVIEW_SIZE = new Size(640, 480);
     private static final float TEXT_SIZE_DIP = 10;
 
     private Classifier classifier;
@@ -107,11 +106,6 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
     @Override
     protected int getLayoutId() {
     return R.layout.camera_connection_fragment;
-    }
-
-    @Override
-    protected Size getDesiredPreviewFrameSize() {
-    return DESIRED_PREVIEW_SIZE;
     }
 
     @Override
@@ -176,7 +170,9 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
             }
 
             computing = true;
+            ((ClassifierApplication)getApplication()).onPreprocessStart();
             Trace.beginSection("imageAvailable");
+
             final Plane[] planes = image.getPlanes();
             fillBytes(planes, yuvBytes);
 
@@ -202,6 +198,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
         // For examining the actual TF input.
         if (SAVE_PREVIEW_BITMAP) ImageUtils.saveBitmap(croppedBitmap);
 
+        ((ClassifierApplication)getApplication()).onPreprocessComplete();
         runInBackground(
             new Runnable() {
                     @Override

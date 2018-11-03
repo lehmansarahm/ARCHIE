@@ -60,7 +60,7 @@ public abstract class CameraActivity extends Activity implements OnImageAvailabl
             @Override
             public void run() {
                     LOGGER.e("TESTING TIME LIMIT REACHED.");
-                    CameraActivity.this.finishAndRemoveTask();
+                    CameraActivity.this.finishAffinity();
                 }}, ClassifierApplication.TESTING_DELAY);
         }
 
@@ -155,6 +155,7 @@ public abstract class CameraActivity extends Activity implements OnImageAvailabl
     }
 
     protected void setFragment() {
+        final ClassifierApplication app = (ClassifierApplication) getApplication();
         final Fragment fragment = CameraConnectionFragment.newInstance(
                 new CameraConnectionFragment.ConnectionCallback() {
                     @Override
@@ -164,7 +165,7 @@ public abstract class CameraActivity extends Activity implements OnImageAvailabl
                 },
                 this,
                 getLayoutId(),
-                getDesiredPreviewFrameSize());
+                app.getDesiredPreviewSize());
 
         getFragmentManager()
                 .beginTransaction()
@@ -214,6 +215,5 @@ public abstract class CameraActivity extends Activity implements OnImageAvailabl
 
     protected abstract void onPreviewSizeChosen(final Size size, final int rotation);
     protected abstract int getLayoutId();
-    protected abstract Size getDesiredPreviewFrameSize();
 
 }
