@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86"
+    api-level="28"
+    build-mode="FULL"
+    density="xxhdpi"
+    format="10"
+    plugin-version="3.1.4"
+    timestamp="1537839013715"
+    token="-3577621271501227394"
+    verifier="FULL_BUILD_REQUESTED" >
+
+    <task
+        name="javac"
+        duration="322" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="0" />
+    <task
+        name="verifier"
+        duration="5" />
+
+    <artifact
+        location="/Users/slehr/Projects/ARTestingFramework/opencv_face_detection/build/intermediates/resources/instant-run/debug/resources-debug.apk"
+        type="SPLIT" />
+
+</instant-run>

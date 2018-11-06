@@ -1,0 +1,197 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:2:1-37:12
+INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:2:1-37:12
+INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:2:1-37:12
+INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:2:1-37:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/463507293e36a7b3d16dda8c6ce4a587/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/slehr/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/52d4dc9116303959373f0e6450e20b7c/AndroidManifest.xml:2:1-11:12
+MERGED from [:opencv] /Users/slehr/Projects/ARTestingFramework/opencv/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/1fc4c8d2b984a54cdaaf852b795bfbb2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/85365ee2b24c598736b607762fc9fce4/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/8474e24066921dec30dafb19e7b03bf6/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/52b4856bacf7fae2e383081bac6718c8/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/1a9e620fe81f22691cacee572281b467/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/4e15a7d26bd8989837e898e57d74ca8c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/78d2f769ddb88fcea56ab934a8073f99/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/ff00473e9058f0fb423532fc991f1023/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/81fde1c39db1916f3bb984f23ce7fba0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/9a52d005973fc4a5acc9625271eca038/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/3a4c64219c2c92df303caf7583f3bfb0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/10570c0299eacf291c6968946e2e8aca/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/935d36d8c5799fa21759d60aa2c4bb7f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/1d6b6d72984ba6821dcc57a0d745e839/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/3753391b34d29add9baabfa0f0b051cc/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/f64cbf4b999b27e2ddb88a1824530bd4/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/slehr/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/1ef3ede214b3cd5768960c8794107cc3/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/b202098aece44f7c2f0868a112a3ae0e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/8f67bf15b0e1ee64a1930184f075680a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/4e2659c5cde1a5e768e9efcc47caee6d/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/slehr/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/5c48710b233cae0a02ed12866e3165b1/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/slehr/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/b207835b5fbfd1f7cc77c18362d8c69e/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/slehr/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/c79e2cc4e5c95e1bfb1974fdf7bf85db/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /Users/slehr/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/b88c5fe9b36f9852e6581ce49fd62965/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/36a25c2f9251c915ed421bf704c763da/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:2:1-37:12
+INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:2:1-37:12
+INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:2:1-37:12
+	package
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:3:5-47
+		INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml
+		INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:5:5-31
+		INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml
+		INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:4:5-30
+		INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml
+		INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml
+uses-permission#android.permission.CAMERA
+ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:7:5-64
+	android:name
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:7:22-62
+uses-feature#android.hardware.camera
+ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:9:5-84
+	android:required
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:9:58-82
+	android:name
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:9:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:10:5-94
+	android:required
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:10:68-92
+	android:name
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:10:19-67
+uses-feature#android.hardware.camera.front
+ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:11:5-90
+	android:required
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:11:64-88
+	android:name
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:11:19-63
+uses-feature#android.hardware.camera.front.autofocus
+ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:12:5-100
+	android:required
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:12:74-98
+	android:name
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:12:19-73
+supports-screens
+ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:14:5-18:37
+	android:largeScreens
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:17:9-36
+	android:smallScreens
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:15:9-36
+	android:normalScreens
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:16:9-37
+	android:resizeable
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:14:23-48
+	android:anyDensity
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:18:9-34
+application
+ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:20:5-35:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/slehr/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/52d4dc9116303959373f0e6450e20b7c/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/slehr/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/52d4dc9116303959373f0e6450e20b7c/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-compat:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/1d6b6d72984ba6821dcc57a0d745e839/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/1d6b6d72984ba6821dcc57a0d745e839/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/3753391b34d29add9baabfa0f0b051cc/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/3753391b34d29add9baabfa0f0b051cc/AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/1d6b6d72984ba6821dcc57a0d745e839/AndroidManifest.xml:22:18-91
+	android:label
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:21:9-41
+	android:icon
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:22:9-38
+	android:theme
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:23:9-67
+activity#edu.temple.opencv_face_detection.FdActivity
+ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:25:9-33:20
+	android:screenOrientation
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:27:13-50
+	android:label
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:26:13-45
+	android:configChanges
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:28:13-63
+	android:name
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:25:19-45
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:29:13-32:29
+action#android.intent.action.MAIN
+ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:30:17-69
+	android:name
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:30:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:31:17-77
+	android:name
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml:31:27-74
+uses-sdk
+INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml
+INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/463507293e36a7b3d16dda8c6ce4a587/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/463507293e36a7b3d16dda8c6ce4a587/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/slehr/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/52d4dc9116303959373f0e6450e20b7c/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/slehr/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/52d4dc9116303959373f0e6450e20b7c/AndroidManifest.xml:5:5-7:41
+MERGED from [:opencv] /Users/slehr/Projects/ARTestingFramework/opencv/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:7:5-9:41
+MERGED from [:opencv] /Users/slehr/Projects/ARTestingFramework/opencv/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/1fc4c8d2b984a54cdaaf852b795bfbb2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/1fc4c8d2b984a54cdaaf852b795bfbb2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/85365ee2b24c598736b607762fc9fce4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/85365ee2b24c598736b607762fc9fce4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/8474e24066921dec30dafb19e7b03bf6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/8474e24066921dec30dafb19e7b03bf6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/52b4856bacf7fae2e383081bac6718c8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/52b4856bacf7fae2e383081bac6718c8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/1a9e620fe81f22691cacee572281b467/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/1a9e620fe81f22691cacee572281b467/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/4e15a7d26bd8989837e898e57d74ca8c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/4e15a7d26bd8989837e898e57d74ca8c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/78d2f769ddb88fcea56ab934a8073f99/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/78d2f769ddb88fcea56ab934a8073f99/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/ff00473e9058f0fb423532fc991f1023/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/ff00473e9058f0fb423532fc991f1023/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/81fde1c39db1916f3bb984f23ce7fba0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/81fde1c39db1916f3bb984f23ce7fba0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/9a52d005973fc4a5acc9625271eca038/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/9a52d005973fc4a5acc9625271eca038/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/3a4c64219c2c92df303caf7583f3bfb0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/3a4c64219c2c92df303caf7583f3bfb0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/10570c0299eacf291c6968946e2e8aca/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/10570c0299eacf291c6968946e2e8aca/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/935d36d8c5799fa21759d60aa2c4bb7f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/935d36d8c5799fa21759d60aa2c4bb7f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/1d6b6d72984ba6821dcc57a0d745e839/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/1d6b6d72984ba6821dcc57a0d745e839/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/3753391b34d29add9baabfa0f0b051cc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/3753391b34d29add9baabfa0f0b051cc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/f64cbf4b999b27e2ddb88a1824530bd4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/f64cbf4b999b27e2ddb88a1824530bd4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/slehr/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/1ef3ede214b3cd5768960c8794107cc3/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/slehr/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/1ef3ede214b3cd5768960c8794107cc3/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/b202098aece44f7c2f0868a112a3ae0e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/b202098aece44f7c2f0868a112a3ae0e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/8f67bf15b0e1ee64a1930184f075680a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/8f67bf15b0e1ee64a1930184f075680a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/4e2659c5cde1a5e768e9efcc47caee6d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/4e2659c5cde1a5e768e9efcc47caee6d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/slehr/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/5c48710b233cae0a02ed12866e3165b1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/slehr/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/5c48710b233cae0a02ed12866e3165b1/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/slehr/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/b207835b5fbfd1f7cc77c18362d8c69e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/slehr/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/b207835b5fbfd1f7cc77c18362d8c69e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/slehr/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/c79e2cc4e5c95e1bfb1974fdf7bf85db/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/slehr/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/c79e2cc4e5c95e1bfb1974fdf7bf85db/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/slehr/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/b88c5fe9b36f9852e6581ce49fd62965/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/slehr/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/b88c5fe9b36f9852e6581ce49fd62965/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/36a25c2f9251c915ed421bf704c763da/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/slehr/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/36a25c2f9251c915ed421bf704c763da/AndroidManifest.xml:20:5-44
+INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml
+INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml
+		INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml
+		ADDED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml
+		INJECTED from /Users/slehr/Projects/ARTestingFramework/opencv_face_detection/src/main/AndroidManifest.xml
