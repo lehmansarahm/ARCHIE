@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/archie" />
             <option value="$PROJECT_DIR$/opencv" />
             <option value="$PROJECT_DIR$/opencv_colorBlobDetector" />
             <option value="$PROJECT_DIR$/opencv_colorBlobDetector_mod" />
