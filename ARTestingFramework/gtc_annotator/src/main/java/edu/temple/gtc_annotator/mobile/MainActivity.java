@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements MessageApi.Messag
     // --------------------------------------------------------------------------------
     private static final long WAIT_INTERVAL = TimeUnit.SECONDS.toMillis(2);     // 2 sec in millis
     private static final String PROCESS_NAME = "GtcAnnotatorPhone";
-    private static final byte[] TEST_MESSAGE_PAYLOAD = (new String("test,1")).getBytes();
+    private static final byte[] TEST_MESSAGE_PAYLOAD = (new String("((halt at stop sign)),10")).getBytes();
     private static final int DEFAULT_VALUE_INT = 0;
     // --------------------------------------------------------------------------------
 

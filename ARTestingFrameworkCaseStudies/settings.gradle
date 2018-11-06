@@ -1,2 +1,3 @@
-include ':tf_android'
-//include ':opencv', ':opencv_color_blob_detector', ':opencv_color_blob_detector_updated', ':opencv_face_detection'
+include ':tf_classify', ':tf_classify_mod', ':tf_speech', ':tf_speech_mod', ':opencv_colorBlobDetector_mod'
+include ':opencv', ':opencv_colorBlobDetector' //, ':opencv_color_blob_detector_updated', ':opencv_face_detection'
+// include ':tf_android', ':opencv'

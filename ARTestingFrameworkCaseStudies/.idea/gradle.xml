@@ -8,7 +8,13 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/tf_android" />
+            <option value="$PROJECT_DIR$/opencv" />
+            <option value="$PROJECT_DIR$/opencv_colorBlobDetector" />
+            <option value="$PROJECT_DIR$/opencv_colorBlobDetector_mod" />
+            <option value="$PROJECT_DIR$/tf_classify" />
+            <option value="$PROJECT_DIR$/tf_classify_mod" />
+            <option value="$PROJECT_DIR$/tf_speech" />
+            <option value="$PROJECT_DIR$/tf_speech_mod" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
