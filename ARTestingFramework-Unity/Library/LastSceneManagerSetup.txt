@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/HAR Testing Framework.unity
-  isLoaded: 1
-  isActive: 1
