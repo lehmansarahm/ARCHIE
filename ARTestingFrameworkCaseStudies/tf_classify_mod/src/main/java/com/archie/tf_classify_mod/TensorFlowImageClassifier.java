@@ -16,6 +16,7 @@ limitations under the License.
 package com.archie.tf_classify_mod;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.os.Trace;
@@ -128,7 +129,10 @@ public class TensorFlowImageClassifier implements Classifier {
   }
 
   @Override
-  public List<Recognition> recognizeImage(final Bitmap bitmap) {
+  public List<Recognition> recognizeImage(Activity currentActivity, final  Bitmap bitmap) {
+    ClassifierApplication app = (ClassifierApplication)currentActivity.getApplication();
+    app.onClassificationStart();
+
     // Log this method so that it can be analyzed with systrace.
     Trace.beginSection("recognizeImage");
 
@@ -182,6 +186,10 @@ public class TensorFlowImageClassifier implements Classifier {
     for (int i = 0; i < recognitionsSize; ++i) {
       recognitions.add(pq.poll());
     }
+
+    if (recognitions.size() > 0)
+        app.onClassificationComplete(recognitions.get(0).getTitle(),
+                recognitions.get(0).getConfidence());
     Trace.endSection(); // "recognizeImage"
     return recognitions;
   }

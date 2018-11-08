@@ -1,0 +1,1 @@
+Starting: Intent { cmp=com.archie.tf_classify_mod/.ClassifierActivity (has extras) }

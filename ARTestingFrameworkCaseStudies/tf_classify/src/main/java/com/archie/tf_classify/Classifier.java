@@ -15,6 +15,7 @@ limitations under the License.
 
 package com.archie.tf_classify;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.RectF;
 
@@ -98,7 +99,7 @@ public interface Classifier {
     }
   }
 
-  List<Recognition> recognizeImage(Bitmap bitmap);
+  List<Recognition> recognizeImage(Activity currentActivity, Bitmap bitmap);
 
   void enableStatLogging(final boolean debug);
 

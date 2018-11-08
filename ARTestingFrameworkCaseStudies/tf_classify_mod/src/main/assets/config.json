@@ -1,9 +1,9 @@
 {
   "async_anno_settings" : { "denomination" : "Minutes", "interval" : 2, "default_label" : "daisy" },
   "async_ux_settings" : { "denomination" : "Minutes", "interval" : 2 },
-  "classifiers" : [ "edu.temple.tf_tester_mod.archie_mods.ArchieTfClassifier" ],
-  "configuration_profiles" : [ "edu.temple.tf_tester_mod.archie_mods.ArchieTfConfigProfile" ],
-  "interaction_profiles" : [ "edu.temple.tf_tester_mod.archie_mods.ArchieTfInteractionProfile" ],
+  "classifiers" : [ "com.archie.tf_classify_mod.archie_mods.ArchieTfClassifier" ],
+  "configuration_profiles" : [ "com.archie.tf_classify_mod.archie_mods.ArchieTfConfigProfile" ],
+  "interaction_profiles" : [ "com.archie.tf_classify_mod.archie_mods.ArchieTfInteractionProfile" ],
   "hardware_profiles" : [
     { "name" : "high_resource", "allowable_cpu_percentage" : 100 }
   ]

@@ -7,68 +7,77 @@
 #       > sh ./run_resource_profiler.sh {package name}
 # -----------------------------------------------------------------------------------
 
-echo ""                                 # spacer line
-echo "--------------------------------------------------------------------------------"
-echo "\tAR TESTING FRAMEWORK - RESOURCE PROFILER"
-echo "--------------------------------------------------------------------------------"
-((SCRIPT_START_TIME=$(date +%s)))
+((NUM_TRIALS=5))                        # number of trials to execute
+((WAIT_INTERVAL=5))                     # number of seconds to wait between each reading during a trial
+((NUM_MINUTES=5))                       # the number of total minutes to run this script (PER TRIAL)
 
-echo "Verifying destination directory"
-adb shell "mkdir /storage/self/primary/Documents/"
+# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------
 
-echo "Pushing latest version of resource script to Android device"
-adb push dev_resource_script.sh /storage/self/primary/Documents/
-adb push proc_resource_script.sh /storage/self/primary/Documents/
-echo ""                                 # spacer line
+for (( i=1; i<=$NUM_TRIALS; i++ ))
+do
 
-((WAIT_INTERVAL=5))                     # number of seconds to wait between each reading
-((NUM_MINUTES=5))                       # the number of total minutes to run this script
+    echo ""                                 # spacer line
+    echo "--------------------------------------------------------------------------------"
+    echo "\tAR TESTING FRAMEWORK - RESOURCE PROFILER"
+    echo "--------------------------------------------------------------------------------"
+    ((SCRIPT_START_TIME=$(date +%s)))
 
-                                        # DERIVED VALUE ... NO NEED TO UPDATE ...
-((NUM_SECONDS=$NUM_MINUTES * 60))       # number of total seconds to run this script
+    echo "Verifying destination directory"
+    adb shell "mkdir /storage/self/primary/Documents/"
 
-                                        # PROVIDED BY USER AS COMMAND LINE ARGUMENT ...
-                                        # IF NULL, RUN DEVICE-LEVEL RESOURCE PROFILER !!
-PACKAGE_NAMES=$1                        # "edu.temple.gtc_services remote_process edu.temple.tf_tester com.google.android.youtube org.tensorflow.demo"
+    echo "Pushing latest version of resource script to Android device"
+    adb push dev_resource_script.sh /storage/self/primary/Documents/
+    adb push proc_resource_script.sh /storage/self/primary/Documents/
+    echo ""                                 # spacer line
 
-TODAY="$(date +'%F')"
-NOW="$(date +'%H%M%S')"
-OUTPUT_FILE=""
+                                            # DERIVED VALUE ... NO NEED TO UPDATE ...
+    ((NUM_SECONDS=$NUM_MINUTES * 60))       # number of total seconds to run this script
 
-if [ "$PACKAGE_NAMES" != "" ]
-then
+                                            # PROVIDED BY USER AS COMMAND LINE ARGUMENT ...
+                                            # IF NULL, RUN DEVICE-LEVEL RESOURCE PROFILER !!
+    PACKAGE_NAMES=$1                        # "edu.temple.gtc_services remote_process edu.temple.tf_tester com.google.android.youtube org.tensorflow.demo"
 
-    OUTPUT_FILE="$PACKAGE_NAMES.$TODAY.$NOW.csv"
-    echo "Script will monitor processes: <$PACKAGE_NAMES> for $NUM_SECONDS seconds in increments of $WAIT_INTERVAL seconds"
-    echo "Output will be written to file: $OUTPUT_FILE"
+    TODAY="$(date +'%F')"
+    NOW="$(date +'%H%M%S')"
+    OUTPUT_FILE=""
 
-    echo ""                             # spacer line
-    echo "Running resource profiler.  (This may take some time to complete.  Thank you for your patience.)"
-    adb shell sh storage/self/primary/Documents/proc_resource_script.sh $NUM_SECONDS $WAIT_INTERVAL $PACKAGE_NAMES >> "out/$OUTPUT_FILE"
+    if [[ "$PACKAGE_NAMES" != "" ]]
+    then
 
-else
+        OUTPUT_FILE="$PACKAGE_NAMES.$TODAY.$NOW.csv"
+        echo "Script will monitor processes: <$PACKAGE_NAMES> for $NUM_SECONDS seconds in increments of $WAIT_INTERVAL seconds"
+        echo "Output will be written to file: $OUTPUT_FILE"
 
-    OUTPUT_FILE="system.$TODAY.$NOW.csv"
-    echo "Script will monitor device-level CPU/RAM usage for $NUM_SECONDS seconds in increments of $WAIT_INTERVAL seconds"
-    echo "Output will be written to file: $OUTPUT_FILE"
+        echo ""                             # spacer line
+        echo "Running resource profiler.  (This may take some time to complete.  Thank you for your patience.)"
+        adb shell sh storage/self/primary/Documents/proc_resource_script.sh $NUM_SECONDS $WAIT_INTERVAL $PACKAGE_NAMES >> "out/$OUTPUT_FILE"
 
-    echo ""                             # spacer line
-    echo "Running resource profiler.  (This may take some time to complete.  Thank you for your patience.)"
-    adb shell sh storage/self/primary/Documents/dev_resource_script.sh $NUM_SECONDS $WAIT_INTERVAL >> "out/$OUTPUT_FILE"
+    else
 
-fi
+        OUTPUT_FILE="system.$TODAY.$NOW.csv"
+        echo "Script will monitor device-level CPU/RAM usage for $NUM_SECONDS seconds in increments of $WAIT_INTERVAL seconds"
+        echo "Output will be written to file: $OUTPUT_FILE"
 
-# calculate how long it took to finish
-((SCRIPT_FINISH_TIME=$(date +%s)))
-((PROCESSING_TIME=$SCRIPT_FINISH_TIME-$SCRIPT_START_TIME))
+        echo ""                             # spacer line
+        echo "Running resource profiler.  (This may take some time to complete.  Thank you for your patience.)"
+        adb shell sh storage/self/primary/Documents/dev_resource_script.sh $NUM_SECONDS $WAIT_INTERVAL >> "out/$OUTPUT_FILE"
 
-echo ""                                 # spacer line
-echo "--------------------------------------------------------------------------------"
-echo "\tAR TESTING FRAMEWORK - RESOURCE PROFILING COMPLETE"
-echo "--------------------------------------------------------------------------------"
-echo "Output available: $OUTPUT_FILE"
-echo "Total processing time (seconds): $PROCESSING_TIME"
-echo ""                                 # spacer line
+    fi
+
+    # calculate how long it took to finish
+    ((SCRIPT_FINISH_TIME=$(date +%s)))
+    ((PROCESSING_TIME=$SCRIPT_FINISH_TIME-$SCRIPT_START_TIME))
+
+    echo ""                                 # spacer line
+    echo "--------------------------------------------------------------------------------"
+    echo "\tAR TESTING FRAMEWORK - RESOURCE PROFILING COMPLETE"
+    echo "--------------------------------------------------------------------------------"
+    echo "Output available: $OUTPUT_FILE"
+    echo "Total processing time (seconds): $PROCESSING_TIME"
+    echo ""                                 # spacer line
+
+done
 
 
 # -----------------------------------------------------------------------------------

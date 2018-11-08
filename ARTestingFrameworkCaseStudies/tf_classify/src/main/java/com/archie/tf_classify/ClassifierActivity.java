@@ -139,12 +139,15 @@ public class ClassifierActivity extends CameraActivity implements ImageReader.On
         if (SAVE_PREVIEW_BITMAP) {
             ImageUtils.saveBitmap(croppedBitmap);
         }
+
+        ((ClassifierApplication)getApplication()).onPreprocessComplete();
         runInBackground(
                 new Runnable() {
                     @Override
                     public void run() {
                         final long startTime = SystemClock.uptimeMillis();
-                        final List<Classifier.Recognition> results = classifier.recognizeImage(croppedBitmap);
+                        final List<Classifier.Recognition> results =
+                                classifier.recognizeImage(ClassifierActivity.this, croppedBitmap);
                         lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime;
                         LOGGER.i("Detect: %s", results);
                         cropCopyBitmap = Bitmap.createBitmap(croppedBitmap);

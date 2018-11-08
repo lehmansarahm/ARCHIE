@@ -46,60 +46,71 @@ import com.archie.tf_classify.env.Logger;
 
 import java.nio.ByteBuffer;
 
-public abstract class CameraActivity extends Activity
-    implements OnImageAvailableListener, Camera.PreviewCallback {
-  private static final Logger LOGGER = new Logger();
+public abstract class CameraActivity extends Activity implements OnImageAvailableListener, Camera.PreviewCallback {
 
-  private static final int PERMISSIONS_REQUEST = 1;
+    private static final String EXTRA_TESTING = "quitAfterTimeLimit";
+    private static final String EXTRA_TESTING_LABEL = "testingLabel";
 
-  private static final String PERMISSION_CAMERA = Manifest.permission.CAMERA;
-  private static final String PERMISSION_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
+    private static final Logger LOGGER = new Logger();
 
-  private boolean debug = false;
+    private static final int PERMISSIONS_REQUEST = 1;
+    private static final String PERMISSION_CAMERA = Manifest.permission.CAMERA;
+    private static final String PERMISSION_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
-  private Handler handler;
-  private HandlerThread handlerThread;
-  private boolean useCamera2API;
-  private boolean isProcessingFrame = false;
-  private byte[][] yuvBytes = new byte[3][];
-  private int[] rgbBytes = null;
-  private int yRowStride;
+    private boolean debug = false;
 
-  protected int previewWidth = 0;
-  protected int previewHeight = 0;
+    private Handler handler;
+    private HandlerThread handlerThread;
+    private boolean useCamera2API;
+    private boolean isProcessingFrame = false;
+    private byte[][] yuvBytes = new byte[3][];
+    private int[] rgbBytes = null;
+    private int yRowStride;
 
-  private Runnable postInferenceCallback;
-  private Runnable imageConverter;
+    protected int previewWidth = 0;
+    protected int previewHeight = 0;
 
-  @Override
-  protected void onCreate(final Bundle savedInstanceState) {
-    LOGGER.d("onCreate " + this);
-    super.onCreate(null);
-    getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    private Runnable postInferenceCallback;
+    private Runnable imageConverter;
 
-    setContentView(R.layout.activity_camera);
+    @Override
+    protected void onCreate(final Bundle savedInstanceState) {
+        LOGGER.d("onCreate " + this);
+        super.onCreate(null);
 
-    if (hasPermission()) {
-      setFragment();
-    } else {
-      requestPermission();
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        setContentView(R.layout.activity_camera);
+
+        if (getIntent().hasExtra(EXTRA_TESTING)) {
+            Boolean isTesting = getIntent().getBooleanExtra(EXTRA_TESTING, false);
+            LOGGER.i("RECEIVED NOTICE TO QUIT AFTER TEST TIME LIMIT EXPIRES: " + isTesting);
+            ((ClassifierApplication) getApplication()).setTesting(isTesting);
+        }
+
+        if (getIntent().hasExtra(EXTRA_TESTING_LABEL)) {
+            String testingLabel = getIntent().getStringExtra(EXTRA_TESTING_LABEL);
+            LOGGER.i("RECEIVED NOTICE TO USE TESTING LABEL: " + testingLabel);
+            ((ClassifierApplication) getApplication()).setTestingLabel(testingLabel);
+        }
+
+        if (hasPermission()) setFragment();
+        else requestPermission();
     }
-  }
 
-  private byte[] lastPreviewFrame;
+    private byte[] lastPreviewFrame;
 
-  protected int[] getRgbBytes() {
-    imageConverter.run();
-    return rgbBytes;
-  }
+    protected int[] getRgbBytes() {
+        imageConverter.run();
+        return rgbBytes;
+    }
 
-  protected int getLuminanceStride() {
-    return yRowStride;
-  }
+    protected int getLuminanceStride() {
+        return yRowStride;
+    }
 
-  protected byte[] getLuminance() {
-    return yuvBytes[0];
-  }
+    protected byte[] getLuminance() {
+        return yuvBytes[0];
+    }
 
   /**
    * Callback for android.hardware.Camera API
@@ -172,8 +183,11 @@ public abstract class CameraActivity extends Activity
         image.close();
         return;
       }
+
       isProcessingFrame = true;
+      ((ClassifierApplication)getApplication()).onPreprocessStart();
       Trace.beginSection("imageAvailable");
+
       final Plane[] planes = image.getPlanes();
       fillBytes(planes, yuvBytes);
       yRowStride = planes[0].getRowStride();
@@ -197,16 +211,14 @@ public abstract class CameraActivity extends Activity
             }
           };
 
-      postInferenceCallback =
-          new Runnable() {
+        postInferenceCallback = new Runnable() {
             @Override
             public void run() {
-              image.close();
-              isProcessingFrame = false;
-            }
-          };
+                image.close();
+                isProcessingFrame = false;
+            }};
 
-      processImage();
+        processImage();
     } catch (final Exception e) {
       LOGGER.e(e, "Exception!");
       Trace.endSection();
@@ -258,11 +270,12 @@ public abstract class CameraActivity extends Activity
     super.onStop();
   }
 
-  @Override
-  public synchronized void onDestroy() {
-    LOGGER.d("onDestroy " + this);
-    super.onDestroy();
-  }
+    @Override
+    public synchronized void onDestroy() {
+        LOGGER.d("onDestroy " + this);
+        ((ClassifierApplication)getApplication()).onDestroy();
+        super.onDestroy();
+    }
 
   protected synchronized void runInBackground(final Runnable r) {
     if (handler != null) {
@@ -350,41 +363,40 @@ public abstract class CameraActivity extends Activity
     return null;
   }
 
-  protected void setFragment() {
-    String cameraId = chooseCamera();
-    if (cameraId == null) {
-      Toast.makeText(this, "No Camera Detected", Toast.LENGTH_SHORT).show();
-      finish();
+    protected void setFragment() {
+        String cameraId = chooseCamera();
+        if (cameraId == null) {
+            Toast.makeText(this, "No Camera Detected", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+
+        final ClassifierApplication app = (ClassifierApplication) getApplication();
+        Fragment fragment;
+        if (useCamera2API) {
+            CameraConnectionFragment camera2Fragment = CameraConnectionFragment.newInstance(
+                    new CameraConnectionFragment.ConnectionCallback() {
+                        @Override
+                        public void onPreviewSizeChosen(final Size size, final int rotation) {
+                            previewHeight = size.getHeight();
+                            previewWidth = size.getWidth();
+                            CameraActivity.this.onPreviewSizeChosen(size, rotation);
+                        }
+                    },
+                    this,
+                    getLayoutId(),
+                    app.getDesiredPreviewSize());
+            camera2Fragment.setCamera(cameraId);
+            fragment = camera2Fragment;
+        } else {
+            fragment = new LegacyCameraConnectionFragment(this,
+                    getLayoutId(), getDesiredPreviewFrameSize());
+        }
+
+        getFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container, fragment)
+                .commit();
     }
-
-    Fragment fragment;
-    if (useCamera2API) {
-      CameraConnectionFragment camera2Fragment =
-          CameraConnectionFragment.newInstance(
-              new CameraConnectionFragment.ConnectionCallback() {
-                @Override
-                public void onPreviewSizeChosen(final Size size, final int rotation) {
-                  previewHeight = size.getHeight();
-                  previewWidth = size.getWidth();
-                  CameraActivity.this.onPreviewSizeChosen(size, rotation);
-                }
-              },
-              this,
-              getLayoutId(),
-              getDesiredPreviewFrameSize());
-
-      camera2Fragment.setCamera(cameraId);
-      fragment = camera2Fragment;
-    } else {
-      fragment =
-          new LegacyCameraConnectionFragment(this, getLayoutId(), getDesiredPreviewFrameSize());
-    }
-
-    getFragmentManager()
-        .beginTransaction()
-        .replace(R.id.container, fragment)
-        .commit();
-  }
 
   protected void fillBytes(final Plane[] planes, final byte[][] yuvBytes) {
     // Because of the variable row stride it's not possible to know in
