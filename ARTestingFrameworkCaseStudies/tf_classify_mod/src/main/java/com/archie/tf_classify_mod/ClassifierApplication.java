@@ -105,7 +105,8 @@ public class ClassifierApplication extends Application {
 
     public void onPause(Activity currentActivity) {
         LOGGER.i("Pausing profiles.");
-        getGtcController().pauseProfiles();
+        GtcController gtc = getGtcController();
+        if (gtc != null) gtc.pauseProfiles();
 
         if (!currentActivity.isFinishing()) {
             LOGGER.d("Requesting finish");
@@ -125,7 +126,8 @@ public class ClassifierApplication extends Application {
 
     public void onResume() {
         LOGGER.i("Resuming profiles.");
-        getGtcController().resumeProfiles();
+        GtcController gtc = getGtcController();
+        if (gtc != null) gtc.resumeProfiles();
 
         handlerThread = new HandlerThread("inference");
         handlerThread.start();
@@ -134,6 +136,10 @@ public class ClassifierApplication extends Application {
 
     public boolean onDestroy() {
         try {
+            GtcController gtc = getGtcController();
+            if (gtc != null) gtc.stopServices();
+            TinyDancer.hide(initContext);
+
             Date currentTime = Calendar.getInstance().getTime();
             DateFormat df = new SimpleDateFormat(CLASSIFIER_OUTPUT_TIMESTAMP_FORMAT);
             File outputFileDir = initContext.getApplicationContext().getExternalFilesDir(null);
@@ -150,7 +156,6 @@ public class ClassifierApplication extends Application {
             File settingsFile = new File(outputFileDir, settingsFileName);
             writeExecutionSettingsToFile(settingsFile);
 
-            TinyDancer.hide(initContext);
             LOGGER.i("ClassifierApplication with TinyDancer destroyed.");
             return true;
         } catch (Exception ex) {

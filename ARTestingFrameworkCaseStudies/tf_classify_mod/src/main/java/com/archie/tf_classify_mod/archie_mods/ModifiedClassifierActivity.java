@@ -1,6 +1,5 @@
 package com.archie.tf_classify_mod.archie_mods;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
@@ -45,27 +44,33 @@ import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Vector;
 
+import edu.temple.gtc_core.GtcController;
+
+import static com.archie.tf_classify_mod.archie_mods.Constants.DESIRED_PREVIEW_SIZE;
+import static com.archie.tf_classify_mod.archie_mods.Constants.EXTRA_TIMED_TEST;
+import static com.archie.tf_classify_mod.archie_mods.Constants.EXTRA_TESTING_LABEL;
+import static com.archie.tf_classify_mod.archie_mods.Constants.IMAGE_MEAN;
+import static com.archie.tf_classify_mod.archie_mods.Constants.IMAGE_STD;
+import static com.archie.tf_classify_mod.archie_mods.Constants.INPUT_NAME;
+import static com.archie.tf_classify_mod.archie_mods.Constants.INPUT_SIZE;
+import static com.archie.tf_classify_mod.archie_mods.Constants.LABEL_FILE;
+import static com.archie.tf_classify_mod.archie_mods.Constants.MAINTAIN_ASPECT;
+import static com.archie.tf_classify_mod.archie_mods.Constants.MODEL_FILE;
+import static com.archie.tf_classify_mod.archie_mods.Constants.OUTPUT_NAME;
+import static com.archie.tf_classify_mod.archie_mods.Constants.PERMISSIONS_REQUEST;
+import static com.archie.tf_classify_mod.archie_mods.Constants.PERMISSION_CAMERA;
+import static com.archie.tf_classify_mod.archie_mods.Constants.PERMISSION_STORAGE;
+import static com.archie.tf_classify_mod.archie_mods.Constants.SAVE_PREVIEW_BITMAP;
+import static com.archie.tf_classify_mod.archie_mods.Constants.TEXT_SIZE_DIP;
+
 public class ModifiedClassifierActivity extends Activity
         implements ImageReader.OnImageAvailableListener, Camera.PreviewCallback {
-
-    // ----------------------------------------------------------------------------------------
-    //          flags for CLI arguments
-    // ----------------------------------------------------------------------------------------
-    private static final String EXTRA_TESTING = "quitAfterTimeLimit";
-    private static final String EXTRA_TESTING_LABEL = "testingLabel";
 
     // ----------------------------------------------------------------------------------------
     //          general class properties
     // ----------------------------------------------------------------------------------------
     private static final Logger LOGGER = new Logger();
     private boolean isProcessingFrame = false;
-
-    // ----------------------------------------------------------------------------------------
-    //          permissions settings
-    // ----------------------------------------------------------------------------------------
-    private static final int PERMISSIONS_REQUEST = 1;
-    private static final String PERMISSION_CAMERA = Manifest.permission.CAMERA;
-    private static final String PERMISSION_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
     // ----------------------------------------------------------------------------------------
     //          background thread properties
@@ -76,8 +81,6 @@ public class ModifiedClassifierActivity extends Activity
     // ----------------------------------------------------------------------------------------
     //          camera connection properties
     // ----------------------------------------------------------------------------------------
-    private static final Size DESIRED_PREVIEW_SIZE = new Size(640, 480);
-    private static final boolean MAINTAIN_ASPECT = true;
     private boolean useCamera2API;
     protected int previewWidth = 0;
     protected int previewHeight = 0;
@@ -86,7 +89,6 @@ public class ModifiedClassifierActivity extends Activity
     // ----------------------------------------------------------------------------------------
     //          camera frame pre-processing properties
     // ----------------------------------------------------------------------------------------
-    protected static final boolean SAVE_PREVIEW_BITMAP = false;
     private Matrix frameToCropTransform;
     private Matrix cropToFrameTransform;
     private Bitmap rgbFrameBitmap = null;
@@ -100,13 +102,6 @@ public class ModifiedClassifierActivity extends Activity
     // ----------------------------------------------------------------------------------------
     //          classifier properties
     // ----------------------------------------------------------------------------------------
-    private static final int INPUT_SIZE = 224;
-    private static final int IMAGE_MEAN = 117;
-    private static final float IMAGE_STD = 1;
-    private static final String INPUT_NAME = "input";
-    private static final String OUTPUT_NAME = "output";
-    private static final String MODEL_FILE = "file:///android_asset/graph.pb";
-    private static final String LABEL_FILE = "file:///android_asset/labels.txt";
     private Classifier classifier;
     private Runnable postInferenceCallback;
     private Runnable imageConverter;
@@ -114,7 +109,6 @@ public class ModifiedClassifierActivity extends Activity
     // ----------------------------------------------------------------------------------------
     //          output / app view properties
     // ----------------------------------------------------------------------------------------
-    private static final float TEXT_SIZE_DIP = 10;
     private ResultsView resultsView;
     private BorderedText borderedText;
     private boolean debug = false;
@@ -136,8 +130,8 @@ public class ModifiedClassifierActivity extends Activity
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_camera);
 
-        if (getIntent().hasExtra(EXTRA_TESTING)) {
-            Boolean isTesting = getIntent().getBooleanExtra(EXTRA_TESTING, false);
+        if (getIntent().hasExtra(EXTRA_TIMED_TEST)) {
+            Boolean isTesting = getIntent().getBooleanExtra(EXTRA_TIMED_TEST, false);
             LOGGER.i("RECEIVED NOTICE TO QUIT AFTER TEST TIME LIMIT EXPIRES: " + isTesting);
             ((ClassifierApplication) getApplication()).setTesting(isTesting);
         }
@@ -161,6 +155,7 @@ public class ModifiedClassifierActivity extends Activity
     @Override
     public synchronized void onResume() {
         LOGGER.d("onResume " + this);
+        ((ClassifierApplication)getApplication()).onResume();
         super.onResume();
 
         handlerThread = new HandlerThread("inference");
@@ -171,6 +166,7 @@ public class ModifiedClassifierActivity extends Activity
     @Override
     public synchronized void onPause() {
         LOGGER.d("onPause " + this);
+        ((ClassifierApplication)getApplication()).onPause(this);
 
         if (!isFinishing()) {
             LOGGER.d("Requesting finish");
@@ -195,6 +191,13 @@ public class ModifiedClassifierActivity extends Activity
         super.onStop();
     }
 
+    @Override
+    public synchronized void onDestroy() {
+        LOGGER.d("onDestroy " + this);
+        ((ClassifierApplication)getApplication()).onDestroy();
+        super.onDestroy();
+    }
+
 
     // ----------------------------------------------------------------------------------------
     // ----------------------------------------------------------------------------------------
@@ -202,6 +205,20 @@ public class ModifiedClassifierActivity extends Activity
     // ----------------------------------------------------------------------------------------
     // ----------------------------------------------------------------------------------------
 
+
+    @Override
+    public void onRequestPermissionsResult(final int requestCode, final String[] permissions,
+                                           final int[] grantResults) {
+        if (requestCode == PERMISSIONS_REQUEST) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                    && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                initializeGtcController();
+                setFragment();
+            } else {
+                requestPermission();
+            }
+        }
+    }
 
     private boolean hasPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -221,6 +238,16 @@ public class ModifiedClassifierActivity extends Activity
             }
             requestPermissions(new String[] {PERMISSION_CAMERA, PERMISSION_STORAGE}, PERMISSIONS_REQUEST);
         }
+    }
+
+    private void initializeGtcController() {
+        LOGGER.i("All permissions received!  Initializing GTC Controller.");
+        GtcController gtcController = new GtcController(ModifiedClassifierActivity.this,
+                android.os.Process.myPid(), Constants.PROC_NAME, Constants.CONFIG_FILENAME);
+        ((ClassifierApplication)getApplication()).setGtcController(gtcController);
+
+        // NOTE!!  Don't need to start GTC Services because our configuration profile takes care of
+        // that for us, once all of the necessary sensors are initialized
     }
 
 
@@ -392,18 +419,14 @@ public class ModifiedClassifierActivity extends Activity
     @Override
     public void onImageAvailable(final ImageReader reader) {
         //We need wait until we have some size from onPreviewSizeChosen
-        if (previewWidth == 0 || previewHeight == 0) {
-            return;
-        }
-        if (rgbBytes == null) {
+        if (previewWidth == 0 || previewHeight == 0) return;
+
+        if (rgbBytes == null)
             rgbBytes = new int[previewWidth * previewHeight];
-        }
+
         try {
             final Image image = reader.acquireLatestImage();
-
-            if (image == null) {
-                return;
-            }
+            if (image == null) return;
 
             if (isProcessingFrame) {
                 image.close();
@@ -442,6 +465,7 @@ public class ModifiedClassifierActivity extends Activity
             Trace.endSection();
             return;
         }
+
         Trace.endSection();
     }
 
@@ -512,7 +536,8 @@ public class ModifiedClassifierActivity extends Activity
     }
 
     private void renderDebug(final Canvas canvas) {
-        if (debug) return;
+        // only display the debug overlay if the property is explicitly set
+        if (!debug) return;
 
         final Bitmap copy = cropCopyBitmap;
         if (copy != null) {
