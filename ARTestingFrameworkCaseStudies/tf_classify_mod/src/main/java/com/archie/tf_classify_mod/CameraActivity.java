@@ -185,7 +185,6 @@ public abstract class CameraActivity extends Activity implements OnImageAvailabl
       }
 
       isProcessingFrame = true;
-      ((ClassifierApplication)getApplication()).onPreprocessStart();
       Trace.beginSection("imageAvailable");
 
       final Plane[] planes = image.getPlanes();

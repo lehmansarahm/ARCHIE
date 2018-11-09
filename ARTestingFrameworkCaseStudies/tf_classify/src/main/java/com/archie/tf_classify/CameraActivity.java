@@ -48,8 +48,9 @@ import java.nio.ByteBuffer;
 
 public abstract class CameraActivity extends Activity implements OnImageAvailableListener, Camera.PreviewCallback {
 
-    private static final String EXTRA_TESTING = "quitAfterTimeLimit";
+    private static final String EXTRA_TIMED_TEST = "quitAfterTimeLimit";
     private static final String EXTRA_TESTING_LABEL = "testingLabel";
+    private static final String EXTRA_TRIAL_TIME = "trialTime";
 
     private static final Logger LOGGER = new Logger();
 
@@ -80,18 +81,7 @@ public abstract class CameraActivity extends Activity implements OnImageAvailabl
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_camera);
-
-        if (getIntent().hasExtra(EXTRA_TESTING)) {
-            Boolean isTesting = getIntent().getBooleanExtra(EXTRA_TESTING, false);
-            LOGGER.i("RECEIVED NOTICE TO QUIT AFTER TEST TIME LIMIT EXPIRES: " + isTesting);
-            ((ClassifierApplication) getApplication()).setTesting(isTesting);
-        }
-
-        if (getIntent().hasExtra(EXTRA_TESTING_LABEL)) {
-            String testingLabel = getIntent().getStringExtra(EXTRA_TESTING_LABEL);
-            LOGGER.i("RECEIVED NOTICE TO USE TESTING LABEL: " + testingLabel);
-            ((ClassifierApplication) getApplication()).setTestingLabel(testingLabel);
-        }
+        initializeTestInstance();
 
         if (hasPermission()) setFragment();
         else requestPermission();
@@ -461,6 +451,53 @@ public abstract class CameraActivity extends Activity implements OnImageAvailabl
         return 0;
     }
   }
+
+    private void initializeTestInstance() {
+        ClassifierApplication app = ((ClassifierApplication) getApplication());
+
+        if (getIntent().hasExtra(EXTRA_TIMED_TEST)) {
+            String rawIsTesting = getIntent().getStringExtra(EXTRA_TIMED_TEST);
+            try {
+                Boolean isTesting = Boolean.parseBoolean(rawIsTesting);
+                LOGGER.i("RECEIVED NOTICE TO QUIT AFTER TEST TIME LIMIT EXPIRES: " + isTesting);
+                app.setTesting(isTesting);
+            } catch (Exception ex) {
+                LOGGER.e(ex, "Something went wrong while trying to parse raw testing string: " + rawIsTesting);
+            }
+        }
+        else LOGGER.i("NO TIMED_TEST RUNTIME PARAM RECEIVED.");
+
+        if (getIntent().hasExtra(EXTRA_TESTING_LABEL)) {
+            String testingLabel = getIntent().getStringExtra(EXTRA_TESTING_LABEL);
+            LOGGER.i("RECEIVED NOTICE TO USE TESTING LABEL: " + testingLabel);
+            app.setTestingLabel(testingLabel);
+        }
+        else LOGGER.i("NO TESTING_LABEL RUNTIME PARAM RECEIVED.");
+
+        if (getIntent().hasExtra(EXTRA_TRIAL_TIME)) {
+            String rawTrialTime = getIntent().getStringExtra(EXTRA_TRIAL_TIME);
+            try {
+                int trialTime = Integer.parseInt(rawTrialTime);
+                app.setTestTime(trialTime);
+                LOGGER.i("RECEIVED NOTICE TO USE TRIAL TIME (IN MINUTES): " + trialTime);
+                LOGGER.i("TEST APP WILL AUTO-FINISH AFTER DELAY (IN MILLIS): " + app.getTestingDelay());
+            } catch (Exception ex) {
+                LOGGER.e(ex, "Something went wrong while trying to parse raw trial time string: " + rawTrialTime);
+            }
+        }
+        else LOGGER.i("NO TRIAL_TIME RUNTIME PARAM RECEIVED.");
+
+        LOGGER.i("SETTING TRIAL TIME FOR: " + app.getTestingDelay() + " MILLIS");
+        if (app.isTesting()) {
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    LOGGER.e("TESTING TIME LIMIT REACHED.");
+                    CameraActivity.this.finishAffinity();
+                }}, app.getTestingDelay());
+        }
+    }
 
   protected abstract void processImage();
 

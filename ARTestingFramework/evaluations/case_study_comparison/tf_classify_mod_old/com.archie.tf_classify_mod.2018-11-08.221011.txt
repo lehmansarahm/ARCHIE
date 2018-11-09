@@ -1,0 +1,104 @@
+--------- beginning of system
+11-08 21:32:22.875  1120  3005 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-08 21:32:22.894  1120  3004 I ActivityManager: Start proc 24126:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-08 21:35:37.141  1120  1138 W ActivityManager: Activity pause timeout for ActivityRecord{8ebb906 u0 com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity t374}
+11-08 21:35:38.584  1120  1626 I ActivityManager: Killing 24126:com.archie.tf_classify_mod/u0a144 (adj 900): remove task
+11-08 21:36:04.122  1120  3004 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=0: from pid 25522
+11-08 21:36:04.218  1120  3004 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity} from uid 2000
+11-08 21:36:04.232  1120  1626 I ActivityManager: Start proc 25533:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-08 21:36:06.730  1120  2991 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=0: from pid 25650
+11-08 21:36:06.730  1120  2991 I ActivityManager: Killing 25533:com.archie.tf_classify_mod/u0a144 (adj 0): stop com.archie.tf_classify_mod
+11-08 21:36:06.731  1120  2991 W ActivityManager: Force removing ActivityRecord{32f97ed u0 com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity t375}: app died, no saved state
+11-08 21:36:06.732  1120  2991 I WindowManager: Failed to capture screenshot of Token{9dc1622 ActivityRecord{32f97ed u0 com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity t375 f}} appWin=Window{46f39cc u0 com.archie.tf_classify_mod/com.archie.tf_classify_mod.archie_mods.ModifiedClassifierActivity} drawState=4
+11-08 21:36:06.770  1120  1131 I WindowManager: WIN DEATH: Window{d2d531e u0 com.archie.tf_classify_mod}
+11-08 21:36:10.077  1120  1131 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-08 21:36:10.097  1120  3004 I ActivityManager: Start proc 25676:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-08 21:38:11.989  1120  1131 W ActivityManager: Invalid packageName: com.archie.tf_classify_mod
+11-08 21:38:37.333  1120  1131 W ActivityManager: Invalid packageName: com.archie.tf_classify_mod
+11-08 21:38:49.109  1120 31013 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=0: from pid 26543
+11-08 21:38:49.109  1120 31013 I ActivityManager: Killing 25676:com.archie.tf_classify_mod/u0a144 (adj 0): stop com.archie.tf_classify_mod
+11-08 21:38:49.113  1120 31013 W ActivityManager: Force removing ActivityRecord{1a397f0 u0 com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity t376}: app died, no saved state
+11-08 21:38:49.116  1120 31013 I WindowManager: Failed to capture screenshot of Token{e930169 ActivityRecord{1a397f0 u0 com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity t376 f}} appWin=Window{397149b u0 com.archie.tf_classify_mod/com.archie.tf_classify_mod.archie_mods.ModifiedClassifierActivity} drawState=4
+11-08 21:38:49.142  1120  1669 I WindowManager: WIN DEATH: Window{ba44795 u0 com.archie.tf_classify_mod}
+11-08 21:39:05.138  1120  1669 W ActivityManager: Invalid packageName: com.archie.tf_classify_mod
+11-08 21:40:03.912  1120  3061 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-08 21:40:03.929  1120 31012 I ActivityManager: Start proc 26599:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-08 21:40:16.313  1120  1669 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=0: from pid 26710
+11-08 21:40:16.313  1120  1669 I ActivityManager: Killing 26599:com.archie.tf_classify_mod/u0a144 (adj 0): stop com.archie.tf_classify_mod
+11-08 21:40:16.313  1120  1669 W ActivityManager: Force removing ActivityRecord{bf25ae4 u0 com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity t377}: app died, no saved state
+11-08 21:40:16.316  1120  1669 I WindowManager: Failed to capture screenshot of Token{e3a5b4d ActivityRecord{bf25ae4 u0 com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity t377 f}} appWin=Window{19c385f u0 com.archie.tf_classify_mod/com.archie.tf_classify_mod.archie_mods.ModifiedClassifierActivity} drawState=4
+11-08 21:40:16.332  1120  3062 I WindowManager: WIN DEATH: Window{280acb9 u0 com.archie.tf_classify_mod}
+11-08 21:40:19.473  1120  1626 W ActivityManager: Invalid packageName: com.archie.tf_classify_mod
+11-08 21:40:31.350  1120 31013 W ActivityManager: Invalid packageName: com.archie.tf_classify_mod
+11-08 21:40:37.484  1120  1396 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=0: from pid 26754
+11-08 21:42:17.934  1120  3062 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-08 21:42:17.955  1120  1626 I ActivityManager: Start proc 26786:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-08 21:43:48.440  1120  3005 W ActivityManager: Invalid packageName: com.archie.tf_classify_mod
+11-08 21:43:48.532  1120  3005 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-08 21:44:04.904  1120  1626 I ActivityManager: Killing 26786:com.archie.tf_classify_mod/u0a144 (adj 900): remove task
+11-08 21:46:05.531  1120  3005 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-08 21:46:05.545  1120  3061 I ActivityManager: Start proc 26989:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-08 21:47:35.957  1120  3061 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=0: from pid 27134
+11-08 21:47:35.957  1120  3061 I ActivityManager: Killing 26989:com.archie.tf_classify_mod/u0a144 (adj 900): stop com.archie.tf_classify_mod
+11-08 21:47:36.012  1120  3005 W ActivityManager: Invalid packageName: com.archie.tf_classify_mod
+11-08 21:47:36.057  1120  3005 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-08 21:47:36.071  1120  3061 I ActivityManager: Start proc 27145:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-08 21:47:47.041  1120  3061 I ActivityManager: Killing 27145:com.archie.tf_classify_mod/u0a144 (adj 200): remove task
+11-08 21:47:47.078  1120  1626 I WindowManager: WIN DEATH: Window{7837a35 u0 com.archie.tf_classify_mod}
+11-08 21:47:47.080  1120  3061 I WindowManager: WIN DEATH: Window{fd7183b u0 com.archie.tf_classify_mod/com.archie.tf_classify_mod.archie_mods.ModifiedClassifierActivity}
+11-08 21:48:07.768  1120  3061 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-08 21:48:07.785  1120  3057 I ActivityManager: Start proc 27290:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-08 21:53:38.375  1120  1626 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=0: from pid 27487
+11-08 21:53:38.375  1120  1626 I ActivityManager: Killing 27290:com.archie.tf_classify_mod/u0a144 (adj 900): stop com.archie.tf_classify_mod
+11-08 21:53:38.464  1120  1601 W ActivityManager: Invalid packageName: com.archie.tf_classify_mod
+11-08 21:53:38.574  1120  3057 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-08 21:53:38.592  1120  1601 I ActivityManager: Start proc 27498:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-08 21:59:09.256  1120  3004 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=0: from pid 27728
+11-08 21:59:09.256  1120  3004 I ActivityManager: Killing 27498:com.archie.tf_classify_mod/u0a144 (adj 900): stop com.archie.tf_classify_mod
+11-08 21:59:09.314  1120  1396 W ActivityManager: Invalid packageName: com.archie.tf_classify_mod
+11-08 21:59:09.392  1120  1396 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-08 21:59:09.410  1120  1641 I ActivityManager: Start proc 27739:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-08 22:04:40.034  1120  1669 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=0: from pid 27963
+11-08 22:04:40.034  1120  1669 I ActivityManager: Killing 27739:com.archie.tf_classify_mod/u0a144 (adj 900): stop com.archie.tf_classify_mod
+11-08 22:04:40.107  1120  1601 W ActivityManager: Invalid packageName: com.archie.tf_classify_mod
+11-08 22:04:40.158  1120  1601 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-08 22:04:40.176  1120  1669 I ActivityManager: Start proc 27974:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-08 22:10:10.819  1120 31012 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=0: from pid 28169
+11-08 22:10:10.819  1120 31012 I ActivityManager: Killing 27974:com.archie.tf_classify_mod/u0a144 (adj 900): stop com.archie.tf_classify_mod
+11-08 22:10:10.885  1120  1130 W ActivityManager: Invalid packageName: com.archie.tf_classify_mod
+11-08 22:10:10.951  1120  1130 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-08 22:10:10.966  1120  2989 I ActivityManager: Start proc 28180:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+--------- beginning of main
+11-08 22:11:08.591 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 616 lines
+11-08 22:11:18.921 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 597 lines
+11-08 22:11:28.934 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 597 lines
+11-08 22:11:38.945 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 597 lines
+11-08 22:11:48.958 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 597 lines
+11-08 22:11:58.969 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 597 lines
+11-08 22:12:08.981 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 597 lines
+11-08 22:12:18.993 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 597 lines
+11-08 22:12:25.914 28180 28185 I chatty  : uid=10144(com.archie.tf_classify_mod) Jit thread pool expire 3 lines
+11-08 22:12:29.004 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 597 lines
+11-08 22:12:39.015 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 597 lines
+11-08 22:12:49.027 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 598 lines
+11-08 22:12:59.055 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 624 lines
+11-08 22:13:09.519 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 605 lines
+11-08 22:13:19.666 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 597 lines
+11-08 22:13:29.678 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 598 lines
+11-08 22:13:39.704 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 598 lines
+11-08 22:13:49.731 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 597 lines
+11-08 22:13:59.742 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 598 lines
+11-08 22:14:09.771 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 597 lines
+11-08 22:14:19.786 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 598 lines
+11-08 22:14:29.812 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 598 lines
+11-08 22:14:39.839 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 597 lines
+11-08 22:14:49.851 28180 28180 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 256 lines
+11-08 22:15:11.730  1120  1138 W ActivityManager: Activity pause timeout for ActivityRecord{13a518a u0 com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity t386 f}
+11-08 22:15:12.353 28180 28180 D tf_classify_mod: ModifiedClassifierActivity: onPause com.archie.tf_classify_mod.archie_mods.ModifiedClassifierActivity@1ae6d11
+11-08 22:15:12.357 28180 28180 D tf_classify_mod: ModifiedClassifierActivity: onStop com.archie.tf_classify_mod.archie_mods.ModifiedClassifierActivity@1ae6d11
+11-08 22:15:12.359 28180 28180 D tf_classify_mod: ModifiedClassifierActivity: onDestroy com.archie.tf_classify_mod.archie_mods.ModifiedClassifierActivity@1ae6d11
+11-08 22:15:12.363 28180 28180 I tf_classify_mod: ClassifierApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_classify_mod/files/20181108_101512_frames.csv
+11-08 22:15:12.449   815   815 I Camera2ClientBase: Closed Camera 0. Client was: com.archie.tf_classify_mod (PID 28180, UID 10144)
+11-08 22:15:12.516 28180 28180 I tf_classify_mod: ClassifierApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_classify_mod/files/20181108_101512_classification.csv
+11-08 22:15:12.518 28180 28180 I tf_classify_mod: ClassifierApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_classify_mod/files/20181108_101512_execSettings.csv
+11-08 22:15:12.758  3044  3234 D BaseStreamManager: Promised remove @ r#8147 for StreamItemIdAndRevision{notifKey=0|android|0|com.android.server.wm.AlertWindowNotification - com.archie.tf_classify_mod|1000, packageName=android, tag=com.android.server.wm.AlertWindowNotification - com.archie.tf_classify_mod, id=0, revision=0, originalRevision=0, updateCount=0} (@8146): SBN removed: StreamItemIdAndRevision{notifKey=0|android|0|com.android.server.wm.AlertWindowNotification - com.archie.tf_classify_mod|1000, packageName=android, tag=com.android.server.wm.AlertWindowNotification - com.archie.tf_classify_mod, id=0, revision=0, originalRevision=0, updateCount=0}

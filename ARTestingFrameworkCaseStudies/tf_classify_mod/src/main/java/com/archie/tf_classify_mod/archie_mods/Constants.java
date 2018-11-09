@@ -11,11 +11,15 @@ public class Constants {
     public static final String PROC_NAME = "TfClassify_Mod";
     public static final String CONFIG_FILENAME = "file:///android_asset/config.json";
 
+    public static final String INPUT_FORMAT_LEGACY = "legacy";
+    public static final String INPUT_FORMAT_CAMERA2 = "camera2";
+
     // ----------------------------------------------------------------------------------------
     //          flags for CLI arguments
     // ----------------------------------------------------------------------------------------
     public static final String EXTRA_TIMED_TEST = "quitAfterTimeLimit";
     public static final String EXTRA_TESTING_LABEL = "testingLabel";
+    public static final String EXTRA_TRIAL_TIME = "trialTime";
 
     // ----------------------------------------------------------------------------------------
     //          permissions settings

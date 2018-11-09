@@ -38,7 +38,7 @@ WAIT_INTERVAL=$2                        # second arg passed in on command line
 
 HEADER="Num,Time (sec),CPU User (%),CPU System (%),Total Mem (kB),Free Mem (kB)"
 PACKAGE_NAMES=""                        # third arg passed in on command line (may not be provided)
-if [ ! -z "$3" ]
+if [[ ! -z "$3" ]]
 then
     PACKAGE_NAMES=$3                    # only set variable if argument provided
     HEADER="$HEADER,Proc Name,Proc ID,Proc CPU,Proc Memory"
@@ -74,7 +74,7 @@ do
     # ------------------------------------------------------------------------------------
     # ------------------------------------------------------------------------------------
 
-    if [ -z "$PACKAGE_NAMES" ]
+    if [[ -z "$PACKAGE_NAMES" ]]
     then
         OUTPUT="$REC_NUM,$TIME_ELAPSED,$CPU_USER,$CPU_SYSTEM,$MEM_TOTAL,$MEM_FREE"
         echo $OUTPUT
@@ -91,7 +91,7 @@ do
             ((PS_COUNTER=0))
             for PS_FIELD in $PS_OUTPUT
             do
-                if [ $PS_COUNTER = $PS_PID_INDEX ]
+                if [[ $PS_COUNTER = $PS_PID_INDEX ]]
                 then
                     CURRENT_PID="$PS_FIELD"
                     break
@@ -100,7 +100,7 @@ do
                 fi
             done
 
-            if [ "$CURRENT_PID" != "$EMPTY_STRING" ]
+            if [[ "$CURRENT_PID" != "$EMPTY_STRING" ]]
             then
 
                 TOP_INTERM_OUTPUT="$(top -n 1 | grep $CURRENT_PID)"
@@ -109,10 +109,10 @@ do
 
                 for TOP_FIELD in $TOP_OUTPUT
                 do
-                    if [ $TOP_COUNTER = $TOP_CPU_INDEX ]
+                    if [[ $TOP_COUNTER = $TOP_CPU_INDEX ]]
                     then
                         CURRENT_CPU="$TOP_FIELD"
-                    elif [ $TOP_COUNTER = $TOP_MEM_INDEX ]
+                    elif [[ $TOP_COUNTER = $TOP_MEM_INDEX ]]
                     then
                         CURRENT_MEMORY=$(echo $TOP_FIELD | cut -d '[' -f 0)
                         break
@@ -133,7 +133,7 @@ do
     CURRENT_TIME=$(date +%s)                            # get current time at end of loop body
     ((LOOP_EXEC_TIME=$CURRENT_TIME-$LAST_RUN_TIME))     # calculate time passed since last loop completion
 
-    if [ $LOOP_EXEC_TIME -lt $WAIT_INTERVAL ]           # "less than" expressed with "-lt" flag
+    if [[ $LOOP_EXEC_TIME -lt $WAIT_INTERVAL ]]           # "less than" expressed with "-lt" flag
     then
         # force the loop to wait for at least the given interval ...
         # if the time to execute took longer than the min interval, skip this part
@@ -144,7 +144,7 @@ do
     ((LAST_RUN_TIME=$(date +%s)))                       # we have now completed a loop of the required time length
     ((TIME_ELAPSED=$LAST_RUN_TIME-$RUN_START_TIME))     # calculate overall time elapsed since script started
 
-    if [ $TIME_ELAPSED -ge $NUM_SECONDS ]               # "greater than or equal to" expressed with "-ge" flag
+    if [[ $TIME_ELAPSED -ge $NUM_SECONDS ]]               # "greater than or equal to" expressed with "-ge" flag
     then
         # if the overall script execution time has passed the required number of seconds,
         # then break the infinite loop

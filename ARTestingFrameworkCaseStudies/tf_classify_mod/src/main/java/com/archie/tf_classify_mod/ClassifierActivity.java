@@ -139,7 +139,6 @@ public class ClassifierActivity extends CameraActivity implements ImageReader.On
             ImageUtils.saveBitmap(croppedBitmap);
         }
 
-        ((ClassifierApplication)getApplication()).onPreprocessComplete();
         runInBackground(
                 new Runnable() {
                     @Override

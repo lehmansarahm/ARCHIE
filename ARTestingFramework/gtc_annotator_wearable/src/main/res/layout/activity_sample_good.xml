@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.wear.widget.BoxInsetLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:id="@+id/background"
+    android:background="@color/goodBackground"
+    tools:context=".wearable.SampleActivity">
+
+    <edu.temple.gtc_annotator.wearable.CircularRatingView
+        app:feedbackType="good"
+        android:layout_width="240dp"
+        android:layout_height="225dp"
+        android:layout_centerInParent="true"/>
+
+</android.support.wear.widget.BoxInsetLayout>

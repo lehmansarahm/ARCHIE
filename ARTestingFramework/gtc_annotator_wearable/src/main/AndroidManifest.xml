@@ -35,6 +35,20 @@
         PLAY SERVICES VERSION -->
 
         <activity
+            android:name=".wearable.SampleActivity"
+            android:label="@string/app_name">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <!-- USING EXPLICIT MESSAGE API LISTENERS INSTEAD OF WEARABLE
+         SERVICE ... ADD WEARABLE ACTION INTENT FILTER DIRECTLY TO ACTION -->
+
+        <!-- <activity
             android:name=".wearable.MainActivity"
             android:label="@string/app_name">
 
@@ -49,10 +63,7 @@
                 <data android:scheme="wear" android:host="*" android:pathPattern=".*" />
             </intent-filter>
 
-            <!-- USING EXPLICIT MESSAGE API LISTENERS INSTEAD OF WEARABLE
-             SERVICE ... ADD WEARABLE ACTION INTENT FILTER DIRECTLY TO ACTION -->
-
-        </activity>
+        </activity> -->
 
         <!-- Custom supporting activities -->
         <activity android:name=".wearable.CollectAnnotationActivity" />

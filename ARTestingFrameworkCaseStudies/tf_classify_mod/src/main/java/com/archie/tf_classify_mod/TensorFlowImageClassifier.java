@@ -130,9 +130,6 @@ public class TensorFlowImageClassifier implements Classifier {
 
   @Override
   public List<Recognition> recognizeImage(Activity currentActivity, final  Bitmap bitmap) {
-    ClassifierApplication app = (ClassifierApplication)currentActivity.getApplication();
-    app.onClassificationStart();
-
     // Log this method so that it can be analyzed with systrace.
     Trace.beginSection("recognizeImage");
 
@@ -187,9 +184,6 @@ public class TensorFlowImageClassifier implements Classifier {
       recognitions.add(pq.poll());
     }
 
-    if (recognitions.size() > 0)
-        app.onClassificationComplete(recognitions.get(0).getTitle(),
-                recognitions.get(0).getConfidence());
     Trace.endSection(); // "recognizeImage"
     return recognitions;
   }

@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.os.SystemClock;
 import android.util.Size;
 
 import com.archie.tf_classify_mod.env.Logger;
@@ -30,11 +29,11 @@ import edu.temple.gtc_core.GtcController;
 
 public class ClassifierApplication extends Application {
 
-    // public static final long TESTING_DELAY = TimeUnit.SECONDS.toMillis(10);
-    public static final long TESTING_DELAY = TimeUnit.MINUTES.toMillis(5);
-
     private static boolean TESTING = true;
     private static String TESTING_LABEL = "roses";
+
+    // private static long TESTING_DELAY = TimeUnit.SECONDS.toMillis(10);
+    private static long TESTING_DELAY = TimeUnit.MINUTES.toMillis(5);
 
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
@@ -105,8 +104,7 @@ public class ClassifierApplication extends Application {
 
     public void onPause(Activity currentActivity) {
         LOGGER.i("Pausing profiles.");
-        GtcController gtc = getGtcController();
-        if (gtc != null) gtc.pauseProfiles();
+        getGtcController().pauseProfiles();
 
         if (!currentActivity.isFinishing()) {
             LOGGER.d("Requesting finish");
@@ -126,8 +124,7 @@ public class ClassifierApplication extends Application {
 
     public void onResume() {
         LOGGER.i("Resuming profiles.");
-        GtcController gtc = getGtcController();
-        if (gtc != null) gtc.resumeProfiles();
+        getGtcController().resumeProfiles();
 
         handlerThread = new HandlerThread("inference");
         handlerThread.start();
@@ -136,8 +133,7 @@ public class ClassifierApplication extends Application {
 
     public boolean onDestroy() {
         try {
-            GtcController gtc = getGtcController();
-            if (gtc != null) gtc.stopServices();
+            getGtcController().stopServices();
             TinyDancer.hide(initContext);
 
             Date currentTime = Calendar.getInstance().getTime();
@@ -165,40 +161,6 @@ public class ClassifierApplication extends Application {
         }
     }
 
-    // --------------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------------
-
-    public void onPreprocessStart() {
-        preprocessStartTime = SystemClock.elapsedRealtimeNanos();
-    }
-
-    public void onPreprocessComplete() {
-        preprocessEndTime = SystemClock.elapsedRealtimeNanos();
-    }
-
-    public void onClassificationStart() {
-        classificationStartTime = SystemClock.elapsedRealtimeNanos();
-    }
-
-    public void onClassificationComplete(String result, float confidence) {
-        // calculate time spent in pre-processing (millis)
-        double preprocessElapsedTime = ((preprocessEndTime - preprocessStartTime) / 1000000.0d);
-
-        // calculate time spent in classification (millis)
-        long classificationEndTime = SystemClock.elapsedRealtimeNanos();
-        double classificationElapsedTime = ((classificationEndTime - classificationStartTime) / 1000000.0d);
-
-        // calculate time spent in overall program execution (seconds)
-        long executionTimeElapsed = calculateExecutionTime();
-
-        // add stats to collection
-        String newClassStats = (executionTimeElapsed + ","
-                + preprocessStartTime + "," + preprocessEndTime + "," + preprocessElapsedTime + ","
-                + classificationStartTime + "," + classificationEndTime + "," + classificationElapsedTime + ","
-                + result + "," + confidence);
-        LOGGER.i("Logging classification stats: " + newClassStats);
-        classificationStats.add(newClassStats);
-    }
 
     public static void runInBackground(final Runnable r) {
         LOGGER.i("Attempting to run task in background.");
@@ -209,9 +171,6 @@ public class ClassifierApplication extends Application {
             }
         }
     }
-
-    // --------------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------------
 
     public AssetManager getAssetManager() {
         synchronized (LOCK) {
@@ -250,6 +209,74 @@ public class ClassifierApplication extends Application {
     public Classifier getClassifier() {
         synchronized (LOCK) {
             return ClassifierApplication.classifier;
+        }
+    }
+
+    // --------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------
+
+    private static Runnable imageConverter;
+
+    public void setImageConverter(Runnable runnable) {
+        synchronized (LOCK) {
+            ClassifierApplication.imageConverter = runnable;
+        }
+    }
+
+    public Runnable getImageConverter() {
+        synchronized (LOCK) {
+            return ClassifierApplication.imageConverter;
+        }
+    }
+
+    // --------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------
+
+    private static int[] rgbBytes = null;
+
+    public void setRgbBytes(int[] bytes) {
+        synchronized (LOCK) {
+            ClassifierApplication.rgbBytes = bytes;
+        }
+    }
+
+    public int[] getRgbBytes() {
+        synchronized (LOCK) {
+            return ClassifierApplication.rgbBytes;
+        }
+    }
+
+    // --------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------
+
+    private static byte[] lastPreviewFrame;
+
+    public void setLastPreviewFrame(byte[] frame) {
+        synchronized (LOCK) {
+            ClassifierApplication.lastPreviewFrame = frame;
+        }
+    }
+
+    public byte[] getLastPreviewFrame() {
+        synchronized (LOCK) {
+            return ClassifierApplication.lastPreviewFrame;
+        }
+    }
+
+    // --------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------
+
+    private static Runnable postInferenceCallback;
+
+    public void setPostInferenceCallback(Runnable runnable) {
+        synchronized (LOCK) {
+            ClassifierApplication.postInferenceCallback = runnable;
+        }
+    }
+
+    public Runnable getPostInferenceCallback() {
+        synchronized (LOCK) {
+            return ClassifierApplication.postInferenceCallback;
         }
     }
 
@@ -331,6 +358,23 @@ public class ClassifierApplication extends Application {
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
 
+    private static int rotation;
+
+    public void setRotation(int rotation) {
+        synchronized (LOCK) {
+            ClassifierApplication.rotation = rotation;
+        }
+    }
+
+    public int getRotation() {
+        synchronized (LOCK) {
+            return ClassifierApplication.rotation;
+        }
+    }
+
+    // --------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------
+
     private static int cameraOrientation;
 
     public void setCameraOrientation(int orientation) {
@@ -357,6 +401,18 @@ public class ClassifierApplication extends Application {
     public void setTestingLabel(String testingLabel) {
         synchronized (LOCK) {
             ClassifierApplication.TESTING_LABEL = testingLabel;
+        }
+    }
+
+    public void setTestTime(int testTime) {
+        synchronized (LOCK) {
+            ClassifierApplication.TESTING_DELAY = TimeUnit.MINUTES.toMillis(testTime);
+        }
+    }
+
+    public long getTestingDelay() {
+        synchronized (LOCK) {
+            return ClassifierApplication.TESTING_DELAY;
         }
     }
 

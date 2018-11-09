@@ -1,0 +1,276 @@
+--------- beginning of system
+11-09 08:30:50.100  1120  1131 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-09 08:30:50.116  1120  1601 I ActivityManager: Start proc 18710:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-09 08:30:50.986  1120  1601 I ActivityManager: Start proc 18743:com.archie.tf_classify_mod:ResourceLoggerService/u0a144 for service com.archie.tf_classify_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-09 08:30:50.997  1120  1601 I ActivityManager: Start proc 18749:com.archie.tf_classify_mod:FrameLoggerService/u0a144 for service com.archie.tf_classify_mod/edu.temple.gtc_core.services.FrameLoggerService
+--------- beginning of crash
+11-09 08:31:53.011 18710 18856 E AndroidRuntime: FATAL EXCEPTION: Timer-2
+11-09 08:31:53.011 18710 18856 E AndroidRuntime: Process: com.archie.tf_classify_mod, PID: 18710
+11-09 08:31:53.011 18710 18856 E AndroidRuntime: java.lang.IllegalStateException: Timer already cancelled.
+11-09 08:31:53.011 18710 18856 E AndroidRuntime: 	at java.util.Timer.sched(Timer.java:397)
+11-09 08:31:53.011 18710 18856 E AndroidRuntime: 	at java.util.Timer.schedule(Timer.java:248)
+11-09 08:31:53.011 18710 18856 E AndroidRuntime: 	at edu.temple.gtc_core.async.AsyncUxCollector$2.run(AsyncUxCollector.java:77)
+11-09 08:31:53.011 18710 18856 E AndroidRuntime: 	at java.util.TimerThread.mainLoop(Timer.java:555)
+11-09 08:31:53.011 18710 18856 E AndroidRuntime: 	at java.util.TimerThread.run(Timer.java:505)
+11-09 08:31:53.033  1120  1139 I ActivityManager: Showing crash dialog for package com.archie.tf_classify_mod u0
+11-09 08:32:10.397  1120  3062 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=0: from pid 18913
+11-09 08:32:10.398  1120  3062 I ActivityManager: Killing 18710:com.archie.tf_classify_mod/u0a144 (adj 900): stop com.archie.tf_classify_mod
+11-09 08:32:10.411  1120  3062 I ActivityManager: Killing 18749:com.archie.tf_classify_mod:FrameLoggerService/u0a144 (adj 200): stop com.archie.tf_classify_mod
+11-09 08:32:10.445  1120  1668 I WindowManager: WIN DEATH: Window{609f95d u0 com.archie.tf_classify_mod}
+11-09 08:32:10.445  1120  3062 I ActivityManager: Killing 18743:com.archie.tf_classify_mod:ResourceLoggerService/u0a144 (adj 200): stop com.archie.tf_classify_mod
+11-09 08:32:10.481  1120  1668 I WindowManager: WIN DEATH: Window{ea32a88 u0 com.archie.tf_classify_mod}
+11-09 08:32:10.482  1120  1131 W ActivityManager: Ignoring remove of inactive process: ProcessRecord{5c1eca 0:com.archie.tf_classify_mod/u0a144}
+11-09 08:32:10.541  1120  1131 W ActivityManager: Invalid packageName: com.archie.tf_classify_mod
+11-09 08:36:19.301  1120  1668 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-09 08:36:19.318  1120 31013 I ActivityManager: Start proc 19003:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-09 08:36:20.191  1120  3062 I ActivityManager: Start proc 19046:com.archie.tf_classify_mod:ResourceLoggerService/u0a144 for service com.archie.tf_classify_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-09 08:36:20.203  1120  3062 I ActivityManager: Start proc 19060:com.archie.tf_classify_mod:FrameLoggerService/u0a144 for service com.archie.tf_classify_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-09 08:41:50.104  1120  1625 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=0: from pid 19379
+11-09 08:41:50.104  1120  1625 I ActivityManager: Killing 19003:com.archie.tf_classify_mod/u0a144 (adj 900): stop com.archie.tf_classify_mod
+11-09 08:41:50.107  1120  1625 I ActivityManager: Killing 19060:com.archie.tf_classify_mod:FrameLoggerService/u0a144 (adj 200): stop com.archie.tf_classify_mod
+11-09 08:41:50.109  1120  1625 I ActivityManager: Killing 19046:com.archie.tf_classify_mod:ResourceLoggerService/u0a144 (adj 200): stop com.archie.tf_classify_mod
+11-09 08:41:50.141  1120  1396 I WindowManager: WIN DEATH: Window{9111bc8 u0 com.archie.tf_classify_mod}
+11-09 08:41:50.157  1120  1668 I WindowManager: WIN DEATH: Window{756759d u0 com.archie.tf_classify_mod}
+11-09 08:41:50.176  1120  2989 W ActivityManager: Invalid packageName: com.archie.tf_classify_mod
+11-09 08:41:50.212  1120  2989 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-09 08:41:50.226  1120  1668 I ActivityManager: Start proc 19390:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-09 08:41:51.091  1120  1641 I ActivityManager: Start proc 19430:com.archie.tf_classify_mod:ResourceLoggerService/u0a144 for service com.archie.tf_classify_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-09 08:41:51.107  1120  2989 I ActivityManager: Start proc 19439:com.archie.tf_classify_mod:FrameLoggerService/u0a144 for service com.archie.tf_classify_mod/edu.temple.gtc_core.services.FrameLoggerService
+--------- beginning of main
+11-09 08:45:59.710 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:45:59.710 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 108 lines
+11-09 08:46:00.599 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 55 lines
+11-09 08:46:00.614 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 61 lines
+11-09 08:46:00.616 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:00.777 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 57 lines
+11-09 08:46:01.518 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 63 lines
+11-09 08:46:01.521 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 53 lines
+11-09 08:46:01.521 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 55 lines
+11-09 08:46:01.522 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 107 lines
+11-09 08:46:02.411 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:02.411 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 53 lines
+11-09 08:46:02.422 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 64 lines
+11-09 08:46:02.578 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 57 lines
+11-09 08:46:03.299 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 55 lines
+11-09 08:46:03.316 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:03.326 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:03.327 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 126 lines
+11-09 08:46:04.222 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:04.222 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:04.222 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 54 lines
+11-09 08:46:04.350 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 57 lines
+11-09 08:46:05.127 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:05.127 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:05.134 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 64 lines
+11-09 08:46:05.144 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 107 lines
+11-09 08:46:06.033 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:06.033 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:06.070 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 64 lines
+11-09 08:46:06.134 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 64 lines
+11-09 08:46:06.938 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 52 lines
+11-09 08:46:06.938 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 52 lines
+11-09 08:46:06.938 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 52 lines
+11-09 08:46:06.940 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 127 lines
+11-09 08:46:07.810 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:07.810 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:07.810 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 54 lines
+11-09 08:46:08.017 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 56 lines
+11-09 08:46:08.714 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 65 lines
+11-09 08:46:08.716 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:08.716 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:08.716 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 107 lines
+11-09 08:46:09.618 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 66 lines
+11-09 08:46:09.621 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 53 lines
+11-09 08:46:09.622 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:09.788 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 57 lines
+11-09 08:46:10.511 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 54 lines
+11-09 08:46:10.511 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:10.522 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 62 lines
+11-09 08:46:10.527 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 105 lines
+11-09 08:46:11.416 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 53 lines
+11-09 08:46:11.416 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 55 lines
+11-09 08:46:11.426 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 62 lines
+11-09 08:46:11.515 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 57 lines
+11-09 08:46:12.289 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 53 lines
+11-09 08:46:12.296 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 66 lines
+11-09 08:46:12.305 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 52 lines
+11-09 08:46:12.305 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 106 lines
+11-09 08:46:13.178 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:13.178 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:13.201 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 61 lines
+11-09 08:46:13.224 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 63 lines
+11-09 08:46:14.069 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 63 lines
+11-09 08:46:14.083 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 51 lines
+11-09 08:46:14.083 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 51 lines
+11-09 08:46:14.083 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 103 lines
+11-09 08:46:14.928 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 29 lines
+11-09 08:46:14.939 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 52 lines
+11-09 08:46:14.939 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 52 lines
+11-09 08:46:14.939 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 131 lines
+11-09 08:46:15.811 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 52 lines
+11-09 08:46:15.811 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 52 lines
+11-09 08:46:15.811 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 52 lines
+11-09 08:46:15.972 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 57 lines
+11-09 08:46:16.680 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 61 lines
+11-09 08:46:16.683 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 54 lines
+11-09 08:46:16.683 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:16.683 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 106 lines
+11-09 08:46:17.584 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 64 lines
+11-09 08:46:17.589 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 52 lines
+11-09 08:46:17.589 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 53 lines
+11-09 08:46:17.715 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 57 lines
+11-09 08:46:18.461 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:18.461 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:18.478 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 53 lines
+11-09 08:46:18.521 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 124 lines
+11-09 08:46:19.367 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:19.367 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 53 lines
+11-09 08:46:19.367 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 54 lines
+11-09 08:46:19.504 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 57 lines
+11-09 08:46:20.255 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 53 lines
+11-09 08:46:20.272 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 53 lines
+11-09 08:46:20.272 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 52 lines
+11-09 08:46:20.295 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 124 lines
+11-09 08:46:21.144 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 52 lines
+11-09 08:46:21.144 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 52 lines
+11-09 08:46:21.161 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 53 lines
+11-09 08:46:21.196 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 28 lines
+11-09 08:46:21.286 19708 19708 I chatty  : uid=10144(com.archie.tf_classify_mod) top expire 2 lines
+11-09 08:46:21.573 19430 19707 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 3 lines
+11-09 08:46:22.003 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 64 lines
+11-09 08:46:22.016 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 53 lines
+11-09 08:46:22.016 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 53 lines
+11-09 08:46:22.016 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 53 lines
+11-09 08:46:22.026 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 62 lines
+11-09 08:46:22.905 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 62 lines
+11-09 08:46:22.905 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 52 lines
+11-09 08:46:22.905 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 52 lines
+11-09 08:46:22.906 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 106 lines
+11-09 08:46:23.767 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 28 lines
+11-09 08:46:23.775 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 62 lines
+11-09 08:46:23.777 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:23.777 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 108 lines
+11-09 08:46:24.671 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 26 lines
+11-09 08:46:24.679 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 64 lines
+11-09 08:46:24.683 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:24.683 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 108 lines
+11-09 08:46:25.585 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 27 lines
+11-09 08:46:25.589 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:25.589 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:25.615 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 124 lines
+11-09 08:46:26.484 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 33 lines
+11-09 08:46:26.494 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 52 lines
+11-09 08:46:26.494 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 52 lines
+11-09 08:46:26.494 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 107 lines
+11-09 08:46:27.363 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 24 lines
+11-09 08:46:27.367 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 55 lines
+11-09 08:46:27.367 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 55 lines
+11-09 08:46:27.389 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 126 lines
+11-09 08:46:28.276 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 34 lines
+11-09 08:46:28.289 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 53 lines
+11-09 08:46:28.289 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 52 lines
+11-09 08:46:28.289 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 107 lines
+11-09 08:46:29.161 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 54 lines
+11-09 08:46:29.164 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 63 lines
+11-09 08:46:29.178 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 53 lines
+11-09 08:46:29.380 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 57 lines
+11-09 08:46:30.067 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:30.067 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 54 lines
+11-09 08:46:30.067 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 66 lines
+11-09 08:46:30.084 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 106 lines
+11-09 08:46:30.958 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 63 lines
+11-09 08:46:30.973 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 53 lines
+11-09 08:46:30.974 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 55 lines
+11-09 08:46:31.137 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 57 lines
+11-09 08:46:31.861 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 54 lines
+11-09 08:46:31.861 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:31.861 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 53 lines
+11-09 08:46:31.875 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 126 lines
+11-09 08:46:32.750 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 55 lines
+11-09 08:46:32.767 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 55 lines
+11-09 08:46:32.767 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 54 lines
+11-09 08:46:32.830 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 57 lines
+11-09 08:46:33.673 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 54 lines
+11-09 08:46:33.673 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:33.683 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 64 lines
+11-09 08:46:33.690 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 106 lines
+11-09 08:46:34.568 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 35 lines
+11-09 08:46:34.579 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 53 lines
+11-09 08:46:34.579 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 53 lines
+11-09 08:46:34.585 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 124 lines
+11-09 08:46:35.467 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 53 lines
+11-09 08:46:35.467 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 53 lines
+11-09 08:46:35.467 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 53 lines
+11-09 08:46:35.648 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 57 lines
+11-09 08:46:36.345 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 66 lines
+11-09 08:46:36.357 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 53 lines
+11-09 08:46:36.357 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 53 lines
+11-09 08:46:36.357 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 106 lines
+11-09 08:46:37.231 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 63 lines
+11-09 08:46:37.245 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 53 lines
+11-09 08:46:37.246 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 53 lines
+11-09 08:46:37.397 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 57 lines
+11-09 08:46:38.134 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 63 lines
+11-09 08:46:38.134 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:38.134 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:38.134 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 107 lines
+11-09 08:46:39.039 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:39.039 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:39.071 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 62 lines
+11-09 08:46:39.206 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 57 lines
+11-09 08:46:39.945 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:39.945 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 54 lines
+11-09 08:46:39.945 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:39.974 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 122 lines
+11-09 08:46:40.851 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 56 lines
+11-09 08:46:40.851 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:40.851 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:40.996 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 57 lines
+11-09 08:46:41.756 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:41.756 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 53 lines
+11-09 08:46:41.757 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 53 lines
+11-09 08:46:41.757 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 126 lines
+11-09 08:46:42.645 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 55 lines
+11-09 08:46:42.645 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:42.662 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:42.746 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 56 lines
+11-09 08:46:43.551 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 55 lines
+11-09 08:46:43.555 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 64 lines
+11-09 08:46:43.568 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:43.568 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 108 lines
+11-09 08:46:44.459 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 64 lines
+11-09 08:46:44.473 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:44.473 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:44.491 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 58 lines
+11-09 08:46:45.379 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 54 lines
+11-09 08:46:45.379 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 54 lines
+11-09 08:46:45.381 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:45.396 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 126 lines
+11-09 08:46:46.269 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 35 lines
+11-09 08:46:46.284 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 53 lines
+11-09 08:46:46.284 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 53 lines
+11-09 08:46:46.284 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 105 lines
+11-09 08:46:47.161 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 70 lines
+11-09 08:46:47.173 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 52 lines
+11-09 08:46:47.173 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 52 lines
+11-09 08:46:47.331 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 56 lines
+11-09 08:46:48.045 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 55 lines
+11-09 08:46:48.045 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 55 lines
+11-09 08:46:48.046 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 55 lines
+11-09 08:46:48.143 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 128 lines
+11-09 08:46:48.968 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 54 lines
+11-09 08:46:48.968 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 53 lines
+11-09 08:46:48.968 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 53 lines
+11-09 08:46:49.036 19390 19411 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 57 lines
+11-09 08:46:49.857 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 63 lines
+11-09 08:46:49.857 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 55 lines
+11-09 08:46:49.874 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 63 lines
+11-09 08:46:49.881 19390 19412 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 46 lines
+11-09 08:46:50.914 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 115 lines
+11-09 08:46:50.914 19390 19390 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 25 lines
+11-09 08:46:50.930 19430 19430 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 240 lines
+11-09 08:46:50.950  3044  3234 D BaseStreamManager: Promised remove @ r#8278 for StreamItemIdAndRevision{notifKey=0|com.archie.tf_classify_mod|543|null|10144, packageName=com.archie.tf_classify_mod, id=543, revision=0, originalRevision=0, updateCount=0} (@8277): SBN removed: StreamItemIdAndRevision{notifKey=0|com.archie.tf_classify_mod|543|null|10144, packageName=com.archie.tf_classify_mod, id=543, revision=0, originalRevision=0, updateCount=0}
+11-09 08:46:50.960  3044  3234 D BaseStreamManager: Promised remove @ r#8279 for StreamItemIdAndRevision{notifKey=0|com.archie.tf_classify_mod|643|null|10144, packageName=com.archie.tf_classify_mod, id=643, revision=0, originalRevision=0, updateCount=0} (@8278): SBN removed: StreamItemIdAndRevision{notifKey=0|com.archie.tf_classify_mod|643|null|10144, packageName=com.archie.tf_classify_mod, id=643, revision=0, originalRevision=0, updateCount=0}
+11-09 08:46:51.056   815  6448 I Camera2ClientBase: Closed Camera 0. Client was: com.archie.tf_classify_mod (PID 19390, UID 10144)
+11-09 08:46:51.469  3044  3234 D BaseStreamManager: Promised remove @ r#8281 for StreamItemIdAndRevision{notifKey=0|android|0|com.android.server.wm.AlertWindowNotification - com.archie.tf_classify_mod|1000, packageName=android, tag=com.android.server.wm.AlertWindowNotification - com.archie.tf_classify_mod, id=0, revision=0, originalRevision=0, updateCount=0} (@8280): SBN removed: StreamItemIdAndRevision{notifKey=0|android|0|com.android.server.wm.AlertWindowNotification - com.archie.tf_classify_mod|1000, packageName=android, tag=com.android.server.wm.AlertWindowNotification - com.archie.tf_classify_mod, id=0, revision=0, originalRevision=0, updateCount=0}
+11-09 08:46:52.776 19439 19439 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 126 lines

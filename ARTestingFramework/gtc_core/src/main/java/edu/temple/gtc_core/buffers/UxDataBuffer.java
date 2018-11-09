@@ -8,7 +8,7 @@ import edu.temple.gtc_core.utils.Constants;
 public class UxDataBuffer {
 
     private static final String UX_HEADER = "Timestamp,UxResult";
-    private static final String UX_FILENAME = "UxResults.txt";
+    private static final String UX_FILENAME = "UxResults.csv";
 
     private static Context context;
     private static StatsMap uxStatsMap;

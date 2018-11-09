@@ -24,11 +24,11 @@ import java.util.concurrent.TimeUnit;
 
 public class ClassifierApplication extends Application {
 
-    // public static final long TESTING_DELAY = TimeUnit.SECONDS.toMillis(10);
-    public static final long TESTING_DELAY = TimeUnit.MINUTES.toMillis(5);
-
     private static boolean TESTING = true;
     private static String TESTING_LABEL = "roses";
+
+    // private static long TESTING_DELAY = TimeUnit.SECONDS.toMillis(10);
+    private static long TESTING_DELAY = TimeUnit.MINUTES.toMillis(5);
 
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
@@ -169,9 +169,27 @@ public class ClassifierApplication extends Application {
         }
     }
 
+    public boolean isTesting() {
+        synchronized (LOCK) {
+            return ClassifierApplication.TESTING;
+        }
+    }
+
     public void setTestingLabel(String testingLabel) {
         synchronized (LOCK) {
             ClassifierApplication.TESTING_LABEL = testingLabel;
+        }
+    }
+
+    public void setTestTime(int testTime) {
+        synchronized (LOCK) {
+            ClassifierApplication.TESTING_DELAY = TimeUnit.MINUTES.toMillis(testTime);
+        }
+    }
+
+    public long getTestingDelay() {
+        synchronized (LOCK) {
+            return ClassifierApplication.TESTING_DELAY;
         }
     }
 

@@ -92,47 +92,42 @@ public class ImageUtils {
     }
   }
 
-  // This value is 2 ^ 18 - 1, and is used to clamp the RGB values before their ranges
-  // are normalized to eight bits.
-  static final int kMaxChannelValue = 262143;
+    // This value is 2 ^ 18 - 1, and is used to clamp the RGB values before their ranges
+    // are normalized to eight bits.
+    static final int kMaxChannelValue = 262143;
 
-  // Always prefer the native implementation if available.
-  private static boolean useNativeConversion = true;
+    // Always prefer the native implementation if available.
+    private static boolean useNativeConversion = true;
 
-  public static void convertYUV420SPToARGB8888(
-      byte[] input,
-      int width,
-      int height,
-      int[] output) {
-    if (useNativeConversion) {
-      try {
-        ImageUtils.convertYUV420SPToARGB8888(input, output, width, height, false);
-        return;
-      } catch (UnsatisfiedLinkError e) {
-        LOGGER.w(
-            "Native YUV420SP -> RGB implementation not found, falling back to Java implementation");
-        useNativeConversion = false;
-      }
-    }
-
-    // Java implementation of YUV420SP to ARGB8888 converting
-    final int frameSize = width * height;
-    for (int j = 0, yp = 0; j < height; j++) {
-      int uvp = frameSize + (j >> 1) * width;
-      int u = 0;
-      int v = 0;
-
-      for (int i = 0; i < width; i++, yp++) {
-        int y = 0xff & input[yp];
-        if ((i & 1) == 0) {
-          v = 0xff & input[uvp++];
-          u = 0xff & input[uvp++];
+    public static void convertYUV420SPToARGB8888(byte[] input, int width, int height, int[] output) {
+        if (useNativeConversion) {
+            try {
+                ImageUtils.convertYUV420SPToARGB8888(input, output, width, height, false);
+                return;
+            } catch (UnsatisfiedLinkError e) {
+                LOGGER.w("Native YUV420SP -> RGB implementation not found, "
+                        + "falling back to Java implementation");
+                useNativeConversion = false;
+            }
         }
 
-        output[yp] = YUV2RGB(y, u, v);
-      }
+        // Java implementation of YUV420SP to ARGB8888 converting
+        final int frameSize = width * height;
+        for (int j = 0, yp = 0; j < height; j++) {
+            int uvp = frameSize + (j >> 1) * width;
+            int u = 0;
+            int v = 0;
+
+            for (int i = 0; i < width; i++, yp++) {
+                int y = 0xff & input[yp];
+                if ((i & 1) == 0) {
+                    v = 0xff & input[uvp++];
+                    u = 0xff & input[uvp++];
+                }
+                output[yp] = YUV2RGB(y, u, v);
+            }
+        }
     }
-  }
 
   private static int YUV2RGB(int y, int u, int v) {
     // Adjust and check YUV values

@@ -9,7 +9,7 @@ public class ClassificationResultBuffer {
 
     private static final String CLASS_HEADER = "Timestamp,Attempt No,Result,"
             + "Time to Preprocess (millis),Time to Classify (millis)";
-    private static final String CLASS_FILENAME = "ClassificationResults.txt";
+    private static final String CLASS_FILENAME = "ClassificationResults.csv";
 
     private static Context context;
     private static StatsMap classificationStatsMap;

@@ -26,4 +26,7 @@
     <color name="annotationBackground">#d12164</color>
     <color name="annotationText">#fff</color>
 
+    <color name="goodBackground">#188e26</color>
+    <color name="badBackground">#961647</color>
+
 </resources>

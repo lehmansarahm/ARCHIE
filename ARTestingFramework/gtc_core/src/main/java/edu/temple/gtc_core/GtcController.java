@@ -101,7 +101,8 @@ public class GtcController implements ITesterCommListener {
     // --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
 
 
-    public GtcController(Activity currentActivity, int pid, String procName, String configFilename) {
+    public GtcController(Activity currentActivity, int pid, String procName,
+                         String configFilename) throws Exception {
         Log.d(Constants.TAG, "\n\nGTC Controller initialized with PID: " + pid);
         mTestAppActivity = currentActivity;
         mTestAppContext = currentActivity.getApplicationContext();
@@ -109,6 +110,11 @@ public class GtcController implements ITesterCommListener {
         mTestAppName = procName;
 
         mConfigFileReader = ConfigFileReader.create(mTestAppContext, configFilename);
+        if (mConfigFileReader == null) {
+            throw new Exception("Null config file reader!  "
+                    + "Have you double checked the file name and content structure?");
+        }
+
         mClassController = new ClassifierController(mConfigFileReader.getClassifiers());
         mProfileController = new ProfileController(currentActivity,
                 mConfigFileReader.getConfigurationProfiles(),
