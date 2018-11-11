@@ -1,4 +1,4 @@
-package com.archie.tf_speech_mod.archie_mods;
+package com.archie.tf_speech_mod;
 
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
@@ -15,9 +15,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.archie.tf_speech_mod.R;
-import com.archie.tf_speech_mod.RecognizeCommands;
-import com.archie.tf_speech_mod.SpeechApplication;
 import com.archie.tf_speech_mod.env.Logger;
 
 import org.tensorflow.contrib.android.TensorFlowInferenceInterface;
@@ -29,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class ModifiedSpeechActivity extends Activity {
+public class SpeechActivity extends Activity {
 
     private static final String EXTRA_TIMED_TEST = "quitAfterTimeLimit";
     private static final String EXTRA_TESTING_LABEL = "testingLabel";
@@ -185,7 +182,7 @@ public class ModifiedSpeechActivity extends Activity {
                 @Override
                 public void run() {
                     LOGGER.e("TESTING TIME LIMIT REACHED.");
-                    ModifiedSpeechActivity.this.finishAffinity();
+                    SpeechActivity.this.finishAffinity();
                 }}, app.getTestingDelay());
         }
     }
@@ -392,7 +389,7 @@ public class ModifiedSpeechActivity extends Activity {
                         final View labelView = labelsListView.getChildAt(labelIndex - 2);
 
                         AnimatorSet colorAnimation = (AnimatorSet) AnimatorInflater.loadAnimator(
-                                ModifiedSpeechActivity.this, R.animator.color_animation);
+                                SpeechActivity.this, R.animator.color_animation);
                         colorAnimation.setTarget(labelView);
                         colorAnimation.start();
                     }
