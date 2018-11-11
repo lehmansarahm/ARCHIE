@@ -5,9 +5,11 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 
@@ -28,6 +30,7 @@ public class CircularRatingView extends View {
 
     private static final int BAD = 0, GOOD = 1;
     private int feedbackType;
+    private int rating;
 
     public CircularRatingView(Context context) {
         super(context);
@@ -48,6 +51,7 @@ public class CircularRatingView extends View {
                 R.styleable.CircularRatingView,0, 0);
         try {
             feedbackType = a.getInt(R.styleable.CircularRatingView_feedbackType, GOOD);
+            rating = a.getInt(R.styleable.CircularRatingView_rating, 0);
         } finally {
             a.recycle();
         }
@@ -72,6 +76,7 @@ public class CircularRatingView extends View {
 
         prepCanvas();
         drawCenter(canvas);
+        drawRating(canvas);
         drawNumerals(canvas);
 
         postInvalidateDelayed(500);
@@ -80,23 +85,10 @@ public class CircularRatingView extends View {
 
     private void prepCanvas() {
         paint.reset();
-        paint.setColor(getResources().getColor(android.R.color.white));
+        paint.setColor(Color.WHITE);
         paint.setStrokeWidth(5);
         paint.setStyle(Paint.Style.STROKE);
         paint.setAntiAlias(true);
-    }
-
-    private void drawNumerals(Canvas canvas) {
-        paint.setTextSize(fontSize);
-
-        for (int number : numbers) {
-            String tmp = String.valueOf(number);
-            paint.getTextBounds(tmp, 0, tmp.length(), rect);
-            double angle = Math.PI / (numbers.length / 2) * (number - 3);
-            int x = (int) (width / 2 + Math.cos(angle) * radius - rect.width() / 2);
-            int y = (int) (height / 2 + Math.sin(angle) * radius + rect.height() / 2);
-            canvas.drawText(tmp, x, y, paint);
-        }
     }
 
     private void drawCenter(Canvas canvas) {
@@ -114,6 +106,34 @@ public class CircularRatingView extends View {
         int size = 45, radius = (size / 2);
         int centerX = (width / 2), centerY = (height / 2);
         canvas.drawBitmap(b, (centerX - radius - 5), (centerY - radius - 5), paint);
+    }
+
+    private void drawRating(Canvas canvas) {
+        if (rating != 0) {
+            for (double i = 1; i <= rating; i += 0.005) {
+                double angle = Math.PI / (numbers.length / 2) * (i - 3);
+                int x = (int) (width / 2 + Math.cos(angle) * radius - rect.width() / 2);
+                int y = (int) (height / 2 + Math.sin(angle) * radius + rect.height() / 2);
+                canvas.drawCircle(x + 10, y - 7, 20, paint);
+            }
+        }
+    }
+
+    private void drawNumerals(Canvas canvas) {
+        paint.setTextSize(fontSize);
+        paint.setColor(Color.BLACK);
+
+        for (int number : numbers) {
+            if (number > rating)
+                paint.setColor(Color.WHITE);
+
+            String tmp = String.valueOf(number);
+            paint.getTextBounds(tmp, 0, tmp.length(), rect);
+            double angle = Math.PI / (numbers.length / 2) * (number - 3);
+            int x = (int) (width / 2 + Math.cos(angle) * radius - rect.width() / 2);
+            int y = (int) (height / 2 + Math.sin(angle) * radius + rect.height() / 2);
+            canvas.drawText(tmp, x, y, paint);
+        }
     }
 
 }

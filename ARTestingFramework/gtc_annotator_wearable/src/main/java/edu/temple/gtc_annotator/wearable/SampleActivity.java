@@ -7,7 +7,7 @@ import edu.temple.gtc_annotator.R;
 
 public class SampleActivity extends WearableActivity {
 
-    private static final Boolean TESTING_BAD_SAMPLE = false;
+    private static final Boolean TESTING_BAD_SAMPLE = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

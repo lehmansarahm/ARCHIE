@@ -4,5 +4,6 @@
             <enum name="bad" value="0"/>
             <enum name="good" value="1"/>
         </attr>
+        <attr name="rating" format="integer" />
     </declare-styleable>
 </resources>
