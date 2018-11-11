@@ -25,8 +25,8 @@ INCLUDE_UI_TESTS=${TRUE}
 INCLUDE_RESOURCE_TESTS=${TRUE}
 
 PACKAGE_NAME="com.archie"
-PROJECT_NAMES=('tf_classify_mod') # 'tf_speech' 'tf_speech_mod')
-ACTIVITY_NAMES=('archie_mods.ModifiedClassifierActivity') # 'SpeechActivity' 'SpeechActivity')
+PROJECT_NAMES=('tf_speech') # ('tf_classify' 'tf_classify_mod' 'tf_speech' 'tf_speech_mod')
+ACTIVITY_NAMES=('SpeechActivity') # ('ClassifierActivity' 'archie_mods.ModifiedClassifierActivity' 'SpeechActivity' 'archie_mods.SpeechActivity')
 TEST_LABEL="noTarget"
 
 ANDROID_DATA_DIR="/storage/self/primary/Android/data"

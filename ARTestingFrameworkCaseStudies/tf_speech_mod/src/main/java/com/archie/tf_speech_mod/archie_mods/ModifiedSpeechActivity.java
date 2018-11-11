@@ -139,12 +139,17 @@ public class ModifiedSpeechActivity extends Activity {
 
     private void initializeGtcController() {
         LOGGER.i("All permissions received!  Initializing GTC Controller.");
-        GtcController gtcController = new GtcController(ModifiedSpeechActivity.this,
-                android.os.Process.myPid(), Constants.PROC_NAME, Constants.CONFIG_FILENAME);
-        ((SpeechApplication)getApplication()).setGtcController(gtcController);
+        try {
+            GtcController gtcController = new GtcController(ModifiedSpeechActivity.this,
+                    android.os.Process.myPid(), Constants.PROC_NAME, Constants.CONFIG_FILENAME);
+            ((SpeechApplication) getApplication()).setGtcController(gtcController);
 
-        // NOTE!!  Don't need to start GTC Services because our configuration profile takes care of
-        // that for us, once all of the necessary sensors are initialized
+            // NOTE!!  Don't need to start GTC Services because our configuration profile takes care of
+            // that for us, once all of the necessary sensors are initialized
+        } catch (Exception ex) {
+            LOGGER.e("Unable to create new GTC Controller instance!  Exception message: \n\t"
+                    + ex.getMessage());
+        }
     }
 
     public synchronized void startRecording() {
