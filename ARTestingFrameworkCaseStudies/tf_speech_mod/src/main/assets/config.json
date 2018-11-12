@@ -1,9 +1,9 @@
 {
   "async_anno_settings" : { "denomination" : "Minutes", "interval" : 2, "default_label" : "daisy" },
   "async_ux_settings" : { "denomination" : "Minutes", "interval" : 2 },
-  "classifiers" : [ "com.archie.tf_speech_mod.archie_mods.ArchieOpenCvClassifier" ],
-  "configuration_profiles" : [ "com.archie.tf_speech_mod.archie_mods.ArchieOpenCvConfigProfile" ],
-  "interaction_profiles" : [ "com.archie.tf_speech_mod.archie_mods.ArchieOpenCvInteractionProfile" ],
+  "classifiers" : [ "com.archie.tf_speech_mod.archie_mods.ArchieSpeechClassifier" ],
+  "configuration_profiles" : [ "com.archie.tf_speech_mod.archie_mods.ArchieSpeechConfigProfile" ],
+  "interaction_profiles" : [ "com.archie.tf_speech_mod.archie_mods.ArchieSpeechInteractionProfile" ],
   "hardware_profiles" : [
     { "name" : "high_resource", "allowable_cpu_percentage" : 100 }
   ]

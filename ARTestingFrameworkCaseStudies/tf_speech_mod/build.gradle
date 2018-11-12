@@ -28,5 +28,6 @@ dependencies {
 
     implementation 'org.tensorflow:tensorflow-android:+'
     implementation 'com.github.brianPlummer:tinydancer:0.1.2'
+    implementation 'com.google.code.gson:gson:2.8.2'
     implementation project(':archie')
 }

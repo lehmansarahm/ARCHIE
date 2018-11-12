@@ -322,6 +322,7 @@ public class ArchieTfClassifier implements IClassifier {
 
         // Let the GTC Controller know we're done pre-processing, and are ready to classify
         map.put(BUNDLE_KEY_PREPROCESSED_OUTPUT, croppedBitmap);
+        map.put("bundle_key_preprocessed_format", "Bitmap");
         app.getGtcController().onClassifierPreprocessComplete(map);
     }
 

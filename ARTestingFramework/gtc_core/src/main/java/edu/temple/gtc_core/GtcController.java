@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 import edu.temple.gtc_core.async.AsyncAnnoCollector;
 import edu.temple.gtc_core.async.AsyncUxCollector;
+import edu.temple.gtc_core.buffers.AudioBuffer;
 import edu.temple.gtc_core.buffers.CameraFrameBuffer;
 import edu.temple.gtc_core.buffers.ClassificationResultBuffer;
 import edu.temple.gtc_core.buffers.UxDataBuffer;
@@ -79,6 +80,7 @@ public class GtcController implements ITesterCommListener {
     private static Intent mCommIntent = CommunicatorConnection.getDefaultIntent();
     // --------------------------------------------------------------------------------
 
+    private static AudioBuffer audioBuffer;
     private static CameraFrameBuffer cameraFrameBuffer;
     private static ClassificationResultBuffer classResultBuffer;
     private static UxDataBuffer uxDataBuffer;
@@ -127,6 +129,9 @@ public class GtcController implements ITesterCommListener {
         mCommConnection.initialize(mTestAppContext, mCommIntent);
         mResLogConnection.initialize(mTestAppContext);
         mFrameLogConnection.initialize(mTestAppContext);
+
+        audioBuffer = new AudioBuffer();
+        audioBuffer.initializeBuffer(mTestAppContext);
 
         cameraFrameBuffer = new CameraFrameBuffer();
         cameraFrameBuffer.initializeBuffer(mTestAppContext);
@@ -186,6 +191,9 @@ public class GtcController implements ITesterCommListener {
             mCommConnection.unbind();
             mResLogConnection.stopService();
             mFrameLogConnection.stopService();
+
+            Log.d(Constants.TAG, "Writing audio results to file.");
+            audioBuffer.dumpBuffer("audio");
 
             Log.d(Constants.TAG, "Writing UX results to file.");
             uxDataBuffer.dumpBuffer();
@@ -274,9 +282,16 @@ public class GtcController implements ITesterCommListener {
         }
 
         // buffer any input data that the classifier may be using
-        if (preprocessOutput.containsKey(Constants.BUNDLE_KEY_PREPROCESSED_OUTPUT)) {
-            Bitmap preprocessImage = (Bitmap) preprocessOutput.get(Constants.BUNDLE_KEY_PREPROCESSED_OUTPUT);
-            cameraFrameBuffer.insert(preprocessImage, "PLACEHOLDER");
+        if (preprocessOutput.containsKey(Constants.BUNDLE_KEY_PREPROCESSED_OUTPUT) &&
+                preprocessOutput.containsKey(Constants.BUNDLE_KEY_PREPROCESSED_FORMAT)) {
+            String format = preprocessOutput.get(Constants.BUNDLE_KEY_PREPROCESSED_FORMAT).toString();
+            if (format.equals(Constants.PREPROCESSED_FORMAT.Bitmap.toString())) {
+                Bitmap preprocessImage = (Bitmap) preprocessOutput.get(Constants.BUNDLE_KEY_PREPROCESSED_OUTPUT);
+                cameraFrameBuffer.insert(preprocessImage, "PLACEHOLDER");
+            } else if (format.equals(Constants.PREPROCESSED_FORMAT.FloatArray.toString())) {
+                float[] audioSnippet = (float[]) preprocessOutput.get(Constants.BUNDLE_KEY_PREPROCESSED_OUTPUT);
+                audioBuffer.insert(audioSnippet, "PLACEHOLDER");
+            }
         }
 
         IClassifier currentClassifier = mClassController.getCurrentClassifier();

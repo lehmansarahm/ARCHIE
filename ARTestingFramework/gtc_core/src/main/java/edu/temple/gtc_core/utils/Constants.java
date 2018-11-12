@@ -13,9 +13,14 @@ public class Constants {
 
     public static final String BUNDLE_KEY_PREVIEW_DATA = "bundle_key_preview_data";
     public static final String BUNDLE_KEY_PREVIEW_FORMAT = "bundle_key_preview_format";
+
     public static final String BUNDLE_KEY_PREPROCESSED_OUTPUT = "bundle_key_preprocessed_output";
+    public static final String BUNDLE_KEY_PREPROCESSED_FORMAT = "bundle_key_preprocessed_format";
+    public enum PREPROCESSED_FORMAT { Bitmap, FloatArray }
+
     public static final String BUNDLE_KEY_CLASSIFICATION_RESULTS = "bundle_key_classification_results";
     public static final String BUNDLE_KEY_CLASSIFICATION_TOP_RESULT = "bundle_key_classification_top_result";
+
     public static final String BUNDLE_KEY_RESPONSE_EVENT = "bundle_key_response_event";
     public static final String BUNDLE_KEY_RESPONSE_TIME = "bundle_key_response_time";
     public static final String BUNDLE_KEY_LAST_PROCESSING_TIME = "bundle_key_last_processing_time";

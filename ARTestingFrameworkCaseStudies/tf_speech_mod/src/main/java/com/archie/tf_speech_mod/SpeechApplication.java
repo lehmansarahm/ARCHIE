@@ -1,8 +1,9 @@
 package com.archie.tf_speech_mod;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
-import android.os.SystemClock;
+import android.widget.ListView;
 
 import com.archie.tf_speech_mod.env.Logger;
 import com.codemonkeylabs.fpslibrary.FrameDataCallback;
@@ -21,6 +22,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import edu.temple.gtc_core.GtcController;
+
 public class SpeechApplication extends Application {
 
     private static boolean TESTING = true;
@@ -38,10 +41,6 @@ public class SpeechApplication extends Application {
 
     private static Context initContext;
     private static List<String> frameStats;
-    private static List<String> classificationStats;
-
-    private static long preprocessStartTime, preprocessEndTime;
-    private static long classificationStartTime;
 
     private static long executionStartTime = 0;
 
@@ -52,10 +51,6 @@ public class SpeechApplication extends Application {
     public void onCreate() {
         frameStats = new ArrayList<>();
         frameStats.add("Time (sec),Previous Frame (ns),Current Frame (ns),Time Elapsed (ms),Dropped Frame Count");
-
-        classificationStats = new ArrayList<>();
-        classificationStats.add("Time (sec),Preproc Start Time (ns),Preproc End Time (ns),Preproc Time Elapsed (ms),"
-                + "Class Start Time (ns),Class End Time (ns),Class Time Elapsed (ms),Result,Confidence");
 
         initContext = this.getApplicationContext();
         TinyDancer.create()
@@ -73,13 +68,28 @@ public class SpeechApplication extends Application {
                         String newFrameStats = (executionTimeElapsed + ","
                                 + previousFrameNS + "," + currentFrameNS + ","
                                 + timeElapsedMS + "," + droppedFrames);
-                        LOGGER.i("Logging frame stats: " + newFrameStats);
+                        // LOGGER.i("Logging frame stats: " + newFrameStats);
                         frameStats.add(newFrameStats);
                     }
                 }).show(initContext);
 
         LOGGER.i("SpeechApplication with TinyDancer created!");
         super.onCreate();
+    }
+
+    public void onPause(Activity currentActivity) {
+        LOGGER.i("Pausing profiles.");
+        getGtcController().pauseProfiles();
+
+        if (!currentActivity.isFinishing()) {
+            LOGGER.d("Requesting finish");
+            currentActivity.finish();
+        }
+    }
+
+    public void onResume() {
+        LOGGER.i("Resuming profiles.");
+        getGtcController().resumeProfiles();
     }
 
     public boolean onDestroy() {
@@ -91,10 +101,6 @@ public class SpeechApplication extends Application {
             String frameFileName = (df.format(currentTime) + "_frames.csv");
             File frameFile = new File(outputFileDir, frameFileName);
             writeResultsToFile(frameFile, frameStats);
-
-            String classFileName = (df.format(currentTime) + "_classification.csv");
-            File classFile = new File(outputFileDir, classFileName);
-            writeResultsToFile(classFile, classificationStats);
 
             String settingsFileName = (df.format(currentTime) + "_execSettings.csv");
             File settingsFile = new File(outputFileDir, settingsFileName);
@@ -113,39 +119,52 @@ public class SpeechApplication extends Application {
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
 
-    public void onPreprocessStart() {
-        preprocessStartTime = SystemClock.elapsedRealtimeNanos();
+    private static GtcController gtcController;
+
+    public void setGtcController(GtcController gtcController) {
+        synchronized (LOCK) {
+            SpeechApplication.gtcController = gtcController;
+        }
     }
 
-    public void onPreprocessComplete() {
-        preprocessEndTime = SystemClock.elapsedRealtimeNanos();
+    public GtcController getGtcController() {
+        synchronized (LOCK) {
+            return SpeechApplication.gtcController;
+        }
     }
 
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
 
-    public void onClassificationStart() {
-        classificationStartTime = SystemClock.elapsedRealtimeNanos();
+    private static List<String> labels;
+
+    public void setLabels(List<String> labels) {
+        synchronized (LOCK) {
+            SpeechApplication.labels = labels;
+        }
     }
 
-    public void onClassificationComplete(String result, float confidence) {
-        // calculate time spent in pre-processing (millis)
-        double preprocessElapsedTime = ((preprocessEndTime - preprocessStartTime) / 1000000.0d);
+    public List<String> getLabels() {
+        synchronized (LOCK) {
+            return SpeechApplication.labels;
+        }
+    }
 
-        // calculate time spent in classification (millis)
-        long classificationEndTime = SystemClock.elapsedRealtimeNanos();
-        double classificationElapsedTime = ((classificationEndTime - classificationStartTime) / 1000000.0d);
+    // --------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------
 
-        // calculate time spent in overall program execution (seconds)
-        long executionTimeElapsed = calculateExecutionTime();
+    private static ListView labelsListView;
 
-        // add stats to collection
-        String newClassStats = (executionTimeElapsed + ","
-                + preprocessStartTime + "," + preprocessEndTime + "," + preprocessElapsedTime + ","
-                + classificationStartTime + "," + classificationEndTime + "," + classificationElapsedTime + ","
-                + result + "," + confidence);
-        LOGGER.i("Logging classification stats: " + newClassStats);
-        classificationStats.add(newClassStats);
+    public void setLabelsListView(ListView labelsListView) {
+        synchronized (LOCK) {
+            SpeechApplication.labelsListView = labelsListView;
+        }
+    }
+
+    public ListView getLabelsListView() {
+        synchronized (LOCK) {
+            return SpeechApplication.labelsListView;
+        }
     }
 
     // --------------------------------------------------------------------------------------------

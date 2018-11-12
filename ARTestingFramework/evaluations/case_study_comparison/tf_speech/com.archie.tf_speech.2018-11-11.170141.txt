@@ -113,60 +113,124 @@
 11-11 16:39:07.918  1120  1131 I WindowManager: WIN DEATH: Window{e011deb u0 com.archie.tf_speech}
 11-11 16:39:10.281  1120  1668 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_speech/.SpeechActivity (has extras)} from uid 2000
 11-11 16:39:10.307  1120 31013 I ActivityManager: Start proc 14258:com.archie.tf_speech/u0a146 for activity com.archie.tf_speech/.SpeechActivity
+11-11 16:44:40.943  1120  1626 I ActivityManager: Force stopping com.archie.tf_speech appid=10146 user=0: from pid 14403
+11-11 16:44:40.944  1120  1626 I ActivityManager: Killing 14258:com.archie.tf_speech/u0a146 (adj 900): stop com.archie.tf_speech
+11-11 16:44:41.012  1120  3062 W ActivityManager: Invalid packageName: com.archie.tf_speech
+11-11 16:44:41.094  1120  3062 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_speech/.SpeechActivity (has extras)} from uid 2000
+11-11 16:44:41.111  1120  1131 I ActivityManager: Start proc 14414:com.archie.tf_speech/u0a146 for activity com.archie.tf_speech/.SpeechActivity
+11-11 16:50:32.672  1120  1342 I ActivityManager: Force stopping com.archie.tf_speech appid=10146 user=0: from pid 14599
+11-11 16:50:32.672  1120  1342 I ActivityManager: Killing 14414:com.archie.tf_speech/u0a146 (adj 900): stop com.archie.tf_speech
+11-11 16:50:32.694  1120  1130 I WindowManager: WIN DEATH: Window{d20ca4f u0 com.archie.tf_speech}
+11-11 16:50:32.770  1120  1130 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.archie.tf_speech/.SpeechActivity} from uid 2000
+11-11 16:50:32.789  1120 31013 I ActivityManager: Start proc 14610:com.archie.tf_speech/u0a146 for activity com.archie.tf_speech/.SpeechActivity
+11-11 16:50:35.705  1120  1626 I ActivityManager: Force stopping com.archie.tf_speech appid=10146 user=0: from pid 14675
+11-11 16:50:35.706  1120  1626 I ActivityManager: Killing 14610:com.archie.tf_speech/u0a146 (adj 0): stop com.archie.tf_speech
+11-11 16:50:35.706  1120  1626 W ActivityManager: Force removing ActivityRecord{b8ad59b u0 com.archie.tf_speech/.SpeechActivity t432}: app died, no saved state
+11-11 16:50:35.708  1120  1626 I WindowManager: Failed to capture screenshot of Token{8145d38 ActivityRecord{b8ad59b u0 com.archie.tf_speech/.SpeechActivity t432 f}} appWin=Window{4eeb103 u0 com.archie.tf_speech/com.archie.tf_speech.SpeechActivity} drawState=4
+11-11 16:50:35.733  1120 31012 I WindowManager: WIN DEATH: Window{e9f2567 u0 com.archie.tf_speech}
+11-11 16:50:38.597  1120  3057 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_speech/.SpeechActivity (has extras)} from uid 2000
+11-11 16:50:38.615  1120 31012 I ActivityManager: Start proc 14689:com.archie.tf_speech/u0a146 for activity com.archie.tf_speech/.SpeechActivity
+11-11 16:56:09.427  1120  1669 I ActivityManager: Force stopping com.archie.tf_speech appid=10146 user=0: from pid 14839
+11-11 16:56:09.427  1120  1669 I ActivityManager: Killing 14689:com.archie.tf_speech/u0a146 (adj 900): stop com.archie.tf_speech
+11-11 16:56:09.479  1120  3057 W ActivityManager: Invalid packageName: com.archie.tf_speech
+11-11 16:56:09.586  1120  3057 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_speech/.SpeechActivity (has extras)} from uid 2000
+11-11 16:56:09.605  1120 31013 I ActivityManager: Start proc 14851:com.archie.tf_speech/u0a146 for activity com.archie.tf_speech/.SpeechActivity
+11-11 17:01:40.265  1120  1626 I ActivityManager: Force stopping com.archie.tf_speech appid=10146 user=0: from pid 14994
+11-11 17:01:40.265  1120  1626 I ActivityManager: Killing 14851:com.archie.tf_speech/u0a146 (adj 900): stop com.archie.tf_speech
+11-11 17:01:40.311  1120  1601 W ActivityManager: Invalid packageName: com.archie.tf_speech
+11-11 17:01:40.345  1120  1601 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_speech/.SpeechActivity (has extras)} from uid 2000
+11-11 17:01:40.358  1120  1130 I ActivityManager: Start proc 15005:com.archie.tf_speech/u0a146 for activity com.archie.tf_speech/.SpeechActivity
 --------- beginning of main
-11-11 16:41:15.704 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 108 lines
-11-11 16:41:18.548 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 404 lines
-11-11 16:41:21.487 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 106 lines
-11-11 16:41:24.446 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 403 lines
-11-11 16:41:27.405 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 109 lines
-11-11 16:41:30.294 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 402 lines
-11-11 16:41:33.181 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 108 lines
-11-11 16:41:36.116 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 402 lines
-11-11 16:41:39.005 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 110 lines
-11-11 16:41:41.947 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 397 lines
-11-11 16:41:44.815 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 109 lines
-11-11 16:41:47.653 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 402 lines
-11-11 16:41:50.620 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 107 lines
-11-11 16:41:53.485 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 404 lines
-11-11 16:41:56.459 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 110 lines
-11-11 16:41:59.367 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 399 lines
-11-11 16:42:02.238 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 110 lines
-11-11 16:42:05.132 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 400 lines
-11-11 16:42:08.042 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 110 lines
-11-11 16:42:10.913 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 401 lines
-11-11 16:42:13.815 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 110 lines
-11-11 16:42:16.712 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 399 lines
-11-11 16:42:19.597 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 109 lines
-11-11 16:42:22.476 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 400 lines
-11-11 16:42:25.397 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 112 lines
-11-11 16:42:28.243 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 400 lines
-11-11 16:42:31.149 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 109 lines
-11-11 16:42:34.038 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 401 lines
-11-11 16:42:36.951 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 109 lines
-11-11 16:42:39.837 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 398 lines
-11-11 16:42:51.281 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 403 lines
-11-11 16:42:54.243 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 108 lines
-11-11 16:42:57.130 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 401 lines
-11-11 16:43:00.033 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 112 lines
-11-11 16:43:02.943 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 396 lines
-11-11 16:43:05.770 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 113 lines
-11-11 16:43:08.624 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 400 lines
-11-11 16:43:11.551 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 108 lines
-11-11 16:43:14.405 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 402 lines
-11-11 16:43:17.354 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 108 lines
-11-11 16:43:20.232 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 401 lines
-11-11 16:43:23.190 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 110 lines
-11-11 16:43:26.035 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 402 lines
-11-11 16:43:28.990 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 109 lines
-11-11 16:43:31.867 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 398 lines
-11-11 16:43:34.770 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 109 lines
-11-11 16:43:37.607 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 401 lines
-11-11 16:43:40.588 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 110 lines
-11-11 16:43:43.412 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) expire 402 lines
-11-11 16:43:46.370 14258 14288 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 54 lines
-11-11 16:44:10.817 14258 14258 D tf_speech: SpeechActivity: onDestroy com.archie.tf_speech.SpeechActivity@dfd88e3
-11-11 16:44:10.822 14258 14258 I tf_speech: SpeechApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_speech/files/20181111_044410_frames.csv
-11-11 16:44:11.152 14258 14258 I tf_speech: SpeechApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_speech/files/20181111_044410_classification.csv
-11-11 16:44:11.178 14258 14258 I tf_speech: SpeechApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_speech/files/20181111_044410_execSettings.csv
-11-11 16:44:11.195 14258 14258 I chatty  : uid=10146(com.archie.tf_speech) identical 1 line
-11-11 16:44:11.446  3044  3234 D BaseStreamManager: Promised remove @ r#8497 for StreamItemIdAndRevision{notifKey=0|android|0|com.android.server.wm.AlertWindowNotification - com.archie.tf_speech|1000, packageName=android, tag=com.android.server.wm.AlertWindowNotification - com.archie.tf_speech, id=0, revision=0, originalRevision=0, updateCount=0} (@8496): SBN removed: StreamItemIdAndRevision{notifKey=0|android|0|com.android.server.wm.AlertWindowNotification - com.archie.tf_speech|1000, packageName=android, tag=com.android.server.wm.AlertWindowNotification - com.archie.tf_speech, id=0, revision=0, originalRevision=0, updateCount=0}
+11-11 17:02:25.476 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 108 lines
+11-11 17:02:28.370 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 403 lines
+11-11 17:02:31.309 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 110 lines
+11-11 17:02:34.236 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 396 lines
+11-11 17:02:37.145 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 115 lines
+11-11 17:02:39.907 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 396 lines
+11-11 17:02:42.733 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 114 lines
+11-11 17:02:45.597 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 397 lines
+11-11 17:02:48.436 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 111 lines
+11-11 17:02:51.297 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 400 lines
+11-11 17:02:54.180 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 111 lines
+11-11 17:02:57.080 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 400 lines
+11-11 17:02:59.993 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 109 lines
+11-11 17:03:02.862 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 399 lines
+11-11 17:03:05.810 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 111 lines
+11-11 17:03:08.628 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 398 lines
+11-11 17:03:11.544 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 114 lines
+11-11 17:03:14.358 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 397 lines
+11-11 17:03:17.220 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 111 lines
+11-11 17:03:20.056 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 398 lines
+11-11 17:03:22.953 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 113 lines
+11-11 17:03:25.788 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 399 lines
+11-11 17:03:28.681 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 111 lines
+11-11 17:03:31.554 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 394 lines
+11-11 17:03:34.442 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 58 lines
+11-11 17:03:36.928 15005 15010 I chatty  : uid=10146(com.archie.tf_speech) Jit thread pool expire 3 lines
+11-11 17:03:37.201 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 198 lines
+11-11 17:03:37.246 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 115 lines
+11-11 17:03:40.038 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 193 lines
+11-11 17:03:40.643 15005 15010 I chatty  : uid=10146(com.archie.tf_speech) Jit thread pool expire 3 lines
+11-11 17:03:42.783 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 196 lines
+11-11 17:03:42.791 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 118 lines
+11-11 17:03:45.581 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 393 lines
+11-11 17:03:48.409 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 114 lines
+11-11 17:03:51.177 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 394 lines
+11-11 17:03:54.037 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 118 lines
+11-11 17:03:56.809 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 395 lines
+11-11 17:03:59.645 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 115 lines
+11-11 17:04:02.473 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 395 lines
+11-11 17:04:05.288 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 116 lines
+11-11 17:04:08.122 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 392 lines
+11-11 17:04:10.983 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 116 lines
+11-11 17:04:13.705 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 396 lines
+11-11 17:04:16.540 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 114 lines
+11-11 17:04:19.384 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 393 lines
+11-11 17:04:22.237 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 117 lines
+11-11 17:04:24.997 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 396 lines
+11-11 17:04:27.823 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 115 lines
+11-11 17:04:30.678 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 396 lines
+11-11 17:04:33.545 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 112 lines
+11-11 17:04:36.360 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 396 lines
+11-11 17:04:39.249 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 114 lines
+11-11 17:04:42.041 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 398 lines
+11-11 17:04:44.941 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 110 lines
+11-11 17:04:47.775 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 400 lines
+11-11 17:04:50.712 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 112 lines
+11-11 17:04:53.556 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 396 lines
+11-11 17:04:56.414 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 113 lines
+11-11 17:04:59.240 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 398 lines
+11-11 17:05:02.143 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 115 lines
+11-11 17:05:04.969 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 395 lines
+11-11 17:05:07.816 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 112 lines
+11-11 17:05:10.618 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 395 lines
+11-11 17:05:13.527 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 116 lines
+11-11 17:05:16.281 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 398 lines
+11-11 17:05:19.181 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 111 lines
+11-11 17:05:22.013 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 398 lines
+11-11 17:05:24.931 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 110 lines
+11-11 17:05:27.746 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 400 lines
+11-11 17:05:30.702 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 114 lines
+11-11 17:05:33.528 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 396 lines
+11-11 17:05:36.385 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 113 lines
+11-11 17:05:39.209 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 398 lines
+11-11 17:05:42.096 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 111 lines
+11-11 17:05:44.939 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 397 lines
+11-11 17:05:47.837 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 113 lines
+11-11 17:05:50.639 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 399 lines
+11-11 17:05:53.565 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 113 lines
+11-11 17:05:56.391 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 398 lines
+11-11 17:05:59.275 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 110 lines
+11-11 17:06:02.137 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 400 lines
+11-11 17:06:05.041 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 111 lines
+11-11 17:06:07.919 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 396 lines
+11-11 17:06:10.848 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 114 lines
+11-11 17:06:13.601 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 397 lines
+11-11 17:06:16.507 15005 15035 I chatty  : uid=10146(com.archie.tf_speech) Thread-5 expire 113 lines
+11-11 17:06:19.299 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) expire 199 lines
+11-11 17:06:40.845 15005 15005 D tf_speech: SpeechActivity: onDestroy com.archie.tf_speech.SpeechActivity@dfd88e3
+11-11 17:06:40.860 15005 15005 I tf_speech: SpeechApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_speech/files/20181111_050640_frames.csv
+11-11 17:06:41.159 15005 15005 I tf_speech: SpeechApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_speech/files/20181111_050640_classification.csv
+11-11 17:06:41.206 15005 15005 I tf_speech: SpeechApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_speech/files/20181111_050640_execSettings.csv
+11-11 17:06:41.229 15005 15005 I chatty  : uid=10146(com.archie.tf_speech) identical 1 line
+11-11 17:06:41.459  3044  3234 D BaseStreamManager: Promised remove @ r#8512 for StreamItemIdAndRevision{notifKey=0|android|0|com.android.server.wm.AlertWindowNotification - com.archie.tf_speech|1000, packageName=android, tag=com.android.server.wm.AlertWindowNotification - com.archie.tf_speech, id=0, revision=0, originalRevision=0, updateCount=0} (@8511): SBN removed: StreamItemIdAndRevision{notifKey=0|android|0|com.android.server.wm.AlertWindowNotification - com.archie.tf_speech|1000, packageName=android, tag=com.android.server.wm.AlertWindowNotification - com.archie.tf_speech, id=0, revision=0, originalRevision=0, updateCount=0}
