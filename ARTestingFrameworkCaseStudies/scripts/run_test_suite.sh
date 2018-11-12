@@ -24,14 +24,16 @@ FALSE="false"
 INCLUDE_UI_TESTS=${TRUE}
 INCLUDE_RESOURCE_TESTS=${TRUE}
 
-# TF Classify:          project ('tf_classify')         activity ('ClassifierActivity')
-# TF Classify Mod:      project ('tf_classify_mod')     activity ('archie_mods.ModifiedClassifierActivity')
-# TF Speech:            project ('tf_speech')           activity ('SpeechActivity')
-# TF Speech Mod:        project ('tf_speech_mod')       activity ('archie_mods.ModifiedSpeechActivity')
+# TF Classify:          project ('tf_classify')                 activity ('ClassifierActivity')
+# TF Classify Mod:      project ('tf_classify_mod')             activity ('archie_mods.ModifiedClassifierActivity')
+# TF Speech:            project ('tf_speech')                   activity ('SpeechActivity')
+# TF Speech Mod:        project ('tf_speech_mod')               activity ('archie_mods.ModifiedSpeechActivity')
+# OpenCV Blob:          project ('opencv_blobDetector')         activity ('MainActivity')
+# OpenCV Blob Mod:      project ('opencv_blobDetector_mod')     activity ('archie_mods.ModifiedMainActivity')
 
 PACKAGE_NAME="com.archie"
-PROJECT_NAMES=('tf_speech_mod')
-ACTIVITY_NAMES=('archie_mods.ModifiedSpeechActivity')
+PROJECT_NAMES=('opencv_blobDetector')
+ACTIVITY_NAMES=('MainActivity')
 TEST_LABEL="noTarget"
 
 ANDROID_DATA_DIR="/storage/self/primary/Android/data"
