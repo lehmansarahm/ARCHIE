@@ -1,0 +1,277 @@
+--------- beginning of system
+11-08 17:03:38.616  1120  1626 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify/.ClassifierActivity (has extras)} from uid 2000
+11-08 17:03:38.634  1120  1342 I ActivityManager: Start proc 17002:com.archie.tf_classify/u0a142 for activity com.archie.tf_classify/.ClassifierActivity
+11-08 17:09:59.604  1120  1130 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify/.ClassifierActivity (has extras)} from uid 2000
+11-08 17:11:55.353  1120  2991 I ActivityManager: Killing 17002:com.archie.tf_classify/u0a142 (adj 200): remove task
+11-08 17:11:55.409  1120  2991 I WindowManager: WIN DEATH: Window{7b1a2dd u0 com.archie.tf_classify/com.archie.tf_classify.ClassifierActivity}
+11-08 17:14:48.500  1120  1396 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify/.ClassifierActivity (has extras)} from uid 2000
+11-08 17:14:48.516  1120  3004 I ActivityManager: Start proc 17363:com.archie.tf_classify/u0a142 for activity com.archie.tf_classify/.ClassifierActivity
+11-08 17:15:52.330  1120  2991 I ActivityManager: Killing 17363:com.archie.tf_classify/u0a142 (adj 200): remove task
+11-08 17:15:52.381  1120  1342 I WindowManager: WIN DEATH: Window{8164060 u0 com.archie.tf_classify}
+11-08 17:15:52.383  1120  3062 I WindowManager: WIN DEATH: Window{4763dde u0 com.archie.tf_classify/com.archie.tf_classify.ClassifierActivity}
+11-08 17:15:59.657  1120  2991 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify/.ClassifierActivity (has extras)} from uid 2000
+11-08 17:15:59.675  1120  1342 I ActivityManager: Start proc 17507:com.archie.tf_classify/u0a142 for activity com.archie.tf_classify/.ClassifierActivity
+11-08 17:21:30.462  1120  1342 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify/.ClassifierActivity (has extras)} from uid 2000
+11-08 17:27:01.232  1120  1396 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify/.ClassifierActivity (has extras)} from uid 2000
+11-08 17:32:32.092  1120  3004 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify/.ClassifierActivity (has extras)} from uid 2000
+11-08 17:38:02.915  1120  3062 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify/.ClassifierActivity (has extras)} from uid 2000
+11-08 17:43:33.836  1120  3004 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify/.ClassifierActivity (has extras)} from uid 2000
+11-08 17:48:36.679  1120  1396 I ActivityManager: Force stopping com.archie.tf_classify appid=10142 user=0: from pid 20498
+11-08 17:48:36.679  1120  1396 I ActivityManager: Killing 17507:com.archie.tf_classify/u0a142 (adj 0): stop com.archie.tf_classify
+11-08 17:48:36.680  1120  1396 W ActivityManager: Force removing ActivityRecord{f055bc u0 com.archie.tf_classify/.ClassifierActivity t349}: app died, no saved state
+11-08 17:48:36.684  1120  1396 I WindowManager: Failed to capture screenshot of Token{bdbf945 ActivityRecord{f055bc u0 com.archie.tf_classify/.ClassifierActivity t349 f}} appWin=Window{2e29a3e u0 com.archie.tf_classify/com.archie.tf_classify.ClassifierActivity} drawState=4
+11-08 17:48:36.757  1120  1669 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify/.ClassifierActivity (has extras)} from uid 2000
+11-08 17:48:36.782  1120 31013 I ActivityManager: Start proc 20513:com.archie.tf_classify/u0a142 for activity com.archie.tf_classify/.ClassifierActivity
+11-08 17:53:40.581  1120  3061 I ActivityManager: Force stopping com.archie.tf_classify appid=10142 user=0: from pid 22505
+11-08 17:53:40.581  1120  3061 I ActivityManager: Killing 20513:com.archie.tf_classify/u0a142 (adj 0): stop com.archie.tf_classify
+11-08 17:53:40.581  1120  3061 W ActivityManager: Force removing ActivityRecord{bd5fed3 u0 com.archie.tf_classify/.ClassifierActivity t350}: app died, no saved state
+11-08 17:53:40.583  1120  3061 I WindowManager: Failed to capture screenshot of Token{7f3fa10 ActivityRecord{bd5fed3 u0 com.archie.tf_classify/.ClassifierActivity t350 f}} appWin=Window{394318 u0 com.archie.tf_classify/com.archie.tf_classify.ClassifierActivity} drawState=4
+11-08 17:53:40.626  1120  3062 I WindowManager: WIN DEATH: Window{8f82a7e u0 com.archie.tf_classify}
+11-08 17:53:40.658  1120  1130 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify/.ClassifierActivity (has extras)} from uid 2000
+11-08 17:53:40.677  1120  3062 I ActivityManager: Start proc 22520:com.archie.tf_classify/u0a142 for activity com.archie.tf_classify/.ClassifierActivity
+11-08 17:58:41.272  1120  3062 I ActivityManager: Force stopping com.archie.tf_classify appid=10142 user=0: from pid 24527
+11-08 17:58:41.272  1120  3062 I ActivityManager: Killing 22520:com.archie.tf_classify/u0a142 (adj 0): stop com.archie.tf_classify
+11-08 17:58:41.273  1120  3062 W ActivityManager: Force removing ActivityRecord{42c0462 u0 com.archie.tf_classify/.ClassifierActivity t351}: app died, no saved state
+11-08 17:58:41.275  1120  3062 I WindowManager: Failed to capture screenshot of Token{5dfe9f3 ActivityRecord{42c0462 u0 com.archie.tf_classify/.ClassifierActivity t351 f}} appWin=Window{e942c59 u0 com.archie.tf_classify/com.archie.tf_classify.ClassifierActivity} drawState=4
+11-08 17:58:41.322  1120  3061 I WindowManager: WIN DEATH: Window{2581d34 u0 com.archie.tf_classify}
+11-08 17:58:41.361  1120  1130 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify/.ClassifierActivity (has extras)} from uid 2000
+11-08 17:58:41.379  1120 31013 I ActivityManager: Start proc 24537:com.archie.tf_classify/u0a142 for activity com.archie.tf_classify/.ClassifierActivity
+11-08 18:03:43.835  1120  1668 I ActivityManager: Force stopping com.archie.tf_classify appid=10142 user=0: from pid 26543
+11-08 18:03:43.835  1120  1668 I ActivityManager: Killing 24537:com.archie.tf_classify/u0a142 (adj 0): stop com.archie.tf_classify
+11-08 18:03:43.835  1120  1668 W ActivityManager: Force removing ActivityRecord{800014f u0 com.archie.tf_classify/.ClassifierActivity t352}: app died, no saved state
+11-08 18:03:43.838  1120  1668 I WindowManager: Failed to capture screenshot of Token{a80d0dc ActivityRecord{800014f u0 com.archie.tf_classify/.ClassifierActivity t352 f}} appWin=Window{e4c9b1e u0 com.archie.tf_classify/com.archie.tf_classify.ClassifierActivity} drawState=4
+11-08 18:03:43.880  1120  3057 I WindowManager: WIN DEATH: Window{27c3e5d u0 com.archie.tf_classify}
+11-08 18:03:43.917  1120  3057 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify/.ClassifierActivity (has extras)} from uid 2000
+11-08 18:03:43.938  1120  3005 I ActivityManager: Start proc 26555:com.archie.tf_classify/u0a142 for activity com.archie.tf_classify/.ClassifierActivity
+11-08 18:08:45.199  1120  3057 I ActivityManager: Force stopping com.archie.tf_classify appid=10142 user=0: from pid 28527
+11-08 18:08:45.200  1120  3057 I ActivityManager: Killing 26555:com.archie.tf_classify/u0a142 (adj 0): stop com.archie.tf_classify
+11-08 18:08:45.200  1120  3057 W ActivityManager: Force removing ActivityRecord{51f2ec6 u0 com.archie.tf_classify/.ClassifierActivity t353}: app died, no saved state
+11-08 18:08:45.202  1120  3057 I WindowManager: Failed to capture screenshot of Token{1ab6e87 ActivityRecord{51f2ec6 u0 com.archie.tf_classify/.ClassifierActivity t353 f}} appWin=Window{47fd5d1 u0 com.archie.tf_classify/com.archie.tf_classify.ClassifierActivity} drawState=4
+11-08 18:08:45.244  1120  1342 I WindowManager: WIN DEATH: Window{69f0c0c u0 com.archie.tf_classify}
+11-08 18:08:45.286  1120  1396 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-08 18:08:45.308  1120  1342 I ActivityManager: Start proc 28536:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-08 18:14:15.891  1120  1130 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-08 18:19:46.476  1120 31013 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-08 18:25:17.105  1120  1668 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-08 18:26:11.485  1120  1668 I ActivityManager: Killing 28536:com.archie.tf_classify_mod/u0a144 (adj 900): remove task
+11-08 18:37:04.730  1120  3061 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-08 18:37:04.746  1120  1396 I ActivityManager: Start proc 29160:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-08 18:38:37.285  1120  2989 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=0: from pid 29333
+11-08 18:38:37.286  1120  2989 I ActivityManager: Killing 29160:com.archie.tf_classify_mod/u0a144 (adj 900): stop com.archie.tf_classify_mod
+11-08 18:39:29.184  1120  1668 W ActivityManager: Invalid packageName: com.archie.tf_classify_mod
+11-08 18:40:15.674  1120  1669 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify/.ClassifierActivity (has extras)} from uid 2000
+11-08 18:40:15.700  1120  1396 I ActivityManager: Start proc 29400:com.archie.tf_classify/u0a142 for activity com.archie.tf_classify/.ClassifierActivity
+11-08 18:45:46.349  1120  1396 W ActivityManager: Invalid packageName: com.archie.tf_classify
+11-08 18:45:46.465  1120  1396 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify/.ClassifierActivity (has extras)} from uid 2000
+--------- beginning of main
+11-08 18:45:57.259 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 247 lines
+11-08 18:45:57.514 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 113 lines
+11-08 18:46:07.399 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 22 lines
+11-08 18:46:07.874 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 110 lines
+11-08 18:46:08.311 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 249 lines
+11-08 18:46:18.313 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 12 lines
+11-08 18:46:18.411 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 268 lines
+11-08 18:46:19.483 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 116 lines
+11-08 18:46:29.321 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 32 lines
+11-08 18:46:30.401 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 106 lines
+11-08 18:46:30.632 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 264 lines
+11-08 18:46:40.648 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 14 lines
+11-08 18:46:41.312 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 272 lines
+11-08 18:46:42.027 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 106 lines
+11-08 18:46:52.281 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 25 lines
+11-08 18:46:52.311 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 104 lines
+11-08 18:46:53.327 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 270 lines
+11-08 18:47:02.484 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 26 lines
+11-08 18:47:04.240 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 249 lines
+11-08 18:47:04.934 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 108 lines
+11-08 18:47:14.304 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 44 lines
+11-08 18:47:15.326 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 102 lines
+11-08 18:47:16.077 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 254 lines
+11-08 18:47:25.533 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 20 lines
+11-08 18:47:26.287 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 255 lines
+11-08 18:47:27.780 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 96 lines
+11-08 18:47:36.327 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 91 lines
+11-08 18:47:38.331 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 92 lines
+11-08 18:47:39.954 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 265 lines
+11-08 18:47:48.454 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 34 lines
+11-08 18:47:50.419 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 277 lines
+11-08 18:47:52.178 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 94 lines
+11-08 18:48:01.361 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 83 lines
+11-08 18:48:02.489 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 100 lines
+11-08 18:48:04.675 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 271 lines
+11-08 18:48:13.331 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 32 lines
+11-08 18:48:15.384 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 254 lines
+11-08 18:48:16.846 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 96 lines
+11-08 18:48:25.427 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 83 lines
+11-08 18:48:27.371 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 92 lines
+11-08 18:48:28.705 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 270 lines
+11-08 18:48:37.515 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 33 lines
+11-08 18:48:39.348 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 255 lines
+11-08 18:48:40.955 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 95 lines
+11-08 18:48:49.456 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 80 lines
+11-08 18:48:51.349 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 94 lines
+11-08 18:48:52.602 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 272 lines
+11-08 18:49:01.535 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 26 lines
+11-08 18:49:03.380 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 256 lines
+11-08 18:49:04.290 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 92 lines
+11-08 18:49:13.487 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 75 lines
+11-08 18:49:14.532 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 98 lines
+11-08 18:49:16.466 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 255 lines
+11-08 18:49:25.252 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 35 lines
+11-08 18:49:26.507 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 272 lines
+11-08 18:49:29.005 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 97 lines
+11-08 18:49:37.283 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 99 lines
+11-08 18:49:39.414 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 94 lines
+11-08 18:49:41.233 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 257 lines
+11-08 18:49:49.594 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 32 lines
+11-08 18:49:51.415 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 257 lines
+11-08 18:49:53.073 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 94 lines
+11-08 18:50:01.548 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 88 lines
+11-08 18:50:03.311 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 94 lines
+11-08 18:50:05.062 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 260 lines
+11-08 18:50:13.579 29400 29625 I chatty  : uid=10142(com.archie.tf_classify) expire 38 lines
+11-08 18:50:15.338 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) expire 55 lines
+11-08 18:50:17.619 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:17.847 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:18.048 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:18.218 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:18.484 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:18.718 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:18.953 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:19.153 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:19.387 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:19.521 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:19.622 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:19.857 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:20.057 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:20.259 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:20.525 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:20.726 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:20.927 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:21.129 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:21.328 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:21.496 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:21.764 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:21.998 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:22.232 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:22.399 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:22.700 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:22.901 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:23.136 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:23.337 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:23.505 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:23.805 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:24.006 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:24.208 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:24.341 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:24.608 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:24.811 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:25.010 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:25.210 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:25.445 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:25.646 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:25.881 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:26.081 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:26.316 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:26.449 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:26.752 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:26.952 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:27.152 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:27.386 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:27.520 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:27.791 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:27.989 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:28.190 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:28.390 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:28.524 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:28.825 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:29.026 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:29.228 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:29.428 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:29.629 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:29.829 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:30.065 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:30.264 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:30.533 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:30.733 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:31.002 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 5 lines
+11-08 18:50:31.203 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:31.436 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:31.670 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:31.871 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:32.039 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:32.306 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:32.641 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:32.975 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:33.210 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:33.411 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:33.648 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:33.879 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:34.080 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:34.315 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:34.517 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:34.749 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:34.951 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:35.152 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:35.319 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:35.519 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:35.787 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:35.988 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:36.188 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:36.389 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:36.791 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:37.028 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:37.195 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:37.427 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:37.729 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:37.930 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:38.163 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:38.365 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:38.531 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:38.799 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:39.034 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:39.235 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:39.468 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:39.671 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:39.870 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:40.105 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:40.240 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:40.506 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:40.707 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:40.942 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:41.143 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:41.377 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:41.545 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:41.811 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:42.046 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:42.246 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:42.414 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:42.518 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:42.748 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:42.949 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:43.150 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:43.351 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:43.552 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:43.820 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:44.020 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:44.191 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:44.489 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:44.724 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:44.958 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:45.193 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 4 lines
+11-08 18:50:45.393 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 3 lines
+11-08 18:50:45.526 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:45.627 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:45.795 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 2 lines
+11-08 18:50:45.995 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:46.096 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:46.230 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:46.463 29400 29626 I chatty  : uid=10142(com.archie.tf_classify) identical 1 line
+11-08 18:50:47.008  1120  1138 W ActivityManager: Activity pause timeout for ActivityRecord{ad9fa74 u0 com.archie.tf_classify/.ClassifierActivity t360 f}
+11-08 18:50:47.723 29400 29400 D tf_classify: CameraActivity: onPause com.archie.tf_classify.ClassifierActivity@986db0
+11-08 18:50:47.728 29400 29400 D tf_classify: CameraActivity: onStop com.archie.tf_classify.ClassifierActivity@986db0
+11-08 18:50:47.730 29400 29400 D tf_classify: CameraActivity: onDestroy com.archie.tf_classify.ClassifierActivity@986db0
+11-08 18:50:47.736 29400 29400 I tf_classify: ClassifierApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_classify/files/20181108_065047_frames.csv
+11-08 18:50:47.771   815  2080 I Camera2ClientBase: Closed Camera 0. Client was: com.archie.tf_classify (PID 29400, UID 10142)
+11-08 18:50:48.047 29400 29400 I tf_classify: ClassifierApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_classify/files/20181108_065047_classification.csv
+11-08 18:50:48.107 29400 29400 I tf_classify: ClassifierApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_classify/files/20181108_065047_execSettings.csv

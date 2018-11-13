@@ -1,2 +1,0 @@
-Timestamp,Attempt No,Result,Time to Preprocess (millis),Time to Classify (millis)
-20181109_085824,1,mosquito net,47,337
