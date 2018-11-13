@@ -3,14 +3,22 @@ package com.archie.opencv_blobDetector_mod;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
-import android.content.res.AssetManager;
-import android.os.Handler;
-import android.os.HandlerThread;
 import android.util.Size;
+import android.view.SurfaceView;
+import android.view.View;
 
+import com.archie.opencv_blobDetector_mod.archie_mods.ArchieBlobConfigProfile;
 import com.archie.opencv_blobDetector_mod.env.Logger;
 import com.codemonkeylabs.fpslibrary.FrameDataCallback;
 import com.codemonkeylabs.fpslibrary.TinyDancer;
+
+import org.opencv.android.BaseLoaderCallback;
+import org.opencv.android.CameraBridgeViewBase;
+import org.opencv.android.LoaderCallbackInterface;
+import org.opencv.android.OpenCVLoader;
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
+import org.opencv.core.Scalar;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -29,41 +37,35 @@ import edu.temple.gtc_core.GtcController;
 
 public class ColorBlobApplication extends Application {
 
-    private static boolean TESTING = true;
-    private static String TESTING_LABEL = "roses";
+    private static boolean          TESTING = true;
+    private static String           TESTING_LABEL = "roses";
 
-    // private static long TESTING_DELAY = TimeUnit.SECONDS.toMillis(10);
-    private static long TESTING_DELAY = TimeUnit.MINUTES.toMillis(5);
-
-    // --------------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------------
-
-    // private static final Size DESIRED_PREVIEW_SIZE = new Size(176, 144);        // xx-small
-    // private static final Size DESIRED_PREVIEW_SIZE = new Size(352, 288);        // x-small
-    private static final Size DESIRED_PREVIEW_SIZE = new Size(640, 480);        // small
-    // private static final Size DESIRED_PREVIEW_SIZE = new Size(1280, 960);       // medium
-    // private static final Size DESIRED_PREVIEW_SIZE = new Size(2048, 1536);       // large    // ** FINE TUNE HERE **
-    // private static final Size DESIRED_PREVIEW_SIZE = new Size(3200, 2400);      // x-large
-    // private static final Size DESIRED_PREVIEW_SIZE = new Size(4032, 3024);      // xx-large
+    // private static long          TESTING_DELAY = TimeUnit.SECONDS.toMillis(10);
+    private static long             TESTING_DELAY = TimeUnit.MINUTES.toMillis(5);
 
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
 
-    private static final String CLASSIFIER_OUTPUT_TIMESTAMP_FORMAT = "yyyyMMdd_hhmmss";
-    private static final Logger LOGGER = new Logger();
-    private static final Object LOCK = new Object();
+    // private static final Size    DESIRED_PREVIEW_SIZE = new Size(176, 144);        // xx-small
+    // private static final Size    DESIRED_PREVIEW_SIZE = new Size(352, 288);        // x-small
+    private static final Size       DESIRED_PREVIEW_SIZE = new Size(640, 480);        // small
+    // private static final Size    DESIRED_PREVIEW_SIZE = new Size(1280, 960);       // medium
+    // private static final Size    DESIRED_PREVIEW_SIZE = new Size(2048, 1536);       // large    // ** FINE TUNE HERE **
+    // private static final Size    DESIRED_PREVIEW_SIZE = new Size(3200, 2400);      // x-large
+    // private static final Size    DESIRED_PREVIEW_SIZE = new Size(4032, 3024);      // xx-large
 
-    private static Context initContext;
-    private static List<String> frameStats;
-    private static List<String> classificationStats;
+    // --------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------
 
-    private static long preprocessStartTime, preprocessEndTime;
-    private static long classificationStartTime;
+    private static final String     CLASSIFIER_OUTPUT_TIMESTAMP_FORMAT = "yyyyMMdd_hhmmss";
+    private static final Logger     LOGGER = new Logger();
+    private static final Object     LOCK = new Object();
 
-    private static long executionStartTime = 0;
+    private static Context          initContext;
+    private static List<String>     frameStats;
+    private static List<String>     classificationStats;
 
-    private static HandlerThread handlerThread;
-    private static Handler handler;
+    private static long             executionStartTime = 0;
 
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
@@ -93,7 +95,7 @@ public class ColorBlobApplication extends Application {
                         String newFrameStats = (executionTimeElapsed + ","
                                 + previousFrameNS + "," + currentFrameNS + ","
                                 + timeElapsedMS + "," + droppedFrames);
-                        LOGGER.i("Logging frame stats: " + newFrameStats);
+                        // LOGGER.i("Logging frame stats: " + newFrameStats);
                         frameStats.add(newFrameStats);
                     }
                 }).show(initContext);
@@ -105,36 +107,25 @@ public class ColorBlobApplication extends Application {
     public void onPause(Activity currentActivity) {
         LOGGER.i("Pausing profiles.");
         getGtcController().pauseProfiles();
+        pauseCameraView();
 
         if (!currentActivity.isFinishing()) {
             LOGGER.d("Requesting finish");
             currentActivity.finish();
         }
-
-        handlerThread.quitSafely();
-        try {
-            handlerThread.join();
-            handlerThread = null;
-            handler = null;
-        } catch (final InterruptedException e) {
-            LOGGER.e(e, "Exception!");
-        }
-
     }
 
     public void onResume() {
         LOGGER.i("Resuming profiles.");
         getGtcController().resumeProfiles();
-
-        handlerThread = new HandlerThread("inference");
-        handlerThread.start();
-        handler = new Handler(handlerThread.getLooper());
+        resumeLoaderCallback();
     }
 
     public boolean onDestroy() {
         try {
             getGtcController().stopServices();
             TinyDancer.hide(initContext);
+            pauseCameraView();
 
             Date currentTime = Calendar.getInstance().getTime();
             DateFormat df = new SimpleDateFormat(CLASSIFIER_OUTPUT_TIMESTAMP_FORMAT);
@@ -161,23 +152,6 @@ public class ColorBlobApplication extends Application {
         }
     }
 
-
-    public static void runInBackground(final Runnable r) {
-        LOGGER.i("Attempting to run task in background.");
-        synchronized (LOCK) {
-            if (handler != null) {
-                LOGGER.i("Acquired lock on background thread handler!  Running task.");
-                handler.post(r);
-            }
-        }
-    }
-
-    public AssetManager getAssetManager() {
-        synchronized (LOCK) {
-            return ColorBlobApplication.this.getAssets();
-        }
-    }
-
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
 
@@ -198,160 +172,121 @@ public class ColorBlobApplication extends Application {
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
 
-    /*private static Classifier classifier;
+    private boolean                 mPreviewReady = false;
+    private boolean                 mLoaderCallbackReady = false;
 
-    public void setClassifier(Classifier classifier) {
-        synchronized (LOCK) {
-            ColorBlobApplication.classifier = classifier;
-        }
+    private CameraBridgeViewBase    mOpenCvCameraView;
+    private BaseLoaderCallback      mLoaderCallback;
+
+    public void initializeCameraView(Activity initActivity, CameraBridgeViewBase.CvCameraViewListener2 listener) {
+        mOpenCvCameraView = initActivity.findViewById(R.id.color_blob_detection_activity_surface_view);
+        mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
+        mOpenCvCameraView.setCvCameraViewListener(listener);
     }
 
-    public Classifier getClassifier() {
-        synchronized (LOCK) {
-            return ColorBlobApplication.classifier;
-        }
-    }*/
+    public void initializeLoaderCallback(Activity initActivity, final View.OnTouchListener listener) {
+        mLoaderCallback = new BaseLoaderCallback(initActivity) {
+            @Override
+            public void onManagerConnected(int status) {
+                switch (status) {
+                    case LoaderCallbackInterface.SUCCESS:
+                    {
+                        LOGGER.i("OpenCV loaded successfully");
+                        mOpenCvCameraView.enableView();
+                        mOpenCvCameraView.setOnTouchListener(listener);
+                    } break;
+                    default:
+                    {
+                        super.onManagerConnected(status);
+                    } break;
+                }
+            }
+        };
 
-    // --------------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------------
-
-    private static Runnable imageConverter;
-
-    public void setImageConverter(Runnable runnable) {
-        synchronized (LOCK) {
-            ColorBlobApplication.imageConverter = runnable;
-        }
+        mPreviewReady = true;
+        if (mLoaderCallbackReady)
+            mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
     }
 
-    public Runnable getImageConverter() {
-        synchronized (LOCK) {
-            return ColorBlobApplication.imageConverter;
-        }
+    public int getCameraXOffset(int cols) {
+        int xOffset = (mOpenCvCameraView.getWidth() - cols) / 2;
+        return xOffset;
     }
 
-    // --------------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------------
-
-    private static int[] rgbBytes = null;
-
-    public void setRgbBytes(int[] bytes) {
-        synchronized (LOCK) {
-            ColorBlobApplication.rgbBytes = bytes;
-        }
+    public int getCameraYOffset(int rows) {
+        int yOffset = (mOpenCvCameraView.getHeight() - rows) / 2;
+        return yOffset;
     }
 
-    public int[] getRgbBytes() {
-        synchronized (LOCK) {
-            return ColorBlobApplication.rgbBytes;
-        }
+    private void pauseCameraView() {
+        if (mOpenCvCameraView != null)
+            mOpenCvCameraView.disableView();
     }
 
-    // --------------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------------
-
-    private static byte[] lastPreviewFrame;
-
-    public void setLastPreviewFrame(byte[] frame) {
-        synchronized (LOCK) {
-            ColorBlobApplication.lastPreviewFrame = frame;
-        }
-    }
-
-    public byte[] getLastPreviewFrame() {
-        synchronized (LOCK) {
-            return ColorBlobApplication.lastPreviewFrame;
-        }
-    }
-
-    // --------------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------------
-
-    private static Runnable postInferenceCallback;
-
-    public void setPostInferenceCallback(Runnable runnable) {
-        synchronized (LOCK) {
-            ColorBlobApplication.postInferenceCallback = runnable;
-        }
-    }
-
-    public Runnable getPostInferenceCallback() {
-        synchronized (LOCK) {
-            return ColorBlobApplication.postInferenceCallback;
+    private void resumeLoaderCallback() {
+        if (!OpenCVLoader.initDebug()) {
+            LOGGER.d("Internal OpenCV library not found. Using OpenCV Manager for initialization");
+            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_0_0,
+                    this, mLoaderCallback);
+        } else {
+            LOGGER.d("OpenCV library found inside package. Using it!");
+            mLoaderCallbackReady = true;
+            if (mPreviewReady)
+                mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
         }
     }
 
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
 
-    public boolean isTesting() {
+    private static boolean mIsColorSelected = false;
+
+    public void setIsColorSelected(boolean testing) {
         synchronized (LOCK) {
-            return ColorBlobApplication.TESTING;
+            ColorBlobApplication.mIsColorSelected = testing;
+        }
+    }
+
+    public boolean isColorSelected() {
+        synchronized (LOCK) {
+            return ColorBlobApplication.mIsColorSelected;
         }
     }
 
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
 
-    private static boolean debug = false;
+    private Mat                     mRgba;
+    private Scalar                  mBlobColorRgba;
+    private Scalar                  mBlobColorHsv;
+    private ColorBlobDetector       mDetector;
+    private Mat                     mSpectrum;
 
-    public void toggleDebug() {
+    public void initializeCameraViewParams(int width, int height) {
         synchronized (LOCK) {
-            ColorBlobApplication.debug = !ColorBlobApplication.debug;
+            mRgba = new Mat(height, width, CvType.CV_8UC4);
+            mDetector = new ColorBlobDetector();
+            mSpectrum = new Mat();
+            mBlobColorRgba = new Scalar(255);
+            mBlobColorHsv = new Scalar(255);
         }
     }
 
-    public boolean isDebug() {
+    public void setRgba(Mat rgba) {
         synchronized (LOCK) {
-            return ColorBlobApplication.debug;
+            mRgba = rgba;
         }
     }
 
-    // --------------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------------
-
-    private static boolean computing = false;
-
-    public void setComputing(boolean computing) {
+    public Mat getRgba() {
         synchronized (LOCK) {
-            ColorBlobApplication.computing = computing;
+            return mRgba;
         }
     }
 
-    public boolean isComputing() {
+    public void releaseRgba() {
         synchronized (LOCK) {
-            return ColorBlobApplication.computing;
-        }
-    }
-
-    // --------------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------------
-
-    public Size getDesiredPreviewSize() {
-        synchronized (LOCK) {
-            return ColorBlobApplication.DESIRED_PREVIEW_SIZE;
-        }
-    }
-
-    // --------------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------------
-
-    private static Size previewSize;
-
-    public void setPreviewSize(Size size) {
-        synchronized (LOCK) {
-            ColorBlobApplication.previewSize = size;
-        }
-    }
-
-    public int getPreviewHeight() {
-        synchronized (LOCK) {
-            return ColorBlobApplication.previewSize.getHeight();
-        }
-    }
-
-    public int getPreviewWidth() {
-        synchronized (LOCK) {
-            return ColorBlobApplication.previewSize.getWidth();
+            mRgba.release();
         }
     }
 
@@ -375,26 +310,15 @@ public class ColorBlobApplication extends Application {
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
 
-    private static int cameraOrientation;
-
-    public void setCameraOrientation(int orientation) {
-        synchronized (LOCK) {
-            ColorBlobApplication.cameraOrientation = orientation;
-        }
-    }
-
-    public int getCameraOrientation() {
-        synchronized (LOCK) {
-            return ColorBlobApplication.cameraOrientation;
-        }
-    }
-
-    // --------------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------------
-
     public void setTesting(boolean testing) {
         synchronized (LOCK) {
             ColorBlobApplication.TESTING = testing;
+        }
+    }
+
+    public boolean isTesting() {
+        synchronized (LOCK) {
+            return ColorBlobApplication.TESTING;
         }
     }
 

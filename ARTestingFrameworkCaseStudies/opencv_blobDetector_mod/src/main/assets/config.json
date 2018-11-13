@@ -1,0 +1,10 @@
+{
+  "async_anno_settings" : { "denomination" : "Minutes", "interval" : 2, "default_label" : "daisy" },
+  "async_ux_settings" : { "denomination" : "Minutes", "interval" : 2 },
+  "classifiers" : [ "com.archie.opencv_blobDetector_mod.archie_mods.ArchieBlobClassifier" ],
+  "configuration_profiles" : [ "com.archie.opencv_blobDetector_mod.archie_mods.ArchieBlobConfigProfile" ],
+  "interaction_profiles" : [ "com.archie.opencv_blobDetector_mod.archie_mods.ArchieBlobIntProfile" ],
+  "hardware_profiles" : [
+    { "name" : "high_resource", "allowable_cpu_percentage" : 100 }
+  ]
+}
