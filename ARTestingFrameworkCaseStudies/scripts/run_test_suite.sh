@@ -32,8 +32,8 @@ INCLUDE_RESOURCE_TESTS=${TRUE}
 # OpenCV Blob Mod:      project ('opencv_blobDetector_mod')     activity ('archie_mods.ModifiedMainActivity')
 
 PACKAGE_NAME="com.archie"
-PROJECT_NAMES=('opencv_blobDetector')
-ACTIVITY_NAMES=('MainActivity')
+PROJECT_NAMES=('opencv_blobDetector_mod')
+ACTIVITY_NAMES=('archie_mods.ModifiedMainActivity')
 TEST_LABEL="noTarget"
 
 ANDROID_DATA_DIR="/storage/self/primary/Android/data"

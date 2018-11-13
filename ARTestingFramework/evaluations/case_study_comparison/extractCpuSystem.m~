@@ -1,0 +1,17 @@
+function [ output_args ] = extractCpuSystem( input_args )
+
+% "Before" Range: Cell 2A = [1,0]
+
+BEFORE_STARTING_ROW = 1;
+BEFORE_STARTING_COLUMN = 0;
+
+if ~isstring(input_args)
+    error('Input must be a string')
+end
+
+matrix = csvread(input_args, 0, 0, BEFORE_STARTING_R);
+output_args = 0;
+
+
+end
+
