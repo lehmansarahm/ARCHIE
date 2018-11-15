@@ -1,0 +1,390 @@
+--------- beginning of system
+11-14 13:53:02.737  1120  1625 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 13:53:02.757  1120  1625 I ActivityManager: Start proc 13192:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 13:53:03.073  1120 31013 I ActivityManager: Start proc 13222:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 13:53:03.085  1120 31013 I ActivityManager: Start proc 13230:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 13:53:03.404  1120  1235 I WindowManager: Screen frozen for +642ms due to Window{2259d45 u0 com.archie.opencv_blobDetector_mod}
+11-14 13:55:04.733  1120  1601 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 14137
+11-14 13:55:04.733  1120  1601 I ActivityManager: Killing 13230:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 13:55:04.734  1120  1601 W ActivityManager: Scheduling restart of crashed service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService in 1000ms
+11-14 13:55:04.736  1120  1601 I ActivityManager: Killing 13222:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 13:55:04.736  1120  1601 W ActivityManager: Scheduling restart of crashed service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService in 10997ms
+11-14 13:55:04.739  1120  1601 I ActivityManager: Killing 13192:com.archie.opencv_blobDetector_mod/u0a153 (adj 0): stop com.archie.opencv_blobDetector_mod
+11-14 13:55:04.741  1120  1601 W ActivityManager: Force removing ActivityRecord{283e9c4 u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t601}: app died, no saved state
+11-14 13:55:04.749  1120  1601 I WindowManager: Failed to capture screenshot of Token{4fc70ad ActivityRecord{283e9c4 u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t601 f}} appWin=Window{f8ae951 u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 13:55:04.752  1120  3057 I WindowManager: WIN DEATH: Window{2259d45 u0 com.archie.opencv_blobDetector_mod}
+11-14 13:55:04.763  1120  3061 I WindowManager: WIN DEATH: Window{ece3490 u0 com.archie.opencv_blobDetector_mod}
+11-14 13:55:04.764  1120  3004 I WindowManager: WIN DEATH: Window{7085019 u0 com.archie.opencv_blobDetector_mod}
+11-14 13:55:04.786  1120  1601 I ActivityManager:   Force stopping service ServiceRecord{3e5b4ea u0 com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService}
+11-14 13:55:04.786  1120  1601 I ActivityManager:   Force stopping service ServiceRecord{ce983db u0 com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService}
+11-14 13:55:04.873  1120  3005 W ActivityManager: Invalid packageName: com.archie.opencv_blobDetector_mod
+11-14 13:55:41.520  1120 31013 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 13:55:41.541  1120  1669 I ActivityManager: Start proc 14203:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 13:55:41.851  1120  1669 I ActivityManager: Start proc 14236:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 13:55:41.863  1120  2989 I ActivityManager: Start proc 14242:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 13:55:42.216  1120  1235 I WindowManager: Screen frozen for +677ms due to Window{8a07694 u0 com.archie.opencv_blobDetector_mod}
+11-14 13:55:47.437  1120  2989 I WindowManager: Failed to capture screenshot of Token{d8a279c ActivityRecord{e117b0f u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t602}} appWin=Window{21caad0 u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 13:55:47.859  1120  1235 I WindowManager: Screen frozen for +450ms due to Window{3a2fcb8 u0 com.archie.opencv_blobDetector_mod}
+11-14 13:55:49.112  1120  3062 I ActivityManager: Killing 14203:com.archie.opencv_blobDetector_mod/u0a153 (adj 900): remove task
+11-14 13:55:54.503  1120  1601 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 14520
+11-14 13:55:54.504  1120  1601 I ActivityManager: Killing 14242:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 13:55:54.507  1120  1601 I ActivityManager: Killing 14236:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 13:55:54.524  1120 11408 I WindowManager: WIN DEATH: Window{8a07694 u0 com.archie.opencv_blobDetector_mod}
+11-14 13:55:54.527  1120  1601 I WindowManager: WIN DEATH: Window{1ae290b u0 com.archie.opencv_blobDetector_mod}
+11-14 13:55:54.588  1120  1601 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity} from uid 2000
+11-14 13:55:54.625  1120  1396 I ActivityManager: Start proc 14531:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 13:55:54.956  1120  1396 I ActivityManager: Start proc 14567:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 13:55:54.969  1120  1396 I ActivityManager: Start proc 14580:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 13:55:55.282  1120  1235 I WindowManager: Screen frozen for +656ms due to Window{fabe110 u0 com.archie.opencv_blobDetector_mod}
+11-14 13:55:56.117  1120  1396 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 14704
+11-14 13:55:56.117  1120  1396 I ActivityManager: Killing 14580:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 13:55:56.117  1120  1396 W ActivityManager: Scheduling restart of crashed service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService in 1000ms
+11-14 13:55:56.120  1120  1396 I ActivityManager: Killing 14567:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 13:55:56.121  1120  1396 W ActivityManager: Scheduling restart of crashed service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService in 10997ms
+11-14 13:55:56.125  1120  1396 I ActivityManager: Killing 14531:com.archie.opencv_blobDetector_mod/u0a153 (adj 0): stop com.archie.opencv_blobDetector_mod
+11-14 13:55:56.127  1120  1396 W ActivityManager: Force removing ActivityRecord{4d26a7b u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t603}: app died, no saved state
+11-14 13:55:56.129  1120  1396 I WindowManager: Failed to capture screenshot of Token{2b0098 ActivityRecord{4d26a7b u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t603 f}} appWin=Window{6ac513f u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 13:55:56.168  1120  3004 I WindowManager: WIN DEATH: Window{fabe110 u0 com.archie.opencv_blobDetector_mod}
+11-14 13:55:56.169  1120 31012 I WindowManager: WIN DEATH: Window{87d2937 u0 com.archie.opencv_blobDetector_mod}
+11-14 13:55:56.170  1120  2989 I WindowManager: WIN DEATH: Window{f211074 u0 com.archie.opencv_blobDetector_mod}
+11-14 13:55:56.178  1120  1396 I ActivityManager:   Force stopping service ServiceRecord{a202299 u0 com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService}
+11-14 13:55:56.178  1120  1396 I ActivityManager:   Force stopping service ServiceRecord{dd9fa0c u0 com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService}
+11-14 13:56:05.280  1120  2989 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 13:56:05.306  1120  1130 I ActivityManager: Start proc 14742:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 13:56:05.625  1120  2989 I ActivityManager: Start proc 14769:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 13:56:05.637  1120  1625 I ActivityManager: Start proc 14775:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 13:56:05.942  1120  1235 I WindowManager: Screen frozen for +642ms due to Window{9481d73 u0 com.archie.opencv_blobDetector_mod}
+11-14 14:01:06.087  1120  1235 I WindowManager: Failed to capture screenshot of Token{68bc21b ActivityRecord{c4d042a u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t604 f}} appWin=Window{b60a97e u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 14:01:36.025  1120 11408 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 15084
+11-14 14:01:36.026  1120 11408 I ActivityManager: Killing 14775:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 14:01:36.034  1120 11408 I ActivityManager: Killing 14769:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 14:01:36.036  1120 11408 I ActivityManager: Killing 14742:com.archie.opencv_blobDetector_mod/u0a153 (adj 900): stop com.archie.opencv_blobDetector_mod
+11-14 14:01:36.053  1120  3061 I WindowManager: WIN DEATH: Window{9481d73 u0 com.archie.opencv_blobDetector_mod}
+11-14 14:01:36.055  1120  3057 I WindowManager: WIN DEATH: Window{bfe6a56 u0 com.archie.opencv_blobDetector_mod}
+11-14 14:01:36.086  1120  3004 W ActivityManager: Invalid packageName: com.archie.opencv_blobDetector_mod
+11-14 14:01:36.125  1120  1625 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 14:01:36.151  1120  3004 I ActivityManager: Start proc 15096:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 14:01:36.458  1120  1625 I ActivityManager: Start proc 15123:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 14:01:36.470  1120  1625 I ActivityManager: Start proc 15129:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 14:01:36.776  1120  1235 I WindowManager: Screen frozen for +627ms due to Window{caca6c7 u0 com.archie.opencv_blobDetector_mod}
+11-14 14:06:36.798  1120  1235 I WindowManager: Failed to capture screenshot of Token{e26e9fc ActivityRecord{9b84aef u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t605 f}} appWin=Window{e61fc73 u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 14:06:37.183  1120  1235 I WindowManager: Screen frozen for +474ms due to Window{67568fb u0 com.archie.opencv_blobDetector_mod}
+11-14 14:07:06.836  1120 31013 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 15468
+11-14 14:07:06.836  1120 31013 I ActivityManager: Killing 15129:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 14:07:06.844  1120 31013 I ActivityManager: Killing 15123:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 14:07:06.853  1120 31013 I ActivityManager: Killing 15096:com.archie.opencv_blobDetector_mod/u0a153 (adj 900): stop com.archie.opencv_blobDetector_mod
+11-14 14:07:06.881  1120 31013 I WindowManager: WIN DEATH: Window{eee86eb u0 com.archie.opencv_blobDetector_mod}
+11-14 14:07:06.884  1120  1342 I WindowManager: WIN DEATH: Window{caca6c7 u0 com.archie.opencv_blobDetector_mod}
+11-14 14:07:06.906  1120  1342 W ActivityManager: Invalid packageName: com.archie.opencv_blobDetector_mod
+11-14 14:07:06.949  1120  1342 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 14:07:06.966  1120 31013 I ActivityManager: Start proc 15479:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 14:07:07.336  1120  3057 I ActivityManager: Start proc 15506:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 14:07:07.347  1120  1342 I ActivityManager: Start proc 15512:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 14:07:07.736  1120  1235 I WindowManager: Screen frozen for +776ms due to Window{716f18e u0 com.archie.opencv_blobDetector_mod}
+11-14 14:12:07.886  1120  1235 I WindowManager: Failed to capture screenshot of Token{82d88d7 ActivityRecord{86b0056 u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t606 f}} appWin=Window{5ba20ea u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 14:12:37.650  1120 31013 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 15839
+11-14 14:12:37.651  1120 31013 I ActivityManager: Killing 15512:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 14:12:37.654  1120 31013 I ActivityManager: Killing 15506:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 14:12:37.658  1120 31013 I ActivityManager: Killing 15479:com.archie.opencv_blobDetector_mod/u0a153 (adj 902): stop com.archie.opencv_blobDetector_mod
+11-14 14:12:37.678  1120  1641 I WindowManager: WIN DEATH: Window{cc9e342 u0 com.archie.opencv_blobDetector_mod}
+11-14 14:12:37.684  1120 31013 I WindowManager: WIN DEATH: Window{716f18e u0 com.archie.opencv_blobDetector_mod}
+11-14 14:12:37.710  1120 11408 W ActivityManager: Invalid packageName: com.archie.opencv_blobDetector_mod
+11-14 14:12:37.754  1120 11408 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 14:12:37.777  1120  1641 I ActivityManager: Start proc 15850:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 14:12:38.210  1120  1641 I ActivityManager: Start proc 15877:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 14:12:38.225  1120  1668 I ActivityManager: Start proc 15883:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 14:12:38.671  1120  1235 I WindowManager: Screen frozen for +894ms due to Window{18424b5 u0 com.archie.opencv_blobDetector_mod}
+11-14 14:17:38.605  1120 12988 I WindowManager: Failed to capture screenshot of Token{73978e1 ActivityRecord{b3e248 u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t607 f}} appWin=Window{569caf u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 14:18:08.367  1120 12988 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 16269
+11-14 14:18:08.367  1120 12988 I ActivityManager: Killing 15883:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 14:18:08.370  1120 12988 I ActivityManager: Killing 15877:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 14:18:08.373  1120 12988 I ActivityManager: Killing 15850:com.archie.opencv_blobDetector_mod/u0a153 (adj 902): stop com.archie.opencv_blobDetector_mod
+11-14 14:18:08.387  1120  3057 I WindowManager: WIN DEATH: Window{ed772a7 u0 com.archie.opencv_blobDetector_mod}
+11-14 14:18:08.392  1120  3057 I WindowManager: WIN DEATH: Window{18424b5 u0 com.archie.opencv_blobDetector_mod}
+11-14 14:18:08.420  1120  1641 W ActivityManager: Invalid packageName: com.archie.opencv_blobDetector_mod
+11-14 14:18:08.467  1120  1641 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 14:18:08.513  1120 31013 I ActivityManager: Start proc 16280:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 14:18:08.957  1120  2989 I ActivityManager: Start proc 16307:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 14:18:08.969  1120  1641 I ActivityManager: Start proc 16313:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 14:18:09.414  1120  1235 I WindowManager: Screen frozen for +896ms due to Window{b153575 u0 com.archie.opencv_blobDetector_mod}
+11-14 14:23:09.523  1120  1396 I WindowManager: Failed to capture screenshot of Token{fcff652 ActivityRecord{de31add u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t608 f}} appWin=Window{2428c68 u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 14:23:39.218  1120  1625 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 16667
+11-14 14:23:39.218  1120  1625 I ActivityManager: Killing 16313:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 14:23:39.220  1120  1625 I ActivityManager: Killing 16307:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 14:23:39.221  1120  1625 I ActivityManager: Killing 16280:com.archie.opencv_blobDetector_mod/u0a153 (adj 902): stop com.archie.opencv_blobDetector_mod
+11-14 14:23:39.245  1120 31013 I WindowManager: WIN DEATH: Window{b153575 u0 com.archie.opencv_blobDetector_mod}
+11-14 14:23:39.249  1120  2989 I WindowManager: WIN DEATH: Window{dc88080 u0 com.archie.opencv_blobDetector_mod}
+11-14 14:23:39.276  1120  1396 W ActivityManager: Invalid packageName: com.archie.opencv_blobDetector_mod
+11-14 14:23:39.417  1120  1396 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 14:23:39.441  1120 11408 I ActivityManager: Start proc 16683:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 14:23:39.872  1120 11408 I ActivityManager: Start proc 16715:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 14:23:39.884  1120  1396 I ActivityManager: Start proc 16721:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 14:23:40.286  1120  1235 I WindowManager: Screen frozen for +841ms due to Window{6b110a4 u0 com.archie.opencv_blobDetector_mod}
+11-14 14:48:47.611  1120  3057 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 26572
+11-14 14:48:47.611  1120  3057 I ActivityManager: Killing 16721:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 14:48:47.611  1120  3057 W ActivityManager: Scheduling restart of crashed service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService in 1000ms
+11-14 14:48:47.616  1120  3057 I ActivityManager: Killing 16715:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 14:48:47.616  1120  3057 W ActivityManager: Scheduling restart of crashed service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService in 10995ms
+11-14 14:48:47.622  1120  3057 I ActivityManager: Killing 16683:com.archie.opencv_blobDetector_mod/u0a153 (adj 0): stop com.archie.opencv_blobDetector_mod
+11-14 14:48:47.624  1120  3057 W ActivityManager: Force removing ActivityRecord{f1e87ac u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t609}: app died, no saved state
+11-14 14:48:47.631  1120  3057 I WindowManager: Failed to capture screenshot of Token{85e5c75 ActivityRecord{f1e87ac u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t609 f}} appWin=Window{14bb3e3 u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 14:48:47.636  1120  1626 I WindowManager: WIN DEATH: Window{6b110a4 u0 com.archie.opencv_blobDetector_mod}
+11-14 14:48:47.645  1120  1342 I WindowManager: WIN DEATH: Window{189bc5b u0 com.archie.opencv_blobDetector_mod}
+11-14 14:48:47.666  1120  1342 W WindowManager: Failed to report 'resized' to the client of Window{b83b1c8 u0 com.archie.opencv_blobDetector_mod}, removing this window.
+11-14 14:48:47.676  1120  3057 I ActivityManager:   Force stopping service ServiceRecord{cd4339d u0 com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService}
+11-14 14:48:47.676  1120  3057 I ActivityManager:   Force stopping service ServiceRecord{29cf1e0 u0 com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService}
+11-14 14:48:47.738  1120  3004 W ActivityManager: Invalid packageName: com.archie.opencv_blobDetector_mod
+11-14 18:49:03.031  1120  3057 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 18:49:03.053  1120  2991 I ActivityManager: Start proc 29542:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 18:49:03.385  1120  1601 I ActivityManager: Start proc 29578:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 18:49:03.397  1120  2991 I ActivityManager: Start proc 29584:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 18:49:03.877  1120  1235 I WindowManager: Screen frozen for +829ms due to Window{8e43cd8 u0 Splash Screen com.archie.opencv_blobDetector_mod}
+11-14 18:54:04.001  1120  1235 I WindowManager: Failed to capture screenshot of Token{273d2f9 ActivityRecord{ac575c0 u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t610 f}} appWin=Window{2f24faa u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 18:54:33.677  1120  1626 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 30106
+11-14 18:54:33.679  1120  1626 I ActivityManager: Killing 29584:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 18:54:33.683  1120  1626 I ActivityManager: Killing 29578:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 18:54:33.686  1120  1626 I ActivityManager: Killing 29542:com.archie.opencv_blobDetector_mod/u0a153 (adj 900): stop com.archie.opencv_blobDetector_mod
+11-14 18:54:33.713  1120 12988 I WindowManager: WIN DEATH: Window{1ef65bd u0 com.archie.opencv_blobDetector_mod}
+11-14 18:54:33.729  1120  2989 I WindowManager: WIN DEATH: Window{7dbe44e u0 com.archie.opencv_blobDetector_mod}
+11-14 18:54:33.738  1120  1641 W ActivityManager: Invalid packageName: com.archie.opencv_blobDetector_mod
+11-14 18:54:33.779  1120  1641 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 18:54:33.796  1120  2989 I ActivityManager: Start proc 30117:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 18:54:34.122  1120  1625 I ActivityManager: Start proc 30145:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 18:54:34.134  1120  3062 I ActivityManager: Start proc 30151:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 18:54:34.450  1120  1235 I WindowManager: Screen frozen for +658ms due to Window{855acee u0 com.archie.opencv_blobDetector_mod}
+11-14 18:59:34.620  1120  1235 I WindowManager: Failed to capture screenshot of Token{90984b7 ActivityRecord{44bffb6 u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t611 f}} appWin=Window{575f3b5 u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 19:00:04.451  1120  3061 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 30521
+11-14 19:00:04.451  1120  3061 I ActivityManager: Killing 30151:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:00:04.455  1120  3061 I ActivityManager: Killing 30145:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:00:04.460  1120  3061 I ActivityManager: Killing 30117:com.archie.opencv_blobDetector_mod/u0a153 (adj 900): stop com.archie.opencv_blobDetector_mod
+11-14 19:00:04.469  1120  1625 I WindowManager: WIN DEATH: Window{855acee u0 com.archie.opencv_blobDetector_mod}
+11-14 19:00:04.482  1120 31012 I WindowManager: WIN DEATH: Window{edde46d u0 com.archie.opencv_blobDetector_mod}
+11-14 19:00:04.515  1120  3062 W ActivityManager: Invalid packageName: com.archie.opencv_blobDetector_mod
+11-14 19:00:04.614  1120  3062 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 19:00:04.642  1120 12988 I ActivityManager: Start proc 30532:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 19:00:04.965  1120  1625 I ActivityManager: Start proc 30560:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 19:00:04.976  1120  1625 I ActivityManager: Start proc 30566:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 19:00:05.273  1120  1235 I WindowManager: Screen frozen for +625ms due to Window{844ad31 u0 com.archie.opencv_blobDetector_mod}
+11-14 19:05:05.613  1120  1235 I WindowManager: Failed to capture screenshot of Token{809ddde ActivityRecord{74f919 u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t612 f}} appWin=Window{8b33154 u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 19:05:35.336  1120  3057 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 30913
+11-14 19:05:35.336  1120  3057 I ActivityManager: Killing 30566:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:05:35.340  1120  3057 I ActivityManager: Killing 30560:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:05:35.349  1120  3057 I ActivityManager: Killing 30532:com.archie.opencv_blobDetector_mod/u0a153 (adj 900): stop com.archie.opencv_blobDetector_mod
+11-14 19:05:35.374  1120  1131 I WindowManager: WIN DEATH: Window{844ad31 u0 com.archie.opencv_blobDetector_mod}
+11-14 19:05:35.386  1120 11408 I WindowManager: WIN DEATH: Window{5b356ec u0 com.archie.opencv_blobDetector_mod}
+11-14 19:05:35.417  1120 31012 W ActivityManager: Invalid packageName: com.archie.opencv_blobDetector_mod
+11-14 19:05:35.459  1120 31012 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 19:05:35.481  1120 11408 I ActivityManager: Start proc 30924:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 19:05:35.847  1120  1641 I ActivityManager: Start proc 30951:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 19:05:35.858  1120  1641 I ActivityManager: Start proc 30957:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 19:05:36.222  1120  1235 I WindowManager: Screen frozen for +742ms due to Window{e529367 u0 com.archie.opencv_blobDetector_mod}
+11-14 19:10:36.380  1120  1235 I WindowManager: Failed to capture screenshot of Token{d29761c ActivityRecord{f7af38f u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t613 f}} appWin=Window{4912b13 u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 19:11:06.235  1120  1669 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 31315
+11-14 19:11:06.235  1120  1669 I ActivityManager: Killing 30957:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:11:06.242  1120  1669 I ActivityManager: Killing 30951:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:11:06.247  1120  1669 I ActivityManager: Killing 30924:com.archie.opencv_blobDetector_mod/u0a153 (adj 900): stop com.archie.opencv_blobDetector_mod
+11-14 19:11:06.273  1120  2989 I WindowManager: WIN DEATH: Window{e529367 u0 com.archie.opencv_blobDetector_mod}
+11-14 19:11:06.277  1120  1641 I WindowManager: WIN DEATH: Window{4c0e98b u0 com.archie.opencv_blobDetector_mod}
+11-14 19:11:06.305  1120  1641 W ActivityManager: Invalid packageName: com.archie.opencv_blobDetector_mod
+11-14 19:11:06.356  1120  1641 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 19:11:06.382  1120  3004 I ActivityManager: Start proc 31326:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 19:11:06.792  1120  1342 I ActivityManager: Start proc 31354:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 19:11:06.804  1120 12988 I ActivityManager: Start proc 31360:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 19:11:07.233  1120  1235 I WindowManager: Screen frozen for +844ms due to Window{5d11357 u0 com.archie.opencv_blobDetector_mod}
+11-14 19:16:07.334  1120  3057 I WindowManager: Failed to capture screenshot of Token{38814c ActivityRecord{95f6d7f u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t614 f}} appWin=Window{2e43eb2 u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 19:16:37.079  1120 31013 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 31690
+11-14 19:16:37.079  1120 31013 I ActivityManager: Killing 31360:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:16:37.081  1120 31013 I ActivityManager: Killing 31354:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:16:37.082  1120 31013 I ActivityManager: Killing 31326:com.archie.opencv_blobDetector_mod/u0a153 (adj 900): stop com.archie.opencv_blobDetector_mod
+11-14 19:16:37.109  1120 31013 I WindowManager: WIN DEATH: Window{5d11357 u0 com.archie.opencv_blobDetector_mod}
+11-14 19:16:37.122  1120  1625 I WindowManager: WIN DEATH: Window{cd0f20a u0 com.archie.opencv_blobDetector_mod}
+11-14 19:16:37.137  1120  1342 W ActivityManager: Invalid packageName: com.archie.opencv_blobDetector_mod
+11-14 19:16:37.272  1120  1342 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 19:16:37.301  1120  1625 I ActivityManager: Start proc 31705:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 19:16:37.736  1120  1342 I ActivityManager: Start proc 31739:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 19:16:37.748  1120  1625 I ActivityManager: Start proc 31745:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 19:16:38.179  1120  1235 I WindowManager: Screen frozen for +877ms due to Window{ee1eab9 u0 com.archie.opencv_blobDetector_mod}
+11-14 19:25:40.914  1120  1625 I WindowManager: Failed to capture screenshot of Token{83a97c6 ActivityRecord{6fe49a1 u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t615}} appWin=Window{db84505 u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 19:25:41.367  1120  1138 W ActivityManager: Activity pause timeout for ActivityRecord{6fe49a1 u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t615 f}
+11-14 19:25:41.908  1120  1235 I WindowManager: Screen frozen for +1s35ms due to Window{e30394d u0 com.archie.opencv_blobDetector_mod}
+11-14 19:25:43.064  1120  1625 I ActivityManager: Killing 31705:com.archie.opencv_blobDetector_mod/u0a153 (adj 902): remove task
+11-14 19:26:13.414  1120  1138 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=-1: installPackageLI
+11-14 19:26:13.415  1120  1138 I ActivityManager: Killing 31745:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:26:13.422  1120  1138 I ActivityManager: Killing 31739:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:26:13.442  1120  1669 I WindowManager: WIN DEATH: Window{ee1eab9 u0 com.archie.opencv_blobDetector_mod}
+11-14 19:26:13.467  1120  1669 I WindowManager: WIN DEATH: Window{64f0fbd u0 com.archie.opencv_blobDetector_mod}
+11-14 19:26:13.623  1120  1154 I PackageManager: Package com.archie.opencv_blobDetector_mod codePath changed from /data/app/com.archie.opencv_blobDetector_mod-q8MH0CA1izirE03AC7ufHA== to /data/app/com.archie.opencv_blobDetector_mod-EpLcLJS8RyXI-3b0eJMJHg==; Retaining data and using new
+11-14 19:26:13.624  1120  1154 W PackageManager: Code path for com.archie.opencv_blobDetector_mod changing from /data/app/com.archie.opencv_blobDetector_mod-q8MH0CA1izirE03AC7ufHA== to /data/app/com.archie.opencv_blobDetector_mod-EpLcLJS8RyXI-3b0eJMJHg==
+11-14 19:26:13.624  1120  1154 W PackageManager: Resource path for com.archie.opencv_blobDetector_mod changing from /data/app/com.archie.opencv_blobDetector_mod-q8MH0CA1izirE03AC7ufHA== to /data/app/com.archie.opencv_blobDetector_mod-EpLcLJS8RyXI-3b0eJMJHg==
+11-14 19:26:13.980  1120  1154 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: pkg removed
+11-14 19:26:14.014  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package:com.archie.opencv_blobDetector_mod flg=0x4000010 (has extras) } to com.android.musicfx/.Compatibility$Receiver
+11-14 19:26:14.015  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package:com.archie.opencv_blobDetector_mod flg=0x4000010 (has extras) } to com.android.vending/com.google.android.finsky.packagemanager.impl.PackageMonitorReceiverImpl$RegisteredReceiver
+11-14 19:26:14.015  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package:com.archie.opencv_blobDetector_mod flg=0x4000010 (has extras) } to com.android.vending/com.google.android.finsky.instantapps.appmanagement.InstantAppRemoveMonitor
+11-14 19:26:14.067  1120  3004 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity} from uid 2000
+11-14 19:26:14.110  1120  1668 I ActivityManager: Start proc 3711:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 19:26:14.314  1120 31012 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package:com.archie.opencv_blobDetector_mod flg=0x4000010 (has extras) } to com.google.android.googlequicksearchbox/com.google.android.apps.gsa.googlequicksearchbox.GelStubAppWatcher
+11-14 19:26:14.324  1120 12988 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.archie.opencv_blobDetector_mod flg=0x4000010 (has extras) } to com.android.musicfx/.Compatibility$Receiver
+11-14 19:26:14.324  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.archie.opencv_blobDetector_mod flg=0x4000010 (has extras) } to com.android.vending/com.google.android.finsky.packagemanager.impl.PackageMonitorReceiverImpl$RegisteredReceiver
+11-14 19:26:14.347  1120  2991 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.archie.opencv_blobDetector_mod flg=0x4000010 (has extras) } to com.google.android.googlequicksearchbox/com.google.android.apps.gsa.googlequicksearchbox.GelStubAppWatcher
+11-14 19:26:14.348  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.archie.opencv_blobDetector_mod flg=0x4000010 (has extras) } to com.google.android.ims/.receivers.RcsAutoStartReceiver
+11-14 19:26:14.359  1120 31012 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.opencv_blobDetector_mod flg=0x4000010 (has extras) } to com.android.musicfx/.Compatibility$Receiver
+11-14 19:26:14.359  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.opencv_blobDetector_mod flg=0x4000010 (has extras) } to com.google.android.apps.photos/.account.full.FetchAccountPropertiesAppUpgradeBroadcastReceiver
+11-14 19:26:14.359  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.opencv_blobDetector_mod flg=0x4000010 (has extras) } to com.google.android.apps.photos/.account.full.SyncAccountsForLoginBroadcastReceiver
+11-14 19:26:14.359  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.opencv_blobDetector_mod flg=0x4000010 (has extras) } to com.google.android.apps.photos/.experiments.phenotype.full.PhenotypeAppUpgradeBroadcastReceiver
+11-14 19:26:14.359  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.opencv_blobDetector_mod flg=0x4000010 (has extras) } to com.google.android.apps.photos/.notificationchannels.AppUpdateBroadcastReceiver
+11-14 19:26:14.382  1120 31012 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.opencv_blobDetector_mod flg=0x4000010 (has extras) } to com.google.android.googlequicksearchbox/com.google.android.apps.gsa.googlequicksearchbox.GelStubAppWatcher
+11-14 19:26:14.382  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.opencv_blobDetector_mod flg=0x4000010 (has extras) } to com.google.android.ims/.receivers.RcsAutoStartReceiver
+11-14 19:26:14.602  1120  2991 I ActivityManager: Start proc 3800:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 19:26:14.623  1120 11408 I ActivityManager: Start proc 3807:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 19:26:15.111  1120  1235 I WindowManager: Screen frozen for +996ms due to Window{cfb69b0 u0 com.archie.opencv_blobDetector_mod}
+11-14 19:26:16.606  1120  3057 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 3954
+11-14 19:26:16.606  1120  3057 I ActivityManager: Killing 3807:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:26:16.607  1120  3057 W ActivityManager: Scheduling restart of crashed service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService in 1000ms
+11-14 19:26:16.608  1120  3057 I ActivityManager: Killing 3800:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:26:16.609  1120  3057 W ActivityManager: Scheduling restart of crashed service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService in 10997ms
+11-14 19:26:16.610  1120  3057 I ActivityManager: Killing 3711:com.archie.opencv_blobDetector_mod/u0a153 (adj 0): stop com.archie.opencv_blobDetector_mod
+11-14 19:26:16.612  1120  3057 W ActivityManager: Force removing ActivityRecord{30da563 u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t616}: app died, no saved state
+11-14 19:26:16.626  1120  3057 I WindowManager: Failed to capture screenshot of Token{2c5c560 ActivityRecord{30da563 u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t616 f}} appWin=Window{42ee080 u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 19:26:16.683  1120 31012 W WindowManager: Failed to report 'resized' to the client of Window{459fce4 u0 com.archie.opencv_blobDetector_mod}, removing this window.
+11-14 19:26:16.684  1120 31012 W WindowManager: Failed to report 'resized' to the client of Window{b383f98 u0 com.archie.opencv_blobDetector_mod}, removing this window.
+11-14 19:26:16.684  1120 31012 W WindowManager: Failed to report 'resized' to the client of Window{cfb69b0 u0 com.archie.opencv_blobDetector_mod}, removing this window.
+11-14 19:26:16.693  1120  3057 I ActivityManager:   Force stopping service ServiceRecord{69865b2 u0 com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService}
+11-14 19:26:16.693  1120  3057 I ActivityManager:   Force stopping service ServiceRecord{35cc6b9 u0 com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService}
+11-14 19:26:20.803  1120  2991 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 19:26:20.827  1120  3057 I ActivityManager: Start proc 3995:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 19:26:21.250  1120  3057 I ActivityManager: Start proc 4024:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 19:26:21.262  1120  3005 I ActivityManager: Start proc 4029:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 19:26:21.654  1120  1235 I WindowManager: Screen frozen for +828ms due to Window{d77ceb8 u0 com.archie.opencv_blobDetector_mod}
+11-14 19:31:21.731  1120  1235 I WindowManager: Failed to capture screenshot of Token{7790d40 ActivityRecord{1a3a0c3 u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t617 f}} appWin=Window{bc1b707 u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 19:31:51.586  1120  3062 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 4374
+11-14 19:31:51.587  1120  3062 I ActivityManager: Killing 4029:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:31:51.590  1120  3062 I ActivityManager: Killing 4024:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:31:51.593  1120  3062 I ActivityManager: Killing 3995:com.archie.opencv_blobDetector_mod/u0a153 (adj 900): stop com.archie.opencv_blobDetector_mod
+11-14 19:31:51.613  1120  1601 I WindowManager: WIN DEATH: Window{d77ceb8 u0 com.archie.opencv_blobDetector_mod}
+11-14 19:31:51.623  1120 31012 I WindowManager: WIN DEATH: Window{9907fff u0 com.archie.opencv_blobDetector_mod}
+11-14 19:31:51.644  1120  1396 W ActivityManager: Invalid packageName: com.archie.opencv_blobDetector_mod
+11-14 19:31:51.690  1120  1396 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 19:31:51.721  1120  1396 I ActivityManager: Start proc 4385:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 19:31:52.159  1120  1669 I ActivityManager: Start proc 4414:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 19:31:52.173  1120  2989 I ActivityManager: Start proc 4419:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 19:31:52.592  1120  1235 I WindowManager: Screen frozen for +877ms due to Window{1e3ebc9 u0 com.archie.opencv_blobDetector_mod}
+11-14 19:36:52.654  1120  1235 I WindowManager: Failed to capture screenshot of Token{1295996 ActivityRecord{86ab0b1 u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t618 f}} appWin=Window{67244cc u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 19:37:22.410  1120  1641 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 4786
+11-14 19:37:22.410  1120  1641 I ActivityManager: Killing 4419:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:37:22.417  1120  1641 I ActivityManager: Killing 4414:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:37:22.425  1120  1641 I ActivityManager: Killing 4385:com.archie.opencv_blobDetector_mod/u0a153 (adj 900): stop com.archie.opencv_blobDetector_mod
+11-14 19:37:22.445  1120  1130 I WindowManager: WIN DEATH: Window{1e3ebc9 u0 com.archie.opencv_blobDetector_mod}
+11-14 19:37:22.454  1120 12988 I WindowManager: WIN DEATH: Window{36c7393 u0 com.archie.opencv_blobDetector_mod}
+11-14 19:37:22.477  1120  3061 W ActivityManager: Invalid packageName: com.archie.opencv_blobDetector_mod
+11-14 19:37:22.560  1120  3061 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 19:37:22.584  1120 12988 I ActivityManager: Start proc 4797:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 19:37:23.030  1120  1601 I ActivityManager: Start proc 4824:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 19:37:23.042  1120  1601 I ActivityManager: Start proc 4830:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 19:37:23.490  1120  1235 I WindowManager: Screen frozen for +911ms due to Window{f4edd3d u0 com.archie.opencv_blobDetector_mod}
+11-14 19:42:23.591  1120  1235 I WindowManager: Failed to capture screenshot of Token{908657a ActivityRecord{318ada5 u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t619 f}} appWin=Window{fc6e2c9 u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 19:42:53.262  1120  1669 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 5169
+11-14 19:42:53.263  1120  1669 I ActivityManager: Killing 4830:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:42:53.269  1120  1669 I ActivityManager: Killing 4824:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:42:53.272  1120  1669 I ActivityManager: Killing 4797:com.archie.opencv_blobDetector_mod/u0a153 (adj 900): stop com.archie.opencv_blobDetector_mod
+11-14 19:42:53.298  1120  1626 I WindowManager: WIN DEATH: Window{f4edd3d u0 com.archie.opencv_blobDetector_mod}
+11-14 19:42:53.300  1120  3061 I WindowManager: WIN DEATH: Window{3d32201 u0 com.archie.opencv_blobDetector_mod}
+11-14 19:42:53.318  1120  3062 W ActivityManager: Invalid packageName: com.archie.opencv_blobDetector_mod
+11-14 19:42:53.367  1120  3062 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 19:42:53.385  1120  3062 I ActivityManager: Start proc 5180:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 19:42:53.822  1120 11408 I ActivityManager: Start proc 5209:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 19:42:53.834  1120  1131 I ActivityManager: Start proc 5215:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 19:42:54.243  1120  1235 I WindowManager: Screen frozen for +859ms due to Window{a5315d0 u0 com.archie.opencv_blobDetector_mod}
+11-14 19:47:54.273  1120  1625 I WindowManager: Failed to capture screenshot of Token{e5deb1 ActivityRecord{67dfd58 u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t620 f}} appWin=Window{3132cff u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 19:48:24.099  1120  1130 I ActivityManager: Force stopping com.archie.opencv_blobDetector_mod appid=10153 user=0: from pid 5562
+11-14 19:48:24.099  1120  1130 I ActivityManager: Killing 5215:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:48:24.101  1120  1130 I ActivityManager: Killing 5209:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 (adj 200): stop com.archie.opencv_blobDetector_mod
+11-14 19:48:24.103  1120  1130 I ActivityManager: Killing 5180:com.archie.opencv_blobDetector_mod/u0a153 (adj 900): stop com.archie.opencv_blobDetector_mod
+11-14 19:48:24.119  1120  1601 I WindowManager: WIN DEATH: Window{febbcf7 u0 com.archie.opencv_blobDetector_mod}
+11-14 19:48:24.129  1120  1130 I WindowManager: WIN DEATH: Window{a5315d0 u0 com.archie.opencv_blobDetector_mod}
+11-14 19:48:24.155  1120  1641 W ActivityManager: Invalid packageName: com.archie.opencv_blobDetector_mod
+11-14 19:48:24.209  1120  1641 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity (has extras)} from uid 2000
+11-14 19:48:24.240  1120  3057 I ActivityManager: Start proc 5573:com.archie.opencv_blobDetector_mod/u0a153 for activity com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity
+11-14 19:48:24.671  1120  1625 I ActivityManager: Start proc 5600:com.archie.opencv_blobDetector_mod:ResourceLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-14 19:48:24.683  1120 11408 I ActivityManager: Start proc 5606:com.archie.opencv_blobDetector_mod:FrameLoggerService/u0a153 for service com.archie.opencv_blobDetector_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-14 19:48:25.104  1120  1235 I WindowManager: Screen frozen for +861ms due to Window{530d565 u0 com.archie.opencv_blobDetector_mod}
+--------- beginning of main
+11-14 19:52:25.285  5600  5901 I chatty  : uid=10153 com.archie.opencv_blobDetector_mod:ResourceLoggerService expire 3 lines
+11-14 19:52:25.290  5606  5606 I chatty  : uid=10153 com.archie.opencv_blobDetector_mod:FrameLoggerService expire 2 lines
+11-14 19:52:25.958  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 223 lines
+11-14 19:52:25.988  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 31 lines
+11-14 19:52:26.686  5573  5905 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 1 line
+11-14 19:52:27.021  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 223 lines
+11-14 19:52:27.026  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 64 lines
+11-14 19:52:28.086  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 445 lines
+11-14 19:52:29.168  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 65 lines
+11-14 19:52:30.252  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 446 lines
+11-14 19:52:31.343  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 64 lines
+11-14 19:52:32.384  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 446 lines
+11-14 19:52:33.483  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 64 lines
+11-14 19:52:34.553  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 221 lines
+11-14 19:52:35.304  5606  5606 I chatty  : uid=10153 com.archie.opencv_blobDetector_mod:FrameLoggerService expire 2 lines
+11-14 19:52:35.607  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 223 lines
+11-14 19:52:35.627  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 64 lines
+11-14 19:52:36.674  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 446 lines
+11-14 19:52:37.770  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 64 lines
+11-14 19:52:38.842  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 446 lines
+11-14 19:52:39.910  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 65 lines
+11-14 19:52:40.977  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 445 lines
+11-14 19:52:42.085  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 64 lines
+11-14 19:52:43.136  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 446 lines
+11-14 19:52:44.230  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 64 lines
+11-14 19:52:45.269  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 221 lines
+11-14 19:52:45.319  5606  5606 I chatty  : uid=10153 com.archie.opencv_blobDetector_mod:FrameLoggerService expire 2 lines
+11-14 19:52:46.346  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 223 lines
+11-14 19:52:46.369  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 64 lines
+11-14 19:52:47.410  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 446 lines
+11-14 19:52:48.513  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 65 lines
+11-14 19:52:49.571  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 446 lines
+11-14 19:52:50.685  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 64 lines
+11-14 19:52:51.742  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 445 lines
+11-14 19:52:52.829  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 64 lines
+11-14 19:52:53.872  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 440 lines
+11-14 19:52:54.972  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 31 lines
+11-14 19:52:54.997  5912  5912 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) top expire 2 lines
+11-14 19:52:55.308  5600  5911 I chatty  : uid=10153 com.archie.opencv_blobDetector_mod:ResourceLoggerService expire 3 lines
+11-14 19:52:55.334  5606  5606 I chatty  : uid=10153 com.archie.opencv_blobDetector_mod:FrameLoggerService expire 2 lines
+11-14 19:52:56.003  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 222 lines
+11-14 19:52:56.012  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 64 lines
+11-14 19:52:57.088  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 447 lines
+11-14 19:52:58.149  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 65 lines
+11-14 19:52:59.227  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 445 lines
+11-14 19:53:00.326  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 64 lines
+11-14 19:53:01.382  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 446 lines
+11-14 19:53:02.471  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 64 lines
+11-14 19:53:03.521  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 444 lines
+11-14 19:53:04.610  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 32 lines
+11-14 19:53:05.349  5606  5606 I chatty  : uid=10153 com.archie.opencv_blobDetector_mod:FrameLoggerService expire 2 lines
+11-14 19:53:05.679  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 223 lines
+11-14 19:53:05.682  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 64 lines
+11-14 19:53:06.742  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 445 lines
+11-14 19:53:07.823  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 65 lines
+11-14 19:53:08.899  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 446 lines
+11-14 19:53:09.997  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 64 lines
+11-14 19:53:11.044  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 446 lines
+11-14 19:53:12.139  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 64 lines
+11-14 19:53:13.186  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 446 lines
+11-14 19:53:14.284  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 64 lines
+11-14 19:53:15.332  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 221 lines
+11-14 19:53:15.365  5606  5606 I chatty  : uid=10153 com.archie.opencv_blobDetector_mod:FrameLoggerService expire 2 lines
+11-14 19:53:16.398  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 223 lines
+11-14 19:53:16.426  5573  5573 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 64 lines
+11-14 19:53:17.481  5573  5682 I chatty  : uid=10153(com.archie.opencv_blobDetector_mod) expire 223 lines
+11-14 19:53:24.914   815 12991 I Camera2ClientBase: Closed Camera 0. Client was: com.archie.opencv_blobDetector_mod (PID 5573, UID 10153)
+11-14 19:53:25.059  3044  3234 D BaseStreamManager: Promised remove @ r#10321 for StreamItemIdAndRevision{notifKey=0|com.archie.opencv_blobDetector_mod|543|null|10153, packageName=com.archie.opencv_blobDetector_mod, id=543, revision=0, originalRevision=0, updateCount=0} (@10320): SBN removed: StreamItemIdAndRevision{notifKey=0|com.archie.opencv_blobDetector_mod|543|null|10153, packageName=com.archie.opencv_blobDetector_mod, id=543, revision=0, originalRevision=0, updateCount=0}
+11-14 19:53:25.066  5573  5573 I GtcCore : Output directory created at: /storage/emulated/0/Android/data/com.archie.opencv_blobDetector_mod/files/20181114_075325_audio
+11-14 19:53:25.070  5600  5600 D GtcCore : Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.opencv_blobDetector_mod/files/20181114_075325_ResourceStats_OpenCV_BlobDetector_Mod.txt
+11-14 19:53:25.071  5573  5573 D GtcCore : Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.opencv_blobDetector_mod/files/20181114_075325_UxResults.csv
+11-14 19:53:25.073  3044  3234 D BaseStreamManager: Promised remove @ r#10322 for StreamItemIdAndRevision{notifKey=0|com.archie.opencv_blobDetector_mod|643|null|10153, packageName=com.archie.opencv_blobDetector_mod, id=643, revision=0, originalRevision=0, updateCount=0} (@10321): SBN removed: StreamItemIdAndRevision{notifKey=0|com.archie.opencv_blobDetector_mod|643|null|10153, packageName=com.archie.opencv_blobDetector_mod, id=643, revision=0, originalRevision=0, updateCount=0}
+11-14 19:53:25.083  5606  5606 D GtcCore : Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.opencv_blobDetector_mod/files/20181114_075325_FrameStats.txt
+11-14 19:53:25.123  1120  1235 I WindowManager: Failed to capture screenshot of Token{201a182 ActivityRecord{950b4cd u0 com.archie.opencv_blobDetector_mod/.archie_mods.ModifiedMainActivity t621 f}} appWin=Window{e38bb71 u0 com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity} drawState=4
+11-14 19:53:25.130  5573  5573 D GtcCore : Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.opencv_blobDetector_mod/files/20181114_075325_ClassificationResults.csv
+11-14 19:53:25.167  5573  5573 I opencv_colorblob_mod: BaseApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.opencv_blobDetector_mod/files/20181114_075325_frames.csv
+11-14 19:53:25.439  5573  5573 I opencv_colorblob_mod: BaseApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.opencv_blobDetector_mod/files/20181114_075325_classification.csv
+11-14 19:53:25.440  5573  5573 I opencv_colorblob_mod: BaseApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.opencv_blobDetector_mod/files/20181114_075325_execSettings.csv
+11-14 19:53:25.444   604   625 E BufferQueueProducer: [SurfaceView - com.archie.opencv_blobDetector_mod/com.archie.opencv_blobDetector_mod.archie_mods.ModifiedMainActivity#0] disconnect: not connected (req=2)
+11-14 19:53:25.679  3044  3234 D BaseStreamManager: Promised remove @ r#10324 for StreamItemIdAndRevision{notifKey=0|android|0|com.android.server.wm.AlertWindowNotification - com.archie.opencv_blobDetector_mod|1000, packageName=android, tag=com.android.server.wm.AlertWindowNotification - com.archie.opencv_blobDetector_mod, id=0, revision=0, originalRevision=0, updateCount=0} (@10323): SBN removed: StreamItemIdAndRevision{notifKey=0|android|0|com.android.server.wm.AlertWindowNotification - com.archie.opencv_blobDetector_mod|1000, packageName=android, tag=com.android.server.wm.AlertWindowNotification - com.archie.opencv_blobDetector_mod, id=0, revision=0, originalRevision=0, updateCount=0}

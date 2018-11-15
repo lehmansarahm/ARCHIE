@@ -2,11 +2,12 @@ set(0,'defaultaxesfontsize',20);
 set(0,'defaulttextfontsize',25);
 
 VERSIONS = { 'Original', 'With ARCHIE' };
-APPS = { 'Blob Detector', 'TF Classify', 'TF Speech' };  
+APPS = { 'TF-C', 'TF-S', 'CBD', 'DT' };  
 
-PROJECT_NAMES = {'opencv_blobDetector', 'opencv_blobDetector_mod', ...
-    'tf_classify', 'tf_classify_mod', ...
-    'tf_speech', 'tf_speech_mod'};
+PROJECT_NAMES = { 'tf_classify', 'tf_classify_mod', ...
+    'tf_speech', 'tf_speech_mod', ...
+    'opencv_blobDetector', 'opencv_blobDetector_mod', ...
+    'drone_tracker', 'drone_tracker_mod' };
 FOLDER_NAMES = {'files1', 'files2', 'files3', 'files4', 'files5'};
 
 CLASSIFICATION_FILENAME = string('classification.csv');
@@ -44,6 +45,7 @@ for project_name = PROJECT_NAMES
         
         class_filename = join([ project_name{1}, DIVIDER, ...
             folder_name{1}, DIVIDER, CLASSIFICATION_FILENAME ], '');
+        class_filename
         
         class_matrix = extractCpuSystem(class_filename);
         time_to_classify = class_matrix(:, 8);
@@ -54,6 +56,7 @@ for project_name = PROJECT_NAMES
 
         frame_filename = join([ project_name{1}, DIVIDER, ...
             folder_name{1}, DIVIDER, FRAMES_FILENAME ], '');
+        frame_filename
         
         frame_matrix = extractCpuSystem(frame_filename);
         min_fps_vector = frame_matrix(:, 10);
@@ -73,6 +76,7 @@ for project_name = PROJECT_NAMES
 
         system_filename = join([ project_name{1}, DIVIDER, ...
             folder_name{1}, DIVIDER, SYSTEM_FILENAME ], '');
+        system_filename
         
         system_matrix = extractCpuSystem(system_filename);
         mem_usage = system_matrix(:, 7);
@@ -124,12 +128,14 @@ end
 
 time_to_classify_all = [ time_to_classify_per_project{1}, time_to_classify_per_project{2} ; ...
         time_to_classify_per_project{3}, time_to_classify_per_project{4}; ...
-        time_to_classify_per_project{5}, time_to_classify_per_project{6} ];
+        time_to_classify_per_project{5}, time_to_classify_per_project{6}; ...
+        time_to_classify_per_project{7}, time_to_classify_per_project{8} ];
 bar(time_to_classify_all);
 set(gca, 'xticklabel', APPS);
-xlabel('Application Version')
+% set(gca, 'XTickLabelRotation', 45);
+% xlabel('Application Version')
 ylabel('Avg. Classification Time (ms)')
-legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
+% legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
 saveas(gcf,'fig-caseStudies-timeToClassify','epsc')
 figure()
 
@@ -138,12 +144,14 @@ figure()
 
 min_fps_all = [ min_fps_per_project{1}, min_fps_per_project{2}; ...
         min_fps_per_project{3}, min_fps_per_project{4}; ...
-        min_fps_per_project{5}, min_fps_per_project{6} ];
+        min_fps_per_project{5}, min_fps_per_project{6}; ...
+        min_fps_per_project{7}, min_fps_per_project{8} ];
 bar(min_fps_all);
 set(gca, 'xticklabel', APPS);
-xlabel('Application Version')
+% set(gca, 'XTickLabelRotation', 45);
+% xlabel('Application Version')
 ylabel('Average Min FPS')
-legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
+% legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
 saveas(gcf,'fig-caseStudies-minFps','epsc')
 figure()
 
@@ -152,12 +160,15 @@ figure()
 
 max_fps_all = [ max_fps_per_project{1}, max_fps_per_project{2}; ...
         max_fps_per_project{3}, max_fps_per_project{4}; ...
-        max_fps_per_project{5}, max_fps_per_project{6} ];
+        max_fps_per_project{5}, max_fps_per_project{6}; ...
+        max_fps_per_project{7}, max_fps_per_project{8} ];
 bar(max_fps_all);
 set(gca, 'xticklabel', APPS);
-xlabel('Application Version')
+% set(gca, 'XTickLabelRotation', 45);
+% xlabel('Application Version')
 ylabel('Average Max FPS')
-legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
+ylim([15 65])
+% legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
 saveas(gcf,'fig-caseStudies-maxFps','epsc')
 figure()
 
@@ -166,12 +177,15 @@ figure()
 
 avg_fps_all = [ avg_fps_per_project{1}, avg_fps_per_project{2}; ...
         avg_fps_per_project{3}, avg_fps_per_project{4}; ...
-        avg_fps_per_project{5}, avg_fps_per_project{6} ];
+        avg_fps_per_project{5}, avg_fps_per_project{6}; ...
+        avg_fps_per_project{7}, avg_fps_per_project{8} ];
 bar(avg_fps_all);
 set(gca, 'xticklabel', APPS);
-xlabel('Application Version')
+% set(gca, 'XTickLabelRotation', 45);
+% xlabel('Application Version')
 ylabel('Average Overall FPS')
-legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
+ylim([59 60])
+% legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
 saveas(gcf,'fig-caseStudies-avgFps','epsc')
 figure()
 
@@ -180,12 +194,15 @@ figure()
     
 mem_usage_all = [ mem_usage_per_project{1}, mem_usage_per_project{2}; ...
         mem_usage_per_project{3}, mem_usage_per_project{4}; ...
-        mem_usage_per_project{5}, mem_usage_per_project{6} ];
+        mem_usage_per_project{5}, mem_usage_per_project{6}; ...
+        mem_usage_per_project{7}, mem_usage_per_project{8} ];
 bar(mem_usage_all);
 set(gca, 'xticklabel', APPS);
-xlabel('Application Version')
+% set(gca, 'XTickLabelRotation', 45);
+% xlabel('Application Version')
 ylabel('Avg. Memory Utilization')
-legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
+ylim([0.8 1.0])
+% legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
 saveas(gcf,'fig-caseStudies-memUsage','epsc')
 figure()
 
@@ -194,12 +211,15 @@ figure()
     
 cpu_user_all = [ cpu_user_per_project{1}, cpu_user_per_project{2}; ...
         cpu_user_per_project{3}, cpu_user_per_project{4}; ...
-        cpu_user_per_project{5}, cpu_user_per_project{6} ];
+        cpu_user_per_project{5}, cpu_user_per_project{6}; ...
+        cpu_user_per_project{7}, cpu_user_per_project{8} ];
 bar(cpu_user_all);
 set(gca, 'xticklabel', APPS);
-xlabel('Application Version')
+% set(gca, 'XTickLabelRotation', 45);
+% xlabel('Application Version')
 ylabel('Avg. User-space CPU Utilization')
-legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
+ylim([0.05 0.45])
+% legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
 saveas(gcf,'fig-caseStudies-cpuUser','epsc')
 figure()
 
@@ -208,10 +228,13 @@ figure()
     
 cpu_system_all = [ cpu_system_per_project{1}, cpu_system_per_project{2}; ...
         cpu_system_per_project{3}, cpu_system_per_project{4}; ...
-        cpu_system_per_project{5}, cpu_system_per_project{6} ];
+        cpu_system_per_project{5}, cpu_system_per_project{6}; ...
+        cpu_system_per_project{7}, cpu_system_per_project{8} ];
 bar(cpu_system_all);
 set(gca, 'xticklabel', APPS);
-xlabel('Application Version')
+% set(gca, 'XTickLabelRotation', 45);
+% xlabel('Application Version')
 ylabel('Avg. Kernel-space CPU Utilization')
-legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
+ylim([0.03 0.12])
+% legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
 saveas(gcf,'fig-caseStudies-cpuSystem','epsc')

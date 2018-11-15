@@ -1,10 +1,13 @@
 package com.archie.opencv_blobDetector_mod.archie_mods;
 
 import android.app.Activity;
+import android.os.SystemClock;
 import android.view.MotionEvent;
+import android.view.View;
 
 import com.archie.opencv_blobDetector_mod.ColorBlobApplication;
 import com.archie.opencv_blobDetector_mod.ColorBlobDetector;
+import com.archie.opencv_blobDetector_mod.R;
 import com.archie.opencv_blobDetector_mod.env.Logger;
 
 import org.opencv.core.Core;
@@ -22,6 +25,7 @@ import java.util.Map;
 import edu.temple.gtc_core.classify.IClassifier;
 
 import static edu.temple.gtc_core.utils.Constants.BUNDLE_KEY_CLASSIFICATION_RESULTS;
+import static edu.temple.gtc_core.utils.Constants.BUNDLE_KEY_CLASSIFICATION_TOP_RESULT;
 import static edu.temple.gtc_core.utils.Constants.BUNDLE_KEY_PREPROCESSED_OUTPUT;
 import static edu.temple.gtc_core.utils.Constants.BUNDLE_KEY_PREVIEW_DATA;
 import static edu.temple.gtc_core.utils.Constants.BUNDLE_KEY_PREVIEW_FORMAT;
@@ -115,7 +119,7 @@ public class ArchieBlobClassifier implements IClassifier {
         // ------------------------------------------------------------------------------
 
         // populate a placeholder for 'pre-processed output'
-        map.put(BUNDLE_KEY_CLASSIFICATION_RESULTS, "boundarySelection");
+        map.put(BUNDLE_KEY_CLASSIFICATION_TOP_RESULT, "boundarySelection");
         app.getGtcController().onClassifierClassificationComplete(map);
     }
 
@@ -124,7 +128,7 @@ public class ArchieBlobClassifier implements IClassifier {
         LOGGER.e("GTC Controller called 'evaluate' for classifier: "
                 + this.getClass().getSimpleName());
 
-        if (!map.containsKey(BUNDLE_KEY_CLASSIFICATION_RESULTS)) {
+        if (!map.containsKey(BUNDLE_KEY_CLASSIFICATION_TOP_RESULT)) {
             LOGGER.e("CANNOT EVALUATE CLASSIFICATION RESULTS IF NONE ARE PROVIDED.");
             return;
         }

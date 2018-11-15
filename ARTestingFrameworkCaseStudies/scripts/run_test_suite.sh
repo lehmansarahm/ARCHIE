@@ -24,16 +24,19 @@ FALSE="false"
 INCLUDE_UI_TESTS=${TRUE}
 INCLUDE_RESOURCE_TESTS=${TRUE}
 
+# Drone Tracker:        project ('opencv_blobDetector')         activity ('MainActivity')
+# Drone Tracker Mod:    project ('opencv_blobDetector_mod')     activity ('archie_mods.ModifiedMainActivity')
+
+# OpenCV Blob:          project ('opencv_blobDetector')         activity ('MainActivity')
+# OpenCV Blob Mod:      project ('opencv_blobDetector_mod')     activity ('archie_mods.ModifiedMainActivity')
 # TF Classify:          project ('tf_classify')                 activity ('ClassifierActivity')
 # TF Classify Mod:      project ('tf_classify_mod')             activity ('archie_mods.ModifiedClassifierActivity')
 # TF Speech:            project ('tf_speech')                   activity ('SpeechActivity')
 # TF Speech Mod:        project ('tf_speech_mod')               activity ('archie_mods.ModifiedSpeechActivity')
-# OpenCV Blob:          project ('opencv_blobDetector')         activity ('MainActivity')
-# OpenCV Blob Mod:      project ('opencv_blobDetector_mod')     activity ('archie_mods.ModifiedMainActivity')
 
 PACKAGE_NAME="com.archie"
-PROJECT_NAMES=('opencv_blobDetector_mod')
-ACTIVITY_NAMES=('archie_mods.ModifiedMainActivity')
+PROJECT_NAMES=('opencv_blobDetector')
+ACTIVITY_NAMES=('MainActivity')
 TEST_LABEL="noTarget"
 
 ANDROID_DATA_DIR="/storage/self/primary/Android/data"
@@ -212,7 +215,6 @@ do
     echo ""                                 # spacer line
 
     EXECUTE_UNTIMED_APP_COMMAND="am start -n ${FULL_COMPONENT_NAME} \
-        -e quitAfterTimeLimit ${QUIT_AFTER_TIME_LIMIT}
         -e testingLabel ${TEST_LABEL}"
     echo "Starting up current component for project: ${FULL_COMPONENT_NAME}"
     echo "Running >> adb shell ${EXECUTE_UNTIMED_APP_COMMAND}"

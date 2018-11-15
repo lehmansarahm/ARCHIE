@@ -1,0 +1,225 @@
+--------- beginning of system
+--------- beginning of crash
+11-13 20:45:05.360  1120  1138 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=-1: installPackageLI
+11-13 20:45:05.490  1120  1154 I PackageManager: Package com.archie.tf_classify_mod codePath changed from /data/app/com.archie.tf_classify_mod-ZF1gtMN2LIc_rqnkMskQIw== to /data/app/com.archie.tf_classify_mod-BQ_B6d1tvInfXA01rSYBPQ==; Retaining data and using new
+11-13 20:45:05.491  1120  1154 W PackageManager: Code path for com.archie.tf_classify_mod changing from /data/app/com.archie.tf_classify_mod-ZF1gtMN2LIc_rqnkMskQIw== to /data/app/com.archie.tf_classify_mod-BQ_B6d1tvInfXA01rSYBPQ==
+11-13 20:45:05.491  1120  1154 W PackageManager: Resource path for com.archie.tf_classify_mod changing from /data/app/com.archie.tf_classify_mod-ZF1gtMN2LIc_rqnkMskQIw== to /data/app/com.archie.tf_classify_mod-BQ_B6d1tvInfXA01rSYBPQ==
+11-13 20:45:05.813  1120  1154 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=0: pkg removed
+11-13 20:45:05.848  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package:com.archie.tf_classify_mod flg=0x4000010 (has extras) } to com.android.musicfx/.Compatibility$Receiver
+11-13 20:45:05.854  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package:com.archie.tf_classify_mod flg=0x4000010 (has extras) } to com.android.vending/com.google.android.finsky.packagemanager.impl.PackageMonitorReceiverImpl$RegisteredReceiver
+11-13 20:45:05.854  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package:com.archie.tf_classify_mod flg=0x4000010 (has extras) } to com.android.vending/com.google.android.finsky.instantapps.appmanagement.InstantAppRemoveMonitor
+11-13 20:45:05.904  1120  1669 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package:com.archie.tf_classify_mod flg=0x4000010 (has extras) } to com.google.android.googlequicksearchbox/com.google.android.apps.gsa.googlequicksearchbox.GelStubAppWatcher
+11-13 20:45:05.909  1120  3062 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity} from uid 2000
+11-13 20:45:05.941  1120  1131 I ActivityManager: Start proc 25012:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-13 20:45:05.953  1120  1601 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.archie.tf_classify_mod flg=0x4000010 (has extras) } to com.android.musicfx/.Compatibility$Receiver
+11-13 20:45:05.961  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.archie.tf_classify_mod flg=0x4000010 (has extras) } to com.android.vending/com.google.android.finsky.packagemanager.impl.PackageMonitorReceiverImpl$RegisteredReceiver
+11-13 20:45:06.002  1120  1131 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.archie.tf_classify_mod flg=0x4000010 (has extras) } to com.google.android.googlequicksearchbox/com.google.android.apps.gsa.googlequicksearchbox.GelStubAppWatcher
+11-13 20:45:06.002  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.archie.tf_classify_mod flg=0x4000010 (has extras) } to com.google.android.ims/.receivers.RcsAutoStartReceiver
+11-13 20:45:06.013  1120  1625 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.tf_classify_mod flg=0x4000010 (has extras) } to com.android.musicfx/.Compatibility$Receiver
+11-13 20:45:06.013  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.tf_classify_mod flg=0x4000010 (has extras) } to com.google.android.apps.photos/.account.full.FetchAccountPropertiesAppUpgradeBroadcastReceiver
+11-13 20:45:06.013  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.tf_classify_mod flg=0x4000010 (has extras) } to com.google.android.apps.photos/.account.full.SyncAccountsForLoginBroadcastReceiver
+11-13 20:45:06.013  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.tf_classify_mod flg=0x4000010 (has extras) } to com.google.android.apps.photos/.experiments.phenotype.full.PhenotypeAppUpgradeBroadcastReceiver
+11-13 20:45:06.013  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.tf_classify_mod flg=0x4000010 (has extras) } to com.google.android.apps.photos/.notificationchannels.AppUpdateBroadcastReceiver
+11-13 20:45:06.038  1120  1601 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.tf_classify_mod flg=0x4000010 (has extras) } to com.google.android.googlequicksearchbox/com.google.android.apps.gsa.googlequicksearchbox.GelStubAppWatcher
+11-13 20:45:06.039  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.tf_classify_mod flg=0x4000010 (has extras) } to com.google.android.ims/.receivers.RcsAutoStartReceiver
+11-13 20:45:06.906  1120  3057 I ActivityManager: Start proc 25056:com.archie.tf_classify_mod:ResourceLoggerService/u0a144 for service com.archie.tf_classify_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-13 20:45:06.918  1120  1625 I ActivityManager: Start proc 25062:com.archie.tf_classify_mod:FrameLoggerService/u0a144 for service com.archie.tf_classify_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-13 20:45:17.349  1120 12988 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=0: from pid 25179
+11-13 20:45:17.349  1120 12988 I ActivityManager: Killing 25012:com.archie.tf_classify_mod/u0a144 (adj 0): stop com.archie.tf_classify_mod
+11-13 20:45:17.351  1120 12988 W ActivityManager: Force removing ActivityRecord{77a2d2b u0 com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity t562}: app died, no saved state
+11-13 20:45:17.353  1120 12988 I WindowManager: Failed to capture screenshot of Token{f5a7b21 ActivityRecord{77a2d2b u0 com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity t562 f}} appWin=Window{ff98b90 u0 com.archie.tf_classify_mod/com.archie.tf_classify_mod.archie_mods.ModifiedClassifierActivity} drawState=4
+11-13 20:45:17.361  1120 12988 I ActivityManager: Killing 25062:com.archie.tf_classify_mod:FrameLoggerService/u0a144 (adj 200): stop com.archie.tf_classify_mod
+11-13 20:45:17.361  1120 12988 W ActivityManager: Scheduling restart of crashed service com.archie.tf_classify_mod/edu.temple.gtc_core.services.FrameLoggerService in 1000ms
+11-13 20:45:17.362  1120 12988 I ActivityManager: Killing 25056:com.archie.tf_classify_mod:ResourceLoggerService/u0a144 (adj 200): stop com.archie.tf_classify_mod
+11-13 20:45:17.362  1120 12988 W ActivityManager: Scheduling restart of crashed service com.archie.tf_classify_mod/edu.temple.gtc_core.services.ResourceLoggerService in 10999ms
+11-13 20:45:17.363  1120 12988 I ActivityManager:   Force stopping service ServiceRecord{c296aa7 u0 com.archie.tf_classify_mod/edu.temple.gtc_core.services.FrameLoggerService}
+11-13 20:45:17.363  1120 12988 I ActivityManager:   Force stopping service ServiceRecord{2650766 u0 com.archie.tf_classify_mod/edu.temple.gtc_core.services.ResourceLoggerService}
+11-13 20:45:17.378  1120  1626 I WindowManager: WIN DEATH: Window{65f248d u0 com.archie.tf_classify_mod}
+11-13 20:45:17.383  1120  1669 I WindowManager: WIN DEATH: Window{6c4b97 u0 com.archie.tf_classify_mod}
+11-13 20:45:17.391  1120  3062 I WindowManager: WIN DEATH: Window{7b08f31 u0 com.archie.tf_classify_mod}
+11-13 20:45:19.564  1120 12988 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-13 20:45:19.586  1120  1131 I ActivityManager: Start proc 25204:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-13 20:45:20.469  1120 12988 I ActivityManager: Start proc 25238:com.archie.tf_classify_mod:ResourceLoggerService/u0a144 for service com.archie.tf_classify_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-13 20:45:20.480  1120 12988 I ActivityManager: Start proc 25244:com.archie.tf_classify_mod:FrameLoggerService/u0a144 for service com.archie.tf_classify_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-13 20:46:22.499 25204 25349 E AndroidRuntime: FATAL EXCEPTION: Timer-2
+11-13 20:46:22.499 25204 25349 E AndroidRuntime: Process: com.archie.tf_classify_mod, PID: 25204
+11-13 20:46:22.499 25204 25349 E AndroidRuntime: java.lang.IllegalStateException: Timer already cancelled.
+11-13 20:46:22.499 25204 25349 E AndroidRuntime: 	at java.util.Timer.sched(Timer.java:397)
+11-13 20:46:22.499 25204 25349 E AndroidRuntime: 	at java.util.Timer.schedule(Timer.java:248)
+11-13 20:46:22.499 25204 25349 E AndroidRuntime: 	at edu.temple.gtc_core.async.AsyncUxCollector$2.run(AsyncUxCollector.java:77)
+11-13 20:46:22.499 25204 25349 E AndroidRuntime: 	at java.util.TimerThread.mainLoop(Timer.java:555)
+11-13 20:46:22.499 25204 25349 E AndroidRuntime: 	at java.util.TimerThread.run(Timer.java:505)
+11-13 20:46:22.519  1120  1139 I ActivityManager: Showing crash dialog for package com.archie.tf_classify_mod u0
+11-13 20:46:50.030  1120  3061 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=0: from pid 25407
+11-13 20:46:50.030  1120  3061 I ActivityManager: Killing 25204:com.archie.tf_classify_mod/u0a144 (adj 900): stop com.archie.tf_classify_mod
+11-13 20:46:50.044  1120  3061 I ActivityManager: Killing 25244:com.archie.tf_classify_mod:FrameLoggerService/u0a144 (adj 200): stop com.archie.tf_classify_mod
+11-13 20:46:50.078  1120  3061 I ActivityManager: Killing 25238:com.archie.tf_classify_mod:ResourceLoggerService/u0a144 (adj 200): stop com.archie.tf_classify_mod
+11-13 20:46:50.079  1120  1601 I WindowManager: WIN DEATH: Window{ca6361b u0 com.archie.tf_classify_mod}
+11-13 20:46:50.084  1120  3062 W ActivityManager: Ignoring remove of inactive process: ProcessRecord{3d9276e 0:com.archie.tf_classify_mod/u0a144}
+11-13 20:46:50.101  1120  3062 I WindowManager: WIN DEATH: Window{3aa8591 u0 com.archie.tf_classify_mod}
+11-13 20:46:50.124  1120  3062 W ActivityManager: Invalid packageName: com.archie.tf_classify_mod
+11-13 20:46:50.169  1120  3062 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-13 20:46:50.187  1120  3061 I ActivityManager: Start proc 25418:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-13 20:46:51.084  1120  3061 I ActivityManager: Start proc 25456:com.archie.tf_classify_mod:ResourceLoggerService/u0a144 for service com.archie.tf_classify_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-13 20:46:51.097  1120  3061 I ActivityManager: Start proc 25469:com.archie.tf_classify_mod:FrameLoggerService/u0a144 for service com.archie.tf_classify_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-13 20:47:53.105 25418 25571 E AndroidRuntime: FATAL EXCEPTION: Timer-2
+11-13 20:47:53.105 25418 25571 E AndroidRuntime: Process: com.archie.tf_classify_mod, PID: 25418
+11-13 20:47:53.105 25418 25571 E AndroidRuntime: java.lang.IllegalStateException: Timer already cancelled.
+11-13 20:47:53.105 25418 25571 E AndroidRuntime: 	at java.util.Timer.sched(Timer.java:397)
+11-13 20:47:53.105 25418 25571 E AndroidRuntime: 	at java.util.Timer.schedule(Timer.java:248)
+11-13 20:47:53.105 25418 25571 E AndroidRuntime: 	at edu.temple.gtc_core.async.AsyncUxCollector$2.run(AsyncUxCollector.java:77)
+11-13 20:47:53.105 25418 25571 E AndroidRuntime: 	at java.util.TimerThread.mainLoop(Timer.java:555)
+11-13 20:47:53.105 25418 25571 E AndroidRuntime: 	at java.util.TimerThread.run(Timer.java:505)
+11-13 20:47:53.130  1120  1139 I ActivityManager: Showing crash dialog for package com.archie.tf_classify_mod u0
+11-13 20:48:20.571  1120  3062 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=0: from pid 25628
+11-13 20:48:20.571  1120  3062 I ActivityManager: Killing 25418:com.archie.tf_classify_mod/u0a144 (adj 900): stop com.archie.tf_classify_mod
+11-13 20:48:20.586  1120  3062 I ActivityManager: Killing 25469:com.archie.tf_classify_mod:FrameLoggerService/u0a144 (adj 200): stop com.archie.tf_classify_mod
+11-13 20:48:20.619  1120  3062 I ActivityManager: Killing 25456:com.archie.tf_classify_mod:ResourceLoggerService/u0a144 (adj 200): stop com.archie.tf_classify_mod
+11-13 20:48:20.620  1120 31012 I WindowManager: WIN DEATH: Window{d3e87f7 u0 com.archie.tf_classify_mod}
+11-13 20:48:20.626  1120  1669 W ActivityManager: Ignoring remove of inactive process: ProcessRecord{bd8919c 0:com.archie.tf_classify_mod/u0a144}
+11-13 20:48:20.636  1120  1601 I WindowManager: WIN DEATH: Window{550e32a u0 com.archie.tf_classify_mod}
+11-13 20:48:20.676  1120  1669 W ActivityManager: Invalid packageName: com.archie.tf_classify_mod
+11-13 20:48:20.774  1120  1669 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-13 20:48:20.796  1120  1601 I ActivityManager: Start proc 25643:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-13 20:48:21.685  1120 31012 I ActivityManager: Start proc 25714:com.archie.tf_classify_mod:ResourceLoggerService/u0a144 for service com.archie.tf_classify_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-13 20:48:21.697  1120  1601 I ActivityManager: Start proc 25720:com.archie.tf_classify_mod:FrameLoggerService/u0a144 for service com.archie.tf_classify_mod/edu.temple.gtc_core.services.FrameLoggerService
+11-13 20:50:20.540  1120  1601 I ActivityManager: Force stopping com.archie.tf_classify_mod appid=10144 user=0: from pid 26569
+11-13 20:50:20.541  1120  1601 I ActivityManager: Killing 25643:com.archie.tf_classify_mod/u0a144 (adj 0): stop com.archie.tf_classify_mod
+11-13 20:50:20.542  1120  1601 W ActivityManager: Force removing ActivityRecord{17a5812 u0 com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity t565}: app died, no saved state
+11-13 20:50:20.543  1120  1601 I WindowManager: Failed to capture screenshot of Token{7d92be3 ActivityRecord{17a5812 u0 com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity t565 f}} appWin=Window{70f683c u0 com.archie.tf_classify_mod/com.archie.tf_classify_mod.archie_mods.ModifiedClassifierActivity} drawState=4
+11-13 20:50:20.549  1120  1601 I ActivityManager: Killing 25720:com.archie.tf_classify_mod:FrameLoggerService/u0a144 (adj 200): stop com.archie.tf_classify_mod
+11-13 20:50:20.549  1120  1601 W ActivityManager: Scheduling restart of crashed service com.archie.tf_classify_mod/edu.temple.gtc_core.services.FrameLoggerService in 1000ms
+11-13 20:50:20.549  1120  1601 I ActivityManager: Killing 25714:com.archie.tf_classify_mod:ResourceLoggerService/u0a144 (adj 200): stop com.archie.tf_classify_mod
+11-13 20:50:20.550  1120  1601 W ActivityManager: Scheduling restart of crashed service com.archie.tf_classify_mod/edu.temple.gtc_core.services.ResourceLoggerService in 11000ms
+11-13 20:50:20.550  1120  1601 I ActivityManager:   Force stopping service ServiceRecord{b1ef840 u0 com.archie.tf_classify_mod/edu.temple.gtc_core.services.FrameLoggerService}
+11-13 20:50:20.550  1120  1601 I ActivityManager:   Force stopping service ServiceRecord{3d257c3 u0 com.archie.tf_classify_mod/edu.temple.gtc_core.services.ResourceLoggerService}
+11-13 20:50:20.580  1120  1601 I WindowManager: WIN DEATH: Window{f00f170 u0 com.archie.tf_classify_mod}
+11-13 20:50:20.583  1120  1669 I WindowManager: WIN DEATH: Window{bc47122 u0 com.archie.tf_classify_mod}
+11-13 20:50:20.591  1120  1601 I WindowManager: WIN DEATH: Window{93be00e u0 com.archie.tf_classify_mod}
+11-13 20:50:20.594  1120  1130 W ActivityManager: Invalid packageName: com.archie.tf_classify_mod
+11-13 20:51:57.102  1120  1669 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity (has extras)} from uid 2000
+11-13 20:51:57.113  1120  1668 I ActivityManager: Start proc 26613:com.archie.tf_classify_mod/u0a144 for activity com.archie.tf_classify_mod/.archie_mods.ModifiedClassifierActivity
+11-13 20:51:57.984  1120  1130 I ActivityManager: Start proc 26651:com.archie.tf_classify_mod:ResourceLoggerService/u0a144 for service com.archie.tf_classify_mod/edu.temple.gtc_core.services.ResourceLoggerService
+11-13 20:51:57.996  1120  1669 I ActivityManager: Start proc 26657:com.archie.tf_classify_mod:FrameLoggerService/u0a144 for service com.archie.tf_classify_mod/edu.temple.gtc_core.services.FrameLoggerService
+--------- beginning of main
+11-13 20:54:06.140 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 155 lines
+11-13 20:54:08.300 26657 26657 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 2 lines
+11-13 20:54:08.949 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 157 lines
+11-13 20:54:09.019 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 199 lines
+11-13 20:54:11.855 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 307 lines
+11-13 20:54:14.634 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 200 lines
+11-13 20:54:17.421 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 155 lines
+11-13 20:54:18.309 26657 26657 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 2 lines
+11-13 20:54:20.279 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 157 lines
+11-13 20:54:20.444 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 196 lines
+11-13 20:54:23.104 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 154 lines
+11-13 20:54:25.704 26657 26662 I chatty  : uid=10144(com.archie.tf_classify_mod) Jit thread pool expire 3 lines
+11-13 20:54:25.920 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 153 lines
+11-13 20:54:26.077 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 95 lines
+11-13 20:54:28.211 26820 26820 I chatty  : uid=10144(com.archie.tf_classify_mod) top expire 2 lines
+11-13 20:54:28.318 26657 26657 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 2 lines
+11-13 20:54:28.524 26651 26819 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 3 lines
+11-13 20:54:28.731 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 101 lines
+11-13 20:54:28.752 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 311 lines
+11-13 20:54:31.758 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 193 lines
+11-13 20:54:34.420 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 157 lines
+11-13 20:54:36.034 26651 26674 I chatty  : uid=10144(com.archie.tf_classify_mod) Jit thread pool expire 3 lines
+11-13 20:54:37.317 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 97 lines
+11-13 20:54:37.327 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 156 lines
+11-13 20:54:38.328 26657 26657 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 2 lines
+11-13 20:54:40.143 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 101 lines
+11-13 20:54:40.183 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 316 lines
+11-13 20:54:42.966 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 190 lines
+11-13 20:54:46.000 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 156 lines
+11-13 20:54:48.337 26657 26657 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 2 lines
+11-13 20:54:48.840 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 99 lines
+11-13 20:54:48.858 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 312 lines
+11-13 20:54:51.680 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 200 lines
+11-13 20:54:54.575 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 308 lines
+11-13 20:54:57.347 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 95 lines
+11-13 20:54:58.346 26657 26657 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 2 lines
+11-13 20:54:58.498 26651 26831 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 3 lines
+11-13 20:54:59.999 26613 26835 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 1 line
+11-13 20:55:00.173 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 96 lines
+11-13 20:55:00.190 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 316 lines
+11-13 20:55:03.117 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 196 lines
+11-13 20:55:06.006 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 155 lines
+11-13 20:55:08.356 26657 26657 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 2 lines
+11-13 20:55:08.814 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 157 lines
+11-13 20:55:08.831 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 196 lines
+11-13 20:55:11.722 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 314 lines
+11-13 20:55:14.659 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 196 lines
+11-13 20:55:17.447 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 155 lines
+11-13 20:55:18.365 26657 26657 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 2 lines
+11-13 20:55:20.346 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 158 lines
+11-13 20:55:20.537 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 194 lines
+11-13 20:55:23.254 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 312 lines
+11-13 20:55:26.139 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 94 lines
+11-13 20:55:28.207 26844 26844 I chatty  : uid=10144(com.archie.tf_classify_mod) top expire 2 lines
+11-13 20:55:28.375 26657 26657 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 2 lines
+11-13 20:55:28.499 26651 26843 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 3 lines
+11-13 20:55:28.950 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 111 lines
+11-13 20:55:28.970 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 297 lines
+11-13 20:55:32.213 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 100 lines
+11-13 20:55:33.523 26613 26618 I chatty  : uid=10144(com.archie.tf_classify_mod) Jit thread pool expire 2 lines
+11-13 20:55:35.550 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 173 lines
+11-13 20:55:35.612 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 80 lines
+11-13 20:55:38.385 26657 26657 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 2 lines
+11-13 20:55:39.427 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 179 lines
+11-13 20:55:39.617 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 166 lines
+11-13 20:55:43.434 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 318 lines
+11-13 20:55:47.207 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 100 lines
+11-13 20:55:48.394 26657 26657 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 2 lines
+11-13 20:55:50.212 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 99 lines
+11-13 20:55:50.225 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 312 lines
+11-13 20:55:53.041 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 195 lines
+11-13 20:55:55.911 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 152 lines
+11-13 20:55:58.194 26855 26855 I chatty  : uid=10144(com.archie.tf_classify_mod) top expire 2 lines
+11-13 20:55:58.404 26657 26657 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 2 lines
+11-13 20:55:58.465 26651 26854 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 3 lines
+11-13 20:55:58.668 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 93 lines
+11-13 20:55:58.697 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 161 lines
+11-13 20:55:59.999 26613 26858 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 1 line
+11-13 20:56:01.340 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 157 lines
+11-13 20:56:01.447 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 196 lines
+11-13 20:56:04.145 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 326 lines
+11-13 20:56:07.200 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 84 lines
+11-13 20:56:08.414 26657 26657 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 2 lines
+11-13 20:56:09.751 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 91 lines
+11-13 20:56:09.790 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 326 lines
+11-13 20:56:12.396 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 182 lines
+11-13 20:56:15.016 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 328 lines
+11-13 20:56:17.702 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 91 lines
+11-13 20:56:18.424 26657 26657 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 2 lines
+11-13 20:56:20.242 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 164 lines
+11-13 20:56:20.299 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 182 lines
+11-13 20:56:22.959 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 328 lines
+11-13 20:56:25.713 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 182 lines
+11-13 20:56:28.187 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 159 lines
+11-13 20:56:28.434 26657 26657 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 2 lines
+11-13 20:56:28.506 26651 26864 I chatty  : uid=10144 com.archie.tf_classify_mod:ResourceLoggerService expire 3 lines
+11-13 20:56:30.752 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 165 lines
+11-13 20:56:30.906 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 177 lines
+11-13 20:56:33.452 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 165 lines
+11-13 20:56:35.485 26613 26618 I chatty  : uid=10144(com.archie.tf_classify_mod) Jit thread pool expire 3 lines
+11-13 20:56:36.083 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 89 lines
+11-13 20:56:36.085 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 164 lines
+11-13 20:56:38.437 26657 26657 I chatty  : uid=10144 com.archie.tf_classify_mod:FrameLoggerService expire 2 lines
+11-13 20:56:38.719 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 164 lines
+11-13 20:56:38.762 26613 26633 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 182 lines
+11-13 20:56:41.353 26613 26634 I chatty  : uid=10144(com.archie.tf_classify_mod) expire 164 lines
+11-13 20:56:57.558 26613 26613 D tf_classify_mod: ModifiedClassifierActivity: onPause com.archie.tf_classify_mod.archie_mods.ModifiedClassifierActivity@1ae6d11
+11-13 20:56:57.869 26613 26613 D tf_classify_mod: ModifiedClassifierActivity: onStop com.archie.tf_classify_mod.archie_mods.ModifiedClassifierActivity@1ae6d11
+11-13 20:56:57.872 26613 26613 D tf_classify_mod: ModifiedClassifierActivity: onDestroy com.archie.tf_classify_mod.archie_mods.ModifiedClassifierActivity@1ae6d11
+11-13 20:56:57.879  3044  3234 D BaseStreamManager: Promised remove @ r#9625 for StreamItemIdAndRevision{notifKey=0|com.archie.tf_classify_mod|543|null|10144, packageName=com.archie.tf_classify_mod, id=543, revision=0, originalRevision=0, updateCount=0} (@9624): SBN removed: StreamItemIdAndRevision{notifKey=0|com.archie.tf_classify_mod|543|null|10144, packageName=com.archie.tf_classify_mod, id=543, revision=0, originalRevision=0, updateCount=0}
+11-13 20:56:57.883  3044  3234 D BaseStreamManager: Promised remove @ r#9626 for StreamItemIdAndRevision{notifKey=0|com.archie.tf_classify_mod|643|null|10144, packageName=com.archie.tf_classify_mod, id=643, revision=0, originalRevision=0, updateCount=0} (@9625): SBN removed: StreamItemIdAndRevision{notifKey=0|com.archie.tf_classify_mod|643|null|10144, packageName=com.archie.tf_classify_mod, id=643, revision=0, originalRevision=0, updateCount=0}
+11-13 20:56:57.884 26613 26613 I GtcCore : Output directory created at: /storage/emulated/0/Android/data/com.archie.tf_classify_mod/files/20181113_085657_audio
+11-13 20:56:57.889 26613 26613 D GtcCore : Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_classify_mod/files/20181113_085657_UxResults.csv
+11-13 20:56:57.892 26651 26651 D GtcCore : Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_classify_mod/files/20181113_085657_ResourceStats_TfClassify_Mod.txt
+11-13 20:56:57.901 26657 26657 D GtcCore : Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_classify_mod/files/20181113_085657_FrameStats.txt
+11-13 20:56:57.911 26613 26613 D GtcCore : Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_classify_mod/files/20181113_085657_ClassificationResults.csv
+11-13 20:56:57.929 26613 26613 I opencv_colorblob_mod: BaseApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_classify_mod/files/20181113_085657_frames.csv
+11-13 20:56:57.967   815 19813 I Camera2ClientBase: Closed Camera 0. Client was: com.archie.tf_classify_mod (PID 26613, UID 10144)
+11-13 20:56:58.116 26613 26613 I opencv_colorblob_mod: BaseApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_classify_mod/files/20181113_085657_classification.csv
+11-13 20:56:58.117 26613 26613 I opencv_colorblob_mod: BaseApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.tf_classify_mod/files/20181113_085657_execSettings.csv
+11-13 20:56:58.350  3044  3234 D BaseStreamManager: Promised remove @ r#9628 for StreamItemIdAndRevision{notifKey=0|android|0|com.android.server.wm.AlertWindowNotification - com.archie.tf_classify_mod|1000, packageName=android, tag=com.android.server.wm.AlertWindowNotification - com.archie.tf_classify_mod, id=0, revision=0, originalRevision=0, updateCount=0} (@9627): SBN removed: StreamItemIdAndRevision{notifKey=0|android|0|com.android.server.wm.AlertWindowNotification - com.archie.tf_classify_mod|1000, packageName=android, tag=com.android.server.wm.AlertWindowNotification - com.archie.tf_classify_mod, id=0, revision=0, originalRevision=0, updateCount=0}

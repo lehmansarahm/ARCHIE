@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/archie" />
+            <option value="$PROJECT_DIR$/case_study_core" />
             <option value="$PROJECT_DIR$/opencv" />
             <option value="$PROJECT_DIR$/opencv_blobDetector" />
             <option value="$PROJECT_DIR$/opencv_blobDetector_mod" />

@@ -17,7 +17,7 @@ import java.util.Map;
 
 import edu.temple.gtc_core.profiles.IInteractionProfile;
 
-import static edu.temple.gtc_core.utils.Constants.BUNDLE_KEY_CLASSIFICATION_RESULTS;
+import static edu.temple.gtc_core.utils.Constants.BUNDLE_KEY_CLASSIFICATION_TOP_RESULT;
 
 public class ArchieSpeechInteractionProfile implements IInteractionProfile {
 
@@ -55,13 +55,13 @@ public class ArchieSpeechInteractionProfile implements IInteractionProfile {
         LOGGER.e("GTC Controller called 'onClassifierResultAvailable' for interaction profile: "
                 + this.getClass().getSimpleName());
 
-        if (!map.containsKey(BUNDLE_KEY_CLASSIFICATION_RESULTS)) {
+        if (!map.containsKey(BUNDLE_KEY_CLASSIFICATION_TOP_RESULT)) {
             LOGGER.e("CANNOT EVALUATE CLASSIFICATION RESULTS IF NONE ARE PROVIDED.");
             return;
         }
 
         final RecognizeCommands.RecognitionResult result =
-                (RecognizeCommands.RecognitionResult) map.get(BUNDLE_KEY_CLASSIFICATION_RESULTS);
+                (RecognizeCommands.RecognitionResult) map.get(BUNDLE_KEY_CLASSIFICATION_TOP_RESULT);
 
         initActivity.runOnUiThread(new Runnable() {
             @Override

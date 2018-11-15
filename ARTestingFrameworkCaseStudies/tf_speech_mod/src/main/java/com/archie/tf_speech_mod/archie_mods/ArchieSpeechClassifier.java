@@ -25,6 +25,7 @@ import static com.archie.tf_speech_mod.archie_mods.Constants.SAMPLE_RATE;
 import static com.archie.tf_speech_mod.archie_mods.Constants.SAMPLE_RATE_NAME;
 import static com.archie.tf_speech_mod.archie_mods.Constants.SUPPRESSION_MS;
 import static edu.temple.gtc_core.utils.Constants.BUNDLE_KEY_CLASSIFICATION_RESULTS;
+import static edu.temple.gtc_core.utils.Constants.BUNDLE_KEY_CLASSIFICATION_TOP_RESULT;
 import static edu.temple.gtc_core.utils.Constants.BUNDLE_KEY_PREPROCESSED_OUTPUT;
 import static edu.temple.gtc_core.utils.Constants.BUNDLE_KEY_PREVIEW_DATA;
 import static edu.temple.gtc_core.utils.Constants.BUNDLE_KEY_PREVIEW_FORMAT;
@@ -37,8 +38,6 @@ public class ArchieSpeechClassifier implements IClassifier {
     private Activity initActivity;
     private RecognizeCommands recognizeCommands = null;
     private TensorFlowInferenceInterface inferenceInterface;
-
-    boolean shouldContinueRecognition = true, shouldContinueSmoothing = true;
     private Thread recognitionThread, smoothingThread;
 
     // --------------------------------------------------------------------------------------------
@@ -70,12 +69,9 @@ public class ArchieSpeechClassifier implements IClassifier {
             return;
         }
 
-        // if (recognitionThread != null) return;
-
         final SpeechApplication app = (SpeechApplication) initActivity.getApplication();
         final short[] inputBuffer = (short[]) map.get(BUNDLE_KEY_PREVIEW_DATA);
 
-        shouldContinueRecognition = true;
         recognitionThread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -87,7 +83,6 @@ public class ArchieSpeechClassifier implements IClassifier {
             }
         });
 
-        // recognitionThread.start();
         recognitionThread.run();
     }
 
@@ -103,7 +98,6 @@ public class ArchieSpeechClassifier implements IClassifier {
 
         stopRecognition();
         if (smoothingThread != null) return;
-        shouldContinueSmoothing = true;
 
         final float[] outputScores = (float[]) map.get(BUNDLE_KEY_PREPROCESSED_OUTPUT);
         smoothingThread = new Thread(new Runnable() {
@@ -119,7 +113,7 @@ public class ArchieSpeechClassifier implements IClassifier {
 
                 // Consolidate results and return data to the GTC Controller
                 LOGGER.i("Sending classification result: " + result);
-                map.put(BUNDLE_KEY_CLASSIFICATION_RESULTS, result);
+                map.put(BUNDLE_KEY_CLASSIFICATION_TOP_RESULT, result);
                 app.getGtcController().onClassifierClassificationComplete(map);
             }
         });
@@ -132,14 +126,17 @@ public class ArchieSpeechClassifier implements IClassifier {
         LOGGER.e("GTC Controller called 'evaluate' for classifier: "
                 + this.getClass().getSimpleName());
 
-        if (!map.containsKey(BUNDLE_KEY_CLASSIFICATION_RESULTS)) {
+        if (!map.containsKey(BUNDLE_KEY_CLASSIFICATION_TOP_RESULT)) {
             LOGGER.e("CANNOT EVALUATE CLASSIFICATION RESULTS IF NONE ARE PROVIDED.");
             return;
         }
 
         stopSmoothing();
+        RecognizeCommands.RecognitionResult result = (RecognizeCommands.RecognitionResult)
+                map.get(BUNDLE_KEY_CLASSIFICATION_TOP_RESULT);
+        LOGGER.i("Received top result of: \t\t" + result.foundCommand);
 
-        map.put(BUNDLE_KEY_RESPONSE_EVENT, "speech");
+        map.put(BUNDLE_KEY_RESPONSE_EVENT, result.foundCommand);
         SpeechApplication app = (SpeechApplication) initActivity.getApplication();
         app.getGtcController().onClassifierEvaluationComplete(map);
     }
@@ -149,13 +146,11 @@ public class ArchieSpeechClassifier implements IClassifier {
 
     private synchronized void stopRecognition() {
         if (recognitionThread == null) return;
-        shouldContinueRecognition = false;
         recognitionThread = null;
     }
 
     private synchronized void stopSmoothing() {
         if (smoothingThread == null) return;
-        shouldContinueSmoothing = false;
         smoothingThread = null;
     }
 
@@ -167,29 +162,17 @@ public class ArchieSpeechClassifier implements IClassifier {
         float[] floatInputBuffer = new float[RECORDING_LENGTH];
         String[] outputScoresNames = new String[] {OUTPUT_SCORES_NAME};
 
-        // Loop, grabbing recorded data and running the recognition model on it.
-        // while (shouldContinueRecognition) {
-            // LOGGER.i("Continue recognition flag is true ... Continuing with loop.");
+        // We need to feed in float values between -1.0f and 1.0f, so divide the
+        // signed 16-bit inputs.
+        for (int i = 0; i < RECORDING_LENGTH; ++i) {
+            floatInputBuffer[i] = inputBuffer[i] / 32767.0f;
+        }
 
-            // We need to feed in float values between -1.0f and 1.0f, so divide the
-            // signed 16-bit inputs.
-            for (int i = 0; i < RECORDING_LENGTH; ++i) {
-                floatInputBuffer[i] = inputBuffer[i] / 32767.0f;
-            }
-
-            // Run the model.
-            inferenceInterface.feed(SAMPLE_RATE_NAME, sampleRateList);
-            inferenceInterface.feed(INPUT_DATA_NAME, floatInputBuffer, RECORDING_LENGTH, 1);
-            inferenceInterface.run(outputScoresNames);
-            inferenceInterface.fetch(OUTPUT_SCORES_NAME, outputScores);
-
-            /*try {
-                // We don't need to run too frequently, so snooze for a bit.
-                Thread.sleep(MINIMUM_TIME_BETWEEN_SAMPLES_MS);
-            } catch (InterruptedException e) {
-                // Ignore
-            }*/
-        // }
+        // Run the model.
+        inferenceInterface.feed(SAMPLE_RATE_NAME, sampleRateList);
+        inferenceInterface.feed(INPUT_DATA_NAME, floatInputBuffer, RECORDING_LENGTH, 1);
+        inferenceInterface.run(outputScoresNames);
+        inferenceInterface.fetch(OUTPUT_SCORES_NAME, outputScores);
 
         LOGGER.i("End recognition");
         return outputScores;

@@ -183,30 +183,60 @@ public class GtcController implements ITesterCommListener {
 
     public void stopServices() {
         if (mIsStarted) {
-            Log.d(Constants.TAG, "Stopping async data collectors.");
-            asyncAnnoCollector.stopCollection();
-            asyncUxCollector.stopCollection();
+            try {
+                Log.d(Constants.TAG, "Stopping async data collectors.");
+                asyncAnnoCollector.stopCollection();
+                asyncUxCollector.stopCollection();
+            } catch (Exception ex) {
+                Log.e(Constants.TAG, "Something went wrong while stopping Anno, UX data "
+                        + "collection!", ex);
+            }
 
-            Log.d(Constants.TAG, "Stopping GTC data collection services.");
-            mCommConnection.unbind();
-            mResLogConnection.stopService();
-            mFrameLogConnection.stopService();
+            try {
+                Log.d(Constants.TAG, "Stopping GTC data collection services.");
+                mCommConnection.unbind();
+                mResLogConnection.stopService();
+                mFrameLogConnection.stopService();
+            } catch (Exception ex) {
+                Log.e(Constants.TAG, "Something went wrong while stopping Communications, "
+                        + "Resource, and Frame Logging services!", ex);
+            }
 
-            Log.d(Constants.TAG, "Writing audio results to file.");
-            audioBuffer.dumpBuffer("audio");
+            try {
+                Log.d(Constants.TAG, "Writing audio results to file.");
+                audioBuffer.dumpBuffer("audio");
+            } catch (Exception ex) {
+                Log.e(Constants.TAG, "Something went wrong while dumping the audio "
+                        + "buffer!", ex);
+            }
 
-            Log.d(Constants.TAG, "Writing UX results to file.");
-            uxDataBuffer.dumpBuffer();
+            try {
+                Log.d(Constants.TAG, "Writing UX results to file.");
+                uxDataBuffer.dumpBuffer();
+            } catch (Exception ex) {
+                Log.e(Constants.TAG, "Something went wrong while dumping the UX data "
+                        + "buffer!", ex);
+            }
 
-            Log.d(Constants.TAG, "Writing classification stats to file.");
-            classResultBuffer.dumpBuffer();
+            try {
+                Log.d(Constants.TAG, "Writing classification stats to file.");
+                classResultBuffer.dumpBuffer();
+            } catch (Exception ex) {
+                Log.e(Constants.TAG, "Something went wrong while dumping the classification "
+                        + "results buffer!", ex);
+            }
 
-            Log.d(Constants.TAG, "Cleaning up final state variables.");
-            mConfigFileReader.cleanup();
-            mProfileController.cleanup();
-            mClassController.cleanup();
-            mAreAsyncTasksRunning = false;
-            mIsStarted = false;
+            try {
+                Log.d(Constants.TAG, "Cleaning up final state variables.");
+                mConfigFileReader.cleanup();
+                mProfileController.cleanup();
+                mClassController.cleanup();
+                mAreAsyncTasksRunning = false;
+                mIsStarted = false;
+            } catch (Exception ex) {
+                Log.e(Constants.TAG, "Something went wrong while purging the class "
+                        + "variables!", ex);
+            }
         } else Log.e(Constants.TAG, "GTC Controller already stopped.");
     }
 

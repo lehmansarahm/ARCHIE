@@ -22,6 +22,7 @@ import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v4.app.ActivityCompat;
 import android.view.MotionEvent;
 import android.view.View;
@@ -30,6 +31,7 @@ import android.view.WindowManager;
 import android.view.View.OnTouchListener;
 import android.view.SurfaceView;
 
+import com.archie.case_study_core.BaseApplication;
 import com.archie.opencv_blobDetector.env.Logger;
 
 public class MainActivity extends Activity implements OnTouchListener, CvCameraViewListener2 {
@@ -90,7 +92,7 @@ public class MainActivity extends Activity implements OnTouchListener, CvCameraV
     public void onCreate(Bundle savedInstanceState) {
         LOGGER.i("called onCreate");
         super.onCreate(savedInstanceState);
-        initializeTestInstance();
+        ((BaseApplication)getApplication()).initializeTestInstance(this, getIntent());
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.color_blob_detection_surface_view);
@@ -169,6 +171,34 @@ public class MainActivity extends Activity implements OnTouchListener, CvCameraV
         mBlobColorHsv = new Scalar(255);
         SPECTRUM_SIZE = new Size(200, 64);
         CONTOUR_COLOR = new Scalar(255,0,0,255);
+
+        // if actively testing, send preliminary touch event
+        ColorBlobApplication app = (ColorBlobApplication) getApplication();
+        LOGGER.i("Checking to see if we're running a testing scenario: " + app.isTesting());
+        if (app.isTesting()) {
+            // set preliminary properties
+            long downTime = SystemClock.uptimeMillis();
+            long eventTime = SystemClock.uptimeMillis() + 100;
+            float x = 461.0f, y = 543.0f;
+
+            // List of meta states found here:
+            // developer.android.com/reference/android/view/KeyEvent.html#getMetaState()
+            int metaState = 0;
+
+            // Obtain MotionEvent object
+            MotionEvent motionEvent = MotionEvent.obtain(
+                    downTime,
+                    eventTime,
+                    MotionEvent.ACTION_UP,
+                    x,
+                    y,
+                    metaState
+            );
+
+            // Dispatch touch event to view
+            View blobSurface = findViewById(R.id.color_blob_detection_activity_surface_view);
+            onTouch(blobSurface, motionEvent);
+        }
     }
 
     public void onCameraViewStopped() {
@@ -256,53 +286,6 @@ public class MainActivity extends Activity implements OnTouchListener, CvCameraV
 
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
-
-    private void initializeTestInstance() {
-        ColorBlobApplication app = ((ColorBlobApplication) getApplication());
-
-        if (getIntent().hasExtra(EXTRA_TIMED_TEST)) {
-            String rawIsTesting = getIntent().getStringExtra(EXTRA_TIMED_TEST);
-            try {
-                Boolean isTesting = Boolean.parseBoolean(rawIsTesting);
-                LOGGER.i("RECEIVED NOTICE TO QUIT AFTER TEST TIME LIMIT EXPIRES: " + isTesting);
-                app.setTesting(isTesting);
-            } catch (Exception ex) {
-                LOGGER.e(ex, "Something went wrong while trying to parse raw testing string: " + rawIsTesting);
-            }
-        }
-        else LOGGER.i("NO TIMED_TEST RUNTIME PARAM RECEIVED.");
-
-        if (getIntent().hasExtra(EXTRA_TESTING_LABEL)) {
-            String testingLabel = getIntent().getStringExtra(EXTRA_TESTING_LABEL);
-            LOGGER.i("RECEIVED NOTICE TO USE TESTING LABEL: " + testingLabel);
-            app.setTestingLabel(testingLabel);
-        }
-        else LOGGER.i("NO TESTING_LABEL RUNTIME PARAM RECEIVED.");
-
-        if (getIntent().hasExtra(EXTRA_TRIAL_TIME)) {
-            String rawTrialTime = getIntent().getStringExtra(EXTRA_TRIAL_TIME);
-            try {
-                int trialTime = Integer.parseInt(rawTrialTime);
-                app.setTestTime(trialTime);
-                LOGGER.i("RECEIVED NOTICE TO USE TRIAL TIME (IN MINUTES): " + trialTime);
-                LOGGER.i("TEST APP WILL AUTO-FINISH AFTER DELAY (IN MILLIS): " + app.getTestingDelay());
-            } catch (Exception ex) {
-                LOGGER.e(ex, "Something went wrong while trying to parse raw trial time string: " + rawTrialTime);
-            }
-        }
-        else LOGGER.i("NO TRIAL_TIME RUNTIME PARAM RECEIVED.");
-
-        LOGGER.i("SETTING TRIAL TIME FOR: " + app.getTestingDelay() + " MILLIS");
-        if (app.isTesting()) {
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    LOGGER.e("TESTING TIME LIMIT REACHED.");
-                    MainActivity.this.finishAffinity();
-                }}, app.getTestingDelay());
-        }
-    }
 
     private void initializePreview() {
         mOpenCvCameraView = findViewById(R.id.color_blob_detection_activity_surface_view);

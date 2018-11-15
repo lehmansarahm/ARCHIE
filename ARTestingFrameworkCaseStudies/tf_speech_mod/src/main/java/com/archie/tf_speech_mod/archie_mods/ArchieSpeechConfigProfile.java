@@ -21,6 +21,7 @@ import static edu.temple.gtc_core.utils.Constants.BUNDLE_KEY_PREVIEW_DATA;
 
 public class ArchieSpeechConfigProfile implements IConfigurationProfile {
 
+    private static final long MINIMUM_TIME_BETWEEN_SAMPLES_MS = 30;
     private static final Logger LOGGER = new Logger();
 
     private Activity initActivity;
@@ -40,6 +41,7 @@ public class ArchieSpeechConfigProfile implements IConfigurationProfile {
                 + this.getClass().getSimpleName());
         initActivity = currentActivity;
         SpeechApplication app = (SpeechApplication) initActivity.getApplication();
+        app.getGtcController().startServices();
         app.getGtcController().onSensorsReady();
         startRecording();
     }
@@ -126,6 +128,13 @@ public class ArchieSpeechConfigProfile implements IConfigurationProfile {
 
         record.stop();
         record.release();
+
+        try {
+            // We don't need to run too frequently, so snooze for a bit.
+            Thread.sleep(MINIMUM_TIME_BETWEEN_SAMPLES_MS);
+        } catch (InterruptedException e) {
+            // Ignore
+        }
     }
 
 }

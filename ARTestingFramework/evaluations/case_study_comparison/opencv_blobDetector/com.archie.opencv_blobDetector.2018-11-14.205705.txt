@@ -1,0 +1,110 @@
+--------- beginning of system
+11-14 20:43:21.605  1120  3004 I ActivityManager: Force stopping com.archie.opencv_blobDetector appid=10151 user=0: from pid 18606
+11-14 20:43:21.606  1120  3004 I ActivityManager: Killing 18408:com.archie.opencv_blobDetector/u0a151 (adj 900): stop com.archie.opencv_blobDetector
+11-14 20:43:24.492  1120  1601 I ActivityManager: Force stopping com.archie.opencv_blobDetector appid=10151 user=0: from pid 18656
+11-14 20:43:24.578  1120  3005 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.archie.opencv_blobDetector/.MainActivity} from uid 2000
+11-14 20:43:24.597  1120  3005 I ActivityManager: Start proc 18667:com.archie.opencv_blobDetector/u0a151 for activity com.archie.opencv_blobDetector/.MainActivity
+11-14 20:43:25.047  1120  1235 I WindowManager: Screen frozen for +456ms due to Window{cbe2503 u0 com.archie.opencv_blobDetector}
+11-14 20:43:28.980  1120 31012 I ActivityManager: Force stopping com.archie.opencv_blobDetector appid=10151 user=0: from pid 18833
+11-14 20:43:28.981  1120 31012 I ActivityManager: Killing 18667:com.archie.opencv_blobDetector/u0a151 (adj 900): stop com.archie.opencv_blobDetector
+11-14 20:45:17.199  1120  1232 D PackageInstaller: Inherited files: [/data/app/com.archie.opencv_blobDetector-lik4NejRdZsPYZjKpOSJyw==/base.apk, /data/app/com.archie.opencv_blobDetector-lik4NejRdZsPYZjKpOSJyw==/split_lib_dependencies_apk.apk, /data/app/com.archie.opencv_blobDetector-lik4NejRdZsPYZjKpOSJyw==/split_lib_resources_apk.apk, /data/app/com.archie.opencv_blobDetector-lik4NejRdZsPYZjKpOSJyw==/split_lib_slice_0_apk.apk, /data/app/com.archie.opencv_blobDetector-lik4NejRdZsPYZjKpOSJyw==/split_lib_slice_1_apk.apk, /data/app/com.archie.opencv_blobDetector-lik4NejRdZsPYZjKpOSJyw==/split_lib_slice_3_apk.apk, /data/app/com.archie.opencv_blobDetector-lik4NejRdZsPYZjKpOSJyw==/split_lib_slice_4_apk.apk, /data/app/com.archie.opencv_blobDetector-lik4NejRdZsPYZjKpOSJyw==/split_lib_slice_5_apk.apk, /data/app/com.archie.opencv_blobDetector-lik4NejRdZsPYZjKpOSJyw==/split_lib_slice_6_apk.apk, /data/app/com.archie.opencv_blobDetector-lik4NejRdZsPYZjKpOSJyw==/split_lib_slice_7_apk.apk, /data/app/com.archie.opencv_blobDetector-lik4NejRdZsPYZjKpOSJyw==/split_lib_slice_8_apk.apk, /data/app/com.archie.opencv_blobDetector-lik4NejRdZsPYZjKpOSJyw==/split_lib_slice_9_apk.apk, /data/app/com.archie.opencv_blobDetector-lik4NejRdZsPYZjKpOSJyw==/oat/arm64/base.odex, /data/app/com.archie.opencv_blobDetector-lik4NejRdZsPYZjKpOSJyw==/oat/arm64/base.vdex]
+11-14 20:45:19.009  1120  1138 I ActivityManager: Force stopping com.archie.opencv_blobDetector appid=10151 user=-1: installPackageLI
+11-14 20:45:19.065  1120  1154 I PackageManager: Package com.archie.opencv_blobDetector codePath changed from /data/app/com.archie.opencv_blobDetector-lik4NejRdZsPYZjKpOSJyw== to /data/app/com.archie.opencv_blobDetector-AgCh0j9SYrzjUTxuLQJRPA==; Retaining data and using new
+11-14 20:45:19.065  1120  1154 W PackageManager: Code path for com.archie.opencv_blobDetector changing from /data/app/com.archie.opencv_blobDetector-lik4NejRdZsPYZjKpOSJyw== to /data/app/com.archie.opencv_blobDetector-AgCh0j9SYrzjUTxuLQJRPA==
+11-14 20:45:19.065  1120  1154 W PackageManager: Resource path for com.archie.opencv_blobDetector changing from /data/app/com.archie.opencv_blobDetector-lik4NejRdZsPYZjKpOSJyw== to /data/app/com.archie.opencv_blobDetector-AgCh0j9SYrzjUTxuLQJRPA==
+11-14 20:45:19.295  1120  1154 I ActivityManager: Force stopping com.archie.opencv_blobDetector appid=10151 user=0: pkg removed
+11-14 20:45:19.299  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package:com.archie.opencv_blobDetector flg=0x4000010 (has extras) } to com.android.musicfx/.Compatibility$Receiver
+11-14 20:45:19.299  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package:com.archie.opencv_blobDetector flg=0x4000010 (has extras) } to com.android.vending/com.google.android.finsky.packagemanager.impl.PackageMonitorReceiverImpl$RegisteredReceiver
+11-14 20:45:19.299  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package:com.archie.opencv_blobDetector flg=0x4000010 (has extras) } to com.android.vending/com.google.android.finsky.instantapps.appmanagement.InstantAppRemoveMonitor
+11-14 20:45:19.350  1120 12988 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REMOVED dat=package:com.archie.opencv_blobDetector flg=0x4000010 (has extras) } to com.google.android.googlequicksearchbox/com.google.android.apps.gsa.googlequicksearchbox.GelStubAppWatcher
+11-14 20:45:19.368  1120 31012 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.archie.opencv_blobDetector flg=0x4000010 (has extras) } to com.android.musicfx/.Compatibility$Receiver
+11-14 20:45:19.373  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.archie.opencv_blobDetector flg=0x4000010 (has extras) } to com.android.vending/com.google.android.finsky.packagemanager.impl.PackageMonitorReceiverImpl$RegisteredReceiver
+11-14 20:45:19.377  1120  1342 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=com.archie.opencv_blobDetector/.MainActivity} from uid 2000
+11-14 20:45:19.421  1120  3061 I ActivityManager: Start proc 18965:com.archie.opencv_blobDetector/u0a151 for activity com.archie.opencv_blobDetector/.MainActivity
+11-14 20:45:19.538  1120  3062 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.archie.opencv_blobDetector flg=0x4000010 (has extras) } to com.google.android.googlequicksearchbox/com.google.android.apps.gsa.googlequicksearchbox.GelStubAppWatcher
+11-14 20:45:19.539  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.archie.opencv_blobDetector flg=0x4000010 (has extras) } to com.google.android.ims/.receivers.RcsAutoStartReceiver
+11-14 20:45:19.543  1120  3062 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.opencv_blobDetector flg=0x4000010 (has extras) } to com.android.musicfx/.Compatibility$Receiver
+11-14 20:45:19.543  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.opencv_blobDetector flg=0x4000010 (has extras) } to com.google.android.apps.photos/.account.full.FetchAccountPropertiesAppUpgradeBroadcastReceiver
+11-14 20:45:19.543  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.opencv_blobDetector flg=0x4000010 (has extras) } to com.google.android.apps.photos/.account.full.SyncAccountsForLoginBroadcastReceiver
+11-14 20:45:19.543  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.opencv_blobDetector flg=0x4000010 (has extras) } to com.google.android.apps.photos/.experiments.phenotype.full.PhenotypeAppUpgradeBroadcastReceiver
+11-14 20:45:19.543  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.opencv_blobDetector flg=0x4000010 (has extras) } to com.google.android.apps.photos/.notificationchannels.AppUpdateBroadcastReceiver
+11-14 20:45:19.578  1120  1130 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.opencv_blobDetector flg=0x4000010 (has extras) } to com.google.android.googlequicksearchbox/com.google.android.apps.gsa.googlequicksearchbox.GelStubAppWatcher
+11-14 20:45:19.578  1120  1138 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.archie.opencv_blobDetector flg=0x4000010 (has extras) } to com.google.android.ims/.receivers.RcsAutoStartReceiver
+11-14 20:45:19.911  1120  1235 I WindowManager: Screen frozen for +490ms due to Window{6094f63 u0 Splash Screen com.archie.opencv_blobDetector}
+11-14 20:45:22.598  1120 12988 I ActivityManager: Force stopping com.archie.opencv_blobDetector appid=10151 user=0: from pid 19107
+11-14 20:45:22.598  1120 12988 I ActivityManager: Killing 18965:com.archie.opencv_blobDetector/u0a151 (adj 0): stop com.archie.opencv_blobDetector
+11-14 20:45:22.598  1120 12988 W ActivityManager: Force removing ActivityRecord{7684ea9 u0 com.archie.opencv_blobDetector/.MainActivity t629}: app died, no saved state
+11-14 20:45:22.600  1120 12988 I WindowManager: Failed to capture screenshot of Token{5e803cf ActivityRecord{7684ea9 u0 com.archie.opencv_blobDetector/.MainActivity t629 f}} appWin=Window{ee14c69 u0 com.archie.opencv_blobDetector/com.archie.opencv_blobDetector.MainActivity} drawState=4
+11-14 20:45:22.641  1120  2989 I WindowManager: WIN DEATH: Window{2db489f u0 com.archie.opencv_blobDetector}
+11-14 20:46:03.659  1120  2989 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector/.MainActivity (has extras)} from uid 2000
+11-14 20:46:03.685  1120  1625 I ActivityManager: Start proc 19157:com.archie.opencv_blobDetector/u0a151 for activity com.archie.opencv_blobDetector/.MainActivity
+11-14 20:46:04.178  1120  1235 I WindowManager: Screen frozen for +489ms due to Window{38b70b8 u0 com.archie.opencv_blobDetector/com.archie.opencv_blobDetector.MainActivity}
+11-14 20:51:04.520  1120  1235 I WindowManager: Failed to capture screenshot of Token{78f0c6e ActivityRecord{7ce87e9 u0 com.archie.opencv_blobDetector/.MainActivity t630 f}} appWin=Window{38b70b8 u0 com.archie.opencv_blobDetector/com.archie.opencv_blobDetector.MainActivity} drawState=4
+11-14 20:51:34.368  1120  1641 I ActivityManager: Force stopping com.archie.opencv_blobDetector appid=10151 user=0: from pid 19488
+11-14 20:51:34.369  1120  1641 I ActivityManager: Killing 19157:com.archie.opencv_blobDetector/u0a151 (adj 900): stop com.archie.opencv_blobDetector
+11-14 20:51:34.416  1120  3057 W ActivityManager: Invalid packageName: com.archie.opencv_blobDetector
+11-14 20:51:34.462  1120  3057 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector/.MainActivity (has extras)} from uid 2000
+11-14 20:51:34.479  1120  3061 I ActivityManager: Start proc 19500:com.archie.opencv_blobDetector/u0a151 for activity com.archie.opencv_blobDetector/.MainActivity
+11-14 20:51:34.953  1120  1235 I WindowManager: Screen frozen for +473ms due to Window{6a505f4 u0 Splash Screen com.archie.opencv_blobDetector}
+11-14 20:56:35.215  1120  1138 W ActivityManager: Activity pause timeout for ActivityRecord{2d275c u0 com.archie.opencv_blobDetector/.MainActivity t631 f}
+11-14 20:56:35.478  1120  1235 I WindowManager: Failed to capture screenshot of Token{25ffa65 ActivityRecord{2d275c u0 com.archie.opencv_blobDetector/.MainActivity t631 f}} appWin=Window{bc55fb6 u0 com.archie.opencv_blobDetector/com.archie.opencv_blobDetector.MainActivity} drawState=4
+11-14 20:57:05.123  1120  3057 I ActivityManager: Force stopping com.archie.opencv_blobDetector appid=10151 user=0: from pid 19807
+11-14 20:57:05.123  1120  3057 I ActivityManager: Killing 19500:com.archie.opencv_blobDetector/u0a151 (adj 900): stop com.archie.opencv_blobDetector
+11-14 20:57:05.187  1120  3057 W ActivityManager: Invalid packageName: com.archie.opencv_blobDetector
+11-14 20:57:05.282  1120  3057 I ActivityManager: START u0 {flg=0x10000000 cmp=com.archie.opencv_blobDetector/.MainActivity (has extras)} from uid 2000
+11-14 20:57:05.306  1120  1626 I ActivityManager: Start proc 19819:com.archie.opencv_blobDetector/u0a151 for activity com.archie.opencv_blobDetector/.MainActivity
+11-14 20:57:05.862  1120  1235 I WindowManager: Screen frozen for +557ms due to Window{8469251 u0 Splash Screen com.archie.opencv_blobDetector}
+--------- beginning of main
+11-14 21:00:37.829 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 106 lines
+11-14 21:00:39.580 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 403 lines
+11-14 21:00:41.375 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 107 lines
+11-14 21:00:43.172 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 404 lines
+11-14 21:00:44.956 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 107 lines
+11-14 21:00:46.751 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 403 lines
+11-14 21:00:48.539 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 107 lines
+11-14 21:00:50.305 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 401 lines
+11-14 21:00:52.119 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 53 lines
+11-14 21:00:52.926 19819 19824 I chatty  : uid=10151(com.archie.opencv_blobDetector) Jit thread pool expire 2 lines
+11-14 21:00:53.879 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 201 lines
+11-14 21:00:53.894 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 107 lines
+11-14 21:00:55.680 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 404 lines
+11-14 21:00:57.474 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 107 lines
+11-14 21:00:59.252 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 403 lines
+11-14 21:01:01.054 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 106 lines
+11-14 21:01:02.820 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 403 lines
+11-14 21:01:04.602 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 108 lines
+11-14 21:01:06.406 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 403 lines
+11-14 21:01:08.217 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 107 lines
+11-14 21:01:09.978 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 403 lines
+11-14 21:01:11.798 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 106 lines
+11-14 21:01:13.571 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 403 lines
+11-14 21:01:15.346 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 108 lines
+11-14 21:01:17.140 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 403 lines
+11-14 21:01:18.960 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 107 lines
+11-14 21:01:20.735 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 403 lines
+11-14 21:01:22.542 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 107 lines
+11-14 21:01:24.324 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 403 lines
+11-14 21:01:26.125 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 106 lines
+11-14 21:01:27.876 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 403 lines
+11-14 21:01:29.671 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 107 lines
+11-14 21:01:31.454 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 403 lines
+11-14 21:01:33.256 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 108 lines
+11-14 21:01:35.035 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 404 lines
+11-14 21:01:36.868 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 106 lines
+11-14 21:01:38.606 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 402 lines
+11-14 21:01:40.415 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 107 lines
+11-14 21:01:42.206 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 403 lines
+11-14 21:01:43.997 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 107 lines
+11-14 21:01:45.783 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 403 lines
+11-14 21:01:47.577 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 107 lines
+11-14 21:01:49.377 19819 19894 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 403 lines
+11-14 21:01:51.159 19819 19819 I chatty  : uid=10151(com.archie.opencv_blobDetector) expire 54 lines
+11-14 21:02:06.116  1120  1138 W ActivityManager: Activity pause timeout for ActivityRecord{7fbd919 u0 com.archie.opencv_blobDetector/.MainActivity t632 f}
+11-14 21:02:06.131   815  6448 I Camera2ClientBase: Closed Camera 0. Client was: com.archie.opencv_blobDetector (PID 19819, UID 10151)
+11-14 21:02:06.300 19819 19819 I case_study_core: BaseApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.opencv_blobDetector/files/20181114_090206_execSettings.csv
+11-14 21:02:06.311 19819 19819 I case_study_core: BaseApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.opencv_blobDetector/files/20181114_090206_frames.csv
+11-14 21:02:06.365  1120  1235 I WindowManager: Failed to capture screenshot of Token{4b73dde ActivityRecord{7fbd919 u0 com.archie.opencv_blobDetector/.MainActivity t632 f}} appWin=Window{d09acb u0 com.archie.opencv_blobDetector/com.archie.opencv_blobDetector.MainActivity} drawState=4
+11-14 21:02:06.600 19819 19819 I case_study_core: BaseApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.opencv_blobDetector/files/20181114_090206_classification.csv
+11-14 21:02:06.733 19819 19819 I case_study_core: BaseApplication: Writing resource stats to file: /storage/emulated/0/Android/data/com.archie.opencv_blobDetector/files/20181114_090206_execSettings.csv
+11-14 21:02:06.735   604  1304 E BufferQueueProducer: [SurfaceView - com.archie.opencv_blobDetector/com.archie.opencv_blobDetector.MainActivity#0] disconnect: not connected (req=2)
+11-14 21:02:06.763  3044  3234 D BaseStreamManager: Promised remove @ r#10421 for StreamItemIdAndRevision{notifKey=0|android|0|com.android.server.wm.AlertWindowNotification - com.archie.opencv_blobDetector|1000, packageName=android, tag=com.android.server.wm.AlertWindowNotification - com.archie.opencv_blobDetector, id=0, revision=0, originalRevision=0, updateCount=0} (@10420): SBN removed: StreamItemIdAndRevision{notifKey=0|android|0|com.android.server.wm.AlertWindowNotification - com.archie.opencv_blobDetector|1000, packageName=android, tag=com.android.server.wm.AlertWindowNotification - com.archie.opencv_blobDetector, id=0, revision=0, originalRevision=0, updateCount=0}

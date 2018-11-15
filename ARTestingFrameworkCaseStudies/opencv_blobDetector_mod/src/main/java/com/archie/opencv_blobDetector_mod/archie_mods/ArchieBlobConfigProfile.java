@@ -1,10 +1,12 @@
 package com.archie.opencv_blobDetector_mod.archie_mods;
 
 import android.app.Activity;
+import android.os.SystemClock;
 import android.view.MotionEvent;
 import android.view.View;
 
 import com.archie.opencv_blobDetector_mod.ColorBlobApplication;
+import com.archie.opencv_blobDetector_mod.R;
 import com.archie.opencv_blobDetector_mod.env.Logger;
 
 import org.opencv.android.CameraBridgeViewBase;
@@ -39,6 +41,8 @@ public class ArchieBlobConfigProfile implements IConfigurationProfile,
         ColorBlobApplication app = (ColorBlobApplication) initActivity.getApplication();
         app.initializeCameraView(initActivity, this);
         app.initializeLoaderCallback(initActivity, this);
+
+        app.getGtcController().startServices();
     }
 
     @Override
@@ -72,6 +76,33 @@ public class ArchieBlobConfigProfile implements IConfigurationProfile,
         ColorBlobApplication app = (ColorBlobApplication) initActivity.getApplication();
         app.initializeCameraViewParams(width, height);
         app.getGtcController().onSensorsReady();
+
+        // if actively testing, send preliminary touch event
+        LOGGER.i("Checking to see if we're running a testing scenario: " + app.isTesting());
+        if (app.isTesting()) {
+            // set preliminary properties
+            long downTime = SystemClock.uptimeMillis();
+            long eventTime = SystemClock.uptimeMillis() + 100;
+            float x = 461.0f, y = 543.0f;
+
+            // List of meta states found here:
+            // developer.android.com/reference/android/view/KeyEvent.html#getMetaState()
+            int metaState = 0;
+
+            // Obtain MotionEvent object
+            MotionEvent motionEvent = MotionEvent.obtain(
+                    downTime,
+                    eventTime,
+                    MotionEvent.ACTION_UP,
+                    x,
+                    y,
+                    metaState
+            );
+
+            // Dispatch touch event to view
+            View blobSurface = initActivity.findViewById(R.id.color_blob_detection_activity_surface_view);
+            onTouch(blobSurface, motionEvent);
+        }
     }
 
     @Override

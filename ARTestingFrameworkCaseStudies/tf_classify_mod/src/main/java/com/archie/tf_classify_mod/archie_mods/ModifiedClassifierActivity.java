@@ -2,37 +2,22 @@ package com.archie.tf_classify_mod.archie_mods;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.hardware.Camera;
-import android.hardware.camera2.CameraCharacteristics;
-import android.media.Image;
-import android.media.ImageReader;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.view.Surface;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.archie.tf_classify_mod.Classifier;
+import com.archie.case_study_core.BaseApplication;
+import com.archie.case_study_core.BaseGtcApplication;
 import com.archie.tf_classify_mod.ClassifierApplication;
 import com.archie.tf_classify_mod.R;
-import com.archie.tf_classify_mod.ResultsView;
-import com.archie.tf_classify_mod.env.BorderedText;
 import com.archie.tf_classify_mod.env.Logger;
 
-import java.nio.ByteBuffer;
-
-import edu.temple.gtc_core.GtcController;
-
-import static com.archie.tf_classify_mod.archie_mods.Constants.EXTRA_TIMED_TEST;
-import static com.archie.tf_classify_mod.archie_mods.Constants.EXTRA_TESTING_LABEL;
-import static com.archie.tf_classify_mod.archie_mods.Constants.EXTRA_TRIAL_TIME;
+import static com.archie.tf_classify_mod.archie_mods.Constants.CONFIG_FILENAME;
 import static com.archie.tf_classify_mod.archie_mods.Constants.PERMISSIONS_REQUEST;
 import static com.archie.tf_classify_mod.archie_mods.Constants.PERMISSION_CAMERA;
 import static com.archie.tf_classify_mod.archie_mods.Constants.PERMISSION_STORAGE;
+import static com.archie.tf_classify_mod.archie_mods.Constants.PROC_NAME;
 
 public class ModifiedClassifierActivity extends Activity {
 
@@ -54,7 +39,7 @@ public class ModifiedClassifierActivity extends Activity {
         setContentView(R.layout.activity_camera);
         initializeTestInstance();
 
-        if (hasPermission()) initializeGtcController();
+        if (hasPermission()) initGtcController();
         else requestPermission();
     }
 
@@ -105,7 +90,7 @@ public class ModifiedClassifierActivity extends Activity {
         if (requestCode == PERMISSIONS_REQUEST) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
                     && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                initializeGtcController();
+                initGtcController();
             }
             else requestPermission();
         }
@@ -137,70 +122,12 @@ public class ModifiedClassifierActivity extends Activity {
     // ----------------------------------------------------------------------------------------
     // ----------------------------------------------------------------------------------------
 
-
     private void initializeTestInstance() {
-        ClassifierApplication app = ((ClassifierApplication) getApplication());
-
-        if (getIntent().hasExtra(EXTRA_TIMED_TEST)) {
-            String rawIsTesting = getIntent().getStringExtra(EXTRA_TIMED_TEST);
-            try {
-                Boolean isTesting = Boolean.parseBoolean(rawIsTesting);
-                LOGGER.i("RECEIVED NOTICE TO QUIT AFTER TEST TIME LIMIT EXPIRES: " + isTesting);
-                app.setTesting(isTesting);
-            } catch (Exception ex) {
-                LOGGER.e(ex, "Something went wrong while trying to parse raw testing string: " + rawIsTesting);
-            }
-        }
-        else LOGGER.i("NO TIMED_TEST RUNTIME PARAM RECEIVED.");
-
-        if (getIntent().hasExtra(EXTRA_TESTING_LABEL)) {
-            String testingLabel = getIntent().getStringExtra(EXTRA_TESTING_LABEL);
-            LOGGER.i("RECEIVED NOTICE TO USE TESTING LABEL: " + testingLabel);
-            app.setTestingLabel(testingLabel);
-        }
-        else LOGGER.i("NO TESTING_LABEL RUNTIME PARAM RECEIVED.");
-
-        if (getIntent().hasExtra(EXTRA_TRIAL_TIME)) {
-            String rawTrialTime = getIntent().getStringExtra(EXTRA_TRIAL_TIME);
-            try {
-                int trialTime = Integer.parseInt(rawTrialTime);
-                app.setTestTime(trialTime);
-                LOGGER.i("RECEIVED NOTICE TO USE TRIAL TIME (IN MINUTES): " + trialTime);
-                LOGGER.i("TEST APP WILL AUTO-FINISH AFTER DELAY (IN MILLIS): " + app.getTestingDelay());
-            } catch (Exception ex) {
-                LOGGER.e(ex, "Something went wrong while trying to parse raw trial time string: " + rawTrialTime);
-            }
-        }
-        else LOGGER.i("NO TRIAL_TIME RUNTIME PARAM RECEIVED.");
-
-        LOGGER.i("SETTING TRIAL TIME FOR: " + app.getTestingDelay() + " MILLIS");
-        if (app.isTesting()) {
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    LOGGER.e("TESTING TIME LIMIT REACHED.");
-                    ModifiedClassifierActivity.this.finishAffinity();
-                }}, app.getTestingDelay());
-        }
+        BaseApplication.initializeTestInstance(this, getIntent());
     }
 
-    private void initializeGtcController() {
-        LOGGER.i("All permissions received!  Initializing GTC Controller.");
-        try {
-            // instantiating the GTC controller will automatically load and execute
-            // the classifiers, profiles listed in the app config
-            ClassifierApplication app = ((ClassifierApplication) getApplication());
-            GtcController gtcController = new GtcController(ModifiedClassifierActivity.this,
-                    android.os.Process.myPid(), Constants.PROC_NAME, Constants.CONFIG_FILENAME);
-            app.setGtcController(gtcController);
-        } catch (Exception ex) {
-            LOGGER.e("Unable to create new GTC Controller instance!  Exception message: \n\t"
-                    + ex.getMessage());
-        }
-
-        // NOTE!!  Don't need to start GTC Services because our configuration profile takes care of
-        // that for us, once all of the necessary sensors are initialized
+    private void initGtcController() {
+        BaseGtcApplication.initGtcController(this, PROC_NAME, CONFIG_FILENAME);
     }
 
 }

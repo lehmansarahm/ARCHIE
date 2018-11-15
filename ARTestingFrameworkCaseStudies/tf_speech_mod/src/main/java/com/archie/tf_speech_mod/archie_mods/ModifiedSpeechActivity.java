@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.archie.case_study_core.BaseApplication;
+import com.archie.case_study_core.BaseGtcApplication;
 import com.archie.tf_speech_mod.R;
 import com.archie.tf_speech_mod.SpeechApplication;
 import com.archie.tf_speech_mod.env.Logger;
@@ -23,7 +25,9 @@ import java.util.List;
 
 import edu.temple.gtc_core.GtcController;
 
+import static com.archie.tf_speech_mod.archie_mods.Constants.CONFIG_FILENAME;
 import static com.archie.tf_speech_mod.archie_mods.Constants.LABEL_FILENAME;
+import static com.archie.tf_speech_mod.archie_mods.Constants.PROC_NAME;
 import static com.archie.tf_speech_mod.archie_mods.Constants.REQUEST_RECORD_AUDIO;
 
 public class ModifiedSpeechActivity extends Activity {
@@ -130,53 +134,6 @@ public class ModifiedSpeechActivity extends Activity {
         app.setLabels(labels);
     }
 
-    private void initializeTestInstance() {
-        SpeechApplication app = ((SpeechApplication) getApplication());
-
-        if (getIntent().hasExtra(EXTRA_TIMED_TEST)) {
-            String rawIsTesting = getIntent().getStringExtra(EXTRA_TIMED_TEST);
-            try {
-                Boolean isTesting = Boolean.parseBoolean(rawIsTesting);
-                LOGGER.i("RECEIVED NOTICE TO QUIT AFTER TEST TIME LIMIT EXPIRES: " + isTesting);
-                app.setTesting(isTesting);
-            } catch (Exception ex) {
-                LOGGER.e(ex, "Something went wrong while trying to parse raw testing string: " + rawIsTesting);
-            }
-        }
-        else LOGGER.i("NO TIMED_TEST RUNTIME PARAM RECEIVED.");
-
-        if (getIntent().hasExtra(EXTRA_TESTING_LABEL)) {
-            String testingLabel = getIntent().getStringExtra(EXTRA_TESTING_LABEL);
-            LOGGER.i("RECEIVED NOTICE TO USE TESTING LABEL: " + testingLabel);
-            app.setTestingLabel(testingLabel);
-        }
-        else LOGGER.i("NO TESTING_LABEL RUNTIME PARAM RECEIVED.");
-
-        if (getIntent().hasExtra(EXTRA_TRIAL_TIME)) {
-            String rawTrialTime = getIntent().getStringExtra(EXTRA_TRIAL_TIME);
-            try {
-                int trialTime = Integer.parseInt(rawTrialTime);
-                app.setTestTime(trialTime);
-                LOGGER.i("RECEIVED NOTICE TO USE TRIAL TIME (IN MINUTES): " + trialTime);
-                LOGGER.i("TEST APP WILL AUTO-FINISH AFTER DELAY (IN MILLIS): " + app.getTestingDelay());
-            } catch (Exception ex) {
-                LOGGER.e(ex, "Something went wrong while trying to parse raw trial time string: " + rawTrialTime);
-            }
-        }
-        else LOGGER.i("NO TRIAL_TIME RUNTIME PARAM RECEIVED.");
-
-        LOGGER.i("SETTING TRIAL TIME FOR: " + app.getTestingDelay() + " MILLIS");
-        if (app.isTesting()) {
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    LOGGER.e("TESTING TIME LIMIT REACHED.");
-                    ModifiedSpeechActivity.this.finishAffinity();
-                }}, app.getTestingDelay());
-        }
-    }
-
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
 
@@ -199,22 +156,12 @@ public class ModifiedSpeechActivity extends Activity {
         }
     }
 
-    private void initGtcController() {
-        LOGGER.i("All permissions received!  Initializing GTC Controller.");
-        try {
-            // instantiating the GTC controller will automatically load and execute
-            // the classifiers, profiles listed in the app config
-            SpeechApplication app = ((SpeechApplication) getApplication());
-            GtcController gtcController = new GtcController(ModifiedSpeechActivity.this,
-                    android.os.Process.myPid(), Constants.PROC_NAME, Constants.CONFIG_FILENAME);
-            app.setGtcController(gtcController);
-        } catch (Exception ex) {
-            LOGGER.e("Unable to create new GTC Controller instance!  Exception message: \n\t"
-                    + ex.getMessage());
-        }
+    private void initializeTestInstance() {
+        BaseApplication.initializeTestInstance(this, getIntent());
+    }
 
-        // NOTE!!  Don't need to start GTC Services because our configuration profile takes care of
-        // that for us, once all of the necessary sensors are initialized
+    private void initGtcController() {
+        BaseGtcApplication.initGtcController(this, PROC_NAME, CONFIG_FILENAME);
     }
 
 }

@@ -103,7 +103,7 @@ public final class Logger {
    *     stackTrace[0]: dalvik.system.VMStack
    *     stackTrace[1]: java.lang.Thread
    *     stackTrace[2]: com.google.android.apps.unveil.env.UnveilLogger
-   *     stackTrace[3]: com.google.android.apps.unveil.BaseApplication
+   *     stackTrace[3]: com.google.android.apps.unveil.BaseGtcApplication
    *
    * This function returns the simple version of the first non-filtered name.
    *
