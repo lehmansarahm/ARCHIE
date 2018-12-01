@@ -463,6 +463,11 @@ public class GtcController implements ITesterCommListener {
         }
     }
 
+    public static void dumpAppDataBuffers(String outputDirName) {
+        cameraFrameBuffer.backup(outputDirName);
+        cameraFrameBuffer.dumpBuffer(outputDirName);
+    }
+
 
     // --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
     // --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --

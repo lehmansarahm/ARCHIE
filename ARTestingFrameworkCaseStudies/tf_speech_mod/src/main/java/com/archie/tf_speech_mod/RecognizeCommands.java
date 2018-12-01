@@ -122,7 +122,7 @@ public class RecognizeCommands {
         // Add the latest results to the head of the queue.
         previousResults.addLast(new Pair<Long, float[]>(currentTimeMS, currentResults));
 
-        // Prune any earlier results that are too old for the averaging window.
+        // Prune any earlier results that are too increasing_preview_size for the averaging window.
         final long timeLimit = currentTimeMS - averageWindowDurationMs;
         while (previousResults.getFirst().first < timeLimit) {
             previousResults.removeFirst();

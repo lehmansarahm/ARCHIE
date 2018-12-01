@@ -37,17 +37,6 @@ public abstract class BaseApplication extends Application {
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
 
-    // protected static final Size  DESIRED_PREVIEW_SIZE = new Size(176, 144);        // xx-small
-    // protected static final Size  DESIRED_PREVIEW_SIZE = new Size(352, 288);        // x-small
-    protected static final Size     DESIRED_PREVIEW_SIZE = new Size(640, 480);        // small
-    // protected static final Size  DESIRED_PREVIEW_SIZE = new Size(1280, 960);       // medium
-    // protected static final Size  DESIRED_PREVIEW_SIZE = new Size(2048, 1536);       // large    // ** FINE TUNE HERE **
-    // protected static final Size  DESIRED_PREVIEW_SIZE = new Size(3200, 2400);      // x-large
-    // protected static final Size  DESIRED_PREVIEW_SIZE = new Size(4032, 3024);      // xx-large
-
-    // --------------------------------------------------------------------------------------------
-    // --------------------------------------------------------------------------------------------
-
     protected static boolean        TESTING = true;
     protected static String         TESTING_LABEL = "roses";
 
@@ -63,8 +52,7 @@ public abstract class BaseApplication extends Application {
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
 
-    @Override
-    public void onCreate() {
+    protected void onStart() {
         frameStats = new ArrayList<>();
         frameStats.add("Time (sec),Previous Frame (ns),Current Frame (ns),Time Elapsed (ms),Dropped Frame Count");
 
@@ -93,8 +81,7 @@ public abstract class BaseApplication extends Application {
                     }
                 }).show(initContext);
 
-        LOGGER.i("ClassifierApplication with TinyDancer created!");
-        super.onCreate();
+        LOGGER.i("Base application with TinyDancer created!");
     }
 
     protected boolean onDestroy() {
@@ -128,6 +115,14 @@ public abstract class BaseApplication extends Application {
 
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
+
+    protected static Size DESIRED_PREVIEW_SIZE = new Size(640, 480);
+
+    public void setDesiredPreviewSize(Size size) {
+        synchronized (LOCK) {
+            BaseApplication.DESIRED_PREVIEW_SIZE = size;
+        }
+    }
 
     public Size getDesiredPreviewSize() {
         synchronized (LOCK) {

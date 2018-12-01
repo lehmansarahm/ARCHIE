@@ -38,7 +38,7 @@ public class CameraRenderer extends CameraGLRendererBase {
         Log.i(LOGTAG, "openCamera");
         closeCamera();
         if (id == CameraBridgeViewBase.CAMERA_ID_ANY) {
-            Log.d(LOGTAG, "Trying to open camera with old open()");
+            Log.d(LOGTAG, "Trying to open camera with increasing_preview_size open()");
             try {
                 mCamera = Camera.open();
             }

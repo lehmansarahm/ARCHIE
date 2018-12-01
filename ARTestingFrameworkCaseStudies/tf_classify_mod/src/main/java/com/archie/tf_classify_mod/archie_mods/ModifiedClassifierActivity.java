@@ -13,15 +13,19 @@ import com.archie.tf_classify_mod.ClassifierApplication;
 import com.archie.tf_classify_mod.R;
 import com.archie.tf_classify_mod.env.Logger;
 
+import static com.archie.case_study_core.BaseGtcApplication.EXTRA_CONFIG_FILE;
 import static com.archie.tf_classify_mod.archie_mods.Constants.CONFIG_FILENAME;
 import static com.archie.tf_classify_mod.archie_mods.Constants.PERMISSIONS_REQUEST;
 import static com.archie.tf_classify_mod.archie_mods.Constants.PERMISSION_CAMERA;
 import static com.archie.tf_classify_mod.archie_mods.Constants.PERMISSION_STORAGE;
-import static com.archie.tf_classify_mod.archie_mods.Constants.PROC_NAME;
 
 public class ModifiedClassifierActivity extends Activity {
 
+    private static final String PROC_NAME = "TfClassify_Mod";
     private static final Logger LOGGER = new Logger();
+
+    private static String configFilename = Constants.CONFIG_FILENAME;
+
 
     // ----------------------------------------------------------------------------------------
     // ----------------------------------------------------------------------------------------
@@ -39,6 +43,13 @@ public class ModifiedClassifierActivity extends Activity {
         setContentView(R.layout.activity_camera);
         initializeTestInstance();
 
+        if (getIntent().hasExtra(EXTRA_CONFIG_FILE)) {
+            configFilename = Constants.ASSET_FILE_PREFIX
+                    + getIntent().getStringExtra(EXTRA_CONFIG_FILE);
+            LOGGER.i("RECEIVED NOTICE TO USE CONFIG FILE: " + configFilename);
+        }
+        else LOGGER.i("NO CONFIG FILE PARAM RECEIVED.  USING DEFAULT: " + configFilename);
+
         if (hasPermission()) initGtcController();
         else requestPermission();
     }
@@ -46,6 +57,7 @@ public class ModifiedClassifierActivity extends Activity {
     @Override
     public synchronized void onStart() {
         LOGGER.d("onStart " + this);
+        ((ClassifierApplication)getApplication()).onStart();
         super.onStart();
     }
 
@@ -127,7 +139,7 @@ public class ModifiedClassifierActivity extends Activity {
     }
 
     private void initGtcController() {
-        BaseGtcApplication.initGtcController(this, PROC_NAME, CONFIG_FILENAME);
+        BaseGtcApplication.initGtcController(this, PROC_NAME, configFilename);
     }
 
 }

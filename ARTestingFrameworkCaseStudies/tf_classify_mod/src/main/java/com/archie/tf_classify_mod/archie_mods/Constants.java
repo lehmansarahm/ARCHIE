@@ -8,8 +8,8 @@ public class Constants {
     // ----------------------------------------------------------------------------------------
     //          ARCHIE properties
     // ----------------------------------------------------------------------------------------
-    public static final String PROC_NAME = "TfClassify_Mod";
-    public static final String CONFIG_FILENAME = "file:///android_asset/config.json";
+    public static final String ASSET_FILE_PREFIX = "file:///android_asset/";
+    public static final String CONFIG_FILENAME = (ASSET_FILE_PREFIX + "config.json");
 
     public static final String INPUT_FORMAT_LEGACY = "legacy";
     public static final String INPUT_FORMAT_CAMERA2 = "camera2";

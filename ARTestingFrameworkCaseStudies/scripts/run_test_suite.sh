@@ -11,9 +11,9 @@
 PACKAGE_NAMES=$1            # PROVIDED BY USER AS COMMAND LINE ARGUMENT ...
                             # IF NULL, RUN DEVICE-LEVEL RESOURCE PROFILER !!
 
-((NUM_TRIALS=5))            # number of trials to execute
+((NUM_TRIALS=1))            # number of trials to execute
 
-((TRIAL_TIME_MINUTES=5))    # the number of total minutes to run this script (PER TRIAL)
+((TRIAL_TIME_MINUTES=25))    # the number of total minutes to run this script (PER TRIAL)
 ((TRIAL_TIME_SECONDS=$TRIAL_TIME_MINUTES * 60))
 
 ((WAIT_INT_SECS=5))         # interval (in seconds) to wait between each reading during a trial
@@ -21,7 +21,7 @@ PACKAGE_NAMES=$1            # PROVIDED BY USER AS COMMAND LINE ARGUMENT ...
 TRUE="true"
 FALSE="false"
 
-INCLUDE_UI_TESTS=${TRUE}
+INCLUDE_UI_TESTS=${FALSE}
 INCLUDE_RESOURCE_TESTS=${TRUE}
 
 # Drone Tracker:        project ('opencv_blobDetector')         activity ('MainActivity')
@@ -35,9 +35,25 @@ INCLUDE_RESOURCE_TESTS=${TRUE}
 # TF Speech Mod:        project ('tf_speech_mod')               activity ('archie_mods.ModifiedSpeechActivity')
 
 PACKAGE_NAME="com.archie"
-PROJECT_NAMES=('opencv_blobDetector')
-ACTIVITY_NAMES=('MainActivity')
+PROJECT_NAMES=('tf_classify_mod')
+ACTIVITY_NAMES=('archie_mods.ModifiedClassifierActivity')
+
 TEST_LABEL="noTarget"
+
+# TRIAL_NAME="_oneProfile"
+# CONFIG_NAME="config_1profile.json"
+
+# TRIAL_NAME="_threeProfiles"
+# CONFIG_NAME="config_3profiles.json"
+
+TRIAL_NAME="_fiveProfiles"
+CONFIG_NAME="config_5profiles.json"
+
+# TRIAL_NAME="_sevenProfiles"
+# CONFIG_NAME="config_7profiles.json"
+
+# TRIAL_NAME="_tenProfiles"
+# CONFIG_NAME="config_10profiles.json"
 
 ANDROID_DATA_DIR="/storage/self/primary/Android/data"
 DOCS_DIR="/storage/self/primary/Documents"
@@ -80,7 +96,7 @@ do
     done
 
     mkdir "out"
-    OUTPUT_DIR="out/${PROJECT}"
+    OUTPUT_DIR="out/${PROJECT}${TRIAL_NAME}"
     mkdir ${OUTPUT_DIR}
     echo "Output dir created at ${OUTPUT_DIR}"
 
@@ -94,13 +110,13 @@ do
     echo ""                             # spacer line
 
 
-
     # -----------------------------------------------------------------------------------
 
     if [[ ${INCLUDE_UI_TESTS} = ${TRUE} ]]
     then                                # begin UI testing ...
 
     # -----------------------------------------------------------------------------------
+
 
     QUIT_AFTER_TIME_LIMIT="true"
     echo "Updated QUIT_AFTER_TIME_LIMIT: ${QUIT_AFTER_TIME_LIMIT}"
@@ -123,7 +139,8 @@ do
         EXECUTE_TIMED_APP_COMMAND="am start -n ${FULL_COMPONENT_NAME} \
             -e quitAfterTimeLimit ${QUIT_AFTER_TIME_LIMIT} \
             -e testingLabel ${TEST_LABEL} \
-            -e trialTime ${TRIAL_TIME_MINUTES}"
+            -e trialTime ${TRIAL_TIME_MINUTES} \
+            -e configFilename ${CONFIG_NAME}"
         echo "\t\t running >> adb shell ${EXECUTE_TIMED_APP_COMMAND}"
         adb shell ${EXECUTE_TIMED_APP_COMMAND}
 
@@ -215,7 +232,9 @@ do
     echo ""                                 # spacer line
 
     EXECUTE_UNTIMED_APP_COMMAND="am start -n ${FULL_COMPONENT_NAME} \
-        -e testingLabel ${TEST_LABEL}"
+        -e quitAfterTimeLimit ${QUIT_AFTER_TIME_LIMIT} \
+        -e testingLabel ${TEST_LABEL} \
+        -e configFilename ${CONFIG_NAME}"
     echo "Starting up current component for project: ${FULL_COMPONENT_NAME}"
     echo "Running >> adb shell ${EXECUTE_UNTIMED_APP_COMMAND}"
     adb shell ${EXECUTE_UNTIMED_APP_COMMAND}
@@ -301,7 +320,6 @@ do
     fi                                  # end resource testing ...
 
     # -----------------------------------------------------------------------------------
-
 
     echo ""                             # spacer line
     echo "--------------------------------------------------------------------------------"

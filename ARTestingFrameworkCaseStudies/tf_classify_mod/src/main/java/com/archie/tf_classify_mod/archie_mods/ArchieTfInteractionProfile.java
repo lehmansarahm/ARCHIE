@@ -22,24 +22,26 @@ import static edu.temple.gtc_core.utils.Constants.BUNDLE_KEY_CLASSIFICATION_RESU
 
 public class ArchieTfInteractionProfile implements IInteractionProfile {
 
-    private static final Logger LOGGER = new Logger();
+    private static final Logger     LOGGER = new Logger();
 
-    private static Activity initActivity;
-
-    private static ResultsView resultsView;
-    private static BorderedText borderedText;
+    private Activity                initActivity;
+    private ResultsView             resultsView;
+    private BorderedText            borderedText;
+    private boolean                 initialized = false;
 
     @Override
     public void onSensorsReady() {
         LOGGER.e("GTC Controller called 'onSensorsReady' for interaction profile: "
                 + this.getClass().getSimpleName());
 
-        final float textSizePx = TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP, TEXT_SIZE_DIP,
-                initActivity.getResources().getDisplayMetrics());
+        if (borderedText == null && initActivity != null) {
+            final float textSizePx = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP, TEXT_SIZE_DIP,
+                    initActivity.getResources().getDisplayMetrics());
 
-        borderedText = new BorderedText(textSizePx);
-        borderedText.setTypeface(Typeface.MONOSPACE);
+            borderedText = new BorderedText(textSizePx);
+            borderedText.setTypeface(Typeface.MONOSPACE);
+        }
     }
 
     @Override
@@ -49,6 +51,11 @@ public class ArchieTfInteractionProfile implements IInteractionProfile {
 
         if (!map.containsKey(BUNDLE_KEY_CLASSIFICATION_RESULTS)) {
             LOGGER.e("CANNOT EVALUATE CLASSIFICATION RESULTS IF NONE ARE PROVIDED.");
+            return;
+        }
+
+        if (!initialized) {
+            LOGGER.e("\n\nCANNOT DISPLAY CLASSIFICATION RESULT IF INTERACTION VIEW IS NOT INITIALIZED.\n\n");
             return;
         }
 
@@ -65,6 +72,7 @@ public class ArchieTfInteractionProfile implements IInteractionProfile {
                 + this.getClass().getSimpleName());
         initActivity = activity;
         resultsView = initActivity.findViewById(R.id.results);
+        initialized = true;
     }
 
     @Override
@@ -72,65 +80,5 @@ public class ArchieTfInteractionProfile implements IInteractionProfile {
         LOGGER.e("GTC Controller called 'pauseProfile' for interaction profile: "
                 + this.getClass().getSimpleName());
     }
-
-
-    // ----------------------------------------------------------------------------------------
-    // ----------------------------------------------------------------------------------------
-    //          OUTPUT, UI UPDATER METHODS
-    // ----------------------------------------------------------------------------------------
-    // ----------------------------------------------------------------------------------------
-
-
-    // TODO - debug the overlay
-    private void requestRender() {
-        final OverlayView overlay = initActivity.findViewById(R.id.debug_overlay);
-        if (overlay != null) {
-            overlay.postInvalidate();
-        }
-    }
-
-    // TODO - debug the callback
-    private void addCallback(final OverlayView.DrawCallback callback) {
-        final OverlayView overlay = initActivity.findViewById(R.id.debug_overlay);
-        if (overlay != null) {
-            overlay.addCallback(callback);
-        }
-    }
-
-    // TODO - debug the debug
-    /*
-    private boolean debug = false;
-    private void renderDebug(final Canvas canvas) {
-        // only display the debug overlay if the property is explicitly set
-        if (!debug) return;
-
-        final Bitmap copy = cropCopyBitmap;
-        if (copy != null) {
-            final Matrix matrix = new Matrix();
-            final float scaleFactor = 2;
-            matrix.postScale(scaleFactor, scaleFactor);
-            matrix.postTranslate(
-                    canvas.getWidth() - copy.getWidth() * scaleFactor,
-                    canvas.getHeight() - copy.getHeight() * scaleFactor);
-            canvas.drawBitmap(copy, matrix, new Paint());
-
-            final Vector<String> lines = new Vector<String>();
-            if (classifier != null) {
-                String statString = classifier.getStatString();
-                String[] statLines = statString.split("\n");
-                for (String line : statLines) {
-                    lines.add(line);
-                }
-            }
-
-            lines.add("Frame: " + previewWidth + "x" + previewHeight);
-            lines.add("Crop: " + copy.getWidth() + "x" + copy.getHeight());
-            lines.add("View: " + canvas.getWidth() + "x" + canvas.getHeight());
-            lines.add("Rotation: " + sensorOrientation);
-            lines.add("Inference time: " + lastProcessingTimeMs + "ms");
-
-            borderedText.drawLines(canvas, 10, canvas.getHeight() - 10, lines);
-        }
-    }*/
 
 }

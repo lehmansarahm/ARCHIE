@@ -6,6 +6,8 @@ import edu.temple.gtc_core.GtcController;
 
 public abstract class BaseGtcApplication extends BaseApplication {
 
+    public static final String EXTRA_CONFIG_FILE = "configFilename";
+
     protected void onPause(Activity currentActivity) {
         LOGGER.i("Pausing profiles.");
         getGtcController().pauseProfiles();

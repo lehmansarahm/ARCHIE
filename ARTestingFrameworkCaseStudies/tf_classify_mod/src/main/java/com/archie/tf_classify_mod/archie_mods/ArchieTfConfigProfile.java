@@ -31,7 +31,7 @@ import static com.archie.tf_classify_mod.archie_mods.Constants.INPUT_FORMAT_LEGA
 public class ArchieTfConfigProfile implements IConfigurationProfile,
         ImageReader.OnImageAvailableListener, Camera.PreviewCallback {
 
-    private static final Logger LOGGER = new Logger();
+    protected static final Logger LOGGER = new Logger();
 
     private static Activity initActivity;
     private static Fragment fragment;
@@ -45,13 +45,22 @@ public class ArchieTfConfigProfile implements IConfigurationProfile,
         LOGGER.e("GTC Controller called 'resumeProfile' for config profile: "
                 + this.getClass().getSimpleName());
         initActivity = activity;
-        if (fragment == null) setFragment();
+        if (fragment == null) {
+            LOGGER.i("No fragment set.  Initializing new fragment.");
+            setFragment();
+        }
     }
 
     @Override
     public void pauseProfile() {
         LOGGER.e("GTC Controller called 'pauseProfile' for config profile: "
                 + this.getClass().getSimpleName());
+        if (fragment != null) {
+            fragment.onPause();
+            fragment.onDetach();
+            fragment.onDestroy();
+            fragment = null;
+        }
     }
 
 
@@ -72,7 +81,7 @@ public class ArchieTfConfigProfile implements IConfigurationProfile,
 
         ClassifierApplication app = ((ClassifierApplication)initActivity.getApplication());
         if (app.isComputing()) {
-            LOGGER.e("App processing other input ... Dropping frame!");
+            // LOGGER.e("App processing other input ... Dropping frame!");
             return;
         }
 
@@ -98,7 +107,7 @@ public class ArchieTfConfigProfile implements IConfigurationProfile,
 
         ClassifierApplication app = ((ClassifierApplication)initActivity.getApplication());
         if (app.isComputing()) {
-            LOGGER.e("App processing other input ... Dropping image!");
+            // LOGGER.e("App processing other input ... Dropping image!");
             return;
         }
 
@@ -107,8 +116,12 @@ public class ArchieTfConfigProfile implements IConfigurationProfile,
             image = reader.acquireLatestImage();
             if (image == null) return;
 
+            LOGGER.i("Preparing to classify image with height: " + image.getHeight()
+                + " and width: " + image.getWidth());
+
+            final Image.Plane[] planes = image.getPlanes();
             Map<String, Object> dataToPreprocess = new HashMap<>();
-            dataToPreprocess.put(Constants.BUNDLE_KEY_PREVIEW_DATA, image);
+            dataToPreprocess.put(Constants.BUNDLE_KEY_PREVIEW_DATA, planes);
             dataToPreprocess.put(Constants.BUNDLE_KEY_PREVIEW_FORMAT, INPUT_FORMAT_CAMERA2);
             app.getGtcController().onDataAvailable(dataToPreprocess);
         } catch (final Exception e) {
@@ -192,6 +205,7 @@ public class ArchieTfConfigProfile implements IConfigurationProfile,
     }
 
     private void onPreviewSizeChosen(final Size size, final int rotation) {
+        LOGGER.i("New preview size chosen: " + size.getHeight() + ", " + size.getWidth());
         final ClassifierApplication app = (ClassifierApplication) initActivity.getApplication();
         app.setPreviewSize(size);
         app.setRotation(rotation);

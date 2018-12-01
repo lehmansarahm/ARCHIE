@@ -84,6 +84,8 @@ public class ProfileController {
                     break;
             }
 
+            String outputDirName = "PROFILE_SWITCH";
+            GtcController.dumpAppDataBuffers(outputDirName);
             return null;
         }
     }
@@ -149,7 +151,7 @@ public class ProfileController {
                 }
             };
 
-            mProfileTimer.schedule(mProfileTimerTask, 0, PROFILE_TIMER_INTERVAL);
+            mProfileTimer.schedule(mProfileTimerTask, PROFILE_TIMER_INTERVAL, PROFILE_TIMER_INTERVAL);
         }
     }
 

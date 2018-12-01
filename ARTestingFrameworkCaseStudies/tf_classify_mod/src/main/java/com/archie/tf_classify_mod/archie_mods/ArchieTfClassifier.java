@@ -59,7 +59,7 @@ public class ArchieTfClassifier implements IClassifier {
     private Bitmap rgbFrameBitmap = null;
     private Bitmap croppedBitmap = null;
 
-    private byte[][] yuvBytes = new byte[3][];
+    private byte[][] yuvBytes = null;
     private int[] rgbBytes = null;
     private int yRowStride;
 
@@ -116,22 +116,25 @@ public class ArchieTfClassifier implements IClassifier {
             @Override
             public void run() {
                 final long startTime = SystemClock.uptimeMillis();
+                Bitmap preprocessedBitmap = (Bitmap) map.get(BUNDLE_KEY_PREPROCESSED_OUTPUT);
+
                 final List<Classifier.Recognition> results =
-                        app.getClassifier().recognizeImage(initActivity, croppedBitmap);
+                        app.getClassifier().recognizeImage(initActivity, preprocessedBitmap);
                 lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime;
                 LOGGER.i("Detect: %s", results);
 
                 app.setComputing(false);
                 Trace.endSection();
 
-                if (results != null) {
-                    map.put(BUNDLE_KEY_CLASSIFICATION_RESULTS, results);
-                    if (results.size() > 0) {
-                        LOGGER.e("\n\nRECEIVED CLASSIFICATION RESULTS: \n" + results + "\n\n.");
-                        map.put(BUNDLE_KEY_CLASSIFICATION_TOP_RESULT, results.get(0).getTitle());
-                    }
+                if (results == null || results.size() == 0) {
+                    LOGGER.e("NO CLASSIFICATION RESULTS.  Closing pipeline.");
+                    app.getGtcController().onClassifierClassificationComplete(null);
+                    return;
                 }
 
+                LOGGER.i("\n\nReceived classification results: \n" + results + "\n\n.");
+                map.put(BUNDLE_KEY_CLASSIFICATION_RESULTS, results);
+                map.put(BUNDLE_KEY_CLASSIFICATION_TOP_RESULT, results.get(0).getTitle());
                 app.getGtcController().onClassifierClassificationComplete(map);
             }
         });
@@ -185,7 +188,7 @@ public class ArchieTfClassifier implements IClassifier {
             results = (List<Classifier.Recognition>) classifierInput.get(BUNDLE_KEY_CLASSIFICATION_RESULTS);
             topResult = classifierInput.get(BUNDLE_KEY_CLASSIFICATION_TOP_RESULT).toString();
         } catch (Exception ex) {
-            LOGGER.e("Could not cast classification results to expected format.");
+            LOGGER.e(ex, "Could not cast classification results to expected format.");
             app.getGtcController().onClassifierEvaluationComplete(null);
             return;
         }
@@ -258,6 +261,8 @@ public class ArchieTfClassifier implements IClassifier {
                         INPUT_SIZE, IMAGE_MEAN, IMAGE_STD, INPUT_NAME, OUTPUT_NAME);
         app.setClassifier(classifier);
 
+        yuvBytes = new byte[3][];
+
         previewWidth = app.getPreviewWidth();
         previewHeight = app.getPreviewHeight();
 
@@ -327,13 +332,13 @@ public class ArchieTfClassifier implements IClassifier {
     }
 
     private void preprocessImage(Map<String, Object> map) {
+        LOGGER.i("Preprocessing image using Camera2 API.");
         final ClassifierApplication app = (ClassifierApplication) initActivity.getApplication();
-        final Image image = (Image)map.get(BUNDLE_KEY_PREVIEW_DATA);
+        final Image.Plane[] planes = (Image.Plane[])map.get(BUNDLE_KEY_PREVIEW_DATA);
 
         app.setComputing(true);
         Trace.beginSection("imageAvailable");
 
-        final Image.Plane[] planes = image.getPlanes();
         fillBytes(planes, yuvBytes);
         yRowStride = planes[0].getRowStride();
         final int uvRowStride = planes[1].getRowStride();
@@ -346,6 +351,9 @@ public class ArchieTfClassifier implements IClassifier {
         rgbFrameBitmap.setPixels(rgbBytes, 0, previewWidth, 0, 0, previewWidth, previewHeight);
         final Canvas canvas = new Canvas(croppedBitmap);
         canvas.drawBitmap(rgbFrameBitmap, frameToCropTransform, null);
+
+        LOGGER.i("Cropped bitmap ready ... width: " + croppedBitmap.getWidth()
+                + " \t\t ... height: " + croppedBitmap.getHeight());
 
         // For examining the actual TF input.
         if (SAVE_PREVIEW_BITMAP) ImageUtils.saveBitmap(croppedBitmap);

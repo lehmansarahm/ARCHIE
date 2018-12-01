@@ -198,7 +198,7 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
                 checkCurrentState();
             } else {
                 /** Surface changed. We need to stop camera and restart with new parameters */
-                /* Pretend that old surface has been destroyed */
+                /* Pretend that increasing_preview_size surface has been destroyed */
                 mSurfaceExist = false;
                 checkCurrentState();
                 /* Now use new surface. Say we have it now */

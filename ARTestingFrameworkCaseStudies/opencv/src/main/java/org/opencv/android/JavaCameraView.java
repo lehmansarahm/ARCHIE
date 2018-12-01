@@ -73,7 +73,7 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
             mCamera = null;
 
             if (mCameraIndex == CAMERA_ID_ANY) {
-                Log.d(TAG, "Trying to open camera with old open()");
+                Log.d(TAG, "Trying to open camera with increasing_preview_size open()");
                 try {
                     mCamera = Camera.open();
                 }

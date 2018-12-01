@@ -15,6 +15,10 @@ public class ClassifierApplication extends BaseGtcApplication {
     // --------------------------------------------------------------------------------------------
     // --------------------------------------------------------------------------------------------
 
+    public void onStart() {
+        super.onStart();
+    }
+
     public void onPause(Activity currentActivity) {
         super.onPause(currentActivity);
         handlerThread.quitSafely();

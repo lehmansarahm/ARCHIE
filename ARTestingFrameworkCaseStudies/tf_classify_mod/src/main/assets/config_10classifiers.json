@@ -1,0 +1,21 @@
+{
+  "async_anno_settings" : { "denomination" : "Minutes", "interval" : 2, "default_label" : "daisy" },
+  "async_ux_settings" : { "denomination" : "Minutes", "interval" : 2 },
+  "classifiers" : [
+    "com.archie.tf_classify_mod.archie_mods.ArchieTfClassifier",
+    "com.archie.tf_classify_mod.archie_mods.ArchieTfClassifier",
+    "com.archie.tf_classify_mod.archie_mods.ArchieTfClassifier",
+    "com.archie.tf_classify_mod.archie_mods.ArchieTfClassifier",
+    "com.archie.tf_classify_mod.archie_mods.ArchieTfClassifier",
+    "com.archie.tf_classify_mod.archie_mods.ArchieTfClassifier",
+    "com.archie.tf_classify_mod.archie_mods.ArchieTfClassifier",
+    "com.archie.tf_classify_mod.archie_mods.ArchieTfClassifier",
+    "com.archie.tf_classify_mod.archie_mods.ArchieTfClassifier",
+    "com.archie.tf_classify_mod.archie_mods.ArchieTfClassifier"
+  ],
+  "configuration_profiles" : [ "com.archie.tf_classify_mod.archie_mods.Preview640x480ConfigProfile" ],
+  "interaction_profiles" : [ "com.archie.tf_classify_mod.archie_mods.ArchieTfInteractionProfile" ],
+  "hardware_profiles" : [
+    { "name" : "high_resource", "allowable_cpu_percentage" : 100 }
+  ]
+}
