@@ -35,7 +35,7 @@ INCLUDE_RESOURCE_TESTS=${TRUE}
 # TF Speech Mod:        project ('tf_speech_mod')               activity ('archie_mods.ModifiedSpeechActivity')
 
 PACKAGE_NAME="com.archie"
-PROJECT_NAMES=('tf_classify_mod')
+PROJECT_NAMES=('drone_tracker')
 ACTIVITY_NAMES=('archie_mods.ModifiedClassifierActivity')
 
 TEST_LABEL="noTarget"

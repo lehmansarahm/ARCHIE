@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{11445992-2A87-AA2E-5547-0BCF9558F777}</ProjectGuid>
+    <ProjectGuid>{416A894B-8DBE-2328-7359-29DC4CF28991}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -64,16 +64,16 @@
     <Compile Include="Assets\Vuforia\Editor\Scripts\OpenSourceInitializer.cs" />
     <None Include="Assets\Editor\Vuforia\Emulator\VuforiaEmulator.xml" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>/Users/slehr/Projects/ARCHIE/ARTestingFramework-DroneTrackerMod/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>/Users/slehr/Projects/ARCHIE/ARCHIE-Unity-DroneTracker/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>/Users/slehr/Projects/ARCHIE/ARTestingFramework-DroneTrackerMod/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>/Users/slehr/Projects/ARCHIE/ARCHIE-Unity-DroneTracker/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>/Users/slehr/Projects/ARCHIE/ARTestingFramework-DroneTrackerMod/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>/Users/slehr/Projects/ARCHIE/ARCHIE-Unity-DroneTracker/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Users/slehr/Projects/ARCHIE/ARTestingFramework-DroneTrackerMod/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>/Users/slehr/Projects/ARCHIE/ARCHIE-Unity-DroneTracker/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -381,7 +381,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{0CB893A8-D8B9-2ACF-8992-5C2A3755851C}</Project>
+      <Project>{72E09480-4B83-83FD-D924-7CE77FD5A330}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
   </ItemGroup>

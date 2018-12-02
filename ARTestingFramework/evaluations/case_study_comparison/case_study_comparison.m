@@ -185,7 +185,7 @@ set(gca, 'xticklabel', APPS);
 % xlabel('Application Version')
 ylabel('Average Overall FPS')
 ylim([59 60])
-% legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
+legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
 saveas(gcf,'fig-caseStudies-avgFps','epsc')
 figure()
 
@@ -236,5 +236,5 @@ set(gca, 'xticklabel', APPS);
 % xlabel('Application Version')
 ylabel('Avg. Kernel-space CPU Utilization')
 ylim([0.03 0.12])
-% legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
+legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
 saveas(gcf,'fig-caseStudies-cpuSystem','epsc')

@@ -4,6 +4,7 @@ set(0,'defaulttextfontsize',25);
 % -----------------------------------------------
 % -----------------------------------------------
 
+VERSIONS = { 'Profiles', 'Classifiers' };
 NUM_OF_PROFILES = { '1', '3', '5', '7', '10' };  
 
 PROFILE_FOLDER_NAMES = {'profiles1', 'profiles3', 'profiles5', ...
@@ -126,7 +127,7 @@ mem_usage_all = [ profile_mem_usage_per_test_case{1}, classifier_mem_usage_per_t
         profile_mem_usage_per_test_case{5}, classifier_mem_usage_per_test_case{5} ];
 bar(mem_usage_all);
 set(gca, 'xticklabel', NUM_OF_PROFILES);
-xlabel('Number of Profiles, Classifiers')
+% xlabel('Number of Profiles, Classifiers')
 ylabel('Avg. Memory Utilization')
 ylim([0.9 0.945])
 saveas(gcf,'fig-profileSwitching-memUsage','epsc')
@@ -142,7 +143,7 @@ cpu_user_all = [ profile_cpu_user_per_test_case{1}, classifier_cpu_user_per_test
         profile_cpu_user_per_test_case{5}, classifier_cpu_user_per_test_case{5} ];
 bar(cpu_user_all);
 set(gca, 'xticklabel', NUM_OF_PROFILES);
-xlabel('Number of Profiles, Classifiers')
+% xlabel('Number of Profiles, Classifiers')
 ylabel('Avg. User-space CPU Utilization')
 ylim([0.3 0.38])
 saveas(gcf,'fig-profileSwitching-cpuUser','epsc')
@@ -158,7 +159,8 @@ cpu_system_all = [ profile_cpu_system_per_test_case{1}, classifier_cpu_system_pe
         profile_cpu_system_per_test_case{5}, classifier_cpu_system_per_test_case{5} ];
 bar(cpu_system_all);
 set(gca, 'xticklabel', NUM_OF_PROFILES);
-xlabel('Number of Profiles, Classifiers')
+% xlabel('Number of Profiles, Classifiers')
 ylabel('Avg. Kernel-space CPU Utilization')
+legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
 ylim([0.06 0.075])
 saveas(gcf,'fig-profileSwitching-cpuSystem','epsc')

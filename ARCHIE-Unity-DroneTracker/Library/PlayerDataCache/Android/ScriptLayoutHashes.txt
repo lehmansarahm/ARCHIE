@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-/Users/slehr/Projects/ARCHIE/ARTestingFramework-DroneTrackerUpdated/drone_tracker.apk
+/Users/slehr/Projects/ARCHIE/ARCHIE-Unity-DroneTracker/dronetracker.apk
 SceneListBegin?
 Assets/Scenes/SampleScene.unity
 SceneListEnd?
