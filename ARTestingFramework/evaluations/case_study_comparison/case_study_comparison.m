@@ -135,7 +135,7 @@ set(gca, 'xticklabel', APPS);
 % set(gca, 'XTickLabelRotation', 45);
 % xlabel('Application Version')
 ylabel('Avg. Classification Time (ms)')
-% legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
+legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
 saveas(gcf,'fig-caseStudies-timeToClassify','epsc')
 figure()
 
@@ -151,7 +151,7 @@ set(gca, 'xticklabel', APPS);
 % set(gca, 'XTickLabelRotation', 45);
 % xlabel('Application Version')
 ylabel('Average Min FPS')
-% legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
+legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
 saveas(gcf,'fig-caseStudies-minFps','epsc')
 figure()
 
@@ -168,7 +168,7 @@ set(gca, 'xticklabel', APPS);
 % xlabel('Application Version')
 ylabel('Average Max FPS')
 ylim([15 65])
-% legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
+legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
 saveas(gcf,'fig-caseStudies-maxFps','epsc')
 figure()
 
@@ -202,7 +202,7 @@ set(gca, 'xticklabel', APPS);
 % xlabel('Application Version')
 ylabel('Avg. Memory Utilization')
 ylim([0.8 1.0])
-% legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
+legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
 saveas(gcf,'fig-caseStudies-memUsage','epsc')
 figure()
 
@@ -219,7 +219,7 @@ set(gca, 'xticklabel', APPS);
 % xlabel('Application Version')
 ylabel('Avg. User-space CPU Utilization')
 ylim([0.05 0.45])
-% legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
+legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
 saveas(gcf,'fig-caseStudies-cpuUser','epsc')
 figure()
 

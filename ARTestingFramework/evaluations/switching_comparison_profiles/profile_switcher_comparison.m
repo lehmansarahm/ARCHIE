@@ -4,7 +4,7 @@ set(0,'defaulttextfontsize',25);
 % -----------------------------------------------
 % -----------------------------------------------
 
-VERSIONS = { 'Profiles', 'Classifiers' };
+VERSIONS = { 'I/O Profiles', 'Classification Profiles' };
 NUM_OF_PROFILES = { '1', '3', '5', '7', '10' };  
 
 PROFILE_FOLDER_NAMES = {'profiles1', 'profiles3', 'profiles5', ...
@@ -130,6 +130,7 @@ set(gca, 'xticklabel', NUM_OF_PROFILES);
 % xlabel('Number of Profiles, Classifiers')
 ylabel('Avg. Memory Utilization')
 ylim([0.9 0.945])
+legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
 saveas(gcf,'fig-profileSwitching-memUsage','epsc')
 figure()
 
@@ -146,6 +147,7 @@ set(gca, 'xticklabel', NUM_OF_PROFILES);
 % xlabel('Number of Profiles, Classifiers')
 ylabel('Avg. User-space CPU Utilization')
 ylim([0.3 0.38])
+legend(VERSIONS,'Location','southoutside','Orientation','horizontal')
 saveas(gcf,'fig-profileSwitching-cpuUser','epsc')
 figure()
 
