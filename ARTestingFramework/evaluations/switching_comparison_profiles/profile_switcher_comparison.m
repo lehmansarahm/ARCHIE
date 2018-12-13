@@ -4,7 +4,7 @@ set(0,'defaulttextfontsize',25);
 % -----------------------------------------------
 % -----------------------------------------------
 
-VERSIONS = { 'I/O Profiles', 'Classification Profiles' };
+VERSIONS = { 'I/O Profiles', 'Core Event Rec. Profiles' };
 NUM_OF_PROFILES = { '1', '3', '5', '7', '10' };  
 
 PROFILE_FOLDER_NAMES = {'profiles1', 'profiles3', 'profiles5', ...

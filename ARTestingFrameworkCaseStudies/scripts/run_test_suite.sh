@@ -11,9 +11,9 @@
 PACKAGE_NAMES=$1            # PROVIDED BY USER AS COMMAND LINE ARGUMENT ...
                             # IF NULL, RUN DEVICE-LEVEL RESOURCE PROFILER !!
 
-((NUM_TRIALS=1))            # number of trials to execute
+((NUM_TRIALS=5))            # number of trials to execute
 
-((TRIAL_TIME_MINUTES=25))    # the number of total minutes to run this script (PER TRIAL)
+((TRIAL_TIME_MINUTES=5))    # the number of total minutes to run this script (PER TRIAL)
 ((TRIAL_TIME_SECONDS=$TRIAL_TIME_MINUTES * 60))
 
 ((WAIT_INT_SECS=5))         # interval (in seconds) to wait between each reading during a trial
@@ -21,11 +21,18 @@ PACKAGE_NAMES=$1            # PROVIDED BY USER AS COMMAND LINE ARGUMENT ...
 TRUE="true"
 FALSE="false"
 
-INCLUDE_UI_TESTS=${FALSE}
+INCLUDE_UI_TESTS=${TRUE}
 INCLUDE_RESOURCE_TESTS=${TRUE}
+TESTING_UNITY=${TRUE}
 
-# Drone Tracker:        project ('opencv_blobDetector')         activity ('MainActivity')
-# Drone Tracker Mod:    project ('opencv_blobDetector_mod')     activity ('archie_mods.ModifiedMainActivity')
+ANDROID_DATA_DIR="/storage/self/primary/Android/data"
+DOCS_DIR="/storage/self/primary/Documents"
+
+# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------
+
+# Drone Tracker:        project ('drone_tracker')               activity ('com.unity3d.player.UnityPlayerActivity')
+# Drone Tracker Mod:    project ('drone_tracker_mod')           activity ('com.unity3d.player.UnityPlayerActivity')
 
 # OpenCV Blob:          project ('opencv_blobDetector')         activity ('MainActivity')
 # OpenCV Blob Mod:      project ('opencv_blobDetector_mod')     activity ('archie_mods.ModifiedMainActivity')
@@ -34,11 +41,15 @@ INCLUDE_RESOURCE_TESTS=${TRUE}
 # TF Speech:            project ('tf_speech')                   activity ('SpeechActivity')
 # TF Speech Mod:        project ('tf_speech_mod')               activity ('archie_mods.ModifiedSpeechActivity')
 
+# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------
+
 PACKAGE_NAME="com.archie"
 PROJECT_NAMES=('drone_tracker')
-ACTIVITY_NAMES=('archie_mods.ModifiedClassifierActivity')
+ACTIVITY_NAMES=('com.unity3d.player.UnityPlayerActivity')
 
-TEST_LABEL="noTarget"
+# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------
 
 # TRIAL_NAME="_oneProfile"
 # CONFIG_NAME="config_1profile.json"
@@ -46,8 +57,8 @@ TEST_LABEL="noTarget"
 # TRIAL_NAME="_threeProfiles"
 # CONFIG_NAME="config_3profiles.json"
 
-TRIAL_NAME="_fiveProfiles"
-CONFIG_NAME="config_5profiles.json"
+# TRIAL_NAME="_fiveProfiles"
+# CONFIG_NAME="config_5profiles.json"
 
 # TRIAL_NAME="_sevenProfiles"
 # CONFIG_NAME="config_7profiles.json"
@@ -55,10 +66,12 @@ CONFIG_NAME="config_5profiles.json"
 # TRIAL_NAME="_tenProfiles"
 # CONFIG_NAME="config_10profiles.json"
 
-ANDROID_DATA_DIR="/storage/self/primary/Android/data"
-DOCS_DIR="/storage/self/primary/Documents"
+# -----------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------
 
-
+TEST_LABEL="noTarget"
+TRIAL_NAME=""
+CONFIG_NAME="config.json"
 
 # -----------------------------------------------------------------------------------
 # -----------------------------------------------------------------------------------
@@ -100,7 +113,13 @@ do
     mkdir ${OUTPUT_DIR}
     echo "Output dir created at ${OUTPUT_DIR}"
 
-    FULL_COMPONENT_NAME="${FULL_PACKAGE_NAME}/${FULL_PACKAGE_NAME}.${ACTIVITY}"
+    if [[ ${TESTING_UNITY} = ${TRUE} ]]
+    then
+        FULL_COMPONENT_NAME="${FULL_PACKAGE_NAME}/${ACTIVITY}"
+    else
+        FULL_COMPONENT_NAME="${FULL_PACKAGE_NAME}/${FULL_PACKAGE_NAME}.${ACTIVITY}"
+    fi
+
     echo "Running scripts with params: "
     echo "\t Number of trials: ${NUM_TRIALS}"
     echo "\t Trial execution time (minutes): ${TRIAL_TIME_MINUTES}"

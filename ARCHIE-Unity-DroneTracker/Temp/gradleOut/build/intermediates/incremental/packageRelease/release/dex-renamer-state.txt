@@ -1,0 +1,4 @@
+#Tue Dec 11 12:10:49 EST 2018
+base.0=/Users/slehr/Projects/ARCHIE/ARCHIE-Unity-DroneTracker/Temp/gradleOut/build/intermediates/transforms/dex/release/0
+path.0=classes.dex
+renamed.0=classes.dex
