@@ -1,0 +1,3 @@
+rootProject.name='ARCHIE'
+include ':app'
+include ':archie_core'

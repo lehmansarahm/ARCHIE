@@ -1,3 +1,0 @@
-Num,Time (sec),Raw Mem,Total Mem (kB),Used Mem (kB),Free Mem (kB),Buffer Size (kB),Mem Usage (%),Raw CPU,CPU Total (%),CPU User (%),CPU User Actual (%),CPU System (%),CPU System Actual (%)
-1,0, Mem: 3731608k total 3293920k used 437688k free 129980k buffers ,3731608,3293920,437688,129980,, 800%cpu 119%user 13%nice 42%sys 619%idle 0%iow 3%irq 3%sirq 0%host ,800,119,,42,,
-2,5, Mem: 3731608k total 3477740k used 253868k free 130036k buffers ,3731608,3477740,253868,130036,, 800%cpu 52%user 6%nice 58%sys 671%idle 0%iow 6%irq 6%sirq 0%host ,800,52,,58,,

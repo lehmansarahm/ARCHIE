@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "339534250078",
+    "firebase_url": "https://archie-86718.firebaseio.com",
+    "project_id": "archie-86718",
+    "storage_bucket": "archie-86718.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339534250078:android:1909233820048f2ec134cf",
+        "android_client_info": {
+          "package_name": "edu.temple.archie_core"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "339534250078-8fs43r88mbmt6kfetgf6pn8d1p1nmhpt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZjefX6mPJ1YQzqIyCuu0GRgVWUNcOCW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "339534250078-8fs43r88mbmt6kfetgf6pn8d1p1nmhpt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

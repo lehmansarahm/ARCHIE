@@ -1,2 +1,0 @@
-Timestamp,CpuTotal,CpuUser,CpuSystem,CpuIow,CpuIrqMemTotal,MemFreePID,Flags,Utime,Stime,Cutime,Cstime,Priority,NumThreads,StartTime,RSS
-20181113_073640,,,,,,3731608,158652,14982,1077952832,141,12,0,0,10,30,55099595,30431

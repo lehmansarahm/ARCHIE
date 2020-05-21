@@ -1,2 +1,0 @@
-include ':gtc_core', ':gtc_annotator', ':gtc_annotator_wearable'
-include ':tf_tester', ':tf_tester_mod'

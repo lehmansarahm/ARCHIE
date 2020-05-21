@@ -1,3 +1,0 @@
-include ':archie', ':case_study_core', ':drone_tracker'
-include ':tf_classify', ':tf_classify_mod', ':tf_speech', ':tf_speech_mod'
-include ':opencv', ':opencv_blobDetector', ':opencv_blobDetector_mod'
