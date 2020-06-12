@@ -1,0 +1,18 @@
+{
+  "name": "edu.temple.archie",
+  "version": "1.0.0",
+  "displayName": "ARCHIE",
+  "description": "The Augmented Reality Computer-Human Interaction Evaluator framework; a toolkit for helping developers gather usability and preference feedback from testers during in-the-wild evaluations",
+  "unity": "2019.1",
+  "unityRelease": "0b5",
+  "keywords": [
+    "augmented reality",
+    "user feedback",
+    "testing"
+  ],
+  "author": {
+    "name": "Sarah M. Lehman",
+    "email": "smlehman@temple.edu",
+    "url": "https://sites.temple.edu/smlehman/"
+  }
+}
