@@ -1,36 +1,31 @@
 # ARCHIE
 
 ## What is ARCHIE?
-ARCHIE is a testing framework for mobile and wearable augmented reality applications, intended to assist researchers and developers in collecting user data from their test participants.  This repository contains the following projects:
+ARCHIE is a testing framework for mobile and wearable augmented reality applications, intended to assist researchers and developers in collecting user data from their test participants.  This repository contains the following:
 
-* ARCHIE-Unity-DroneTracker
-* ARCHIE-Unity-DroneTrackerMod
-* ARTestingFramework
-* ARTestingFrameworkCaseStudies
+* ARCHIE Unity Package
+* ARCHIE pipeline resources (Firebase Cloud Function scripts, back-end server scripts)
+* Sample applications
 
 ## Updating Your App to Use ARCHIE
-* Add "gtc\_core" as resource library to project code base
-* CLASSIFIERS:
-  * Create a new class that implements "IClassifier" interface from "gtc\_core"
-* CONFIGURATION PROFILES:
-  * Create a new class that implements "IConfigurationProfile" interface from "gtc\_core"
-* INTERACTION PROFILES:
-  * Create a new class that implements "IInteractionProfile" interface from "gtc\_core"
-* HARDWARE PROFILES:
-  * Add list property to "config.json" called "hardware\_profiles"
-  * Add item to "hardware\_profiles" list property for each profile you want to test, with the following properties:
-    * "name" - the name of the profile (ex: \\"high\_resource", "low\_resource", etc.)
-    * "allowable\_cpu\_percentage" - the percentage of available device CPU that the app is allowed to use
-    * "allowable\_ram\_percentage" - the percentage of available device RAM that the app is allowed to use
-* Instantiate GTC Controller in tester app and add the following function calls:
-  * gtcController.startServices() on app create
-  * gtcController.stopServices() on app destroy
-  * gtcController.pauseProfiles() on app pause
-  * gtcController.resumeProfiles() on app resume
-* Add "config.json" as project asset, and instantiate with the following properties:
-  * Async annotation data collection settings
-  * Async UX data collection settings
-  * Fully qualified names of all Classifier classes to use
-  * Fully qualified names of all Configuration Profile classes to use
-  * Fully qualified names of all Interaction Profile classes to use
-  * List of hardware profile settings to use
+* **Setting up back-end server**
+  * Update "api/archie" route in "back_end/server_api.py" to implement processing logic
+  * Launch, publish Flask server (NGROK version available for quick testing):
+    * $ python3 server_api.py
+    * $ sh ./run_ngrok.sh
+* **Connecting ARCHIE to server with Firebase**
+  * Set up Email Authentication, Storage, and Cloud Functions services for your project in Firebase
+    * Ensure that you have at least the "Blaze" tier payment plan (will not work for free tier)
+    * Storage rules should allow authenticated users to upload files
+  * Install Firebase CLI tools:  https://firebase.google.com/docs/cli 
+  * Connect "cloud_functions" directory to your Firebase instance:
+    * $ firebase login  
+    * $ firebase use --add
+    * $ firebase --project <alias_or_project_id> 
+  * Update "exports.processImage" in "cloud_functions/index.js" to point to your server instance
+  * Export the updated function to Firebase
+    * $ firebase deploy
+* **Adding ARCHIE to Unity**
+  * Import ARCHIE package to Unity
+  * Add "AppController" script to camera
+  * Add "SendToFB" script to **(???)**, update to connect with your Firebase storage instance (user login and storage bucket URL)
