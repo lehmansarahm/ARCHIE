@@ -10,16 +10,28 @@ ARCHIE is a testing framework for mobile and wearable augmented reality applicat
 
 ## Updating Your App to Use ARCHIE
 
-* **Setting up back-end server**
-  * Update "api/archie" route in "back_end/server_api.py" to implement processing logic
+* **Add Firebase SDK to Unity**
+  * Download the Firebase SDK for Unity
+  * Import the following packages into your app environment:  
+    https://firebase.google.com/docs/unity/setup#manual_installation
+    * Storage (includes Auth by default)
+    * Messaging
+* **Create ARCHIE project on Firebase** (only if doesn't already exist)
+  * Set up new Unity project in Firebase with your app's bundle ID
+  * Ensure that you have at least the "Blaze" tier payment plan (will not work for free tier)
+  * Enable the following products for your project on the Firebase console:
+    * Authentication:  https://firebase.google.com/docs/auth/unity/start 
+    * Storage:  https://firebase.google.com/docs/storage/unity/start 
+    * Cloud Functions:  https://firebase.google.com/docs/functions/get-started
+      * Don't have to actually deploy anything yet ... will take care of this in another step
+    * Cloud Messaging:  https://firebase.google.com/docs/cloud-messaging/unity/client
+  * Install Firebase CLI tools:  https://firebase.google.com/docs/cli 
+* **Setting up ARCHIE back-end server**
+  * Update "api/archie" route in "back_end/server_api.py" to make changes to processing logic
   * Launch, publish Flask server (NGROK version available for quick testing):
     * $ python3 server_api.py
     * $ sh ./run_ngrok.sh
-* **Connecting ARCHIE to server with Firebase**
-  * Set up Email Authentication, Storage, and Cloud Functions services for your project in Firebase
-    * Ensure that you have at least the "Blaze" tier payment plan (will not work for free tier)
-    * Storage rules should allow authenticated users to upload files
-  * Install Firebase CLI tools:  https://firebase.google.com/docs/cli 
+* **Deploy ARCHIE cloud function**
   * Connect "cloud_functions" directory to your Firebase instance:
     * $ firebase login  
     * $ firebase use --add
