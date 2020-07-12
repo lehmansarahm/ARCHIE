@@ -1,0 +1,37 @@
+{
+  "client": [
+    {
+      "services": {
+        "appinvite_service": {
+          "status": 1
+        }, 
+        "analytics_service": {
+          "status": 0
+        }
+      }, 
+      "oauth_client": [
+        {
+          "client_id": "339534250078-cclktk9fl02613brtc7032meb6lmt99f.apps.googleusercontent.com"
+        }
+      ], 
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZbv9b531lInfS14GS9wPOLcWXt5CXlcA"
+        }
+      ], 
+      "client_info": {
+        "mobilesdk_app_id": "1:339534250078:ios:9e58b5d6a962835dc134cf", 
+        "android_client_info": {
+          "package_name": "edu.temple.archie.avatars"
+        }
+      }
+    }
+  ], 
+  "configuration_version": "1", 
+  "project_info": {
+    "storage_bucket": "archie-86718.appspot.com", 
+    "project_id": "archie-86718", 
+    "firebase_url": "https://archie-86718.firebaseio.com", 
+    "project_number": "339534250078"
+  }
+}

@@ -31,10 +31,33 @@ exports.processImage = functions.storage.object().onFinalize(async (object) => {
 	let api_url = (server_api + '?target=' + target + '&file=' + object.name + '&alt=media');
 	console.log('ARCHIE API URL: ' + api_url);
 
-	let response =  await fetch(api_url);
-	let data = await response.json();
+	let configApiResonse =  await fetch(api_url);
+	let data = await configApiResonse.json();
 	console.log(data);
 
-	// TODO:  figure out how to get the updated config back to the user
+
+
+
+
+	// -----------------------------------------------------------------------
+
+
+
+
+
+
+	// Notification details.
+	const payload = {
+		notification: {
+			title: 'ARCHIE: New Config Available',
+			body: `A new config is ready for download!`
+		}
+	};
+
+	// Listing all tokens as an array.
+	let tokens = Object.keys('dX_AqJyJOEcjg2wCPO92cv:APA91bFXTP04aJdBZlR4Qqh71OFkr33lFPi0teiFAsMile45Hu4MSj5sXhpyD0yal1iia1gAhkfANTxvAWekE9xV4fhAPXZoZ7uZxRWpP2TkGPLsTjC_uQobjlbg8A0nYPrc4rDfrjcX');
+
+	// Send notifications to all tokens.
+	const notificationResponse = await admin.messaging().sendToDevice(tokens, payload);
 	return null;
 });

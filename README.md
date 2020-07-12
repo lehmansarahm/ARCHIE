@@ -15,7 +15,6 @@ ARCHIE is a testing framework for mobile and wearable augmented reality applicat
   * Import the following packages into your app environment:  
     https://firebase.google.com/docs/unity/setup#manual_installation
     * Storage (includes Auth by default)
-    * Messaging
 * **Create ARCHIE project on Firebase** (only if doesn't already exist)
   * Set up new Unity project in Firebase with your app's bundle ID
   * Ensure that you have at least the "Blaze" tier payment plan (will not work for free tier)
@@ -24,13 +23,7 @@ ARCHIE is a testing framework for mobile and wearable augmented reality applicat
     * Storage:  https://firebase.google.com/docs/storage/unity/start 
     * Cloud Functions:  https://firebase.google.com/docs/functions/get-started
       * Don't have to actually deploy anything yet ... will take care of this in another step
-    * Cloud Messaging:  https://firebase.google.com/docs/cloud-messaging/unity/client
   * Install Firebase CLI tools:  https://firebase.google.com/docs/cli 
-* **Setting up ARCHIE back-end server**
-  * Update "api/archie" route in "back_end/server_api.py" to make changes to processing logic
-  * Launch, publish Flask server (NGROK version available for quick testing):
-    * $ python3 server_api.py
-    * $ sh ./run_ngrok.sh
 * **Deploy ARCHIE cloud function**
   * Connect "cloud_functions" directory to your Firebase instance:
     * $ firebase login  
