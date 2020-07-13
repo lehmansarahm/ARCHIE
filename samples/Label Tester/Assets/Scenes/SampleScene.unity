@@ -558,6 +558,7 @@ GameObject:
   - component: {fileID: 1427698277}
   - component: {fileID: 1427698276}
   - component: {fileID: 1427698281}
+  - component: {fileID: 1427698282}
   m_Layer: 0
   m_Name: ARCamera
   m_TagString: MainCamera
@@ -663,9 +664,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427698275}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a00088128dce4f22bc1e4ac22379425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1427698282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427698275}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e41c4e86e9141609cc5276d4e4eebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1596867564
@@ -874,9 +887,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1986849678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da568c73b34874560892f938e0337112, type: 3}
+  m_Script: {fileID: 11500000, guid: 27e41c4e86e9141609cc5276d4e4eebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storage_bucket_ref: gs://archie-86718.appspot.com
-  email: smlehman@temple.edu
-  password: password

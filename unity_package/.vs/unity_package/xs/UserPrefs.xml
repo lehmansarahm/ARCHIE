@@ -1,0 +1,35 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Runtime/VuforiaTestController.cs">
+    <Files>
+      <File FileName="../samples/Label Tester/Assets/Scripts/ARCHIETestController.cs" Line="21" Column="1" />
+      <File FileName="Runtime/TestController.cs" Line="31" Column="28" />
+      <File FileName="Runtime/ConfigController.cs" Line="12" Column="82" />
+      <File FileName="Runtime/FeedbackController.cs" Line="72" Column="40" />
+      <File FileName="Runtime/VuforiaTestController.cs" Line="28" Column="21" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="unity_package" expanded="True">
+            <Node name="Solution Items" expanded="True">
+              <Node name="Documentation" expanded="True" />
+              <Node name="Runtime" expanded="True">
+                <Node name="Utils" expanded="True" />
+                <Node name="/Users/slehr/Projects/ARCHIE/unity_package/Runtime/VuforiaTestController.cs" selected="True" />
+              </Node>
+              <Node name="Tests" expanded="True">
+                <Node name="Runtime" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,8 @@
+{
+    "name": "TempleUniversity.ARCHIE.Tests",
+    "references": [
+        "TempleUniversity.ARCHIE"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": []
+}

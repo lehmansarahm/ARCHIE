@@ -108,6 +108,12 @@
         "com.unity.modules.ui": "1.0.0"
       }
     },
+    "edu.temple.archie": {
+      "version": "file:/Users/slehr/Projects/ARCHIE/unity_package",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
