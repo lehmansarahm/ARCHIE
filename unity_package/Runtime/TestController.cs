@@ -7,6 +7,7 @@ using System.IO;
 using System.Threading.Tasks;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ARCHIE
 {
@@ -47,12 +48,14 @@ namespace ARCHIE
             StartCoroutine(cc.selectNextConfig());
         }
 
-        public void FeedbackRequested()
+        public void FeedbackRequested(Canvas canvas)
         {
-            if (fc.wasDataCollectionSuccessful())
+            fc.displayFeedbackForm(canvas);
+
+            /* if (fc.wasDataCollectionSuccessful())
             {
                 fc.sendToFirebase(auth.CurrentUser.UserId);
-            }
+            } */
         }
 
         public void newConfigSelected(string configID)

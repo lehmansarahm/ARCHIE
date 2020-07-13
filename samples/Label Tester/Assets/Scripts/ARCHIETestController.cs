@@ -34,6 +34,7 @@ public class ARCHIETestController : ARCHIE.VuforiaTestController
     // --------------------------------------------------------------------------------
 
 
+    Canvas canvas;
     Image labelImage;
     Text labelText;
 
@@ -49,6 +50,7 @@ public class ARCHIETestController : ARCHIE.VuforiaTestController
 
     public void Start()
     {
+        canvas = GameObject.Find("hud_canvas").GetComponent<Canvas>();
         labelImage = GameObject.Find("label_image").GetComponent<Image>();
         labelText = GameObject.Find("label_text").GetComponent<Text>();
 
@@ -83,6 +85,7 @@ public class ARCHIETestController : ARCHIE.VuforiaTestController
 
     public void OnButtonClick()
     {
+
         /* --------------------------------------------------------------------------------
          *  Devs are REQUIRED to explicitly request feedback from ARCHIE.
          *  
@@ -91,7 +94,9 @@ public class ARCHIETestController : ARCHIE.VuforiaTestController
          * 
          *  For convenience, this script collects feedback when the user presses a button.
          -------------------------------------------------------------------------------- */
-        base.FeedbackRequested();
+
+        base.FeedbackRequested(canvas);     // MUST PROVIDE ACCESS TO A FULL-SCREEN CANVAS OBJECT
+
     }
 
 

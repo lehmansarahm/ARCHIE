@@ -9,6 +9,7 @@ using System.IO;
 using System.Threading.Tasks;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ARCHIE
 {
@@ -76,6 +77,13 @@ namespace ARCHIE
 
         // --------------------------------------------------------------------------------
         // --------------------------------------------------------------------------------
+
+        public void displayFeedbackForm(Canvas canvas)
+        {
+            FeedbackForm.display(canvas, currentConfigID, () => {
+                ARCHIELogger.debug("Button clicked!");
+            });
+        }
 
         public bool wasDataCollectionSuccessful()
         {

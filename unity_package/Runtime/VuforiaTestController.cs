@@ -7,6 +7,7 @@ using System.IO;
 using System.Threading.Tasks;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 using Vuforia;
 
@@ -46,7 +47,7 @@ namespace ARCHIE
             base.Start();
         }
 
-        public void FeedbackRequested()
+        public void FeedbackRequested(Canvas canvas)
         {
             if (mFormatRegistered)
             {
@@ -73,7 +74,7 @@ namespace ARCHIE
                 }
             }
 
-            base.FeedbackRequested();
+            base.FeedbackRequested(canvas);
         }
 
         // --------------------------------------------------------------------------------
