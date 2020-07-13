@@ -13,6 +13,7 @@ namespace ARCHIE
     public abstract class TestController : MonoBehaviour, ConfigController.ConfigListener
     {
         private string storageBucket;
+        private string settings_filepath;
         private string email;
         private string password;
 
@@ -25,9 +26,10 @@ namespace ARCHIE
         // --------------------------------------------------------------------------------
         // --------------------------------------------------------------------------------
 
-        public TestController(string storage_bucket, string u_email, string u_password)
+        public TestController(string storage_bucket, string settings_filepath, string u_email, string u_password)
         {
             this.storageBucket = storage_bucket;
+            this.settings_filepath = settings_filepath;
             this.email = u_email;
             this.password = u_password;
         }
@@ -37,9 +39,12 @@ namespace ARCHIE
 
         public void Start()
         {
-            cc = new ConfigController(this);
-            fc = new FeedbackController(storageBucket);
             login();
+
+            cc = new ConfigController(settings_filepath, this);
+            fc = new FeedbackController(storageBucket);
+
+            StartCoroutine(cc.selectNextConfig());
         }
 
         public void FeedbackRequested()

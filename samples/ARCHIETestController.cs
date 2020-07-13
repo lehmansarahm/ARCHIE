@@ -52,7 +52,7 @@ public class ARCHIETestController : ARCHIE.VuforiaTestController
         labelImage = GameObject.Find("label_image").GetComponent<Image>();
         labelText = GameObject.Find("label_text").GetComponent<Text>();
 
-        // IF YOU IMPLEMENT A CUSTOM 'START' METHOD, BE SURE TO EXPLICITLY INVOKE THE BASE METHOD TOO
+        // Always a good idea to include an explicit call to the base Start / Update method
         base.Start();
     }
 
@@ -79,6 +79,9 @@ public class ARCHIETestController : ARCHIE.VuforiaTestController
 
             respondToSwitch = false;
         }
+
+        // Always a good idea to include an explicit call to the base Start / Update method
+        base.Update();
     }
 
     public void OnButtonClick()

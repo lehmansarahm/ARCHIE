@@ -22,8 +22,8 @@ namespace ARCHIE
         // --------------------------------------------------------------------------------
         // --------------------------------------------------------------------------------
 
-        public VuforiaTestController(string storage_bucket, string u_email, string u_password) :
-            base(storage_bucket, u_email, u_password)
+        public VuforiaTestController(string storage_bucket, string settings_filepath, string u_email, string u_password) :
+            base(storage_bucket, settings_filepath, u_email, u_password)
         {
             // empty
         }

@@ -17,7 +17,8 @@
   ],
   "dependencies": {
     "com.google.firebase.auth": "6.15.1",
-    "com.google.firebase.storage": "6.15.1",
+    "com.google.firebase.functions": "6.15.2",
+    "com.google.firebase.storage": "6.15.2",
     "com.ptc.vuforia.engine": "9.2.8",
     "com.unity.collab-proxy": "1.2.16",
     "com.unity.ide.rider": "1.1.4",

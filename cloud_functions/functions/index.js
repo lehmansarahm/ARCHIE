@@ -8,10 +8,24 @@ admin.initializeApp();
 // NPM 'fetch' node for connecting to server API
 const fetch = require("node-fetch");
 
+let toggle = true;
+
 
 //  -------------------------------------------------------------------------------------------
 //  -------------------------------------------------------------------------------------------
 
+exports.selectNextConfig = functions.https.onCall(async (data, context) => {
+	toggle = !toggle;
+	let newConfigID = (toggle ? "dark_label" : "light_label");
+
+	console.log('Received HTTPS call from UID: ' + context.auth.uid);
+	console.log('Returning new config ID: ' + newConfigID);
+
+	return { new_config_id: newConfigID };
+});
+
+
+/*
 
 // Call config generator API when new image added to storage
 exports.processImage = functions.storage.object().onFinalize(async (object) => {
@@ -61,3 +75,5 @@ exports.processImage = functions.storage.object().onFinalize(async (object) => {
 	const notificationResponse = await admin.messaging().sendToDevice(tokens, payload);
 	return null;
 });
+
+*/
