@@ -1,9 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Runtime/ConfigController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../samples/Label Tester/Assets/Scripts/ARCHIETestController.cs">
     <Files>
-      <File FileName="../samples/Label Tester/Assets/Scripts/ARCHIETestController.cs" Line="93" Column="52" />
-      <File FileName="Runtime/TestController.cs" Line="41" Column="28" />
-      <File FileName="Runtime/ConfigController.cs" Line="85" Column="51" />
+      <File FileName="../samples/Label Tester/Assets/Scripts/ARCHIETestController.cs" Line="85" Column="1" />
+      <File FileName="Runtime/TestController.cs" Line="32" Column="49" />
+      <File FileName="Runtime/ConfigController.cs" Line="50" Column="28" />
       <File FileName="Runtime/FeedbackController.cs" Line="99" Column="55" />
       <File FileName="Runtime/Utils/FeedbackForm.cs" Line="243" Column="78" />
     </Files>
