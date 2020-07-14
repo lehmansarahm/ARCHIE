@@ -30,9 +30,6 @@ namespace ARCHIE
         {
             while (true)
             {
-                var interval = settings.config_test_period.getPeriodInterval();
-                yield return new WaitForSeconds(interval);
-
                 var functionsInstance = Firebase.Functions.FirebaseFunctions.DefaultInstance;
                 var function = functionsInstance.GetHttpsCallable("selectNextConfig");
 
@@ -70,6 +67,9 @@ namespace ARCHIE
                         }
                     }
                 });
+
+                var interval = settings.config_test_period.getPeriodInterval();
+                yield return new WaitForSeconds(interval);
             }
         }
 

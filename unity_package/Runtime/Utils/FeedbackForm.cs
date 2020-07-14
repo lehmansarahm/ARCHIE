@@ -8,6 +8,11 @@ namespace ARCHIE.Utils
     public class FeedbackForm
     {
 
+        public interface FeedbackListener
+        {
+            void feedbackComplete(UserFeedback feedback);
+        }
+
         private const int BUTTON_HEIGHT = 100;
         private const int BUTTON_WIDTH = 500;
         private const int FONT_SIZE = 48;
@@ -15,7 +20,7 @@ namespace ARCHIE.Utils
         private static int HALF_SCREEN_WIDTH;
         private static int QUARTER_SCREEN_WIDTH;
 
-        private static UnityEngine.Events.UnityAction submitClickListener;
+        private static FeedbackListener fListener;
 
         private static GameObject feedbackFormGO;
         private static UserFeedback userFeedback;
@@ -25,7 +30,7 @@ namespace ARCHIE.Utils
         // --------------------------------------------------------------------------------
 
 
-        public static void display(Canvas canvas, string currentConfigID, UnityEngine.Events.UnityAction listener)
+        public static void display(Canvas canvas, string currentConfigID, FeedbackListener listener)
         {
             HALF_SCREEN_WIDTH = (Screen.width / 2);
             QUARTER_SCREEN_WIDTH = (Screen.width / 4);
@@ -33,7 +38,7 @@ namespace ARCHIE.Utils
             userFeedback = new UserFeedback();
             userFeedback.current_config_id = currentConfigID;
 
-            submitClickListener = listener;
+            fListener = listener;
 
             // create the feedback form game object and center on screen
             feedbackFormGO = addPlaceholderGO(canvas.gameObject, "feedback_form");
@@ -252,7 +257,11 @@ namespace ARCHIE.Utils
         {
             // create a game object to hold the feedback form submit button
             var submitButton = addButton(parent, "submit_button", 0, -350, "Submit Feedback", 48, 400, 100);
-            submitButton.onClick.AddListener(submitClickListener);
+            submitButton.onClick.AddListener(() =>
+            {
+                fListener.feedbackComplete(userFeedback);
+                parent.active = false;
+            });
         }
 
 

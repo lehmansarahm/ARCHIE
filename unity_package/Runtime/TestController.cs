@@ -43,19 +43,17 @@ namespace ARCHIE
             login();
 
             cc = new ConfigController(settings_filepath, this);
-            fc = new FeedbackController(storageBucket);
+            fc = new FeedbackController(storageBucket, auth.CurrentUser.UserId);
 
             StartCoroutine(cc.selectNextConfig());
         }
 
         public void FeedbackRequested(Canvas canvas)
         {
-            fc.displayFeedbackForm(canvas);
-
-            /* if (fc.wasDataCollectionSuccessful())
+            if (fc.grabbedAugmentedScreenshot())
             {
-                fc.sendToFirebase(auth.CurrentUser.UserId);
-            } */
+                fc.displayFeedbackForm(canvas);
+            }
         }
 
         public void newConfigSelected(string configID)

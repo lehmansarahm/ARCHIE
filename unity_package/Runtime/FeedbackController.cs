@@ -1,4 +1,5 @@
-﻿using ARCHIE.Utils;
+﻿using ARCHIE.Data;
+using ARCHIE.Utils;
 
 using Firebase.Storage;
 
@@ -6,6 +7,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 
 using UnityEngine;
@@ -13,9 +15,10 @@ using UnityEngine.UI;
 
 namespace ARCHIE
 {
-    public class FeedbackController
+    public class FeedbackController : FeedbackForm.FeedbackListener
     {
         string storage_bucket_ref;
+        string userID;
 
         byte[] frameBytes, rawFrameBytes;
         Texture2D latestFrame;
@@ -57,9 +60,10 @@ namespace ARCHIE
         // --------------------------------------------------------------------------------
         // --------------------------------------------------------------------------------
 
-        public FeedbackController(string storage_bucket_ref)
+        public FeedbackController(string storage_bucket_ref, string userID)
         {
             this.storage_bucket_ref = storage_bucket_ref;
+            this.userID = userID;
         }
 
         // --------------------------------------------------------------------------------
@@ -78,23 +82,39 @@ namespace ARCHIE
         // --------------------------------------------------------------------------------
         // --------------------------------------------------------------------------------
 
+        public bool grabbedAugmentedScreenshot()
+        {
+            collectARScreenshot();
+            if (frameBytes == null || frameBytes.Length == 0)
+            {
+                ARCHIELogger.error("Something went wrong while attempting to collect augmented screenshot!");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         public void displayFeedbackForm(Canvas canvas)
         {
-            FeedbackForm.display(canvas, currentConfigID, () => {
-                ARCHIELogger.debug("Button clicked!");
-            });
+            FeedbackForm.display(canvas, currentConfigID, this);
         }
 
-        public bool wasDataCollectionSuccessful()
+        public void feedbackComplete(UserFeedback feedback)
         {
-            collectUserFeedback();
-            collectARScreenshot();
+            if (feedback == null)
+            {
+                ARCHIELogger.error("Something went wrong while collecting user feedback!");
+                return;
+            }
 
-            return (frameBytes != null && frameBytes.Length > 0);
-        }
+            // convert feedback object to uploadable format
+            string feedbackJson = JsonUtility.ToJson(feedback);
+            feedbackBytes = Encoding.ASCII.GetBytes(feedbackJson);
+            ARCHIELogger.debug("Encoded feedback byte array with length: " + feedbackBytes.Length);
 
-        public void sendToFirebase(string userID)
-        {
+            // send everything to Firebase!
             FirebaseStorage storage = Firebase.Storage.FirebaseStorage.DefaultInstance;
             StorageReference storage_ref = storage.GetReferenceFromUrl(storage_bucket_ref);
             StorageReference user_bucket_ref = storage_ref.Child(userID);
@@ -102,16 +122,11 @@ namespace ARCHIE
             string dateTime = DateTime.Now.ToString("yyMMdd_HHmmss");
             upload(user_bucket_ref, dateTime, "_overlay.jpg", frameBytes, "image/jpeg", progressWatcher);
             upload(user_bucket_ref, dateTime, "_raw.jpg", rawFrameBytes, "image/jpeg", progressWatcher);
-            // upload(user_bucket_ref, dateTime, ".json", feedbackBytes, "application/json", null);
+            upload(user_bucket_ref, dateTime, "_feedback.json", feedbackBytes, "application/json", null);
         }
 
         // --------------------------------------------------------------------------------
         // --------------------------------------------------------------------------------
-
-        private void collectUserFeedback()
-        {
-            // TODO - add UI elements to collect feedback
-        }
 
         private void collectARScreenshot()
         {
