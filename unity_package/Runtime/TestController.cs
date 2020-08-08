@@ -42,10 +42,11 @@ namespace ARCHIE
         {
             login();
 
-            cc = new ConfigController(settings_filepath, this);
             fc = new FeedbackController(storageBucket, auth.CurrentUser.UserId);
-
+            cc = new ConfigController(settings_filepath, this);
             StartCoroutine(cc.selectNextConfig());
+
+            ARCHIE.Utils.ARCHIELogger.debug("ARCHIE Base Test Controller started!");
         }
 
         public void FeedbackRequested(Canvas canvas)

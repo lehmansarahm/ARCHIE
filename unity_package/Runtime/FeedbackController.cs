@@ -1,17 +1,11 @@
 ﻿using ARCHIE.Data;
 using ARCHIE.Utils;
-
 using Firebase.Storage;
-
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace ARCHIE
 {
@@ -24,7 +18,7 @@ namespace ARCHIE
         Texture2D latestFrame;
 
         byte[] feedbackBytes;
-        // other feedback properties
+        byte[] cpuBytes, ramBytes, fpsBytes;
 
         string currentConfigID;
 
@@ -96,6 +90,18 @@ namespace ARCHIE
             }
         }
 
+        public void backupResourceLogs(List<string> cpu, List<string> ram, List<string> fps)
+        {
+            string cpuFullText = String.Join(Environment.NewLine, cpu);
+            cpuBytes = System.Text.Encoding.UTF8.GetBytes(cpuFullText);
+
+            string ramFullText = String.Join(Environment.NewLine, ram);
+            ramBytes = System.Text.Encoding.UTF8.GetBytes(ramFullText);
+
+            string fpsFullText = String.Join(Environment.NewLine, fps);
+            fpsBytes = System.Text.Encoding.UTF8.GetBytes(fpsFullText);
+        }
+
         public void displayFeedbackForm(Canvas canvas)
         {
             FeedbackForm.display(canvas, currentConfigID, this);
@@ -123,6 +129,9 @@ namespace ARCHIE
             upload(user_bucket_ref, dateTime, "_overlay.jpg", frameBytes, "image/jpeg", progressWatcher);
             upload(user_bucket_ref, dateTime, "_raw.jpg", rawFrameBytes, "image/jpeg", progressWatcher);
             upload(user_bucket_ref, dateTime, "_feedback.json", feedbackBytes, "application/json", null);
+            // upload(user_bucket_ref, dateTime, "_cpu.csv", cpuBytes, "text/csv", null);
+            // upload(user_bucket_ref, dateTime, "_ram.csv", ramBytes, "text/csv", null);
+            // upload(user_bucket_ref, dateTime, "_fps.csv", fpsBytes, "text/csv", null);
         }
 
         // --------------------------------------------------------------------------------
@@ -144,7 +153,7 @@ namespace ARCHIE
             }
             catch (Exception ex)
             {
-                ARCHIELogger.error("Something went wrong while attempting to collect screenshots!");
+                ARCHIELogger.error("Something went wrong while attempting to collect screenshots: " + ex.InnerException);
                 frameBytes = new byte[0];
             }
 

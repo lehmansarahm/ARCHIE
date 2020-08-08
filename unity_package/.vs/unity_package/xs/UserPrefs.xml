@@ -1,11 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="../samples/Label Tester/Assets/Scripts/ARCHIETestController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../samples/Label Tester/Assets/Scripts/AutTestController.cs">
     <Files>
-      <File FileName="../samples/Label Tester/Assets/Scripts/ARCHIETestController.cs" Line="85" Column="1" />
-      <File FileName="Runtime/TestController.cs" Line="32" Column="49" />
-      <File FileName="Runtime/ConfigController.cs" Line="50" Column="28" />
-      <File FileName="Runtime/FeedbackController.cs" Line="99" Column="55" />
-      <File FileName="Runtime/Utils/FeedbackForm.cs" Line="243" Column="78" />
+      <File FileName="Runtime/TestController.cs" Line="50" Column="1" />
+      <File FileName="Runtime/FeedbackController.cs" Line="138" Column="38" />
+      <File FileName="Runtime/Utils/FeedbackForm.cs" />
+      <File FileName="Runtime/ResourceController.cs" />
+      <File FileName="Runtime/VuforiaTestController.cs" Line="57" Column="20" />
+      <File FileName="Runtime/Utils/ARCHIELogger.cs" Line="1" Column="1" />
+      <File FileName="../samples/Label Tester/Assets/Scripts/ARCHIETestController.cs" Line="49" Column="76" />
+      <File FileName="../samples/Label Tester/Assets/Scripts/AutTestController.cs" Line="20" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,10 +17,10 @@
             <Node name="Solution Items" expanded="True">
               <Node name="Documentation" expanded="True" />
               <Node name="Runtime" expanded="True">
-                <Node name="Data" expanded="True">
-                  <Node name="/Users/slehr/Projects/ARCHIE/unity_package/Runtime/Data/ConfigSettings.cs" selected="True" />
+                <Node name="Data" expanded="True" />
+                <Node name="Utils" expanded="True">
+                  <Node name="/Users/slehr/Projects/ARCHIE/unity_package/Runtime/Utils/ARCHIELogger.cs" selected="True" />
                 </Node>
-                <Node name="Utils" expanded="True" />
               </Node>
               <Node name="Tests" expanded="True">
                 <Node name="Runtime" expanded="True" />

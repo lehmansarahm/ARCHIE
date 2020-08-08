@@ -32,7 +32,7 @@ namespace ARCHIE
         // --------------------------------------------------------------------------------
         // --------------------------------------------------------------------------------
 
-        public void Start()
+        public new void Start()
         {
             #if UNITY_EDITOR
                 mPixelFormat = PIXEL_FORMAT.GRAYSCALE; // Need Grayscale for Editor
@@ -45,9 +45,10 @@ namespace ARCHIE
             VuforiaARController.Instance.RegisterOnPauseCallback(OnPause);
 
             base.Start();
+            ARCHIE.Utils.ARCHIELogger.debug("ARCHIE Vuforia Test Controller started!");
         }
 
-        public void FeedbackRequested(Canvas canvas)
+        public new void FeedbackRequested(Canvas canvas)
         {
             if (mFormatRegistered)
             {

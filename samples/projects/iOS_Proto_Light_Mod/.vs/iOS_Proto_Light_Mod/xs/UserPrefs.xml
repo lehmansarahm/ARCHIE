@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{75BCC1C7-9077-0C78-0977-52160AD13ABA}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../unity_package/Runtime/Utils/FeedbackForm.cs">
+    <Files>
+      <File FileName="Assets/Scripts/ARCHIETestController.cs" Line="140" Column="14" />
+      <File FileName="../../../unity_package/Runtime/VuforiaTestController.cs" Line="48" Column="88" />
+      <File FileName="../../../unity_package/Runtime/FeedbackController.cs" Line="123" Column="44" />
+      <File FileName="../../../unity_package/Runtime/TestController.cs" Line="26" Column="1" />
+      <File FileName="../../../unity_package/Runtime/Utils/FeedbackForm.cs" Line="263" Column="44" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="iOS_Proto_Light_Mod" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="ARCHIETestController.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e6fe6231-baac-4280-861b-089991019878" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

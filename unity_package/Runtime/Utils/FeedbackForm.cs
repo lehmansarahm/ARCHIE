@@ -260,7 +260,7 @@ namespace ARCHIE.Utils
             submitButton.onClick.AddListener(() =>
             {
                 fListener.feedbackComplete(userFeedback);
-                parent.active = false;
+                GameObject.Destroy(parent);
             });
         }
 
@@ -275,6 +275,7 @@ namespace ARCHIE.Utils
             go.transform.parent = parent.transform;
             go.name = name;
             go.layer = 5; // UI
+            go.tag = "archie_feedback_form";
             return go;
         }
 
