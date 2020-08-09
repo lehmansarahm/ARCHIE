@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{C074F8DF-DF48-FEDB-E514-BB7FE45EA396}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ARCHIETestController.cs">
+    <Files>
+      <File FileName="Assets/Scripts/ARCHIETestController.cs" Line="70" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="iOS_Proto_Heavy_Mod" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="ARCHIETestController.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="041f8f6a-b92d-4b93-956c-7c826a672295" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

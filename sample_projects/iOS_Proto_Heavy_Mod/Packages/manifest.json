@@ -1,5 +1,25 @@
 {
+  "scopedRegistries": [
+    {
+      "name": "Vuforia",
+      "url": "https://registry.packages.developer.vuforia.com/",
+      "scopes": [
+        "com.ptc.vuforia"
+      ]
+    },
+    {
+      "name": "Game Package Registry by Google",
+      "url": "https://unityregistry-pa.googleapis.com",
+      "scopes": [
+        "com.google"
+      ]
+    }
+  ],
   "dependencies": {
+    "com.google.firebase.auth": "6.15.2",
+    "com.google.firebase.functions": "6.15.2",
+    "com.google.firebase.storage": "6.15.2",
+    "com.ptc.vuforia.engine": "9.3.3",
     "com.unity.collab-proxy": "1.2.16",
     "com.unity.ide.rider": "1.1.4",
     "com.unity.ide.vscode": "1.2.1",
@@ -7,6 +27,7 @@
     "com.unity.textmeshpro": "2.1.1",
     "com.unity.timeline": "1.2.15",
     "com.unity.ugui": "1.0.0",
+    "edu.temple.archie": "file:/Users/slehr/Projects/ARCHIE/unity_package",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",

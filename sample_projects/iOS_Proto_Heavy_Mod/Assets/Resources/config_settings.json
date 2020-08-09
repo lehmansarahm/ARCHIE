@@ -1,0 +1,10 @@
+{
+	"config_test_period": {
+		"value": 10,
+		"denomination": "seconds"
+	},
+	"config_ids": [
+		"dark_label",
+		"light_label"
+	]
+}
